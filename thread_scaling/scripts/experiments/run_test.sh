@@ -12,7 +12,7 @@ if [[ $# < 1 ]]; then
   echo "where [n] will be replaced with the number of threads used for bowtie2 -p parameter."
   exit 0
 fi
-data_templ="/home/vanton/b2_scale_data/no_IO_"
+data_templ=$1
 
 for ((t=1; t<40; t++)); do
   cmd="$cmd_templ $t "
