@@ -12,6 +12,6 @@ for ((t=1; t<40; t++)); do
   cmd="$cmd_templ $f_file -p $t "
   data_file="${data_templ}${t}.out"
   echo $cmd
-  $cmd | grep thread > $data_file
+  $cmd | grep "thread:" > $data_file
 done
 
