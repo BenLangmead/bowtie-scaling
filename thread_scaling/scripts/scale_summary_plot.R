@@ -13,3 +13,11 @@ plot(xy$V1, jitter(xy$V2, factor=3), ylim=c(0, 160),
 	    ylab='Running time',
 	    main='Running time for each thread, no input or output locking')
 dev.off()
+
+pdf(file='thread_times_default.pdf')
+xy <- read.table('thread_times_default.tsv')
+plot(xy$V1, jitter(xy$V2, factor=3), ylim=c(0, 160),
+	    xlab='# simultaneous threads',
+	    ylab='Running time',
+	    main='Running time for each thread, default bowtie')
+dev.off()
