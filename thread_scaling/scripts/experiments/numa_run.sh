@@ -2,10 +2,8 @@
 
 # TODO: command line params
 cmd_tmpl="./bowtie2-align-s -x /home/vanton/work/hg19/hg19 -U seqs_by_100.fq "
-#numactl --cpunodebind=0 --membind=0 
 # Actually langmead-login preffered node: current
-# So I better explicitly try also
-# numactl --interleave=all
+
 max_cores=0
 max_running_threads=0 
 numa_nodes=0
@@ -22,8 +20,8 @@ run_th () {
   for ((t=1; t<=max_running_threads; t++)); do
     cmd_same_node="numactl --cpunodebind=${last_node} --membind=${last_node} ${cmd_tmpl} $t "
     cmd_different_node="numactl --cpunodebind=${last_node} --membind=${prev_node} ${cmd_tmpl} $t "
-    data_file_same_node="./${xp_subdir}/${1}${t}_cpu${last_node}mem${last_node}.out"
-    data_file_different_node="./${xp_subdir}/${1}${t}_cpu${last_node}mem${prev_node}.out"
+    data_file_same_node="./${xp_subdir}/${1}cpu${last_node}mem${last_node}_${t}.out"
+    data_file_different_node="./${xp_subdir}/${1}cpu${last_node}mem${prev_node}_${t}.out"
     echo $cmd_same_node
     $cmd_same_node | grep thread > $data_file_same_node
     echo $cmd_different_node
