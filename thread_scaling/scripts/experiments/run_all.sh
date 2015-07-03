@@ -36,11 +36,11 @@ run_th normal_
 # Only no input sync
 git checkout no_in_sync
 rm bowtie2-align-s
-make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING" bowtie2-align-s
+make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING -Wtrigraphs" bowtie2-align-s
 run_th no_in_
 
 # No input/output sync
 git checkout no_IO_2000seq
 rm bowtie2-align-s
-make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING" bowtie2-align-s
+make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING -Wtrigraphs" bowtie2-align-s
 run_th no_io_
