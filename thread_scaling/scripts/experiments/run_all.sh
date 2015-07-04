@@ -8,7 +8,7 @@ cmd_tmpl="./bowtie2-align-s -x $HG19_INDEX -U seqs_by_100.fq "
 
 run_th () {
 for ((t=1; t<$MAX_THREADS; t++)); do
-  cmd="$cmd_templ $t "
+  cmd="$cmd_tmpl $t "
   data_file="./runs/${1}${t}.out"
   echo $cmd
   $cmd | grep thread > $data_file
@@ -22,8 +22,8 @@ if [[ $# < 1 ]]; then
   echo "where [n] will be replaced with the number of threads used for bowtie2 -p parameter."
   exit 0
 fi
-cmd_tmpl+=$1
-cmd_tmpl+=" -p "
+cmd_tmpl="$cmd_tmpl $1"
+cmd_tmpl="$cmd_tmpl -p"
 
 mkdir -p runs
 
