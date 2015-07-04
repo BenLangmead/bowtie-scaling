@@ -7,7 +7,7 @@ MAX_THREADS=24
 cmd_tmpl="./bowtie2-align-s -x $HG19_INDEX -U seqs_by_100.fq "
 
 run_th () {
-for ((t=1; t<$MAX_THREADS; t++)); do
+for ((t=1; t<=$MAX_THREADS; t++)); do
   cmd="$cmd_tmpl $t "
   data_file="./runs/${1}${t}.out"
   echo $cmd
