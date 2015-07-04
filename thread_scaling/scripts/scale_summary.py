@@ -24,12 +24,12 @@ for fn in args.input:
     thread_times = {}
     with open(fn) as fh:
         for ln in fh:
-            m2 = re.match('thread: ([0-9]*) time: ([0-9]*):([0-9]*):([0-9]*)', ln)
+            m2 = re.match('thread: ([0-9]*) time: ([0-9]*):([0-9]*):([0-9.]*)', ln)
             thread_id = int(m2.group(1))
             hr, mn, sc = m2.group(2), m2.group(3), m2.group(4)
-            sc = int(sc) + (int(mn) * 60) + (int(hr) * 60 * 60)
+            sc = float(sc) + (int(mn) * 60) + (int(hr) * 60 * 60)
             thread_times[thread_id] = sc
-            scatter_fh.write('%d\t%d\n' % (nthreads, sc))
+            scatter_fh.write('%d\t%0.03f\n' % (nthreads, sc))
     assert len(thread_times) == nthreads
     sm = sum(thread_times.values())
     table.append([nthreads, min(thread_times.values()), max(thread_times.values()), float(sm)/nthreads])
