@@ -2,13 +2,15 @@
 
 HG19_INDEX=/home/vanton/work/hg19/hg19
 MAX_THREADS=24
+READS_PER_THREAD=2000
 
 # TODO: this is ugly but better ugly than more complicated parameters
 cmd_tmpl="./bowtie2-align-s -x $HG19_INDEX -U seqs_by_100.fq "
 
 run_th () {
 for ((t=1; t<=$MAX_THREADS; t++)); do
-  cmd="$cmd_tmpl $t "
+  nreads=$(($READS_PER_THREAD * $t))
+  cmd="$cmd_tmpl $t -u $nreads "
   data_file="./runs/${1}${t}.out"
   echo $cmd
   $cmd | grep thread > $data_file
