@@ -2,9 +2,11 @@
 
 HG19_INDEX=/home/vanton/work/hg19/hg19
 MAX_THREADS=24
+DR=`dirname $0`
+READS="$DR/seqs_by_100.fq"
 
 # TODO: this is ugly but better ugly than more complicated parameters
-cmd_tmpl="./bowtie2-align-s -x $HG19_INDEX -U seqs_by_100.fq "
+cmd_tmpl="./bowtie2-align-s -x $HG19_INDEX -U $READS "
 
 run_th () {
 for ((t=1; t<$MAX_THREADS; t++)); do
