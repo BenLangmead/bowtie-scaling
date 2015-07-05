@@ -3,19 +3,19 @@
 HG19_INDEX=/home/vanton/work/hg19/hg19
 MAX_THREADS=24
 DR=`dirname $0`
-READS="$DR/seqs_by_100.fq"
-READS_PER_THREAD=2000
 
 # TODO: this is ugly but better ugly than more complicated parameters
-cmd_tmpl="./bowtie2-align-s -x $HG19_INDEX -U $READS "
+cmd_tmpl="-x $HG19_INDEX "
 
 run_th () {
+READS="$DR/seqs_by_100.fq"
 for ((t=1; t<=$MAX_THREADS; t++)); do
-  nreads=$(($READS_PER_THREAD * $t))
-  cmd="$cmd_tmpl $t -u $nreads "
-  data_file="./runs/${1}${t}.out"
+  #nreads=$(($READS_PER_THREAD * 100 * $t))
+  cmd="./${1} $cmd_tmpl $t -U $READS "
+  data_file="./runs/${2}${t}.out"
   echo $cmd
   $cmd | grep thread > $data_file
+  READS="$READS,$DR/seqs_by_100.fq"
 done
 }
 
@@ -32,19 +32,28 @@ cmd_tmpl="$cmd_tmpl -p"
 mkdir -p runs
 
 #start with normal 
-git checkout master
-rm bowtie2-align-s
-make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING" bowtie2-align-s
-run_th normal_
+if [ ! -f "bowtie2-align-s-master" ] ; then
+  git checkout master
+  rm bowtie2-align-s
+  make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING" bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-master
+fi
+run_th bowtie2-align-s-master normal_
 
 # Only no input sync
-git checkout no_in_sync
-rm bowtie2-align-s
-make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING -Wtrigraphs" bowtie2-align-s
-run_th no_in_
+if [ ! -f "bowtie2-align-s-no-in-sync" ] ; then
+  git checkout no_in_sync
+  rm bowtie2-align-s
+  make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING -Wtrigraphs" bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-no-in-sync
+fi
+run_th bowtie2-align-s-no-in-sync no_in_
 
 # No input/output sync
-git checkout no_IO_2000seq
-rm bowtie2-align-s
-make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING -Wtrigraphs" bowtie2-align-s
-run_th no_io_
+if [ ! -f "bowtie2-align-s-no-io" ] ; then
+  git checkout no_IO_2000seq
+  rm bowtie2-align-s
+  make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING -Wtrigraphs" bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-no-io
+fi
+run_th bowtie2-align-s-no-io no_io_
