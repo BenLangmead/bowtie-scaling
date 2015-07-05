@@ -8,14 +8,16 @@ DR=`dirname $0`
 cmd_tmpl="-x $HG19_INDEX "
 
 run_th () {
-READS="$DR/seqs_by_100.fq"
-for ((t=1; t<=$MAX_THREADS; t++)); do
-  #nreads=$(($READS_PER_THREAD * 100 * $t))
-  cmd="./${1} $cmd_tmpl $t -U $READS "
-  data_file="./runs/${2}${t}.out"
-  echo $cmd
-  $cmd | grep thread > $data_file
-  READS="$READS,$DR/seqs_by_100.fq"
+for mode in very-fast fast sensitive very-sensitive ; do
+  READS="$DR/seqs_by_100.fq"
+  for ((t=1; t<=$MAX_THREADS; t++)); do
+    cmd="./${1} $cmd_tmpl $t --$mode -U $READS "
+    mkdir -p runs/$mode
+    data_file="./runs/$mode/${2}${t}.out"
+    echo $cmd
+    $cmd | grep thread > $data_file
+    READS="$READS,$DR/seqs_by_100.fq"
+  done
 done
 }
 
@@ -28,8 +30,6 @@ if [[ $# < 1 ]]; then
 fi
 cmd_tmpl="$cmd_tmpl $1"
 cmd_tmpl="$cmd_tmpl -p"
-
-mkdir -p runs
 
 #start with normal 
 if [ ! -f "bowtie2-align-s-master" ] ; then
