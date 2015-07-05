@@ -10,4 +10,5 @@ aws ec2 run-instances \
     --key-name gsg-keypair \
     --instance-type c4.8xlarge \
     --placement AvailabilityZone=us-east-1c \
+    --subnet-id subnet-5b76c570 \
     --count 1
