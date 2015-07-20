@@ -1,5 +1,5 @@
 #include <numa.h>
-#include <stdio>
+#include <iostream>
 
 int main(void) {
     std::cerr << "Hello world" << std::endl;
