@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HG19_INDEX=/home/vanton/work/hg19/hg19
+HG19_INDEX=$HOME/hg19
 MAX_THREADS=24
 DR=`dirname $0`
 
@@ -34,7 +34,7 @@ cmd_tmpl="$cmd_tmpl -p"
 #start with normal 
 if [ ! -f "bowtie2-align-s-master" ] ; then
   git checkout master
-  rm bowtie2-align-s
+  rm bowtie2-align-s-master
   make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
   mv bowtie2-align-s bowtie2-align-s-master
 fi
@@ -43,7 +43,7 @@ run_th bowtie2-align-s-master normal_
 # Only no input sync
 if [ ! -f "bowtie2-align-s-no-in-sync" ] ; then
   git checkout no_in_sync
-  rm bowtie2-align-s
+  rm bowtie2-align-s-no-in-sync
   make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
   mv bowtie2-align-s bowtie2-align-s-no-in-sync
 fi
@@ -52,7 +52,7 @@ run_th bowtie2-align-s-no-in-sync no_in_
 # No input/output sync
 if [ ! -f "bowtie2-align-s-no-io" ] ; then
   git checkout no_IO_2000seq
-  rm bowtie2-align-s
+  rm bowtie2-align-s-no-io
   make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
   mv bowtie2-align-s bowtie2-align-s-no-io
 fi
