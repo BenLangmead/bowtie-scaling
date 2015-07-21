@@ -35,7 +35,7 @@ cmd_tmpl="$cmd_tmpl -p"
 if [ ! -f "bowtie2-align-s-master" ] ; then
   git checkout master
   rm bowtie2-align-s
-  make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING" bowtie2-align-s
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
   mv bowtie2-align-s bowtie2-align-s-master
 fi
 run_th bowtie2-align-s-master normal_
@@ -44,7 +44,7 @@ run_th bowtie2-align-s-master normal_
 if [ ! -f "bowtie2-align-s-no-in-sync" ] ; then
   git checkout no_in_sync
   rm bowtie2-align-s
-  make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING -Wtrigraphs" bowtie2-align-s
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
   mv bowtie2-align-s bowtie2-align-s-no-in-sync
 fi
 run_th bowtie2-align-s-no-in-sync no_in_
@@ -53,7 +53,7 @@ run_th bowtie2-align-s-no-in-sync no_in_
 if [ ! -f "bowtie2-align-s-no-io" ] ; then
   git checkout no_IO_2000seq
   rm bowtie2-align-s
-  make EXTRA_FLAGS="-DUSE_FINE_TIMER -DPER_THREAD_TIMING -Wtrigraphs" bowtie2-align-s
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
   mv bowtie2-align-s bowtie2-align-s-no-io
 fi
 run_th bowtie2-align-s-no-io no_io_
