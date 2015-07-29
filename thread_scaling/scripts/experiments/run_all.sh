@@ -1,14 +1,23 @@
 #!/bin/bash
 
+HG19_INDEX=$HOME/hg19
+MAX_THREADS=24
+DR=`dirname $0`
+
 # TODO: this is ugly but better ugly than more complicated parameters
-cmd_tmpl="./bowtie2-align-s -x /home/vanton/work/hg19/hg19 -U seqs_by_100.fq "
+cmd_tmpl="-x $HG19_INDEX "
 
 run_th () {
-for ((t=1; t<24; t++)); do
-  cmd="$cmd_templ $t "
-  data_file="./runs/${1}${t}.out"
-  echo $cmd
-  $cmd | grep thread > $data_file
+for mode in very-fast fast sensitive very-sensitive ; do
+  READS="$DR/seqs_by_100.fq"
+  for ((t=1; t<=$MAX_THREADS; t++)); do
+    cmd="./${1} $cmd_tmpl $t --$mode -U $READS "
+    mkdir -p runs/$mode
+    data_file="./runs/$mode/${2}${t}.out"
+    echo $cmd
+    $cmd | grep thread > $data_file
+    READS="$READS,$DR/seqs_by_100.fq"
+  done
 done
 }
 
@@ -19,26 +28,32 @@ if [[ $# < 1 ]]; then
   echo "where [n] will be replaced with the number of threads used for bowtie2 -p parameter."
   exit 0
 fi
-cmd_tmpl+=$1
-cmd_tmpl+=" -p "
-
-mkdir -p runs
+cmd_tmpl="$cmd_tmpl $1"
+cmd_tmpl="$cmd_tmpl -p"
 
 #start with normal 
-git checkout master
-rm bowtie2-align-s
-make -j bowtie2-align-s
-run_th normal_
+if [ ! -f "bowtie2-align-s-master" ] ; then
+  git checkout master
+  rm -f bowtie2-align-s-master
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-master
+fi
+run_th bowtie2-align-s-master normal_
 
 # Only no input sync
-git checkout no_in_sync
-rm bowtie2-align-s
-make -j bowtie2-align-s
-run_th no_in_
+if [ ! -f "bowtie2-align-s-no-in-sync" ] ; then
+  git checkout no_in_sync
+  rm -f bowtie2-align-s-no-in-sync
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-no-in-sync
+fi
+run_th bowtie2-align-s-no-in-sync no_in_
 
 # No input/output sync
-git checkout no_IO_2000seq
-rm bowtie2-align-s
-make -j bowtie2-align-s
-run_th no_io_
-
+if [ ! -f "bowtie2-align-s-no-io" ] ; then
+  git checkout no_IO_2000seq
+  rm -f bowtie2-align-s-no-io
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-no-io
+fi
+run_th bowtie2-align-s-no-io no_io_
