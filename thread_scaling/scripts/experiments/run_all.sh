@@ -3,20 +3,17 @@
 HG19_INDEX=$HOME/hg19
 MAX_THREADS=24
 DR=`dirname $0`
-
-# TODO: this is ugly but better ugly than more complicated parameters
+READS="$DR/seqs_by_100.fq"
 cmd_tmpl="-x $HG19_INDEX "
 
 run_th () {
 for mode in very-fast fast sensitive very-sensitive ; do
-  READS="$DR/seqs_by_100.fq"
   for ((t=1; t<=$MAX_THREADS; t++)); do
-    cmd="./${1} $cmd_tmpl $t --$mode -U $READS "
+    cmd="./${1} $cmd_tmpl --$mode -U "
     mkdir -p runs/$mode
     data_file="./runs/$mode/${2}${t}.out"
-    echo $cmd
-    $cmd | grep thread > $data_file
-    READS="$READS,$DR/seqs_by_100.fq"
+    echo "mode: $mode, threads: $t"
+    $cmd <(for ((i=0;i<${t};i++)); do cat $READS; done) -p $t | grep "thread:" > $data_file
   done
 done
 }
@@ -29,7 +26,6 @@ if [[ $# < 1 ]]; then
   exit 0
 fi
 cmd_tmpl="$cmd_tmpl $1"
-cmd_tmpl="$cmd_tmpl -p"
 
 #start with normal 
 if [ ! -f "bowtie2-align-s-master" ] ; then
