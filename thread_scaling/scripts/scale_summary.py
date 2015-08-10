@@ -25,6 +25,8 @@ for fn in args.input:
     with open(fn) as fh:
         for ln in fh:
             m2 = re.match('thread: ([0-9]*) time: ([0-9]*):([0-9]*):([0-9.]*)', ln)
+            if not m2:
+                continue
             thread_id = int(m2.group(1))
             hr, mn, sc = m2.group(2), m2.group(3), m2.group(4)
             sc = float(sc) + (int(mn) * 60) + (int(hr) * 60 * 60)
