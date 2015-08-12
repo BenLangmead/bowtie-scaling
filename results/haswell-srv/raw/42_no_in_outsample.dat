@@ -1,0 +1,24 @@
+/usr/bin/time -f %U,%S,%E ./bowtie2-align-s -x ../data/genomes/hg19 -U example/reads/longreads.fq -S /dev/null -p 42
+8484 reads; of these:
+  8484 (100.00%) were unpaired; of these:
+    0 (0.00%) aligned 0 times
+    4242 (50.00%) aligned exactly 1 time
+    4242 (50.00%) aligned >1 times
+100.00% overall alignment rate
+26.74,11.71,0:02.33
+/usr/bin/time -f %U,%S,%E ./bowtie2-align-s -x ../data/genomes/hg19 -U example/reads/longreads.fq -S /dev/null -p 42
+8484 reads; of these:
+  8484 (100.00%) were unpaired; of these:
+    0 (0.00%) aligned 0 times
+    4242 (50.00%) aligned exactly 1 time
+    4242 (50.00%) aligned >1 times
+100.00% overall alignment rate
+29.46,12.22,0:02.51
+/usr/bin/time -f %U,%S,%E ./bowtie2-align-s -x ../data/genomes/hg19 -U example/reads/longreads.fq -S /dev/null -p 42
+8484 reads; of these:
+  8484 (100.00%) were unpaired; of these:
+    0 (0.00%) aligned 0 times
+    4242 (50.00%) aligned exactly 1 time
+    4242 (50.00%) aligned >1 times
+100.00% overall alignment rate
+32.02,11.62,0:02.50

@@ -1,0 +1,27 @@
+scripts/test/scalability/thread_sample.sh: line 18: echo: write error: Input/output error
+12139786 reads; of these:
+  12139786 (100.00%) were unpaired; of these:
+    12135192 (99.96%) aligned 0 times
+    2921 (0.02%) aligned exactly 1 time
+    1673 (0.01%) aligned >1 times
+0.04% overall alignment rate
+4562.30user 20.54system 2:42.89elapsed 2813%CPU (0avgtext+0avgdata 15561760maxresident)k
+0inputs+8outputs (0major+128148minor)pagefaults 0swaps
+scripts/test/scalability/thread_sample.sh: line 18: echo: write error: Input/output error
+12139786 reads; of these:
+  12139786 (100.00%) were unpaired; of these:
+    12135192 (99.96%) aligned 0 times
+    2921 (0.02%) aligned exactly 1 time
+    1673 (0.01%) aligned >1 times
+0.04% overall alignment rate
+4471.94user 20.32system 2:39.66elapsed 2813%CPU (0avgtext+0avgdata 15503760maxresident)k
+0inputs+8outputs (0major+128359minor)pagefaults 0swaps
+scripts/test/scalability/thread_sample.sh: line 18: echo: write error: Input/output error
+12139786 reads; of these:
+  12139786 (100.00%) were unpaired; of these:
+    12135192 (99.96%) aligned 0 times
+    2921 (0.02%) aligned exactly 1 time
+    1673 (0.01%) aligned >1 times
+0.04% overall alignment rate
+4931.70user 25.07system 2:55.76elapsed 2820%CPU (0avgtext+0avgdata 15643152maxresident)k
+0inputs+8outputs (0major+128034minor)pagefaults 0swaps
