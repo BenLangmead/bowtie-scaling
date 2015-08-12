@@ -1,0 +1,43 @@
+processor	: 23
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	:        Intel(R) Xeon(R) CPU E5-2440 0 @ 2.40GHz
+stepping	: 7
+cpu MHz		: 2400.096
+cache size	: 15360 KB
+physical id	: 1
+siblings	: 12
+core id		: 5
+cpu cores	: 6
+apicid		: 43
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm syscall nx pdpe1gb rdtscp lm constant_tsc ida nonstop_tsc arat pni monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr sse4_1 sse4_2 popcnt lahf_lm
+bogomips	: 4800.07
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management: [8]
+
+policy: default
+preferred node: current
+physcpubind: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
+cpubind: 0 1 
+nodebind: 0 1 
+membind: 0 1 
+
+available: 2 nodes (0-1)
+node 0 size: 24177 MB
+node 0 free: 120 MB
+node 1 size: 24240 MB
+node 1 free: 20 MB
+node distances:
+node   0   1 
+  0:  10  20 
+  1:  20  10
+  
+  Linux langmead-login 2.6.18-348.16.1.el5 #1 SMP Tue Aug 20 14:41:55 CDT 2013 x86_64 x86_64 x86_64 GNU/Linux
+  
