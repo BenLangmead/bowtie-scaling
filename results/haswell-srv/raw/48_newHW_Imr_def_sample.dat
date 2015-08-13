@@ -1,0 +1,24 @@
+/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -U ../data/reads/Imr90CellPap.1.fq.gz -p 48 >/dev/null
+2500000 reads; of these:
+  2500000 (100.00%) were unpaired; of these:
+    548463 (21.94%) aligned 0 times
+    1328645 (53.15%) aligned exactly 1 time
+    622892 (24.92%) aligned >1 times
+78.06% overall alignment rate
+797.26,66.63,0:24.24
+/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -U ../data/reads/Imr90CellPap.1.fq.gz -p 48 >/dev/null
+2500000 reads; of these:
+  2500000 (100.00%) were unpaired; of these:
+    548463 (21.94%) aligned 0 times
+    1328645 (53.15%) aligned exactly 1 time
+    622892 (24.92%) aligned >1 times
+78.06% overall alignment rate
+788.19,67.74,0:24.08
+/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -U ../data/reads/Imr90CellPap.1.fq.gz -p 48 >/dev/null
+2500000 reads; of these:
+  2500000 (100.00%) were unpaired; of these:
+    548463 (21.94%) aligned 0 times
+    1328645 (53.15%) aligned exactly 1 time
+    622892 (24.92%) aligned >1 times
+78.06% overall alignment rate
+835.28,65.80,0:25.31

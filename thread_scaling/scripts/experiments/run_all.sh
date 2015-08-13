@@ -11,7 +11,7 @@ for mode in very-fast fast sensitive very-sensitive ; do
   for ((t=1; t<=$MAX_THREADS; t++)); do
     cmd="./${1} $cmd_tmpl --$mode -U "
     mkdir -p runs/$mode
-    data_file="./runs/$mode/${2}${t}.out"
+    data_file="../../../results/elephant6/raw/$mode/${2}${t}.out"
     echo "mode: $mode, threads: $t"
     $cmd <(for ((i=0;i<${t};i++)); do cat $READS; done) -p $t | grep "thread:" > $data_file
   done

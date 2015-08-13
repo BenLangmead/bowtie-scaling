@@ -1,0 +1,24 @@
+/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -U ../data/reads/SRR034966.fastq -p 16 >/dev/null
+128751 reads; of these:
+  128751 (100.00%) were unpaired; of these:
+    5575 (4.33%) aligned 0 times
+    95227 (73.96%) aligned exactly 1 time
+    27949 (21.71%) aligned >1 times
+95.67% overall alignment rate
+55.56,4.00,0:06.75
+/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -U ../data/reads/SRR034966.fastq -p 16 >/dev/null
+128751 reads; of these:
+  128751 (100.00%) were unpaired; of these:
+    5575 (4.33%) aligned 0 times
+    95227 (73.96%) aligned exactly 1 time
+    27949 (21.71%) aligned >1 times
+95.67% overall alignment rate
+45.13,3.87,0:06.03
+/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -U ../data/reads/SRR034966.fastq -p 16 >/dev/null
+128751 reads; of these:
+  128751 (100.00%) were unpaired; of these:
+    5575 (4.33%) aligned 0 times
+    95227 (73.96%) aligned exactly 1 time
+    27949 (21.71%) aligned >1 times
+95.67% overall alignment rate
+48.53,3.87,0:06.18

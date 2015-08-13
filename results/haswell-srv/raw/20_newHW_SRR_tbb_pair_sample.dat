@@ -1,0 +1,51 @@
+/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -1 ../data/reads/SRR034966_1.fastq -2 ../data/reads/SRR034966_2.fastq -p 20 >/dev/null
+20393307 reads; of these:
+  20393307 (100.00%) were paired; of these:
+    15378641 (75.41%) aligned concordantly 0 times
+    4057481 (19.90%) aligned concordantly exactly 1 time
+    957185 (4.69%) aligned concordantly >1 times
+    ----
+    15378641 pairs aligned concordantly 0 times; of these:
+      10483327 (68.17%) aligned discordantly 1 time
+    ----
+    4895314 pairs aligned 0 times concordantly or discordantly; of these:
+      9790628 mates make up the pairs; of these:
+        1979173 (20.21%) aligned 0 times
+        2615232 (26.71%) aligned exactly 1 time
+        5196223 (53.07%) aligned >1 times
+95.15% overall alignment rate
+13431.16,44.12,11:15.98
+/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -1 ../data/reads/SRR034966_1.fastq -2 ../data/reads/SRR034966_2.fastq -p 20 >/dev/null
+20393307 reads; of these:
+  20393307 (100.00%) were paired; of these:
+    15378641 (75.41%) aligned concordantly 0 times
+    4057481 (19.90%) aligned concordantly exactly 1 time
+    957185 (4.69%) aligned concordantly >1 times
+    ----
+    15378641 pairs aligned concordantly 0 times; of these:
+      10483327 (68.17%) aligned discordantly 1 time
+    ----
+    4895314 pairs aligned 0 times concordantly or discordantly; of these:
+      9790628 mates make up the pairs; of these:
+        1979173 (20.21%) aligned 0 times
+        2615232 (26.71%) aligned exactly 1 time
+        5196223 (53.07%) aligned >1 times
+95.15% overall alignment rate
+13477.46,43.10,11:18.23
+/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -1 ../data/reads/SRR034966_1.fastq -2 ../data/reads/SRR034966_2.fastq -p 20 >/dev/null
+20393307 reads; of these:
+  20393307 (100.00%) were paired; of these:
+    15378641 (75.41%) aligned concordantly 0 times
+    4057481 (19.90%) aligned concordantly exactly 1 time
+    957185 (4.69%) aligned concordantly >1 times
+    ----
+    15378641 pairs aligned concordantly 0 times; of these:
+      10483327 (68.17%) aligned discordantly 1 time
+    ----
+    4895314 pairs aligned 0 times concordantly or discordantly; of these:
+      9790628 mates make up the pairs; of these:
+        1979173 (20.21%) aligned 0 times
+        2615232 (26.71%) aligned exactly 1 time
+        5196223 (53.07%) aligned >1 times
+95.15% overall alignment rate
+13449.73,42.93,11:16.84

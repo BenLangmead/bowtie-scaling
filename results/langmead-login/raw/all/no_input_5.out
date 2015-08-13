@@ -1,0 +1,5 @@
+thread: 5 time: 00:01:10
+thread: 1 time: 00:01:10
+thread: 2 time: 00:01:17
+thread: 3 time: 00:01:17
+thread: 4 time: 00:01:17

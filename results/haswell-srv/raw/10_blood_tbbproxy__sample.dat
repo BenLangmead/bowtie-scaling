@@ -1,0 +1,24 @@
+/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -U ../data/reads/blood_2.fq -p 10 >/dev/null
+25000 reads; of these:
+  25000 (100.00%) were unpaired; of these:
+    5737 (22.95%) aligned 0 times
+    14552 (58.21%) aligned exactly 1 time
+    4711 (18.84%) aligned >1 times
+77.05% overall alignment rate
+5.74,3.16,0:02.89
+/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -U ../data/reads/blood_2.fq -p 10 >/dev/null
+25000 reads; of these:
+  25000 (100.00%) were unpaired; of these:
+    5737 (22.95%) aligned 0 times
+    14552 (58.21%) aligned exactly 1 time
+    4711 (18.84%) aligned >1 times
+77.05% overall alignment rate
+5.29,3.10,0:02.82
+/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -U ../data/reads/blood_2.fq -p 10 >/dev/null
+25000 reads; of these:
+  25000 (100.00%) were unpaired; of these:
+    5737 (22.95%) aligned 0 times
+    14552 (58.21%) aligned exactly 1 time
+    4711 (18.84%) aligned >1 times
+77.05% overall alignment rate
+4.91,3.13,0:02.78
