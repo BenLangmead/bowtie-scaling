@@ -29,7 +29,7 @@ if [[ $# < 1 ]]; then
 fi
 cmd_tmpl="$cmd_tmpl $1"
 
-#start with normal 
+# Normal (all synchronization enabled), no TBB
 if [ ! -f "bowtie2-align-s-master" ] ; then
   git checkout master
   rm -f bowtie2-align-s-master
@@ -37,6 +37,15 @@ if [ ! -f "bowtie2-align-s-master" ] ; then
   mv bowtie2-align-s bowtie2-align-s-master
 fi
 run_th bowtie2-align-s-master normal_
+
+# Normal (all synchronization enabled), with TBB
+if [ ! -f "bowtie2-align-s-master-tbb" ] ; then
+  git checkout master
+  rm -f bowtie2-align-s-master-tbb
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-master-tbb
+fi
+run_th bowtie2-align-s-master-tbb normaltbb_
 
 # Only no input sync
 if [ ! -f "bowtie2-align-s-no-in-sync" ] ; then
