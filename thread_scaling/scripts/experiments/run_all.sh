@@ -1,10 +1,12 @@
 #!/bin/bash
 
 HG19_INDEX=$HOME/hg19
-MAX_THREADS=24
+MAX_THREADS=`grep 'processor\s*:' /proc/cpuinfo | wc -l`
 DR=`dirname $0`
 READS="$DR/seqs_by_100.fq"
 cmd_tmpl="-x $HG19_INDEX "
+
+echo "Max threads = $MAX_THREADS"
 
 run_th () {
 for mode in very-fast fast sensitive very-sensitive ; do
