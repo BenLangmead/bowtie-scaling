@@ -1,6 +1,7 @@
 __author__ = 'langmead'
 
 import re
+import sys
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -17,6 +18,7 @@ if args.scatter is not None:
 
 table = []
 for fn in args.input:
+    print("Processing '%s'" % fn, file=sys.stderr)
     m = re.match('.*_([0-9]*)\.out', fn)
     nthreads = int(m.group(1))
     if nthreads > args.ignore_above:
@@ -43,7 +45,8 @@ for fn in args.input:
                 hr, mn, sc = m2.group(2), m2.group(3), m2.group(4)
                 sc = float(sc) + (int(mn) * 60) + (int(hr) * 60 * 60)
                 thread_times[thread_id] = sc
-                scatter_fh.write('%d\t%0.03f\n' % (nthreads, sc))
+                if scatter_fh is not None:
+                    scatter_fh.write('%d\t%0.03f\n' % (nthreads, sc))
     assert len(thread_times) == nthreads
     sm = sum(thread_times.values())
     cpu_tot = sum(cpu_changeovers.values())
