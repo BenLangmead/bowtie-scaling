@@ -32,7 +32,7 @@ cmd_tmpl="$cmd_tmpl $1"
 # Normal (all synchronization enabled), no TBB
 if [ ! -f "bowtie2-align-s-master" ] ; then
   git checkout master
-  rm -f bowtie2-align-s-master
+  rm -f bowtie2-align-s-master bowtie2-align-s
   make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
   mv bowtie2-align-s bowtie2-align-s-master
 fi
@@ -41,7 +41,7 @@ run_th bowtie2-align-s-master normal_
 # Normal (all synchronization enabled), with TBB
 if [ ! -f "bowtie2-align-s-master-tbb" ] ; then
   git checkout master
-  rm -f bowtie2-align-s-master-tbb
+  rm -f bowtie2-align-s-master-tbb bowtie2-align-s
   make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 bowtie2-align-s
   mv bowtie2-align-s bowtie2-align-s-master-tbb
 fi
@@ -49,8 +49,8 @@ run_th bowtie2-align-s-master-tbb normaltbb_
 
 # Normal (all synchronization enabled), with TBB and thread affinitization
 if [ ! -f "bowtie2-align-s-master-tbb-pin" ] ; then
-  git checkout master
-  rm -f bowtie2-align-s-master-tbb
+  git checkout affinitize
+  rm -f bowtie2-align-s-master-tbb-pin bowtie2-align-s
   make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 WITH_AFFINITY=1 bowtie2-align-s
   mv bowtie2-align-s bowtie2-align-s-master-tbb-pin
 fi
@@ -59,7 +59,7 @@ run_th bowtie2-align-s-master-tbb-pin normaltbbpin_
 # Only no input sync
 if [ ! -f "bowtie2-align-s-no-in-sync" ] ; then
   git checkout no_in_sync
-  rm -f bowtie2-align-s-no-in-sync
+  rm -f bowtie2-align-s-no-in-sync bowtie2-align-s
   make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
   mv bowtie2-align-s bowtie2-align-s-no-in-sync
 fi
@@ -68,7 +68,7 @@ run_th bowtie2-align-s-no-in-sync no_in_
 # No input/output sync
 if [ ! -f "bowtie2-align-s-no-io" ] ; then
   git checkout no_IO_2000seq
-  rm -f bowtie2-align-s-no-io
+  rm -f bowtie2-align-s-no-io bowtie2-align-s
   make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
   mv bowtie2-align-s bowtie2-align-s-no-io
 fi
