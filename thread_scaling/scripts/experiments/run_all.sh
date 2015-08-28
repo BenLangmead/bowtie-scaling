@@ -47,6 +47,15 @@ if [ ! -f "bowtie2-align-s-master-tbb" ] ; then
 fi
 run_th bowtie2-align-s-master-tbb normaltbb_
 
+# Normal (all synchronization enabled), with TBB and thread affinitization
+if [ ! -f "bowtie2-align-s-master-tbb-pin" ] ; then
+  git checkout master
+  rm -f bowtie2-align-s-master-tbb
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 WITH_AFFINITY=1 bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-master-tbb-pin
+fi
+run_th bowtie2-align-s-master-tbb-pin normaltbbpin_
+
 # Only no input sync
 if [ ! -f "bowtie2-align-s-no-in-sync" ] ; then
   git checkout no_in_sync
