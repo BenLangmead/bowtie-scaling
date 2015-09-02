@@ -38,7 +38,7 @@ for mode in very-fast fast sensitive very-sensitive ; do
     pids=""
     for ((i=0; i<$NODES; i++)); do
         in="/tmp/.nodebind_test_reads_${i}.fq"
-        out="tmp/.nodebind_test_reads_${i}.sam"
+        out="/tmp/.nodebind_test_reads_${i}.sam"
         data_file="../../../results/elephant6/numabind_raw/$mode/${2}${t}_${i}.out"
         (numactl -N $i $cmd $in -p $nthread -S $out | grep "thread:" > $data_file) &
         echo "  spawned node $i process with pid $!"
