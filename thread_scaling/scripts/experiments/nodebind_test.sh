@@ -14,8 +14,8 @@ echo "Max threads = $MAX_THREADS"
 
 run_th () {
 for mode in very-fast fast sensitive very-sensitive ; do
-  nthread=1
   for ((t=$NODES; t<=$MAX_THREADS; t+=$NODES)); do
+    ((nthread=$t/$NODES))
     cmd="./${1} $cmd_tmpl --$mode -U "
     mkdir -p numabind_runs/$mode
     mkdir -p ../../../results/elephant6/numabind_raw/$mode
