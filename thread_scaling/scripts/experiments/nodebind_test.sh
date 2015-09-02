@@ -1,8 +1,5 @@
 #!/bin/bash
 
-
-#!/bin/bash
-
 HG19_INDEX=$HOME/hg19
 MAX_THREADS=`grep 'processor\s*:' /proc/cpuinfo | wc -l`
 DR=`dirname $0`
@@ -12,6 +9,15 @@ NODES=`numactl --hardware | grep available: | awk '{print $2}'`
 
 echo "Max threads = $MAX_THREADS"
 echo "NUMA nodes = $NODES"
+
+if [[ $# < 1 ]]; then
+  echo -e "Run all experiments.\n"
+  echo -e "\t$0 [bowtie-extra-parameters]"
+  echo "This will run all bowtie2 experiments and store the timing for each thread into ./runs/[experiment]_[n].out"
+  echo "where [n] will be replaced with the number of threads used for bowtie2 -p parameter."
+  exit 0
+fi
+cmd_tmpl="$cmd_tmpl $1"
 
 run_th () {
 for mode in very-fast fast sensitive very-sensitive ; do
@@ -23,15 +29,16 @@ for mode in very-fast fast sensitive very-sensitive ; do
     echo "mode: $mode, threads: $t"
     echo "Concatenating input reads"
     for ((i=0; i<$NODES; i++)); do
-        cp $READS /tmp/.nodebind_test_reads_${i}.fq
-        for ((j=1;j<${t};j+=$NODES)); do cat $READS >> /tmp/.nodebind_test_reads_${i}.fq; done
+        in="/tmp/.nodebind_test_reads_${i}.fq"
+        cp $READS $in
+        for ((j=1;j<$nthread;j++)); do cat $READS >> $in; done
     done
     # make sure input and output are on a local filesystem, not NFS
     echo "Running bowtie2"
     pids=""
     for ((i=0; i<$NODES; i++)); do
-        in=/tmp/.nodebind_test_reads_${i}.fq
-        out=/tmp/.nodebind_test_reads_${i}.sam
+        in="/tmp/.nodebind_test_reads_${i}.fq"
+        out="tmp/.nodebind_test_reads_${i}.sam"
         data_file="../../../results/elephant6/numabind_raw/$mode/${2}${t}_${i}.out"
         (numactl -N $i $cmd $in -p $nthread -S $out | grep "thread:" > $data_file) &
         echo "  spawned node $i process with pid $!"
@@ -45,15 +52,6 @@ for mode in very-fast fast sensitive very-sensitive ; do
   done
 done
 }
-
-if [[ $# < 1 ]]; then
-  echo -e "Run all experiments.\n"
-  echo -e "\t$0 [bowtie-extra-parameters]"
-  echo "This will run all bowtie2 experiments and store the timing for each thread into ./runs/[experiment]_[n].out"
-  echo "where [n] will be replaced with the number of threads used for bowtie2 -p parameter."
-  exit 0
-fi
-cmd_tmpl="$cmd_tmpl $1"
 
 # Normal (all synchronization enabled), no TBB
 if [ ! -f "bowtie2-align-s-master" ] ; then
