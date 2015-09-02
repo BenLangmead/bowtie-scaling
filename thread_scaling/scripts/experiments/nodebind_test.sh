@@ -11,6 +11,7 @@ cmd_tmpl="-x $HG19_INDEX "
 NODES=`numactl --hardware | grep available: | awk '{print $2}'`
 
 echo "Max threads = $MAX_THREADS"
+echo "NUMA nodes = $NODES"
 
 run_th () {
 for mode in very-fast fast sensitive very-sensitive ; do
@@ -24,7 +25,7 @@ for mode in very-fast fast sensitive very-sensitive ; do
     echo "Concatenating input reads"
     for ((i=0; i<$NODES; i++)); do
         cp $READS /tmp/.nodebind_test_reads_${i}.fq
-        for ((i=1;i<${t};i+=$NODES)); do cat $READS >> /tmp/.nodebind_test_reads_${i}.fq; done
+        for ((j=1;j<${t};j+=$NODES)); do cat $READS >> /tmp/.nodebind_test_reads_${i}.fq; done
     done
     # make sure input and output are on a local filesystem, not NFS
     echo "Running bowtie2"
