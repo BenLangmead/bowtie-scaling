@@ -15,7 +15,9 @@ for mode in very-fast fast sensitive very-sensitive ; do
     mkdir -p runs/$mode
     data_file="../../../results/elephant6/raw/$mode/${2}${t}.out"
     echo "mode: $mode, threads: $t"
-    $cmd <(for ((i=0;i<${t};i++)); do cat $READS; done) -p $t | grep "thread:" > $data_file
+    for ((i=0;i<${t};i++)); do cat $READS > /tmp/.run_all_reads.fq; done
+    # make sure input and output are on a local filesystem, not NFS
+    $cmd /tmp/.run_all_reads.fq -p $t -S /tmp/.run_all_sam | grep "thread:" > $data_file
   done
 done
 }
