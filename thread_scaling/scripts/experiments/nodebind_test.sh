@@ -20,7 +20,6 @@ for mode in very-fast fast sensitive very-sensitive ; do
     cmd="./${1} $cmd_tmpl --$mode -U "
     mkdir -p numabind_runs/$mode
     mkdir -p ../../../results/elephant6/numabind_raw/$mode
-    data_file="../../../results/elephant6/numabind_raw/$mode/${2}${t}.out"
     echo "mode: $mode, threads: $t"
     echo "Concatenating input reads"
     for ((i=0; i<$NODES; i++)); do
@@ -31,7 +30,10 @@ for mode in very-fast fast sensitive very-sensitive ; do
     echo "Running bowtie2"
     pids=""
     for ((i=0; i<$NODES; i++)); do
-        numactl -N $i $cmd /tmp/.nodebind_test_reads_${i}.fq -p $nthread -S /tmp/.nodebind_test_reads_${i}.sam | grep "thread:" > $data_file &
+        in=/tmp/.nodebind_test_reads_${i}.fq
+        out=/tmp/.nodebind_test_reads_${i}.sam
+        data_file="../../../results/elephant6/numabind_raw/$mode/${2}${t}_${i}.out"
+        (numactl -N $i $cmd $in -p $nthread -S $out | grep "thread:" > $data_file) &
         echo "  spawned node $i process with pid $!"
         pids="$! $pids"
     done
