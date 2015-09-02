@@ -15,8 +15,11 @@ for mode in very-fast fast sensitive very-sensitive ; do
     mkdir -p runs/$mode
     data_file="../../../results/elephant6/raw/$mode/${2}${t}.out"
     echo "mode: $mode, threads: $t"
-    for ((i=0;i<${t};i++)); do cat $READS > /tmp/.run_all_reads.fq; done
+    echo "Concatenating input reads"
+    cp $READS /tmp/.run_all_reads.fq
+    for ((i=1;i<${t};i++)); do cat $READS >> /tmp/.run_all_reads.fq; done
     # make sure input and output are on a local filesystem, not NFS
+    echo "Running bowtie2"
     $cmd /tmp/.run_all_reads.fq -p $t -S /tmp/.run_all_sam | grep "thread:" > $data_file
   done
 done
