@@ -78,3 +78,12 @@ if [ ! -f "bowtie2-align-s-no-io" ] ; then
   mv bowtie2-align-s bowtie2-align-s-no-io
 fi
 run_th bowtie2-align-s-no-io no_io_
+
+# No input/output sync + extra sched_yields
+if [ ! -f "bowtie2-align-s-no-io-sched" ] ; then
+  git checkout sched_yield
+  rm -f bowtie2-align-s-no-io-sched bowtie2-align-s
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-no-io-sched
+fi
+run_th bowtie2-align-s-no-io-sched no_io_sched_
