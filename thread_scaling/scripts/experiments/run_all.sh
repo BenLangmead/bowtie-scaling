@@ -54,7 +54,7 @@ run_th bowtie2-align-s-master-tbb normaltbb_
 
 # Normal (all synchronization enabled), with TBB and thread affinitization
 if [ ! -f "bowtie2-align-s-master-tbb-pin" ] ; then
-  git checkout affinitize
+  git checkout master
   rm -f bowtie2-align-s-master-tbb-pin bowtie2-align-s
   make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 WITH_AFFINITY=1 bowtie2-align-s
   mv bowtie2-align-s bowtie2-align-s-master-tbb-pin
@@ -87,3 +87,13 @@ if [ ! -f "bowtie2-align-s-no-io-sched" ] ; then
   mv bowtie2-align-s bowtie2-align-s-no-io-sched
 fi
 run_th bowtie2-align-s-no-io-sched no_io_sched_
+
+# No input/output sync but with TBB and Affinitization
+if [ ! -f "bowtie2-align-s-no-io-tbb-pin" ] ; then
+  git checkout no_IO_2000seq
+  rm -f bowtie2-align-s-no-io-tbb-pin bowtie2-align-s
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 WITH_AFFINITY=1 bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-no-io-tbb-pin
+fi
+run_th bowtie2-align-s-no-io-tbb-pin no_io_tbb_pin_
+
