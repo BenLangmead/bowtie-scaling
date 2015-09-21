@@ -9,20 +9,27 @@ cmd_tmpl="-x $HG19_INDEX "
 echo "Max threads = $MAX_THREADS"
 
 run_th () {
-for mode in very-fast fast sensitive very-sensitive ; do
-  for ((t=1; t<=$MAX_THREADS; t++)); do
-    cmd="./${1} $cmd_tmpl --$mode -U "
-    mkdir -p runs/$mode
-    data_file="../../../results/elephant6/raw/$mode/${2}${t}.out"
-    echo "mode: $mode, threads: $t"
-    echo "Concatenating input reads"
-    cp $READS /tmp/.run_all_reads.fq
-    for ((i=1;i<${t};i++)); do cat $READS >> /tmp/.run_all_reads.fq; done
-    # make sure input and output are on a local filesystem, not NFS
-    echo "Running bowtie2"
-    $cmd /tmp/.run_all_reads.fq -p $t -S /tmp/.run_all_sam | grep "thread:" > $data_file
-  done
-done
+    local INPUT_READS
+    local OUTPUT_SAMFILE
+    for mode in very-fast fast sensitive very-sensitive ; do
+      for ((t=1; t<=$MAX_THREADS; t++)); do
+        cmd="./${1} $cmd_tmpl --$mode -U "
+        mkdir -p runs/$mode
+        data_file="../../../results/elephant6/raw/$mode/${2}${t}.out"
+        echo "mode: $mode, threads: $t"
+        echo "Concatenating input reads"
+        INPUT_READS=$(mktemp -p /tmp bowtie2_test_XXXX.fq)
+        for ((i=0;i<${t};i++)); do 
+            cat $READS >> $INPUT_READS 
+        done
+        # make sure input and output are on a local filesystem, not NFS
+        echo "Running bowtie2"
+        OUTPUT_SAMFILE=$(mktemp -p /tmp bowtie2_test_XXXX.sam)
+        $cmd $INPUT_READS -p $t -S $OUTPUT_SAMFILE | grep "thread:" > $data_file
+        # cleanup
+        rm $INPUT_READS $OUTPUT_SAMFILE
+      done
+    done
 }
 
 if [[ $# < 1 ]]; then
