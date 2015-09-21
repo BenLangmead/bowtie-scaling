@@ -9,13 +9,17 @@ cmd_tmpl="-x $HG19_INDEX "
 echo "Max threads = $MAX_THREADS"
 
 run_th () {
+    local TIMING_DIR="../../../results/elephant6/raw/"
     local INPUT_READS
     local OUTPUT_SAMFILE
+    local timing_file
+    local cmd
+    mkdir -p $TIMING_DIR
     for mode in very-fast fast sensitive very-sensitive ; do
       for ((t=1; t<=$MAX_THREADS; t++)); do
         cmd="./${1} $cmd_tmpl --$mode -U "
-        mkdir -p runs/$mode
-        data_file="../../../results/elephant6/raw/$mode/${2}${t}.out"
+        timing_file="$TIMING_DIR/$mode/${2}${t}.out"
+        mkdir -p "$TIMING_DIR/$mode"
         echo "mode: $mode, threads: $t"
         echo "Concatenating input reads"
         INPUT_READS=$(mktemp -p /tmp bowtie2_test_XXXX.fq)
@@ -25,7 +29,7 @@ run_th () {
         # make sure input and output are on a local filesystem, not NFS
         echo "Running bowtie2"
         OUTPUT_SAMFILE=$(mktemp -p /tmp bowtie2_test_XXXX.sam)
-        $cmd $INPUT_READS -p $t -S $OUTPUT_SAMFILE | grep "thread:" > $data_file
+        $cmd $INPUT_READS -p $t -S $OUTPUT_SAMFILE | grep "thread:" > $timing_file
         # cleanup
         rm $INPUT_READS $OUTPUT_SAMFILE
       done
