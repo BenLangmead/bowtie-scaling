@@ -102,6 +102,7 @@ class NumaScheduler(BowtieScheduler):
         numa_nodes = self.numa['nodes']
         cpu_cores = self.numa['cpu_cores']
         # TODO: Need to parse -U/-1 & -2 params and split by ','
+        # TODO: For the case of no I/O tests this does not matter though.
         return
 
 
@@ -119,11 +120,14 @@ class SimpleScheduler(BowtieScheduler):
         self.cmd_lines.append(' '.join(self.args))
         return
 
-
+# p # of threads
+# c #cores
+# n # numa nodes
+# process to start: min[[2pn/c], n]
 def get_bowtie_scheduler(bin_spec, opts, args):
     no_threads = opts.get("-p", None)
     # TODO: Hard coding the maximum #threads from where bowtie performance
-    # drop is probably not ok.
+    # TODO: starts dropping is probably not ok.
     if no_threads and int(no_threads) > 3:
         return NumaScheduler(bin_spec, opts, args)
     return SimpleScheduler(bin_spec, opts, args)
@@ -165,6 +169,10 @@ def build_args():
             parsed_args[arg] = argv[i+1]
             to_remove.append(i)
             to_remove.append(i+1)
+        elif arg == '--bowtie-bin':
+            parsed_args[arg] = argv[i+1]
+            to_remove.append(i)
+            to_remove.append(i+1)
 
     for i in reversed(to_remove):
         del argv[i]
@@ -183,8 +191,10 @@ def main():
     idx_ext_s = '.1.ebwt'
     curr_script = os.path.realpath(inspect.getsourcefile(main))
     ex_path = os.path.dirname(curr_script)
-    bin_spec = os.path.join(ex_path, bin_s)
     options, arguments = build_args()
+
+    if '--bowtie-bin' in options:
+    bin_spec = os.path.join(ex_path, bin_s)
 
     if '--verbose' in options:
         logging.getLogger().setLevel(logging.INFO)
