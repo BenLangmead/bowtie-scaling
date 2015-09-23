@@ -15,7 +15,6 @@ if [[ $# < 1 ]]; then
   echo -e "\t$0 [bowtie-extra-parameters]"
   echo "This will run all bowtie2 experiments and store the timing for each thread into ./runs/[experiment]_[n].out"
   echo "where [n] will be replaced with the number of threads used for bowtie2 -p parameter."
-  exit 0
 fi
 cmd_tmpl="$cmd_tmpl $1"
 
