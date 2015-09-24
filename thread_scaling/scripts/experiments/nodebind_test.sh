@@ -19,37 +19,51 @@ fi
 cmd_tmpl="$cmd_tmpl $1"
 
 run_th () {
-for mode in very-fast fast sensitive very-sensitive ; do
-  for ((t=$NODES; t<=$MAX_THREADS; t+=$NODES)); do
-    ((nthread=$t/$NODES))
-    cmd="./${1} $cmd_tmpl --$mode -U "
-    mkdir -p numabind_runs/$mode
-    mkdir -p ../../../results/elephant6/numabind_raw/$mode
-    echo "mode: $mode, threads: $t"
-    echo "Concatenating input reads"
-    for ((i=0; i<$NODES; i++)); do
-        in="/tmp/.nodebind_test_reads_${i}.fq"
-        cp $READS $in
-        for ((j=1;j<$nthread;j++)); do cat $READS >> $in; done
+    local TIMING_DIR="../../../results/elephant6/raw/"
+    declare -a INPUT_READS=()
+    declare -a OUTPUT_SAMFILE=()
+    local timing_file
+    local cmd
+    mkdir -p $TIMING_DIR
+    for mode in very-fast fast sensitive very-sensitive ; do
+      for ((t=$NODES; t<=$MAX_THREADS; t+=$NODES)); do
+        ((nthread=$t/$NODES))
+        cmd="./${1} $cmd_tmpl --$mode -U "
+        
+        echo "mode: $mode, threads: $t"
+        echo "Concatenating input reads"
+        for ((i=0; i<$NODES; i++)); do
+            INPUT_READS[$i]=$(mktemp -p /tmp bowtie2_test_XXXX_${i}.fq)
+            OUTPUT_SAMFILE[$i]=$(mktemp -p /tmp bowtie2_test_XXXX_${i}.sam)
+            for ((j=0; j<$nthread; j++)); do
+                cat $READS >> ${INPUT_READS[$i]}
+            done
+        done
+        # make sure input and output are on a local filesystem, not NFS
+        echo "Running bowtie2"
+        pids=""
+        for ((i=0; i<$NODES; i++)); do
+            timing_file="${TIMING_DIR}/$mode/${2}${t}_${i}.out"
+            mkdir -p "${TIMING_DIR}/$mode"
+            (numactl -N $i $cmd ${INPUT_READS[$i]} -p $nthread -S ${OUTPUT_SAMFILE[$i]} | grep "thread:" > $timing_file) &
+            echo "  spawned node $i process with pid $!"
+            pids="$! $pids"
+        done
+        for pid in $pids ; do
+            echo "  waiting for PID $pid"
+            wait $pid
+        done
+        # cleanup
+        for fs in "${INPUT_READS[@]}"; do
+            echo " removing $fs"
+            rm $fs
+        done
+        for fs in "${OUTPUT_SAMFILE[@]}"; do
+            echo "removing $fs"
+            rm $fs
+        done
+      done
     done
-    # make sure input and output are on a local filesystem, not NFS
-    echo "Running bowtie2"
-    pids=""
-    for ((i=0; i<$NODES; i++)); do
-        in="/tmp/.nodebind_test_reads_${i}.fq"
-        out="/tmp/.nodebind_test_reads_${i}.sam"
-        data_file="../../../results/elephant6/numabind_raw/$mode/${2}${t}_${i}.out"
-        (numactl -N $i $cmd $in -p $nthread -S $out | grep "thread:" > $data_file) &
-        echo "  spawned node $i process with pid $!"
-        pids="$! $pids"
-    done
-    for pid in $pids ; do
-        echo "  waiting for PID $pid"
-        wait $pid
-    done
-    ((nthread++))
-  done
-done
 }
 
 # Normal (all synchronization enabled), no TBB
