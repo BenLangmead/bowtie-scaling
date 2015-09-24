@@ -18,6 +18,10 @@ if [[ $# < 1 ]]; then
 fi
 cmd_tmpl="$cmd_tmpl $1"
 
+# This will spawn a bowtie process for each NUMA node and will continue to
+# increase the number of threads for each iteration. Therefore this function
+# will run n*t threads at any step, where n is the total number of NUMA nodes
+# and t is the thread step from 1 to MAX_THREADS.
 run_th () {
     local TIMING_DIR="../../../results/elephant6/raw/"
     declare -a INPUT_READS=()
