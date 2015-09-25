@@ -38,6 +38,7 @@ for thread in 1 12 24 48 96 120; do
           -- ./bowtie2-align-s-master-tbb-pin \
             -x $HOME/data/hg19 \
             -U $INPUT_READS \
+            --$mode \
             -p $thread \
             -S /dev/null
         # no IO 2000seq
@@ -48,6 +49,7 @@ for thread in 1 12 24 48 96 120; do
           -- ./bowtie2-align-s-no-io-tbb-pin \
             -x $HOME/data/hg19 \
             -U $INPUT_READS \
+            --$mode \
             -p $thread \
             -S /dev/null
     done
