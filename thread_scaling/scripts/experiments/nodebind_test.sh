@@ -124,4 +124,33 @@ if [ ! -f "bowtie2-align-s-no-io-tbb-pin" ] ; then
 fi
 run_th bowtie2-align-s-no-io-tbb-pin no_io_tbb_pin_
 
+#Normal TBB queue lock and Affinitization
+if [ ! -f "bowtie2-align-s-tbb-pin-queue" ] ; then
+  git checkout cohort_locking_ptl_tkt
+  rm -f bowtie2-align-s-tbb-pin-queue bowtie2-align-s
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 WITH_AFFINITY=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1 bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-tbb-pin-queue
+fi
+run_th bowtie2-align-s-tbb-pin-queue tbb_pin_queue_
 
+#Normal TBB but using Cohort Locks implemented via TBB (normal/default) and Queue mutexes
+#NOTE WITH_AFFINITY is required for Cohort locks as we don't want threads automatically migrating
+#across numa nodes defeating the purpose of the Cohort lock
+if [ ! -f "bowtie2-align-s-tbb-pin-ctbbqueue" ] ; then
+  git checkout cohort_locking_ptl_tkt
+  rm -f bowtie2-align-s-tbb-pin-ctbbqueue bowtie2-align-s
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 WITH_AFFINITY=1 WITH_QUEUELOCK_=1 WITH_COHORTLOCK=1 bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-tbb-pin-ctbbqueue
+fi
+run_th bowtie2-align-s-tbb-pin-ctbbqueue tbb_pin_ctbbqueue_
+
+#Normal TBB but using Cohort Locks implemented via Ticket and Partition mutexes
+#NOTE WITH_AFFINITY is required for Cohort locks as we don't want threads automatically migrating
+#across numa nodes defeating the purpose of the Cohort lock
+if [ ! -f "bowtie2-align-s-tbb-pin-ctktptl" ] ; then
+  git checkout cohort_locking_ptl_tkt
+  rm -f bowtie2-align-s-tbb-pin-ctktptl bowtie2-align-s
+  make WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 WITH_AFFINITY=1 WITH_COHORTLOCK=1 bowtie2-align-s
+  mv bowtie2-align-s bowtie2-align-s-tbb-pin-ctktptl
+fi
+run_th bowtie2-align-s-tbb-pin-ctktptl tbb_pin_ctktptl_
