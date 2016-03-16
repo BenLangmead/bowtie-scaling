@@ -217,7 +217,7 @@ def go(args):
                 # Compose Bowtie 2 command
                 runname = '%s_%s_%d' % (name, sens_short, nthreads)
                 stdout_ofn = os.path.join(odir, '%d.txt' % nthreads)
-                sam_ofn = os.path.join(tmpdir if args.sam_temporary else odir, '%s.sam' % runname)
+                sam_ofn = os.path.join(odir if args.sam_output_dir else tmpdir, '%s.sam' % runname)
                 cmd = ['%s/bowtie2-align-s' % name]
                 cmd.extend(['-p', str(nthreads)])
                 cmd.append(sens)
@@ -251,34 +251,36 @@ if __name__ == '__main__':
 
     # Output-related options
     parser = argparse.ArgumentParser(description='Set up thread scaling experiments.')
+    default_repo = "https://github.com/BenLangmead/bowtie2.git"
 
+    requiredNamed = parser.add_argument_group('required named arguments')
+    requiredNamed.add_argument('--index', metavar='bt2_index_basename', type=str, required=True,
+                        help='Path to bowtie2 index; omit final ".1.bt2".  Should usually be a human genome index, with filenames like hg19.* or hg38.*')
+    requiredNamed.add_argument('--reads', metavar='int,int,...', type=str, required=True,
+                        help='Path to reads file to use.  Will concatenate multiple copies according to # threads.')
+    requiredNamed.add_argument('--config', metavar='pct,pct,...', type=str, required=True,
+                        help='Specifies path to config file giving bowtie2 configuration short-names, branch names, compilation macros, and command-line args.  (Provided master_config.tsv is probably sufficient)')
+    requiredNamed.add_argument('--output-dir', metavar='path', type=str, required=True,
+                        help='Directory to put thread timings in.')
     parser.add_argument('--nthread-series', metavar='int,int,...', type=str, required=False,
-                        help='Series of comma-separated ints giving the number of threads to use')
+                        help='Series of comma-separated ints giving the number of threads to use.  E.g. --nthread-series 10,20,30 will run separate experiments using 10, 20 and 30 threads respectively.  Deafult: just one experiment using max # threads.')
     parser.add_argument('--nthread-pct-series', metavar='pct,pct,...', type=str, required=False,
                         help='Series of comma-separated percentages giving the number of threads to use as fraction of max # threads')
-    parser.add_argument('--config', metavar='pct,pct,...', type=str, required=True,
-                        help='Specifies path to config file giving bowtie2 configuration short-names, branch names, compilation macros, and command-line args')
-    parser.add_argument('--repo', metavar='url', type=str, default="https://github.com/BenLangmead/bowtie2.git",
-                        help='Path to bowtie2 repo, which we clone for each bowtie2 version we test')
+    parser.add_argument('--repo', metavar='url', type=str, default=default_repo,
+                        help='Path to bowtie2 repo, which we clone for each bowtie2 version we test (deafult: %s)' % default_repo)
     parser.add_argument('--sensitivities', metavar='level,level,...', type=str, default='s',
-                        help='Series of comma-separated sensitivity levels, each from {vf, vfl, f, fl, s, sl, vs, vsl}.  Default: just --sensitive.')
-    parser.add_argument('--index', metavar='bt2_index_basename', type=str, required=True,
-                        help='Path to bowtie2 index; omit final ".1.bt2"')
-    parser.add_argument('--reads', metavar='int,int,...', type=str, required=True,
-                        help='Path to reads file to use.  Will concatenate multiple copies according to # threads.')
+                        help='Series of comma-separated sensitivity levels, each from the set {vf, vfl, f, fl, s, sl, vs, vsl}.  Default: s (just --sensitive).')
     parser.add_argument('--tempdir', metavar='path', type=str, required=False,
                         help='Picks a path for temporary files.')
-    parser.add_argument('--output-dir', metavar='path', type=str, required=True,
-                        help='Directory to put thread timings in.')
     parser.add_argument('--force-builds', action='store_const', const=True, default=False,
                         help='Overwrite bowtie2 binaries that already exist')
     parser.add_argument('--force-runs', action='store_const', const=True, default=False,
                         help='Overwrite bowtie2 run output files that already exist')
     parser.add_argument('--dry-run', action='store_const', const=True, default=False,
-                        help='Just verify that bowtie2 jobs can be run, then print out bt2 commands without running them')
-    parser.add_argument('--sam-temporary', action='store_const', const=True, default=False,
-                        help='Put SAM output in temporary directory rather than output directory')
+                        help='Just verify that bowtie2 jobs can be run, then print out bt2 commands without running them; useful for when you need to wrap the bowtie2 commands for profiling or other reasons')
+    parser.add_argument('--sam-output-dir', action='store_const', const=True, default=False,
+                        help='Put SAM output in the output directory rather than in the temporary directory.  Usually we don\'t really care to examine the SAM output, so the default is reasonable.')
     parser.add_argument('--delete-sam', action='store_const', const=True, default=False,
-                        help='Delete SAM file as soon as bowtie2 finishes')
+                        help='Delete SAM file as soon as bowtie2 finishes; useful if you need to avoid exhausting a partition')
 
     go(parser.parse_args())
