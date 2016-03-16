@@ -19,5 +19,14 @@ python master.py \
     --reads $BT2_READS \
     --nthread-pct 1,5,10,20,30,40,50,60,70,80,90,95,100 \
     --output-dir out \
-    --config master_config.tsv
+    --config master_config.tsv \
+    --delete-sam
+
+python master.py \
+    --index $BT2_INDEX/hg19 \
+    --reads $BT2_READS \
+    --nthread-pct 100 \
+    --output-dir out_just_100pct \
+    --config master_config.tsv \
+    --delete-sam
 ```

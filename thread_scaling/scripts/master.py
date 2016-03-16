@@ -150,7 +150,7 @@ def go(args):
         if name == 'name' and branch == 'branch':
             continue  # skip header line
         build, pull = False, False
-        if os.path.exists(name) and args.force_build:
+        if os.path.exists(name) and args.force_builds:
             print('  Removing existing "%s" subdir because of --force' % name, file=sys.stderr)
             shutil.rmtree(name)
             build = True
@@ -216,8 +216,8 @@ def go(args):
             for nthreads in series:
                 # Compose Bowtie 2 command
                 runname = '%s_%s_%d' % (name, sens_short, nthreads)
-                sam_ofn = os.path.join(tmpdir, '%s.sam' % runname)
                 stdout_ofn = os.path.join(odir, '%d.txt' % nthreads)
+                sam_ofn = os.path.join(tmpdir if args.sam_temporary else odir, '%s.sam' % runname)
                 cmd = ['%s/bowtie2-align-s' % name]
                 cmd.extend(['-p', str(nthreads)])
                 cmd.append(sens)
@@ -225,20 +225,26 @@ def go(args):
                 cmd.extend(['-S', sam_ofn])
                 cmd.extend(['-x', args.index])
                 cmd.extend(['-U', tmpfile])
+                cmd.append('-t')
                 cmd.extend(['>', stdout_ofn])
                 if len(bt2_args) > 0:  # from config file
                     cmd.extend(bt2_args.split())
                 cmd = ' '.join(cmd)
                 print(cmd)
+                run = False
                 if not args.dry_run:
                     if os.path.exists(stdout_ofn):
-                        if args.force_run:
-                            print('  "%s" exists; overwriting because --force-run was specified' % stdout_ofn, file=sys.stderr)
-                            os.system(cmd)
+                        if args.force_runs:
+                            print('  "%s" exists; overwriting because --force-runs was specified' % stdout_ofn, file=sys.stderr)
+                            run = True
                         else:
                             print('  skipping run "%s" since output file "%s" exists' % (runname, stdout_ofn), file=sys.stderr)
                     else:
-                        os.system(cmd)
+                        run = True
+                if run:
+                    os.system(cmd)
+                    if args.delete_sam:
+                        os.remove(sam_ofn)
 
 
 if __name__ == '__main__':
@@ -270,5 +276,9 @@ if __name__ == '__main__':
                         help='Overwrite bowtie2 run output files that already exist')
     parser.add_argument('--dry-run', action='store_const', const=True, default=False,
                         help='Just verify that bowtie2 jobs can be run, then print out bt2 commands without running them')
+    parser.add_argument('--sam-temporary', action='store_const', const=True, default=False,
+                        help='Put SAM output in temporary directory rather than output directory')
+    parser.add_argument('--delete-sam', action='store_const', const=True, default=False,
+                        help='Delete SAM file as soon as bowtie2 finishes')
 
     go(parser.parse_args())
