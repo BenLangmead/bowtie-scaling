@@ -143,7 +143,7 @@ def go(args):
                        'f': '--fast',
                        'fl': '--fast-local',
                        'vf': '--very-fast',
-                       'vfs': '--very-fast-local'}
+                       'vfl': '--very-fast-local'}
 
     print('Setting up Bowtie 2 binaries', file=sys.stderr)
     for name, branch, preproc, bt2_args in get_configs(args.config):
@@ -257,7 +257,7 @@ if __name__ == '__main__':
     requiredNamed = parser.add_argument_group('required named arguments')
     requiredNamed.add_argument('--index', metavar='bt2_index_basename', type=str, required=True,
                         help='Path to bowtie2 index; omit final ".1.bt2".  Should usually be a human genome index, with filenames like hg19.* or hg38.*')
-    requiredNamed.add_argument('--reads', metavar='int,int,...', type=str, required=True,
+    requiredNamed.add_argument('--reads', metavar='path', type=str, required=True,
                         help='Path to reads file to use.  Will concatenate multiple copies according to # threads.')
     requiredNamed.add_argument('--config', metavar='pct,pct,...', type=str, required=True,
                         help='Specifies path to config file giving bowtie2 configuration short-names, branch names, compilation macros, and command-line args.  (Provided master_config.tsv is probably sufficient)')
