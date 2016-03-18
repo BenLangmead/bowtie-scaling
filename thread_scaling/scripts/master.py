@@ -196,7 +196,8 @@ def go(args):
     print('Concatenating new read file and storing in "%s"' % tmpfile, file=sys.stderr)
     cat([args.reads], tmpfile, max(series))
 
-    sensitivities = zip(map(sensitivity_map.get, args.sensitivities.split(',')), args.sensitivities)
+    sensitivities = args.sensitivities.split(',')
+    sensitivities = zip(map(sensitivity_map.get, sensitivities), sensitivities)
     print('Generating sensitivity series: "%s"' % str(sensitivities), file=sys.stderr)
 
     print('Creating output directory "%s"' % args.output_dir, file=sys.stderr)
