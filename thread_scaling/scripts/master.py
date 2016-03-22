@@ -181,6 +181,7 @@ def cat_shorten(fns, dest_fn, n):
 def prepare_reads(args, tmpdir, max_threads):
 
     print('Counting reads', file=sys.stderr)
+
     nreads_unp = count_reads([args.U])
     nreads_unp_full = nreads_unp * max_threads
     print('  counted %d unpaired reads, %d for a full series w/ %d threads' % (nreads_unp, nreads_unp_full, max_threads), file=sys.stderr)
@@ -191,29 +192,29 @@ def prepare_reads(args, tmpdir, max_threads):
 
     tmpfile = os.path.join(tmpdir, "reads.fq")
     print('Concatenating new unpaired long-read file and storing in "%s"' % tmpfile, file=sys.stderr)
-    cat([args.U], tmpfile, max_threads)
+    cat([args.U], tmpfile, max_threads * args.multiply_reads)
 
     tmpfile_short = os.path.join(tmpdir, "reads_short.fq")
     print('Concatenating new unpaired short-read file and storing in "%s"' % tmpfile_short, file=sys.stderr)
-    cat_shorten([args.U], tmpfile_short, max_threads*2)
+    cat_shorten([args.U], tmpfile_short, max_threads*2 * args.multiply_reads)
 
     tmpfile_1 = os.path.join(tmpdir, "reads_1.fq")
     print('Concatenating new long paired-end mate 1s and storing in "%s"' % tmpfile_1, file=sys.stderr)
-    cat([args.m1], tmpfile_1, max_threads)
+    cat([args.m1], tmpfile_1, max_threads * args.multiply_reads)
 
     tmpfile_short_1 = os.path.join(tmpdir, "reads_1_short.fq")
     print('Concatenating new short paired-end mate 1s and storing in "%s"' % tmpfile_short_1, file=sys.stderr)
-    cat_shorten([args.m1], tmpfile_short_1, max_threads*2)
+    cat_shorten([args.m1], tmpfile_short_1, max_threads*2 * args.multiply_reads)
 
     tmpfile_2 = os.path.join(tmpdir, "reads_2.fq")
     print('Concatenating new long paired-end mate 2s and storing in "%s"' % tmpfile_2, file=sys.stderr)
-    cat([args.m2], tmpfile_2, max_threads)
+    cat([args.m2], tmpfile_2, max_threads * args.multiply_reads)
 
     tmpfile_short_2 = os.path.join(tmpdir, "reads_2_short.fq")
     print('Concatenating new short paired-end mate 2s and storing in "%s"' % tmpfile_short_2, file=sys.stderr)
-    cat_shorten([args.m2], tmpfile_short_2, max_threads*2)
+    cat_shorten([args.m2], tmpfile_short_2, max_threads*2 * args.multiply_reads)
 
-    return tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, nreads_unp_full, nreads_pe_full
+    return tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, nreads_unp_full * args.multiply_reads, nreads_pe_full * args.multiply_reads
 
 
 def go(args):
@@ -373,6 +374,8 @@ if __name__ == '__main__':
                         help='Directory to put thread timings in.')
     parser.add_argument('--nthread-series', metavar='int,int,...', type=str, required=False,
                         help='Series of comma-separated ints giving the number of threads to use.  E.g. --nthread-series 10,20,30 will run separate experiments using 10, 20 and 30 threads respectively.  Deafult: just one experiment using max # threads.')
+    parser.add_argument('--multiply-reads', metavar='int', type=int, default=20,
+                        help='Duplicate the input reads file this many times before scaling according to the number of reads.')
     parser.add_argument('--nthread-pct-series', metavar='pct,pct,...', type=str, required=False,
                         help='Series of comma-separated percentages giving the number of threads to use as fraction of max # threads')
     parser.add_argument('--bowtie-repo', metavar='url', type=str, default=default_bt_repo,
