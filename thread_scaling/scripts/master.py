@@ -1,5 +1,6 @@
 """
-Master script for setting up thread-scaling experiments with Bowtie 2.
+Master script for setting up thread-scaling experiments with Bowtie, Bowtie 2
+and HISAT.
 """
 
 from __future__ import print_function
@@ -44,23 +45,59 @@ def get_num_nodes():
     return nnodes
 
 
-def make_bt2_version(name, preproc):
-    """ Builds bowtie2-align-s target in specified clone """
-    cmd = "make -C %s %s bowtie2-align-s" % (name, preproc)
+def tool_exe(tool):
+    if tool == 'bowtie2':
+        return 'bowtie2-align-s'
+    elif tool == 'bowtie':
+        return 'bowtie-align-s'
+    elif tool == 'hisat':
+        return 'hisat'
+    else:
+        raise RuntimeError('Unknown tool: "%s"' % tool)
+
+
+def tool_ext(tool):
+    if tool == 'bowtie2':
+        return 'bt2'
+    elif tool == 'bowtie':
+        return 'ebwt'
+    elif tool == 'hisat':
+        return 'hisat'
+    else:
+        raise RuntimeError('Unknown tool: "%s"' % tool)
+
+
+def tool_repo(tool, args):
+    if tool == 'bowtie2':
+        return args.bowtie2_repo
+    elif tool == 'bowtie':
+        return args.bowtie_repo
+    elif tool == 'hisat':
+        return args.hisat_repo
+    else:
+        raise RuntimeError('Unknown tool: "%s"' % tool)
+
+
+
+def make_tool_version(name, tool, preproc):
+    """ Builds target in specified clone """
+    exe = tool_exe(tool)
+    cmd = "make -C build/%s %s %s" % (name, preproc, exe)
     print('  command: ' + cmd, file=sys.stderr)
     ret = os.system(cmd)
     if ret != 0:
-        raise RuntimeError('non-zero return from make for bt2 version "%s"' % name)
+        raise RuntimeError('non-zero return from make for %s version "%s"' % (tool, name))
 
 
-def install_bt2_version(name, url, branch, preproc):
+def install_tool_version(name, tool, url, branch, preproc):
     """ Clones appropriate branch """
-    cmd = "git clone -b %s %s %s" % (branch, url, name)
+    mkdir_quiet(os.path.join('build', name))
+    cmd = "git clone -b %s %s build/%s" % (branch, url, name)
     print('  command: ' + cmd, file=sys.stderr)
     ret = os.system(cmd)
     if ret != 0:
-        raise RuntimeError('non-zero return from git clone for bt2 version "%s"' % name)
-    make_bt2_version(name, preproc)
+        raise RuntimeError('non-zero return from git clone for %s version "%s"' % (tool, name))
+    make_tool_version(name, tool, preproc)
 
 
 def get_configs(config_fn):
@@ -68,28 +105,30 @@ def get_configs(config_fn):
     with open(config_fn) as fh:
         for ln in fh:
             toks = ln.split('\t')
-            if toks[0] == 'name' and toks[1] == 'branch':
+            if toks[0] == 'name' and toks[1] == 'tool' and toks[2] == 'branch':
                 continue
             if len(toks) == 0 or ln.startswith('#'):
                 continue
-            if len(toks) == 3:
-                name, branch, preproc = toks
-                yield name, branch, preproc.rstrip(), None
+            if len(toks) == 4:
+                name, tool, branch, preproc = toks
+                yield name, tool, branch, preproc.rstrip(), None
             else:
-                name, branch, preproc, args = toks
-                yield name, branch, preproc, args.rstrip()
+                name, tool, branch, preproc, args = toks
+                yield name, tool, branch, preproc, args.rstrip()
 
 
-def verify_index(basename):
-    """ Check that all bt2 index files exist """
+def verify_index(basename, tool):
+    """ Check that all index files exist """
+    te = tool_ext(tool)
     def _ext_exists(ext):
         return os.path.exists(basename + ext)
-    return _ext_exists('.1.bt2') and\
-           _ext_exists('.2.bt2') and\
-           _ext_exists('.3.bt2') and\
-           _ext_exists('.4.bt2') and\
-           _ext_exists('.rev.1.bt2') and\
-           _ext_exists('.rev.2.bt2')
+    print('  checking for "%s"' % (basename + '.1.' + te), file=sys.stderr)
+    return _ext_exists('.1.' + te) and\
+           _ext_exists('.2.' + te) and\
+           _ext_exists('.3.' + te) and\
+           _ext_exists('.4.' + te) and\
+           _ext_exists('.rev.1.' + te) and\
+           _ext_exists('.rev.2.' + te)
 
 
 def verify_reads(fns):
@@ -131,6 +170,43 @@ def cat(fns, dest_fn, n):
                     shutil.copyfileobj(fh, ofh, 1024*1024*10)
 
 
+def cat_shorten(fns, dest_fn, n):
+    """ Concatenate one or more read files into one output file """
+    if os.path.exists(dest_fn):
+        os.remove(dest_fn)
+    for _ in range(n):
+        os.system("cat %s | awk -f shorten.awk >> %s" % (' '.join(fns), dest_fn))
+
+
+def prepare_reads(args, tmpdir, max_threads):
+
+    tmpfile = os.path.join(tmpdir, "reads.fq")
+    print('Concatenating new unpaired long-read file and storing in "%s"' % tmpfile, file=sys.stderr)
+    cat([args.U], tmpfile, max_threads)
+
+    tmpfile_short = os.path.join(tmpdir, "reads_short.fq")
+    print('Concatenating new unpaired short-read file and storing in "%s"' % tmpfile_short, file=sys.stderr)
+    cat_shorten([args.U], tmpfile_short, max_threads*2)
+
+    tmpfile_1 = os.path.join(tmpdir, "reads_1.fq")
+    print('Concatenating new long paired-end mate 1s and storing in "%s"' % tmpfile_1, file=sys.stderr)
+    cat([args.m1], tmpfile_1, max_threads)
+
+    tmpfile_short_1 = os.path.join(tmpdir, "reads_1_short.fq")
+    print('Concatenating new short paired-end mate 1s and storing in "%s"' % tmpfile_short_1, file=sys.stderr)
+    cat_shorten([args.m1], tmpfile_short_1, max_threads*2)
+
+    tmpfile_2 = os.path.join(tmpdir, "reads_2.fq")
+    print('Concatenating new long paired-end mate 2s and storing in "%s"' % tmpfile_2, file=sys.stderr)
+    cat([args.m2], tmpfile_2, max_threads)
+
+    tmpfile_short_2 = os.path.join(tmpdir, "reads_2_short.fq")
+    print('Concatenating new short paired-end mate 2s and storing in "%s"' % tmpfile_short_2, file=sys.stderr)
+    cat_shorten([args.m2], tmpfile_short_2, max_threads*2)
+
+    return tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2
+
+
 def go(args):
     nnodes, ncpus = get_num_nodes(), get_num_cores()
     print('# NUMA nodes = %d' % nnodes, file=sys.stderr)
@@ -145,31 +221,28 @@ def go(args):
                        'vf': '--very-fast',
                        'vfl': '--very-fast-local'}
 
-    print('Setting up Bowtie 2 binaries', file=sys.stderr)
-    for name, branch, preproc, bt2_args in get_configs(args.config):
+    print('Setting up binaries', file=sys.stderr)
+    for name, tool, branch, preproc, aligner_args in get_configs(args.config):
         if name == 'name' and branch == 'branch':
             continue  # skip header line
         build, pull = False, False
-        if os.path.exists(name) and args.force_builds:
-            print('  Removing existing "%s" subdir because of --force' % name, file=sys.stderr)
-            shutil.rmtree(name)
+        build_dir = os.path.join('build', name)
+        if os.path.exists(build_dir) and args.force_builds:
+            print('  Removing existing "%s" subdir because of --force' % build_dir, file=sys.stderr)
+            shutil.rmtree(build_dir)
             build = True
-        elif os.path.exists(name):
+        elif os.path.exists(build_dir):
             pull = True
-        elif not os.path.exists(name):
+        elif not os.path.exists(build_dir):
             build = True
 
         if pull:
             print('  Pulling "%s"' % name, file=sys.stderr)
-            os.system('cd %s && git pull' % name)
-            make_bt2_version(name, preproc)
+            os.system('cd %s && git pull' % build_dir)
+            make_tool_version(name, tool, preproc)
         elif build:
             print('  Building "%s"' % name, file=sys.stderr)
-            install_bt2_version(name, args.repo, branch, preproc)
-
-    print('Checking that index files exist', file=sys.stderr)
-    if not verify_index(args.index):
-        raise RuntimeError('Could not verify index files')
+            install_tool_version(name, tool, tool_repo(tool, args), branch, preproc)
 
     print('Checking that reads exist', file=sys.stderr)
     if not verify_reads([args.reads]):
@@ -192,9 +265,7 @@ def go(args):
     if not os.path.isdir(tmpdir):
         raise RuntimeError('Temporary directory isn\'t a directory: "%s"' % tmpdir)
 
-    tmpfile = os.path.join(tmpdir, "reads.fq")
-    print('Concatenating new read file and storing in "%s"' % tmpfile, file=sys.stderr)
-    cat([args.reads], tmpfile, max(series))
+    tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2 = prepare_reads(args, tmpdir, max(series))
 
     sensitivities = args.sensitivities.split(',')
     sensitivities = zip(map(sensitivity_map.get, sensitivities), sensitivities)
@@ -203,85 +274,124 @@ def go(args):
     print('Creating output directory "%s"' % args.output_dir, file=sys.stderr)
     mkdir_quiet(args.output_dir)
 
-    print('Generating bowtie2 commands', file=sys.stderr)
+    print('Generating %scommands' % ('' if args.dry_run else 'and running '), file=sys.stderr)
 
-    # iterate over Bowtie 2 configurations
-    for name, branch, preproc, bt2_args in get_configs(args.config):
+    # iterate over configurations
+    for name, tool, branch, preproc, aligner_args in get_configs(args.config):
         odir_outer = os.path.join(args.output_dir, name)
+
+        print('Checking that index files exist', file=sys.stderr)
+        if not verify_index(args.index, tool):
+            raise RuntimeError('Could not verify index files')
+
         # iterate over sensitivity levels
         for sens, sens_short in sensitivities:
-            odir = os.path.join(odir_outer, sens[2:])
-            print('  Creating output directory "%s"' % odir, file=sys.stderr)
-            mkdir_quiet(odir)
+            odir_sens = os.path.join(odir_outer, sens[2:])
             # iterate over numbers of threads
             for nthreads in series:
-                # Compose Bowtie 2 command
-                runname = '%s_%s_%d' % (name, sens_short, nthreads)
-                stdout_ofn = os.path.join(odir, '%d.txt' % nthreads)
-                sam_ofn = os.path.join(odir if args.sam_output_dir else tmpdir, '%s.sam' % runname)
-                cmd = ['%s/bowtie2-align-s' % name]
-                cmd.extend(['-p', str(nthreads)])
-                cmd.append(sens)
-                cmd.extend(['-u', str(nreads * nthreads)])
-                cmd.extend(['-S', sam_ofn])
-                cmd.extend(['-x', args.index])
-                cmd.extend(['-U', tmpfile])
-                cmd.append('-t')
-                cmd.extend(['>', stdout_ofn])
-                if len(bt2_args) > 0:  # from config file
-                    cmd.extend(bt2_args.split())
-                cmd = ' '.join(cmd)
-                print(cmd)
-                run = False
-                if not args.dry_run:
-                    if os.path.exists(stdout_ofn):
-                        if args.force_runs:
-                            print('  "%s" exists; overwriting because --force-runs was specified' % stdout_ofn, file=sys.stderr)
-                            run = True
+                # iterate over unpaired / paired-end
+                for paired in [False, True]:
+                    # Compose command
+                    odir = os.path.join(odir_sens, 'pe' if paired else 'unp')
+                    print('  Creating output directory "%s"' % odir, file=sys.stderr)
+                    mkdir_quiet(odir)
+
+                    runname = '%s_%s_%s_%d' % (name, 'pe' if paired else 'unp', sens_short, nthreads)
+                    stdout_ofn = os.path.join(odir, '%d.txt' % nthreads)
+                    sam_ofn = os.path.join(odir if args.sam_output_dir else tmpdir, '%s.sam' % runname)
+                    cmd = ['build/%s/%s' % (name, tool_exe(tool))]
+                    cmd.extend(['-p', str(nthreads)])
+                    if tool == 'bowtie2':
+                        cmd.extend(['-u', str(nreads * nthreads)])
+                        cmd.append(sens)
+                        cmd.extend(['-S', sam_ofn])
+                        cmd.extend(['-x', args.index])
+                        if paired:
+                            cmd.extend(['-1', tmpfile_1])
+                            cmd.extend(['-2', tmpfile_2])
                         else:
-                            print('  skipping run "%s" since output file "%s" exists' % (runname, stdout_ofn), file=sys.stderr)
+                            cmd.extend(['-U', tmpfile])
+                        cmd.append('-t')
+                        cmd.extend(['>', stdout_ofn])
+                    elif tool == 'bowtie':
+                        cmd.extend(['-u', str(2 * nreads * nthreads)])
+                        cmd.extend([args.index])
+                        if paired:
+                            cmd.extend(['-1', tmpfile_short_1])
+                            cmd.extend(['-2', tmpfile_short_2])
+                        else:
+                            cmd.extend([tmpfile_short])
+                        cmd.extend([sam_ofn])
+                        cmd.append('-t')
+                        cmd.append('-S')
+                        cmd.extend(['>', stdout_ofn])
                     else:
-                        run = True
-                if run:
-                    os.system(cmd)
-                    if args.delete_sam:
-                        os.remove(sam_ofn)
+                        raise RuntimeError('Unsupported tool: "%s"' % tool)
+                    if aligner_args is not None and len(aligner_args) > 0:  # from config file
+                        cmd.extend(aligner_args.split())
+                    cmd = ' '.join(cmd)
+                    print(cmd)
+                    run = False
+                    if not args.dry_run:
+                        if os.path.exists(stdout_ofn):
+                            if args.force_runs:
+                                print('  "%s" exists; overwriting because --force-runs was specified' % stdout_ofn, file=sys.stderr)
+                                run = True
+                            else:
+                                print('  skipping run "%s" since output file "%s" exists' % (runname, stdout_ofn), file=sys.stderr)
+                        else:
+                            run = True
+                    if run:
+                        os.system(cmd)
+                        assert os.path.exists(sam_ofn)
+                        if args.delete_sam:
+                            os.remove(sam_ofn)
 
 
 if __name__ == '__main__':
 
     # Output-related options
     parser = argparse.ArgumentParser(description='Set up thread scaling experiments.')
-    default_repo = "https://github.com/BenLangmead/bowtie2.git"
+    default_bt_repo = "https://github.com/BenLangmead/bowtie.git"
+    default_bt2_repo = "https://github.com/BenLangmead/bowtie2.git"
+    default_hs_repo = "https://github.com/BenLangmead/hisat.git"  # this is my fork
 
     requiredNamed = parser.add_argument_group('required named arguments')
-    requiredNamed.add_argument('--index', metavar='bt2_index_basename', type=str, required=True,
-                        help='Path to bowtie2 index; omit final ".1.bt2".  Should usually be a human genome index, with filenames like hg19.* or hg38.*')
-    requiredNamed.add_argument('--reads', metavar='path', type=str, required=True,
-                        help='Path to reads file to use.  Will concatenate multiple copies according to # threads.')
+    requiredNamed.add_argument('--index', metavar='index_basename', type=str, required=True,
+                        help='Path to index; omit final ".1.bt2".  Should usually be a human genome index, with filenames like hg19.* or hg38.*')
+    requiredNamed.add_argument('--U', metavar='path', type=str, required=True,
+                        help='Path to file to use for unpaired reads.  Will concatenate multiple copies according to # threads.')
+    requiredNamed.add_argument('--m1', metavar='path', type=str, required=True,
+                        help='Path to file to use for mate 1s for paried-end runs.  Will concatenate multiple copies according to # threads.')
+    requiredNamed.add_argument('--m2', metavar='path', type=str, required=True,
+                        help='Path to file to use for mate 2s for paried-end runs.  Will concatenate multiple copies according to # threads.')
     requiredNamed.add_argument('--config', metavar='pct,pct,...', type=str, required=True,
-                        help='Specifies path to config file giving bowtie2 configuration short-names, branch names, compilation macros, and command-line args.  (Provided master_config.tsv is probably sufficient)')
+                        help='Specifies path to config file giving configuration short-names, tool names, branch names, compilation macros, and command-line args.  (Provided master_config.tsv is probably sufficient)')
     requiredNamed.add_argument('--output-dir', metavar='path', type=str, required=True,
                         help='Directory to put thread timings in.')
     parser.add_argument('--nthread-series', metavar='int,int,...', type=str, required=False,
                         help='Series of comma-separated ints giving the number of threads to use.  E.g. --nthread-series 10,20,30 will run separate experiments using 10, 20 and 30 threads respectively.  Deafult: just one experiment using max # threads.')
     parser.add_argument('--nthread-pct-series', metavar='pct,pct,...', type=str, required=False,
                         help='Series of comma-separated percentages giving the number of threads to use as fraction of max # threads')
-    parser.add_argument('--repo', metavar='url', type=str, default=default_repo,
-                        help='Path to bowtie2 repo, which we clone for each bowtie2 version we test (deafult: %s)' % default_repo)
+    parser.add_argument('--bowtie-repo', metavar='url', type=str, default=default_bt_repo,
+                        help='Path to bowtie repo, which we clone for each bowtie version we test (deafult: %s)' % default_bt_repo)
+    parser.add_argument('--bowtie2-repo', metavar='url', type=str, default=default_bt2_repo,
+                        help='Path to bowtie2 repo, which we clone for each bowtie2 version we test (deafult: %s)' % default_bt2_repo)
+    parser.add_argument('--hisat-repo', metavar='url', type=str, default=default_hs_repo,
+                        help='Path to HISAT repo, which we clone for each HISAT version we test (deafult: %s)' % default_hs_repo)
     parser.add_argument('--sensitivities', metavar='level,level,...', type=str, default='s',
                         help='Series of comma-separated sensitivity levels, each from the set {vf, vfl, f, fl, s, sl, vs, vsl}.  Default: s (just --sensitive).')
     parser.add_argument('--tempdir', metavar='path', type=str, required=False,
                         help='Picks a path for temporary files.')
     parser.add_argument('--force-builds', action='store_const', const=True, default=False,
-                        help='Overwrite bowtie2 binaries that already exist')
+                        help='Overwrite binaries that already exist')
     parser.add_argument('--force-runs', action='store_const', const=True, default=False,
-                        help='Overwrite bowtie2 run output files that already exist')
+                        help='Overwrite run output files that already exist')
     parser.add_argument('--dry-run', action='store_const', const=True, default=False,
-                        help='Just verify that bowtie2 jobs can be run, then print out bt2 commands without running them; useful for when you need to wrap the bowtie2 commands for profiling or other reasons')
+                        help='Just verify that jobs can be run, then print out commands without running them; useful for when you need to wrap the bowtie2 commands for profiling or other reasons')
     parser.add_argument('--sam-output-dir', action='store_const', const=True, default=False,
                         help='Put SAM output in the output directory rather than in the temporary directory.  Usually we don\'t really care to examine the SAM output, so the default is reasonable.')
     parser.add_argument('--delete-sam', action='store_const', const=True, default=False,
-                        help='Delete SAM file as soon as bowtie2 finishes; useful if you need to avoid exhausting a partition')
+                        help='Delete SAM file as soon as aligner finishes; useful if you need to avoid exhausting a partition')
 
     go(parser.parse_args())
