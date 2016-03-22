@@ -312,6 +312,8 @@ def go(args):
                         else:
                             cmd.extend(['-U', tmpfile])
                         cmd.append('-t')
+                        if aligner_args is not None and len(aligner_args) > 0:  # from config file
+                            cmd.extend(aligner_args.split())
                         cmd.extend(['>', stdout_ofn])
                     elif tool == 'bowtie':
                         cmd.extend(['-u', str(2 * nreads_pe)])
@@ -324,11 +326,11 @@ def go(args):
                         cmd.extend([sam_ofn])
                         cmd.append('-t')
                         cmd.append('-S')
+                        if aligner_args is not None and len(aligner_args) > 0:  # from config file
+                            cmd.extend(aligner_args.split())
                         cmd.extend(['>', stdout_ofn])
                     else:
                         raise RuntimeError('Unsupported tool: "%s"' % tool)
-                    if aligner_args is not None and len(aligner_args) > 0:  # from config file
-                        cmd.extend(aligner_args.split())
                     cmd = ' '.join(cmd)
                     print(cmd)
                     run = False
