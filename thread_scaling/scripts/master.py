@@ -180,6 +180,15 @@ def cat_shorten(fns, dest_fn, n):
 
 def prepare_reads(args, tmpdir, max_threads):
 
+    print('Counting reads', file=sys.stderr)
+    nreads_unp = count_reads([args.U])
+    nreads_unp_full = nreads_unp * max_threads
+    print('  counted %d unpaired reads, %d for a full series w/ %d threads' % (nreads_unp, nreads_unp_full, max_threads), file=sys.stderr)
+
+    nreads_pe = count_reads([args.m1])
+    nreads_pe_full = nreads_pe * max_threads
+    print('  counted %d paired-end reads, %d for a full series w/ %d threads' % (nreads_pe, nreads_pe_full, max_threads), file=sys.stderr)
+
     tmpfile = os.path.join(tmpdir, "reads.fq")
     print('Concatenating new unpaired long-read file and storing in "%s"' % tmpfile, file=sys.stderr)
     cat([args.U], tmpfile, max_threads)
@@ -204,7 +213,7 @@ def prepare_reads(args, tmpdir, max_threads):
     print('Concatenating new short paired-end mate 2s and storing in "%s"' % tmpfile_short_2, file=sys.stderr)
     cat_shorten([args.m2], tmpfile_short_2, max_threads*2)
 
-    return tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2
+    return tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, nreads_unp_full, nreads_pe_full
 
 
 def go(args):
@@ -244,18 +253,9 @@ def go(args):
             print('  Building "%s"' % name, file=sys.stderr)
             install_tool_version(name, tool, tool_repo(tool, args), branch, preproc)
 
-    print('Checking that reads exist', file=sys.stderr)
-    if not verify_reads([args.reads]):
-        raise RuntimeError('Could not verify reads file(s)')
-
     print('Generating thread series', file=sys.stderr)
     series = gen_thread_series(args, ncpus)
     print('  series = %s' % str(series))
-
-    print('Counting reads', file=sys.stderr)
-    nreads = count_reads([args.reads])
-    nreads_full = nreads * max(series)
-    print('  counted %d reads, %d for a full series w/ %d threads' % (nreads, nreads_full, max(series)), file=sys.stderr)
 
     tmpdir = args.tempdir
     if tmpdir is None:
@@ -265,7 +265,7 @@ def go(args):
     if not os.path.isdir(tmpdir):
         raise RuntimeError('Temporary directory isn\'t a directory: "%s"' % tmpdir)
 
-    tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2 = prepare_reads(args, tmpdir, max(series))
+    tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, nreads_unp, nreads_pe = prepare_reads(args, tmpdir, max(series))
 
     sensitivities = args.sensitivities.split(',')
     sensitivities = zip(map(sensitivity_map.get, sensitivities), sensitivities)
@@ -302,7 +302,7 @@ def go(args):
                     cmd = ['build/%s/%s' % (name, tool_exe(tool))]
                     cmd.extend(['-p', str(nthreads)])
                     if tool == 'bowtie2':
-                        cmd.extend(['-u', str(nreads * nthreads)])
+                        cmd.extend(['-u', str(nreads_unp)])
                         cmd.append(sens)
                         cmd.extend(['-S', sam_ofn])
                         cmd.extend(['-x', args.index])
@@ -314,7 +314,7 @@ def go(args):
                         cmd.append('-t')
                         cmd.extend(['>', stdout_ofn])
                     elif tool == 'bowtie':
-                        cmd.extend(['-u', str(2 * nreads * nthreads)])
+                        cmd.extend(['-u', str(2 * nreads_pe)])
                         cmd.extend([args.index])
                         if paired:
                             cmd.extend(['-1', tmpfile_short_1])
