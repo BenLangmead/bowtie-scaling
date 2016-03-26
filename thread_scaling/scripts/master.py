@@ -182,13 +182,20 @@ def prepare_reads(args, tmpdir, max_threads):
 
     print('Counting reads', file=sys.stderr)
 
+    # TODO: make these command-line parameters
+    # with these settings, I'm trying to roughly even out how long the runs take
+    short_read_multiplier = 2
+    paired_end_divisor = 2
+
     nreads_unp = count_reads([args.U])
     nreads_unp_full = nreads_unp * max_threads
-    print('  counted %d unpaired reads, %d for a full series w/ %d threads' % (nreads_unp, nreads_unp_full, max_threads), file=sys.stderr)
+    print('  counted %d unpaired reads, %d for a full series w/ %d threads' %
+          (nreads_unp, nreads_unp_full, max_threads), file=sys.stderr)
 
     nreads_pe = count_reads([args.m1])
     nreads_pe_full = nreads_pe * max_threads
-    print('  counted %d paired-end reads, %d for a full series w/ %d threads' % (nreads_pe, nreads_pe_full, max_threads), file=sys.stderr)
+    print('  counted %d paired-end reads, %d for a full series w/ %d threads' %
+          (nreads_pe, nreads_pe_full, max_threads), file=sys.stderr)
 
     tmpfile = os.path.join(tmpdir, "reads.fq")
     print('Concatenating new unpaired long-read file and storing in "%s"' % tmpfile, file=sys.stderr)
@@ -196,25 +203,36 @@ def prepare_reads(args, tmpdir, max_threads):
 
     tmpfile_short = os.path.join(tmpdir, "reads_short.fq")
     print('Concatenating new unpaired short-read file and storing in "%s"' % tmpfile_short, file=sys.stderr)
-    cat_shorten([args.U], tmpfile_short, max_threads*2 * args.multiply_reads)
+    cat_shorten([args.U], tmpfile_short, max_threads * short_read_multiplier * args.multiply_reads)
 
     tmpfile_1 = os.path.join(tmpdir, "reads_1.fq")
     print('Concatenating new long paired-end mate 1s and storing in "%s"' % tmpfile_1, file=sys.stderr)
-    cat([args.m1], tmpfile_1, max_threads * args.multiply_reads)
+    cat([args.m1], tmpfile_1, (max_threads * args.multiply_reads) / paired_end_divisor)
 
     tmpfile_short_1 = os.path.join(tmpdir, "reads_1_short.fq")
     print('Concatenating new short paired-end mate 1s and storing in "%s"' % tmpfile_short_1, file=sys.stderr)
-    cat_shorten([args.m1], tmpfile_short_1, max_threads*2 * args.multiply_reads)
+    cat_shorten([args.m1], tmpfile_short_1,
+                (max_threads * short_read_multiplier * args.multiply_reads) / paired_end_divisor)
 
     tmpfile_2 = os.path.join(tmpdir, "reads_2.fq")
     print('Concatenating new long paired-end mate 2s and storing in "%s"' % tmpfile_2, file=sys.stderr)
-    cat([args.m2], tmpfile_2, max_threads * args.multiply_reads)
+    cat([args.m2], tmpfile_2, (max_threads * args.multiply_reads) / paired_end_divisor)
 
     tmpfile_short_2 = os.path.join(tmpdir, "reads_2_short.fq")
     print('Concatenating new short paired-end mate 2s and storing in "%s"' % tmpfile_short_2, file=sys.stderr)
-    cat_shorten([args.m2], tmpfile_short_2, max_threads*2 * args.multiply_reads)
+    cat_shorten([args.m2], tmpfile_short_2,
+                (max_threads * short_read_multiplier * args.multiply_reads) / paired_end_divisor)
 
-    return tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, nreads_unp_full * args.multiply_reads, nreads_pe_full * args.multiply_reads
+    return tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2,\
+           nreads_unp_full * args.multiply_reads, nreads_pe_full * args.multiply_reads
+
+
+def run_cmd(cmd, odir):
+    ret = os.system(cmd)
+    with open(os.path.join(odir, 'cmd.sh'), 'w') as ofh:
+        ofh.write("#!/bin/sh\n")
+        ofh.write(cmd + "\n")
+    return ret
 
 
 def go(args):
@@ -266,7 +284,8 @@ def go(args):
     if not os.path.isdir(tmpdir):
         raise RuntimeError('Temporary directory isn\'t a directory: "%s"' % tmpdir)
 
-    tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, nreads_unp, nreads_pe = prepare_reads(args, tmpdir, max(series))
+    tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, nreads_unp, nreads_pe = \
+        prepare_reads(args, tmpdir, max(series))
 
     sensitivities = args.sensitivities.split(',')
     sensitivities = zip(map(sensitivity_map.get, sensitivities), sensitivities)
@@ -345,7 +364,7 @@ def go(args):
                         else:
                             run = True
                     if run:
-                        os.system(cmd)
+                        run_cmd(cmd, odir)
                         assert os.path.exists(sam_ofn)
                         if args.delete_sam:
                             os.remove(sam_ofn)
