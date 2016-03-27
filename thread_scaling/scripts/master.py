@@ -319,6 +319,7 @@ def go(args):
                     runname = '%s_%s_%s_%d' % (name, 'pe' if paired else 'unp', sens_short, nthreads)
                     stdout_ofn = os.path.join(odir, '%d.txt' % nthreads)
                     sam_ofn = os.path.join(odir if args.sam_output_dir else tmpdir, '%s.sam' % runname)
+                    sam_ofn = '/dev/null' if args.sam_dev_null else sam_ofn
                     cmd = ['build/%s/%s' % (name, tool_exe(tool))]
                     cmd.extend(['-p', str(nthreads)])
                     if tool == 'bowtie2':
@@ -415,6 +416,8 @@ if __name__ == '__main__':
                         help='Just verify that jobs can be run, then print out commands without running them; useful for when you need to wrap the bowtie2 commands for profiling or other reasons')
     parser.add_argument('--sam-output-dir', action='store_const', const=True, default=False,
                         help='Put SAM output in the output directory rather than in the temporary directory.  Usually we don\'t really care to examine the SAM output, so the default is reasonable.')
+    parser.add_argument('--sam-dev-null', action='store_const', const=True, default=False,
+                        help='Send SAM output directly to /dev/null.')
     parser.add_argument('--delete-sam', action='store_const', const=True, default=False,
                         help='Delete SAM file as soon as aligner finishes; useful if you need to avoid exhausting a partition')
 
