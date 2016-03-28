@@ -1,0 +1,37 @@
+Intel Showcase 2016 results
+========================================================
+
+TODO:
+* cleanparse should be broken out as its own column, and the "cleanparse-" should be removed from the run names
+* the line for the noio branch should be made special in some way; thick and black?
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+m <- read.table('results_showcase_2016.tsv', header=T)
+m$cleanparse <- grepl('cleanparse', m$run)
+head(m)
+```
+
+You can also embed plots, for example:
+
+```{r}
+mtmp <- m %>% filter(tool == 'bowtie')
+ggplot(mtmp, aes(x=threads, y=seconds, color=run, linetype=paired)) + 
+  geom_line() + theme_bw() + labs(y="Normalized running time", x="# threads")
+```
+
+```{r}
+mtmp <- m %>% filter(tool == 'bowtie2' & paired == 'unp')
+ggplot(mtmp, aes(x=threads, y=seconds, color=run, linetype=cleanparse)) + 
+  geom_line() + theme_bw() + labs(y="Normalized running time", x="# threads (unpaired)")
+```
+
+```{r}
+mtmp <- m %>% filter(tool == 'bowtie2' & paired == 'pe')
+ggplot(mtmp, aes(x=threads, y=seconds, color=run, linetype=cleanparse)) + 
+  geom_line() + theme_bw() + labs(y="Normalized running time", x="# threads (paired-end)")
+```
