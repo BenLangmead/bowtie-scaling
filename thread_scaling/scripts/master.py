@@ -398,7 +398,9 @@ if __name__ == '__main__':
 
     requiredNamed = parser.add_argument_group('required named arguments')
     requiredNamed.add_argument('--index', metavar='index_basename', type=str, required=True,
-                        help='Path to index; omit final ".1.bt2".  Should usually be a human genome index, with filenames like hg19.* or hg38.*')
+                        help='Path to bowtie & bowtie2 indexes; omit final ".1.bt2" or ".1.ebwt".  Should usually be a human genome index, with filenames like hg19.* or hg38.*')
+    requiredNamed.add_argument('--hisat-index', metavar='index_basename', type=str, required=True,
+                        help='Path to HISAT index; omit final ".1.bt2".  Should usually be a human genome index, with filenames like hg19.* or hg38.*')
     requiredNamed.add_argument('--U', metavar='path', type=str, required=True,
                         help='Path to file to use for unpaired reads for tools other than HISAT.  Will concatenate multiple copies according to # threads.')
     requiredNamed.add_argument('--m1', metavar='path', type=str, required=True,
