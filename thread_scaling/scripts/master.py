@@ -51,7 +51,7 @@ def tool_exe(tool):
     elif tool == 'bowtie':
         return 'bowtie-align-s'
     elif tool == 'hisat':
-        return 'hisat'
+        return 'hisat-align-s'
     else:
         raise RuntimeError('Unknown tool: "%s"' % tool)
 
@@ -62,7 +62,7 @@ def tool_ext(tool):
     elif tool == 'bowtie':
         return 'ebwt'
     elif tool == 'hisat':
-        return 'hisat'
+        return 'bt2'
     else:
         raise RuntimeError('Unknown tool: "%s"' % tool)
 
@@ -76,7 +76,6 @@ def tool_repo(tool, args):
         return args.hisat_repo
     else:
         raise RuntimeError('Unknown tool: "%s"' % tool)
-
 
 
 def make_tool_version(name, tool, preproc):
@@ -123,12 +122,18 @@ def verify_index(basename, tool):
     def _ext_exists(ext):
         return os.path.exists(basename + ext)
     print('  checking for "%s"' % (basename + '.1.' + te), file=sys.stderr)
-    return _ext_exists('.1.' + te) and\
-           _ext_exists('.2.' + te) and\
-           _ext_exists('.3.' + te) and\
-           _ext_exists('.4.' + te) and\
-           _ext_exists('.rev.1.' + te) and\
-           _ext_exists('.rev.2.' + te)
+    ret = _ext_exists('.1.' + te) and \
+          _ext_exists('.2.' + te) and \
+          _ext_exists('.3.' + te) and \
+          _ext_exists('.4.' + te) and \
+          _ext_exists('.rev.1.' + te) and \
+          _ext_exists('.rev.2.' + te)
+    if tool == 'hisat':
+        return ret and _ext_exists('.5.' + te) and \
+                       _ext_exists('.6.' + te) and \
+                       _ext_exists('.rev.5.' + te) and \
+                       _ext_exists('.rev.6.' + te)
+    return ret
 
 
 def verify_reads(fns):
@@ -178,49 +183,49 @@ def cat_shorten(fns, dest_fn, n):
         os.system("cat %s | awk -f shorten.awk >> %s" % (' '.join(fns), dest_fn))
 
 
-def prepare_reads(args, tmpdir, max_threads):
+def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2):
 
-    print('Counting reads', file=sys.stderr)
+    print('Counting %s reads' % tool, file=sys.stderr)
 
     # TODO: make these command-line parameters
     # with these settings, I'm trying to roughly even out how long the runs take
     short_read_multiplier = 2
     paired_end_divisor = 2
 
-    nreads_unp = count_reads([args.U])
+    nreads_unp = count_reads([args_U])
     nreads_unp_full = nreads_unp * max_threads * args.multiply_reads
     print('  counted %d unpaired reads, %d for a full series w/ %d threads (multiplier=%d)' %
           (nreads_unp, nreads_unp_full, max_threads, args.multiply_reads), file=sys.stderr)
 
-    nreads_pe = count_reads([args.m1])
+    nreads_pe = count_reads([args_m1])
     nreads_pe_full = nreads_pe * max_threads * args.multiply_reads / paired_end_divisor
     print('  counted %d paired-end reads, %d for a full series w/ %d threads (multiplier=%d, divisor=%d)' %
           (nreads_pe, nreads_pe_full, max_threads, args.multiply_reads, paired_end_divisor), file=sys.stderr)
 
     tmpfile = os.path.join(tmpdir, "reads.fq")
     print('Concatenating new unpaired long-read file and storing in "%s"' % tmpfile, file=sys.stderr)
-    cat([args.U], tmpfile, max_threads * args.multiply_reads)
+    cat([args_U], tmpfile, max_threads * args.multiply_reads)
 
     tmpfile_short = os.path.join(tmpdir, "reads_short.fq")
     print('Concatenating new unpaired short-read file and storing in "%s"' % tmpfile_short, file=sys.stderr)
-    cat_shorten([args.U], tmpfile_short, max_threads * short_read_multiplier * args.multiply_reads)
+    cat_shorten([args_U], tmpfile_short, max_threads * short_read_multiplier * args.multiply_reads)
 
     tmpfile_1 = os.path.join(tmpdir, "reads_1.fq")
     print('Concatenating new long paired-end mate 1s and storing in "%s"' % tmpfile_1, file=sys.stderr)
-    cat([args.m1], tmpfile_1, (max_threads * args.multiply_reads) / paired_end_divisor)
+    cat([args_m1], tmpfile_1, (max_threads * args.multiply_reads) / paired_end_divisor)
 
     tmpfile_short_1 = os.path.join(tmpdir, "reads_1_short.fq")
     print('Concatenating new short paired-end mate 1s and storing in "%s"' % tmpfile_short_1, file=sys.stderr)
-    cat_shorten([args.m1], tmpfile_short_1,
+    cat_shorten([args_m1], tmpfile_short_1,
                 (max_threads * short_read_multiplier * args.multiply_reads) / paired_end_divisor)
 
     tmpfile_2 = os.path.join(tmpdir, "reads_2.fq")
     print('Concatenating new long paired-end mate 2s and storing in "%s"' % tmpfile_2, file=sys.stderr)
-    cat([args.m2], tmpfile_2, (max_threads * args.multiply_reads) / paired_end_divisor)
+    cat([args_m2], tmpfile_2, (max_threads * args.multiply_reads) / paired_end_divisor)
 
     tmpfile_short_2 = os.path.join(tmpdir, "reads_2_short.fq")
     print('Concatenating new short paired-end mate 2s and storing in "%s"' % tmpfile_short_2, file=sys.stderr)
-    cat_shorten([args.m2], tmpfile_short_2,
+    cat_shorten([args_m2], tmpfile_short_2,
                 (max_threads * short_read_multiplier * args.multiply_reads) / paired_end_divisor)
 
     return tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, \
@@ -288,7 +293,11 @@ def go(args):
         raise RuntimeError('Temporary directory isn\'t a directory: "%s"' % tmpdir)
 
     tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, \
-        nreads_unp, nreads_pe, nreads_unp_short, nreads_pe_short = prepare_reads(args, tmpdir, max(series))
+        nreads_unp, nreads_pe, nreads_unp_short, nreads_pe_short = \
+        prepare_reads(args, tmpdir, max(series), 'bowtie', args.U, args.m1, args.m2)
+
+    tmpfile_hs, _, tmpfile_1_hs, _, tmpfile_2_hs, _, nreads_unp_hs, nreads_pe_hs, _, _ = \
+        prepare_reads(args, tmpdir, max(series), 'hisat', args.hisat_U, args.hisat_m1, args.hisat_m2)
 
     sensitivities = args.sensitivities.split(',')
     sensitivities = zip(map(sensitivity_map.get, sensitivities), sensitivities)
@@ -304,7 +313,8 @@ def go(args):
         odir_outer = os.path.join(args.output_dir, name)
 
         print('Checking that index files exist', file=sys.stderr)
-        if not verify_index(args.index, tool):
+        index = args.hisat_index if tool == 'hisat' else args.index
+        if not verify_index(index, tool):
             raise RuntimeError('Could not verify index files')
 
         # iterate over sensitivity levels
@@ -325,17 +335,19 @@ def go(args):
                     sam_ofn = '/dev/null' if args.sam_dev_null else sam_ofn
                     cmd = ['build/%s/%s' % (name, tool_exe(tool))]
                     cmd.extend(['-p', str(nthreads)])
-                    if tool == 'bowtie2':
-                        nreads = (nreads_pe * nthreads) if paired else (nreads_unp * nthreads)
+                    if tool == 'bowtie2' or tool == 'hisat':
+                        nr_pe = nreads_pe if tool == 'bowtie2' else nreads_pe_hs
+                        nr_unp = nreads_unp if tool == 'bowtie2' else nreads_unp_hs
+                        nreads = (nr_pe * nthreads) if paired else (nr_unp * nthreads)
                         cmd.extend(['-u', str(nreads)])
                         cmd.append(sens)
                         cmd.extend(['-S', sam_ofn])
-                        cmd.extend(['-x', args.index])
+                        cmd.extend(['-x', index])
                         if paired:
-                            cmd.extend(['-1', tmpfile_1])
-                            cmd.extend(['-2', tmpfile_2])
+                            cmd.extend(['-1', tmpfile_1 if tool == 'bowtie2' else tmpfile_1_hs])
+                            cmd.extend(['-2', tmpfile_2 if tool == 'bowtie2' else tmpfile_2_hs])
                         else:
-                            cmd.extend(['-U', tmpfile])
+                            cmd.extend(['-U', tmpfile if tool == 'bowtie2' else tmpfile_hs])
                         cmd.append('-t')
                         if aligner_args is not None and len(aligner_args) > 0:  # from config file
                             cmd.extend(aligner_args.split())
@@ -343,7 +355,7 @@ def go(args):
                     elif tool == 'bowtie':
                         nreads = (nreads_pe_short * nthreads) if paired else (nreads_unp_short * nthreads)
                         cmd.extend(['-u', str(nreads)])
-                        cmd.extend([args.index])
+                        cmd.extend([index])
                         if paired:
                             cmd.extend(['-1', tmpfile_short_1])
                             cmd.extend(['-2', tmpfile_short_2])
@@ -388,11 +400,17 @@ if __name__ == '__main__':
     requiredNamed.add_argument('--index', metavar='index_basename', type=str, required=True,
                         help='Path to index; omit final ".1.bt2".  Should usually be a human genome index, with filenames like hg19.* or hg38.*')
     requiredNamed.add_argument('--U', metavar='path', type=str, required=True,
-                        help='Path to file to use for unpaired reads.  Will concatenate multiple copies according to # threads.')
+                        help='Path to file to use for unpaired reads for tools other than HISAT.  Will concatenate multiple copies according to # threads.')
     requiredNamed.add_argument('--m1', metavar='path', type=str, required=True,
-                        help='Path to file to use for mate 1s for paried-end runs.  Will concatenate multiple copies according to # threads.')
+                        help='Path to file to use for mate 1s for paried-end runs for tools other than HISAT.  Will concatenate multiple copies according to # threads.')
     requiredNamed.add_argument('--m2', metavar='path', type=str, required=True,
-                        help='Path to file to use for mate 2s for paried-end runs.  Will concatenate multiple copies according to # threads.')
+                        help='Path to file to use for mate 2s for paried-end runs for tools other than HISAT.  Will concatenate multiple copies according to # threads.')
+    requiredNamed.add_argument('--hisat-U', metavar='path', type=str, required=True,
+                        help='Path to file to use for unpaired reads for HISAT.  Will concatenate multiple copies according to # threads.')
+    requiredNamed.add_argument('--hisat-m1', metavar='path', type=str, required=True,
+                        help='Path to file to use for mate 1s for paried-end runs for HISAT.  Will concatenate multiple copies according to # threads.')
+    requiredNamed.add_argument('--hisat-m2', metavar='path', type=str, required=True,
+                        help='Path to file to use for mate 2s for paried-end runs for HISAT.  Will concatenate multiple copies according to # threads.')
     requiredNamed.add_argument('--config', metavar='pct,pct,...', type=str, required=True,
                         help='Specifies path to config file giving configuration short-names, tool names, branch names, compilation macros, and command-line args.  (Provided master_config.tsv is probably sufficient)')
     requiredNamed.add_argument('--output-dir', metavar='path', type=str, required=True,
