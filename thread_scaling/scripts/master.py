@@ -224,7 +224,10 @@ def prepare_reads(args, tmpdir, max_threads):
                 (max_threads * short_read_multiplier * args.multiply_reads) / paired_end_divisor)
 
     return tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, \
-           nreads_unp_full, nreads_pe_full, nreads_unp_full * short_read_multiplier, nreads_pe_full * short_read_multiplier
+           nreads_unp * args.multiply_reads,\
+           nreads_pe * args.multiply_reads / paired_end_divisor,\
+           nreads_unp * args.multiply_reads * short_read_multiplier,\
+           nreads_pe * args.multiply_reads * short_read_multiplier / paired_end_divisor
 
 
 def run_cmd(cmd, odir):
@@ -323,7 +326,7 @@ def go(args):
                     cmd = ['build/%s/%s' % (name, tool_exe(tool))]
                     cmd.extend(['-p', str(nthreads)])
                     if tool == 'bowtie2':
-                        nreads = (nreads_pe / nthreads) if paired else (nreads_unp / nthreads)
+                        nreads = (nreads_pe * nthreads) if paired else (nreads_unp * nthreads)
                         cmd.extend(['-u', str(nreads)])
                         cmd.append(sens)
                         cmd.extend(['-S', sam_ofn])
@@ -338,7 +341,7 @@ def go(args):
                             cmd.extend(aligner_args.split())
                         cmd.extend(['>', stdout_ofn])
                     elif tool == 'bowtie':
-                        nreads = (nreads_pe_short / nthreads) if paired else (nreads_unp_short / nthreads)
+                        nreads = (nreads_pe_short * nthreads) if paired else (nreads_unp_short * nthreads)
                         cmd.extend(['-u', str(nreads)])
                         cmd.extend([args.index])
                         if paired:
@@ -369,7 +372,7 @@ def go(args):
                     if run:
                         run_cmd(cmd, odir)
                         assert os.path.exists(sam_ofn)
-                        if args.delete_sam:
+                        if args.delete_sam and not args.sam_dev_null:
                             os.remove(sam_ofn)
 
 
