@@ -11,22 +11,27 @@ library(ggplot2)
 ```
 
 ```{r}
-m <- read.table('results_showcase_2016.tsv', header=T)
-m$cleanparse <- grepl('cleanparse', m$run)
+m <- read.table('results_showcase_2016.tsv', header=T, sep='\t')
 head(m)
 ```
 
 You can also embed plots, for example:
 
 ```{r}
-mtmp <- m %>% filter(tool == 'bowtie')
-ggplot(mtmp, aes(x=threads, y=seconds, color=run, linetype=paired)) + 
-  geom_line() + theme_bw() + labs(y="Normalized running time", x="# threads")
+mtmp <- m %>% filter(tool == 'bowtie' & paired == 'unp' & !grepl('tt', run))
+ggplot(mtmp, aes(x=threads, y=seconds, color=lock, linetype=version)) + 
+  geom_line() + theme_bw() + labs(y="Normalized running time", x="# threads") + scale_y_continuous(limits=c(0, 350))
+```
+
+```{r}
+mtmp <- m %>% filter(tool == 'bowtie' & paired == 'pe')
+ggplot(mtmp, aes(x=threads, y=seconds, color=lock, linetype=version)) + 
+  geom_line() + theme_bw() + labs(y="Normalized running time", x="# threads") + scale_y_continuous(limits=c(0, 400))
 ```
 
 ```{r}
 mtmp <- m %>% filter(tool == 'bowtie2' & paired == 'unp')
-ggplot(mtmp, aes(x=threads, y=seconds, color=run, linetype=cleanparse)) + 
+ggplot(mtmp, aes(x=threads, y=seconds, color=lock, linetype=version)) + 
   geom_line() + theme_bw() + labs(y="Normalized running time", x="# threads (unpaired)")
 ```
 
