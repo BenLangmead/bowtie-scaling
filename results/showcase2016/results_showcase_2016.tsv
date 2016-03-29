@@ -233,24 +233,24 @@ showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp
 showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	60	99.147
 showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	15	70.954
 showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	1	82.129
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	30	75.146
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	45	115.711
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	105	153.821
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	120	255.811
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	1	68.232
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	60	148.665
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	15	69.978
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	75	145.455
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	90	142.557
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	45	121.152
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	30	81.8
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	120	137.778
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	105	130.682
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	15	79.426
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	60	129.417
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	75	127.506
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	1	78.694
-showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	90	130.532
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	pe	30	75.146
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	pe	45	115.711
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	pe	105	153.821
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	pe	120	255.811
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	pe	1	68.232
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	pe	60	148.665
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	pe	15	69.978
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	pe	75	145.455
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	pe	90	142.557
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	unp	45	121.152
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	unp	30	81.8
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	unp	120	137.778
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	unp	105	130.682
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	unp	15	79.426
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	unp	60	129.417
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	unp	75	127.506
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	unp	1	78.694
+showcase2016	bt2-noio	bowtie2	None (stubbed I/O)	Original parsing	sensitive	unp	90	130.532
 showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	unp	105	117.999
 showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	unp	90	106.566
 showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	unp	120	132.222
