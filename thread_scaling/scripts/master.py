@@ -274,7 +274,7 @@ def go(args):
         elif not os.path.exists(build_dir):
             build = True
 
-        if pull:
+        if pull and not args.no_pull:
             print('  Pulling "%s"' % name, file=sys.stderr)
             os.system('cd %s && git pull' % build_dir)
             make_tool_version(name, tool, preproc)
@@ -439,6 +439,8 @@ if __name__ == '__main__':
                         help='Overwrite binaries that already exist')
     parser.add_argument('--force-runs', action='store_const', const=True, default=False,
                         help='Overwrite run output files that already exist')
+    parser.add_argument('--no-pull', action='store_const', const=True, default=False,
+                        help='Do not git pull into the existing build directories')
     parser.add_argument('--dry-run', action='store_const', const=True, default=False,
                         help='Just verify that jobs can be run, then print out commands without running them; useful for when you need to wrap the bowtie2 commands for profiling or other reasons')
     parser.add_argument('--sam-output-dir', action='store_const', const=True, default=False,
