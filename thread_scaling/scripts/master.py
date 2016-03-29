@@ -202,28 +202,28 @@ def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2):
     print('  counted %d paired-end reads, %d for a full series w/ %d threads (multiplier=%d, divisor=%d)' %
           (nreads_pe, nreads_pe_full, max_threads, args.multiply_reads, paired_end_divisor), file=sys.stderr)
 
-    tmpfile = os.path.join(tmpdir, "reads.fq")
+    tmpfile = os.path.join(tmpdir, tool + '_' + "reads.fq")
     print('Concatenating new unpaired long-read file and storing in "%s"' % tmpfile, file=sys.stderr)
     cat([args_U], tmpfile, max_threads * args.multiply_reads)
 
-    tmpfile_short = os.path.join(tmpdir, "reads_short.fq")
+    tmpfile_short = os.path.join(tmpdir, tool + '_' + "reads_short.fq")
     print('Concatenating new unpaired short-read file and storing in "%s"' % tmpfile_short, file=sys.stderr)
     cat_shorten([args_U], tmpfile_short, max_threads * short_read_multiplier * args.multiply_reads)
 
-    tmpfile_1 = os.path.join(tmpdir, "reads_1.fq")
+    tmpfile_1 = os.path.join(tmpdir, tool + '_' + "reads_1.fq")
     print('Concatenating new long paired-end mate 1s and storing in "%s"' % tmpfile_1, file=sys.stderr)
     cat([args_m1], tmpfile_1, (max_threads * args.multiply_reads) / paired_end_divisor)
 
-    tmpfile_short_1 = os.path.join(tmpdir, "reads_1_short.fq")
+    tmpfile_short_1 = os.path.join(tmpdir, tool + '_' + "reads_1_short.fq")
     print('Concatenating new short paired-end mate 1s and storing in "%s"' % tmpfile_short_1, file=sys.stderr)
     cat_shorten([args_m1], tmpfile_short_1,
                 (max_threads * short_read_multiplier * args.multiply_reads) / paired_end_divisor)
 
-    tmpfile_2 = os.path.join(tmpdir, "reads_2.fq")
+    tmpfile_2 = os.path.join(tmpdir, tool + '_' + "reads_2.fq")
     print('Concatenating new long paired-end mate 2s and storing in "%s"' % tmpfile_2, file=sys.stderr)
     cat([args_m2], tmpfile_2, (max_threads * args.multiply_reads) / paired_end_divisor)
 
-    tmpfile_short_2 = os.path.join(tmpdir, "reads_2_short.fq")
+    tmpfile_short_2 = os.path.join(tmpdir, tool + '_' + "reads_2_short.fq")
     print('Concatenating new short paired-end mate 2s and storing in "%s"' % tmpfile_short_2, file=sys.stderr)
     cat_shorten([args_m2], tmpfile_short_2,
                 (max_threads * short_read_multiplier * args.multiply_reads) / paired_end_divisor)
