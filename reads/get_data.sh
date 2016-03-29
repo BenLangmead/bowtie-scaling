@@ -23,7 +23,7 @@ done
 
 # RNA-seq data for HISAT
 for m in 1 2 ; do
-    if [ ! -f "SRR1216135_100k_${m}.fastq" ] ; then
-        curl ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR121/005/SRR1216135/SRR1216135_${m}.fastq.gz | gzip -dc | head -n 4000000 > SRR1216135_100k_${m}.fastq
+    if [ ! -f "SRR651662_100k_${m}.fastq" ] ; then
+        curl ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR651/SRR651662/SRR651662_${m}.fastq.gz| gzip -dc | head -n 400000 > SRR651662_100k_${m}.fastq
     fi
 done

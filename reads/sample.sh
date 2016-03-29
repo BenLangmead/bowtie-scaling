@@ -15,10 +15,10 @@ done
 
 # RNA-seq data for HISAT
 for m in 1 2 ; do
-    if [ ! -f "SRR1216135_10k_${m}.fastq" ] ; then
+    if [ ! -f "SRR651662_10k_${m}.fastq" ] ; then
         python fastq_sample.py \
-            --in SRR1216135_100k_${m}.fastq \
-            --out SRR1216135_10k_${m}.fastq \
+            --in SRR651662_100k_${m}.fastq \
+            --out SRR651662_10k_${m}.fastq \
             --seed 72436 \
             --n 10000
     fi
