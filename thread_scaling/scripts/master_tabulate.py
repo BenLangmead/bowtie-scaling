@@ -40,6 +40,8 @@ for mydr in sys.argv[1:]:
                 lock = 'TBB queuing_mutex'
             elif 'tbbpin-co' in run:
                 lock = 'TBB/JHU CohortLock'
+            elif 'no-io' in run:
+                lock = 'None (stubbed I/O)'
             version = 'Original parsing'
             if 'cleanparse' in run:
                 version = 'Optimized parsing'
