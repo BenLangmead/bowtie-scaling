@@ -9,7 +9,7 @@ import sys
 if len(sys.argv) < 2:
     raise RuntimeError('Too few arguments')
 
-print('\t'.join(['experiment', 'run', 'tool', 'sensitivity', 'paired', 'threads', 'seconds']))
+print('\t'.join(['experiment', 'run', 'tool', 'lock', 'version', 'sensitivity', 'paired', 'threads', 'seconds']))
 for mydr in sys.argv[1:]:
     p = subprocess.Popen("find %s -name '*.txt' | xargs tail -n 1 | sed 's/.*: //'" % mydr,
                          stdout=subprocess.PIPE, shell=True)
@@ -29,4 +29,18 @@ for mydr in sys.argv[1:]:
                 tool = 'bowtie2'
             elif run.startswith('bt-'):
                 tool = 'bowtie'
-            print('\t'.join(map(str, [exp, run, tool, sens, pe, thr, secs])))
+            lock = 'tinythreads fast_mutex'
+            if 'tbbpin-spin' in run:
+                lock = 'TBB spin_mutex'
+            elif 'tbbpin-heavy' in run:
+                lock = 'TBB mutex'
+            elif 'tbbpin-q' in run:
+                lock = 'TBB queuing_mutex'
+            elif 'tbbpin-q' in run:
+                lock = 'TBB queuing_mutex'
+            elif 'tbbpin-co' in run:
+                lock = 'TBB/JHU CohortLock'
+            version = 'Original parsing'
+            if 'cleanparse' in run:
+                version = 'Optimized parsing'
+            print('\t'.join(map(str, [exp, run, tool, lock, version, sens, pe, thr, secs])))
