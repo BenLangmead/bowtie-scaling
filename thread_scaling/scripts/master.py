@@ -179,8 +179,10 @@ def cat_shorten(fns, dest_fn, n):
     """ Concatenate one or more read files into one output file """
     if os.path.exists(dest_fn):
         os.remove(dest_fn)
-    for _ in range(n):
-        os.system("cat %s | awk -f shorten.awk >> %s" % (' '.join(fns), dest_fn))
+    if os.path.exists(dest_fn + ".tmp"):
+        os.remove(dest_fn + ".tmp")
+    os.system("cat %s | awk -f shorten.awk > %s" % (' '.join(fns), dest_fn + ".tmp"))
+    cat([dest_fn + ".tmp"], dest_fn, n)
 
 
 def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2):
