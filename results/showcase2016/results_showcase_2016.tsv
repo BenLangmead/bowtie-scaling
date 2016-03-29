@@ -1,379 +1,379 @@
-experiment	run	tool	sensitivity	paired	threads	seconds
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	pe	105	114.774
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	pe	15	84.216
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	pe	60	122.615
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	pe	45	105.058
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	pe	1	88.591
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	pe	30	81.938
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	pe	120	124.623
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	pe	90	105.625
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	pe	75	110.09
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	unp	30	71.972
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	unp	45	87.017
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	unp	60	99.078
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	unp	15	72.112
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	unp	1	81.209
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	unp	105	97.675
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	unp	75	92.653
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	unp	90	91.063
-showcase2016	bt-tbbpin-co-tktptl	bowtie	sensitive	unp	120	103.941
-showcase2016	bt-tt	bowtie	sensitive	pe	60	179.88
-showcase2016	bt-tt	bowtie	sensitive	pe	15	54.764
-showcase2016	bt-tt	bowtie	sensitive	pe	1	45.304
-showcase2016	bt-tt	bowtie	sensitive	pe	30	58.078
-showcase2016	bt-tt	bowtie	sensitive	pe	45	109.195
-showcase2016	bt-tt	bowtie	sensitive	pe	120	1401.945
-showcase2016	bt-tt	bowtie	sensitive	pe	90	375.847
-showcase2016	bt-tt	bowtie	sensitive	pe	105	438.224
-showcase2016	bt-tt	bowtie	sensitive	pe	75	257.121
-showcase2016	bt-tt	bowtie	sensitive	unp	75	382.543
-showcase2016	bt-tt	bowtie	sensitive	unp	105	625.552
-showcase2016	bt-tt	bowtie	sensitive	unp	90	531.051
-showcase2016	bt-tt	bowtie	sensitive	unp	120	761.107
-showcase2016	bt-tt	bowtie	sensitive	unp	45	167.696
-showcase2016	bt-tt	bowtie	sensitive	unp	30	79.637
-showcase2016	bt-tt	bowtie	sensitive	unp	15	25.844
-showcase2016	bt-tt	bowtie	sensitive	unp	1	14.658
-showcase2016	bt-tt	bowtie	sensitive	unp	60	268.839
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	pe	90	136.947
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	pe	105	181.682
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	pe	120	242.435
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	pe	75	126.538
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	pe	60	149.7
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	pe	15	71.093
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	pe	30	77.848
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	pe	1	69.588
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	pe	45	111.161
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	unp	90	113.106
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	unp	120	163.947
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	unp	105	134.388
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	unp	75	115.407
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	unp	60	129.52
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	unp	15	79.51
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	unp	30	81.724
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	unp	45	107.233
-showcase2016	bt2-tbbpin-q	bowtie2	sensitive	unp	1	78.872
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	unp	1	76.835
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	unp	75	109.818
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	unp	105	116.041
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	unp	120	128.98
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	unp	90	105.055
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	unp	45	102.824
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	unp	30	78.533
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	unp	15	77.216
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	unp	60	124.399
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	pe	60	140.229
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	pe	105	151.943
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	pe	15	70.316
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	pe	120	211.336
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	pe	30	75.539
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	pe	45	106.214
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	pe	90	113.095
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	pe	75	115.613
-showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	sensitive	pe	1	67.936
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	pe	30	58.61
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	pe	45	71.818
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	pe	60	82.206
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	pe	15	60.3
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	pe	120	92.506
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	pe	75	76.148
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	pe	105	102.154
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	pe	90	82.212
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	pe	1	61.52
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	unp	120	86.076
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	unp	75	51.865
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	unp	105	75.177
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	unp	1	21.917
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	unp	90	63.586
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	unp	30	22.51
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	unp	45	28.894
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	unp	60	34.973
-showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	sensitive	unp	15	21.545
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	pe	75	118.62
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	pe	90	113.443
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	pe	30	77.139
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	pe	45	109.44
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	pe	105	146.173
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	pe	120	202.925
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	pe	1	69.43
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	pe	60	142.727
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	pe	15	71.147
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	unp	90	106.271
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	unp	75	111.46
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	unp	15	78.41
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	unp	60	126.575
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	unp	120	130.741
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	unp	1	78.209
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	unp	105	118.146
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	unp	45	104.529
-showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	sensitive	unp	30	80.74
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	pe	105	248.207
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	pe	30	77.069
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	pe	45	108.813
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	pe	60	146.909
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	pe	120	321.088
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	pe	15	71.096
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	pe	75	124.221
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	pe	1	69.18
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	pe	90	174.058
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	unp	105	265.588
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	unp	90	164.057
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	unp	120	347.785
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	unp	75	114.306
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	unp	15	78.241
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	unp	60	127.564
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	unp	1	77.973
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	unp	45	105.142
-showcase2016	bt2-tbbpin-spin	bowtie2	sensitive	unp	30	80.012
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	pe	1	69.148
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	pe	30	78.366
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	pe	45	111.659
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	pe	60	152.626
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	pe	15	71.402
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	pe	120	286.313
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	pe	75	157.501
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	pe	105	240.785
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	pe	90	195.598
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	unp	75	125.218
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	unp	1	77.825
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	unp	90	139.47
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	unp	45	106.578
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	unp	30	80.959
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	unp	120	202.165
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	unp	105	174.025
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	unp	15	78.823
-showcase2016	bt2-tbbpin-heavy	bowtie2	sensitive	unp	60	129.723
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	unp	120	130.116
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	unp	1	19.572
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	unp	15	22.318
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	unp	60	55.156
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	unp	45	38.839
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	unp	30	25.043
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	unp	105	113.617
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	unp	90	93.502
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	unp	75	78.279
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	pe	105	102.449
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	pe	75	79.089
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	pe	120	123.353
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	pe	90	84.443
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	pe	30	59.43
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	pe	45	73.04
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	pe	60	83.55
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	pe	15	59.497
-showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	sensitive	pe	1	59.836
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	unp	1	82.585
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	unp	15	72.308
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	unp	60	98.708
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	unp	45	86.654
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	unp	30	71.218
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	unp	105	196.64
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	unp	90	117.913
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	unp	120	245.417
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	unp	75	93.802
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	pe	120	126.684
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	pe	30	80.914
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	pe	45	102.832
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	pe	1	86.268
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	pe	60	121.155
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	pe	15	81.38
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	pe	105	114.432
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	pe	75	109.77
-showcase2016	bt-tbbpin-spin	bowtie	sensitive	pe	90	104.987
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	pe	75	75.587
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	pe	90	75.086
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	pe	45	72.019
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	pe	30	58.796
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	pe	1	62.224
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	pe	105	83.319
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	pe	120	93.741
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	pe	15	60.244
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	pe	60	82.936
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	unp	90	54.049
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	unp	1	21.609
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	unp	75	46.781
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	unp	60	36.283
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	unp	15	21.309
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	unp	105	68.597
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	unp	120	81.816
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	unp	30	22.347
-showcase2016	bt-cleanparse-tbbpin-q	bowtie	sensitive	unp	45	28.33
-showcase2016	bt-no-io	bowtie	sensitive	unp	120	42.037
-showcase2016	bt-no-io	bowtie	sensitive	unp	45	15.237
-showcase2016	bt-no-io	bowtie	sensitive	unp	30	12.922
-showcase2016	bt-no-io	bowtie	sensitive	unp	15	9.43
-showcase2016	bt-no-io	bowtie	sensitive	unp	60	19.597
-showcase2016	bt-no-io	bowtie	sensitive	unp	1	11.075
-showcase2016	bt-no-io	bowtie	sensitive	unp	105	38.423
-showcase2016	bt-no-io	bowtie	sensitive	unp	75	27.646
-showcase2016	bt-no-io	bowtie	sensitive	unp	90	34.076
-showcase2016	bt-no-io	bowtie	sensitive	pe	90	75.07
-showcase2016	bt-no-io	bowtie	sensitive	pe	75	72.441
-showcase2016	bt-no-io	bowtie	sensitive	pe	120	93.157
-showcase2016	bt-no-io	bowtie	sensitive	pe	15	700.619
-showcase2016	bt-no-io	bowtie	sensitive	pe	60	63.409
-showcase2016	bt-no-io	bowtie	sensitive	pe	1	47.316
-showcase2016	bt-no-io	bowtie	sensitive	pe	45	55.707
-showcase2016	bt-no-io	bowtie	sensitive	pe	30	54.904
-showcase2016	bt-no-io	bowtie	sensitive	pe	105	79.703
-showcase2016	bt-tbbpin-q	bowtie	sensitive	pe	15	83.952
-showcase2016	bt-tbbpin-q	bowtie	sensitive	pe	60	122.481
-showcase2016	bt-tbbpin-q	bowtie	sensitive	pe	105	114.497
-showcase2016	bt-tbbpin-q	bowtie	sensitive	pe	120	127.545
-showcase2016	bt-tbbpin-q	bowtie	sensitive	pe	45	104.423
-showcase2016	bt-tbbpin-q	bowtie	sensitive	pe	30	80.969
-showcase2016	bt-tbbpin-q	bowtie	sensitive	pe	90	105.494
-showcase2016	bt-tbbpin-q	bowtie	sensitive	pe	1	86.006
-showcase2016	bt-tbbpin-q	bowtie	sensitive	pe	75	110.288
-showcase2016	bt-tbbpin-q	bowtie	sensitive	unp	75	92.515
-showcase2016	bt-tbbpin-q	bowtie	sensitive	unp	120	106.418
-showcase2016	bt-tbbpin-q	bowtie	sensitive	unp	90	89.934
-showcase2016	bt-tbbpin-q	bowtie	sensitive	unp	105	96.794
-showcase2016	bt-tbbpin-q	bowtie	sensitive	unp	30	71.828
-showcase2016	bt-tbbpin-q	bowtie	sensitive	unp	45	87.145
-showcase2016	bt-tbbpin-q	bowtie	sensitive	unp	60	99.147
-showcase2016	bt-tbbpin-q	bowtie	sensitive	unp	15	70.954
-showcase2016	bt-tbbpin-q	bowtie	sensitive	unp	1	82.129
-showcase2016	bt2-noio	bowtie2	sensitive	pe	30	75.146
-showcase2016	bt2-noio	bowtie2	sensitive	pe	45	115.711
-showcase2016	bt2-noio	bowtie2	sensitive	pe	105	153.821
-showcase2016	bt2-noio	bowtie2	sensitive	pe	120	255.811
-showcase2016	bt2-noio	bowtie2	sensitive	pe	1	68.232
-showcase2016	bt2-noio	bowtie2	sensitive	pe	60	148.665
-showcase2016	bt2-noio	bowtie2	sensitive	pe	15	69.978
-showcase2016	bt2-noio	bowtie2	sensitive	pe	75	145.455
-showcase2016	bt2-noio	bowtie2	sensitive	pe	90	142.557
-showcase2016	bt2-noio	bowtie2	sensitive	unp	45	121.152
-showcase2016	bt2-noio	bowtie2	sensitive	unp	30	81.8
-showcase2016	bt2-noio	bowtie2	sensitive	unp	120	137.778
-showcase2016	bt2-noio	bowtie2	sensitive	unp	105	130.682
-showcase2016	bt2-noio	bowtie2	sensitive	unp	15	79.426
-showcase2016	bt2-noio	bowtie2	sensitive	unp	60	129.417
-showcase2016	bt2-noio	bowtie2	sensitive	unp	75	127.506
-showcase2016	bt2-noio	bowtie2	sensitive	unp	1	78.694
-showcase2016	bt2-noio	bowtie2	sensitive	unp	90	130.532
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	unp	105	117.999
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	unp	90	106.566
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	unp	120	132.222
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	unp	75	111.412
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	unp	15	78.237
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	unp	1	77.587
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	unp	60	125.307
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	unp	45	103.414
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	unp	30	78.796
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	pe	120	228.508
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	pe	15	70.111
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	pe	60	147.053
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	pe	45	108.73
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	pe	30	76.889
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	pe	105	155.432
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	pe	90	115.266
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	pe	75	119.232
-showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	sensitive	pe	1	68.787
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	pe	30	58.687
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	pe	45	71.593
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	pe	60	82.25
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	pe	15	59.888
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	pe	1	62.029
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	pe	75	81.473
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	pe	120	327.889
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	pe	90	288.3
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	pe	105	319.327
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	unp	75	157.903
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	unp	120	312.489
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	unp	105	293.134
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	unp	90	235.151
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	unp	30	22.673
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	unp	45	36.76
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	unp	1	22.042
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	unp	60	72.573
-showcase2016	bt-cleanparse-tbbpin-spin	bowtie	sensitive	unp	15	21.432
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	unp	75	112.63
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	unp	1	78.289
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	unp	105	119.096
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	unp	90	107.217
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	unp	120	132.08
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	unp	45	105.13
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	unp	30	80.457
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	unp	15	78.977
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	unp	60	127.77
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	pe	90	115.91
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	pe	75	117.498
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	pe	105	149.357
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	pe	60	144.533
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	pe	15	71.219
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	pe	1	69.248
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	pe	30	77.508
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	pe	45	108.572
-showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	sensitive	pe	120	219.102
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	pe	60	146.202
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	pe	15	71.764
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	pe	30	77.7
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	pe	45	110.228
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	pe	90	141.372
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	pe	120	232.888
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	pe	105	177.14
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	pe	1	69.316
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	pe	75	128.517
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	unp	60	126.821
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	unp	15	78.646
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	unp	105	133.109
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	unp	120	159.085
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	unp	30	80.485
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	unp	45	105.851
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	unp	1	77.913
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	unp	90	113.171
-showcase2016	bt2-tbbpin-co-tktptl	bowtie2	sensitive	unp	75	114.343
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	unp	120	300.632
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	unp	1	15.977
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	unp	90	183.239
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	unp	105	240.901
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	unp	75	155.493
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	unp	60	111.212
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	unp	15	19.042
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	unp	30	23.232
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	unp	45	59.494
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	pe	30	55.343
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	pe	45	57.122
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	pe	60	61.83
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	pe	15	54.031
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	pe	75	196.921
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	pe	120	452.451
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	pe	1	48.106
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	pe	90	314.194
-showcase2016	bt-cleanparse-tt	bowtie	sensitive	pe	105	325.108
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	pe	90	107.854
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	pe	75	111.779
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	pe	1	86.277
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	pe	60	123.873
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	pe	15	82.739
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	pe	120	130.269
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	pe	105	118.697
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	pe	30	83.111
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	pe	45	105.258
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	unp	75	96.828
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	unp	90	100.635
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	unp	120	140.503
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	unp	45	88.068
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	unp	30	71.937
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	unp	1	82.46
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	unp	15	70.968
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	unp	60	100.74
-showcase2016	bt-tbbpin-heavy	bowtie	sensitive	unp	105	120.938
-showcase2016	bt2-master	bowtie2	sensitive	unp	105	263.267
-showcase2016	bt2-master	bowtie2	sensitive	unp	15	78.61
-showcase2016	bt2-master	bowtie2	sensitive	unp	60	92.579
-showcase2016	bt2-master	bowtie2	sensitive	unp	45	81.37
-showcase2016	bt2-master	bowtie2	sensitive	unp	30	82.141
-showcase2016	bt2-master	bowtie2	sensitive	unp	120	356.129
-showcase2016	bt2-master	bowtie2	sensitive	unp	1	75.133
-showcase2016	bt2-master	bowtie2	sensitive	unp	90	138.411
-showcase2016	bt2-master	bowtie2	sensitive	unp	75	109.4
-showcase2016	bt2-master	bowtie2	sensitive	pe	75	106.47
-showcase2016	bt2-master	bowtie2	sensitive	pe	120	351.939
-showcase2016	bt2-master	bowtie2	sensitive	pe	105	259.2
-showcase2016	bt2-master	bowtie2	sensitive	pe	1	64.289
-showcase2016	bt2-master	bowtie2	sensitive	pe	90	175.708
-showcase2016	bt2-master	bowtie2	sensitive	pe	30	72.709
-showcase2016	bt2-master	bowtie2	sensitive	pe	45	77.467
-showcase2016	bt2-master	bowtie2	sensitive	pe	60	83.181
-showcase2016	bt2-master	bowtie2	sensitive	pe	15	70.452
+experiment	run	tool	lock	version	sensitivity	paired	threads	seconds
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	pe	105	114.774
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	pe	15	84.216
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	pe	60	122.615
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	pe	45	105.058
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	pe	1	88.591
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	pe	30	81.938
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	pe	120	124.623
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	pe	90	105.625
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	pe	75	110.09
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	unp	30	71.972
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	unp	45	87.017
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	unp	60	99.078
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	unp	15	72.112
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	unp	1	81.209
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	unp	105	97.675
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	unp	75	92.653
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	unp	90	91.063
+showcase2016	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Original parsing	sensitive	unp	120	103.941
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	60	179.88
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	15	54.764
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	1	45.304
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	30	58.078
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	45	109.195
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	120	1401.945
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	90	375.847
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	105	438.224
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	75	257.121
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	75	382.543
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	105	625.552
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	90	531.051
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	120	761.107
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	45	167.696
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	30	79.637
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	15	25.844
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	1	14.658
+showcase2016	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	60	268.839
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	90	136.947
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	105	181.682
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	120	242.435
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	75	126.538
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	60	149.7
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	15	71.093
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	30	77.848
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	1	69.588
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	45	111.161
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	90	113.106
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	120	163.947
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	105	134.388
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	75	115.407
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	60	129.52
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	15	79.51
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	30	81.724
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	45	107.233
+showcase2016	bt2-tbbpin-q	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	1	78.872
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	1	76.835
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	75	109.818
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	105	116.041
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	120	128.98
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	90	105.055
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	45	102.824
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	30	78.533
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	15	77.216
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	60	124.399
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	60	140.229
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	105	151.943
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	15	70.316
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	120	211.336
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	30	75.539
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	45	106.214
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	90	113.095
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	75	115.613
+showcase2016	bt2-cleanparse-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	1	67.936
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	30	58.61
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	45	71.818
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	60	82.206
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	15	60.3
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	120	92.506
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	75	76.148
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	105	102.154
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	90	82.212
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	pe	1	61.52
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	120	86.076
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	75	51.865
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	105	75.177
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	1	21.917
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	90	63.586
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	30	22.51
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	45	28.894
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	60	34.973
+showcase2016	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock	Optimized parsing	sensitive	unp	15	21.545
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	pe	75	118.62
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	pe	90	113.443
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	pe	30	77.139
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	pe	45	109.44
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	pe	105	146.173
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	pe	120	202.925
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	pe	1	69.43
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	pe	60	142.727
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	pe	15	71.147
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	unp	90	106.271
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	unp	75	111.46
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	unp	15	78.41
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	unp	60	126.575
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	unp	120	130.741
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	unp	1	78.209
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	unp	105	118.146
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	unp	45	104.529
+showcase2016	bt2-cleanparse-tbbpin-spin	bowtie2	TBB spin_mutex	Optimized parsing	sensitive	unp	30	80.74
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	105	248.207
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	30	77.069
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	45	108.813
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	60	146.909
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	120	321.088
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	15	71.096
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	75	124.221
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	1	69.18
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	90	174.058
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	105	265.588
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	90	164.057
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	120	347.785
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	75	114.306
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	15	78.241
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	60	127.564
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	1	77.973
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	45	105.142
+showcase2016	bt2-tbbpin-spin	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	30	80.012
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	pe	1	69.148
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	pe	30	78.366
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	pe	45	111.659
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	pe	60	152.626
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	pe	15	71.402
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	pe	120	286.313
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	pe	75	157.501
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	pe	105	240.785
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	pe	90	195.598
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	unp	75	125.218
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	unp	1	77.825
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	unp	90	139.47
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	unp	45	106.578
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	unp	30	80.959
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	unp	120	202.165
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	unp	105	174.025
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	unp	15	78.823
+showcase2016	bt2-tbbpin-heavy	bowtie2	TBB mutex	Original parsing	sensitive	unp	60	129.723
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	120	130.116
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	1	19.572
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	15	22.318
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	60	55.156
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	45	38.839
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	30	25.043
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	105	113.617
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	90	93.502
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	75	78.279
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	105	102.449
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	75	79.089
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	120	123.353
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	90	84.443
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	30	59.43
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	45	73.04
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	60	83.55
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	15	59.497
+showcase2016	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	1	59.836
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	1	82.585
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	15	72.308
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	60	98.708
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	45	86.654
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	30	71.218
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	105	196.64
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	90	117.913
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	120	245.417
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	75	93.802
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	120	126.684
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	30	80.914
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	45	102.832
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	1	86.268
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	60	121.155
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	15	81.38
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	105	114.432
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	75	109.77
+showcase2016	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	90	104.987
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	75	75.587
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	90	75.086
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	45	72.019
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	30	58.796
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	1	62.224
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	105	83.319
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	120	93.741
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	15	60.244
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	60	82.936
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	90	54.049
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	1	21.609
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	75	46.781
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	60	36.283
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	15	21.309
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	105	68.597
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	120	81.816
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	30	22.347
+showcase2016	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	45	28.33
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	120	42.037
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	45	15.237
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	30	12.922
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	15	9.43
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	60	19.597
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	1	11.075
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	105	38.423
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	75	27.646
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	90	34.076
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	90	75.07
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	75	72.441
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	120	93.157
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	15	700.619
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	60	63.409
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	1	47.316
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	45	55.707
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	30	54.904
+showcase2016	bt-no-io	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	105	79.703
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	15	83.952
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	60	122.481
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	105	114.497
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	120	127.545
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	45	104.423
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	30	80.969
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	90	105.494
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	1	86.006
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	75	110.288
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	75	92.515
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	120	106.418
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	90	89.934
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	105	96.794
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	30	71.828
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	45	87.145
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	60	99.147
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	15	70.954
+showcase2016	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	1	82.129
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	30	75.146
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	45	115.711
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	105	153.821
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	120	255.811
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	1	68.232
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	60	148.665
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	15	69.978
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	75	145.455
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	90	142.557
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	45	121.152
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	30	81.8
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	120	137.778
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	105	130.682
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	15	79.426
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	60	129.417
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	75	127.506
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	1	78.694
+showcase2016	bt2-noio	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	90	130.532
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	unp	105	117.999
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	unp	90	106.566
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	unp	120	132.222
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	unp	75	111.412
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	unp	15	78.237
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	unp	1	77.587
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	unp	60	125.307
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	unp	45	103.414
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	unp	30	78.796
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	pe	120	228.508
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	pe	15	70.111
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	pe	60	147.053
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	pe	45	108.73
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	pe	30	76.889
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	pe	105	155.432
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	pe	90	115.266
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	pe	75	119.232
+showcase2016	bt2-cleanparse-tbbpin-heavy	bowtie2	TBB mutex	Optimized parsing	sensitive	pe	1	68.787
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	30	58.687
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	45	71.593
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	60	82.25
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	15	59.888
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	1	62.029
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	75	81.473
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	120	327.889
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	90	288.3
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	105	319.327
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	75	157.903
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	120	312.489
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	105	293.134
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	90	235.151
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	30	22.673
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	45	36.76
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	1	22.042
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	60	72.573
+showcase2016	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	15	21.432
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	unp	75	112.63
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	unp	1	78.289
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	unp	105	119.096
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	unp	90	107.217
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	unp	120	132.08
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	unp	45	105.13
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	unp	30	80.457
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	unp	15	78.977
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	unp	60	127.77
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	pe	90	115.91
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	pe	75	117.498
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	pe	105	149.357
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	pe	60	144.533
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	pe	15	71.219
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	pe	1	69.248
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	pe	30	77.508
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	pe	45	108.572
+showcase2016	bt2-cleanparse-tbbpin-q	bowtie2	TBB queuing_mutex	Optimized parsing	sensitive	pe	120	219.102
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	pe	60	146.202
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	pe	15	71.764
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	pe	30	77.7
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	pe	45	110.228
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	pe	90	141.372
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	pe	120	232.888
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	pe	105	177.14
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	pe	1	69.316
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	pe	75	128.517
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	unp	60	126.821
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	unp	15	78.646
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	unp	105	133.109
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	unp	120	159.085
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	unp	30	80.485
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	unp	45	105.851
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	unp	1	77.913
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	unp	90	113.171
+showcase2016	bt2-tbbpin-co-tktptl	bowtie2	TBB/JHU CohortLock	Original parsing	sensitive	unp	75	114.343
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	120	300.632
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	1	15.977
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	90	183.239
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	105	240.901
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	75	155.493
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	60	111.212
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	15	19.042
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	30	23.232
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	45	59.494
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	30	55.343
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	45	57.122
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	60	61.83
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	15	54.031
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	75	196.921
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	120	452.451
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	1	48.106
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	90	314.194
+showcase2016	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	105	325.108
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	90	107.854
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	75	111.779
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	1	86.277
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	60	123.873
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	15	82.739
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	120	130.269
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	105	118.697
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	30	83.111
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	45	105.258
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	75	96.828
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	90	100.635
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	120	140.503
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	45	88.068
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	30	71.937
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	1	82.46
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	15	70.968
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	60	100.74
+showcase2016	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	105	120.938
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	105	263.267
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	15	78.61
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	60	92.579
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	45	81.37
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	30	82.141
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	120	356.129
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	1	75.133
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	90	138.411
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	75	109.4
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	75	106.47
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	120	351.939
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	105	259.2
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	1	64.289
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	90	175.708
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	30	72.709
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	45	77.467
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	60	83.181
+showcase2016	bt2-master	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	15	70.452
