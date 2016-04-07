@@ -237,9 +237,9 @@ def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2):
            nreads_pe * args.multiply_reads * short_read_multiplier / paired_end_divisor
 
 
-def run_cmd(cmd, odir):
+def run_cmd(cmd, odir, nthreads):
     ret = os.system(cmd)
-    with open(os.path.join(odir, 'cmd.sh'), 'w') as ofh:
+    with open(os.path.join(odir, 'cmd_%d.sh' % nthreads), 'w') as ofh:
         ofh.write("#!/bin/sh\n")
         ofh.write(cmd + "\n")
     return ret
@@ -384,7 +384,7 @@ def go(args):
                         else:
                             run = True
                     if run:
-                        run_cmd(cmd, odir)
+                        run_cmd(cmd, odir, nthreads)
                         assert os.path.exists(sam_ofn)
                         if args.delete_sam and not args.sam_dev_null:
                             os.remove(sam_ofn)
