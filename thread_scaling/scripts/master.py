@@ -189,10 +189,8 @@ def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2):
 
     print('Counting %s reads' % tool, file=sys.stderr)
 
-    # TODO: make these command-line parameters
-    # with these settings, I'm trying to roughly even out how long the runs take
-    short_read_multiplier = 2
-    paired_end_divisor = 2
+    short_read_multiplier = int(round(args.short_factor))
+    paired_end_divisor = int(round(1.0 / args.paired_end_factor))
 
     nreads_unp = count_reads([args_U])
     nreads_unp_full = nreads_unp * max_threads * args.multiply_reads
@@ -310,27 +308,31 @@ def go(args):
 
     print('Generating %scommands' % ('' if args.dry_run else 'and running '), file=sys.stderr)
 
-    # iterate over configurations
-    for name, tool, branch, preproc, aligner_args in get_configs(args.config):
-        odir_outer = os.path.join(args.output_dir, name)
+    # iterate over sensitivity levels
+    for sens, sens_short in sensitivities:
 
-        print('Checking that index files exist', file=sys.stderr)
-        index = args.hisat_index if tool == 'hisat' else args.index
-        if not verify_index(index, tool):
-            raise RuntimeError('Could not verify index files')
+        # iterate over unpaired / paired-end
+        for paired in [False, True]:
 
-        # iterate over sensitivity levels
-        for sens, sens_short in sensitivities:
-            odir_sens = os.path.join(odir_outer, sens[2:])
             # iterate over numbers of threads
             for nthreads in series:
-                # iterate over unpaired / paired-end
-                for paired in [False, True]:
-                    # Compose command
-                    odir = os.path.join(odir_sens, 'pe' if paired else 'unp')
-                    print('  Creating output directory "%s"' % odir, file=sys.stderr)
-                    mkdir_quiet(odir)
 
+                last_tool = ''
+                # iterate over configurations
+                for name, tool, branch, preproc, aligner_args in get_configs(args.config):
+                    odir = os.path.join(args.output_dir, name, sens[2:], 'pe' if paired else 'unp')
+                    if tool != last_tool:
+                        print('Checking that index files exist', file=sys.stderr)
+                        index = args.hisat_index if tool == 'hisat' else args.index
+                        if not verify_index(index, tool):
+                            raise RuntimeError('Could not verify index files')
+                        last_tool = tool
+
+                    if not os.path.exists(odir):
+                        print('  Creating output directory "%s"' % odir, file=sys.stderr)
+                        mkdir_quiet(odir)
+
+                    # Compose command
                     runname = '%s_%s_%s_%d' % (name, 'pe' if paired else 'unp', sens_short, nthreads)
                     stdout_ofn = os.path.join(odir, '%d.txt' % nthreads)
                     sam_ofn = os.path.join(odir if args.sam_output_dir else tmpdir, '%s.sam' % runname)
@@ -423,6 +425,10 @@ if __name__ == '__main__':
                         help='Series of comma-separated ints giving the number of threads to use.  E.g. --nthread-series 10,20,30 will run separate experiments using 10, 20 and 30 threads respectively.  Deafult: just one experiment using max # threads.')
     parser.add_argument('--multiply-reads', metavar='int', type=int, default=20,
                         help='Duplicate the input reads file this many times before scaling according to the number of reads.')
+    parser.add_argument('--paired-end-factor', metavar='float', type=int, default=0.5,
+                        help='For paired-end experiments, multiply base number of reads by this factor.')
+    parser.add_argument('--short-factor', metavar='float', type=int, default=3.0,
+                        help='For unpaired experiments, multiple base number of reads by this factor.')
     parser.add_argument('--nthread-pct-series', metavar='pct,pct,...', type=str, required=False,
                         help='Series of comma-separated percentages giving the number of threads to use as fraction of max # threads')
     parser.add_argument('--bowtie-repo', metavar='url', type=str, default=default_bt_repo,
