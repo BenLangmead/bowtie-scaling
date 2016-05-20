@@ -81,7 +81,7 @@ def tool_repo(tool, args):
 def make_tool_version(name, tool, preproc):
     """ Builds target in specified clone """
     exe = tool_exe(tool)
-    cmd = "make -j 20 -C build/%s %s %s" % (name, preproc, exe)
+    cmd = "make -C build/%s %s %s" % (name, preproc, exe)
     print('  command: ' + cmd, file=sys.stderr)
     ret = os.system(cmd)
     if ret != 0:
