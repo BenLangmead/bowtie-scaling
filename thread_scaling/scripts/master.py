@@ -10,7 +10,7 @@ import shutil
 import argparse
 import subprocess
 import tempfile
-
+import re
 
 def mkdir_quiet(dr):
     """ Create directories needed to ensure 'dr' exists; no complaining """
@@ -81,7 +81,7 @@ def tool_repo(tool, args):
 def make_tool_version(name, tool, preproc):
     """ Builds target in specified clone """
     exe = tool_exe(tool)
-    cmd = "make -C build/%s %s %s" % (name, preproc, exe)
+    cmd = "make -j 20 -C build/%s %s %s" % (name, preproc, exe)
     print('  command: ' + cmd, file=sys.stderr)
     ret = os.system(cmd)
     if ret != 0:
@@ -308,11 +308,20 @@ def go(args):
 
     print('Generating %scommands' % ('' if args.dry_run else 'and running '), file=sys.stderr)
 
+    #allows for doing one or both paired modes
+    UNPAIRED_ONLY = 2
+    PAIRED_ONLY = 3
+    paired_modes = []
+    if args.paired_mode != PAIRED_ONLY:
+	paired_modes.append(False)
+    if args.paired_mode != UNPAIRED_ONLY:
+	paired_modes.append(True)
+    branch_batch_patt = re.compile(r'batch_parsing')
     # iterate over sensitivity levels
     for sens, sens_short in sensitivities:
 
         # iterate over unpaired / paired-end
-        for paired in [False, True]:
+        for paired in paired_modes:
 
             # iterate over numbers of threads
             for nthreads in series:
@@ -339,6 +348,8 @@ def go(args):
                     sam_ofn = '/dev/null' if args.sam_dev_null else sam_ofn
                     cmd = ['build/%s/%s' % (name, tool_exe(tool))]
                     cmd.extend(['-p', str(nthreads)])
+                    if branch_batch_patt.search(branch) is not None:
+                        cmd.extend(['--reads-per-batch', str(args.reads_per_batch)])
                     if tool == 'bowtie2' or tool == 'hisat':
                         nr_pe = nreads_pe if tool == 'bowtie2' else nreads_pe_hs
                         nr_unp = nreads_unp if tool == 'bowtie2' else nreads_unp_hs
@@ -455,5 +466,9 @@ if __name__ == '__main__':
                         help='Send SAM output directly to /dev/null.')
     parser.add_argument('--delete-sam', action='store_const', const=True, default=False,
                         help='Delete SAM file as soon as aligner finishes; useful if you need to avoid exhausting a partition')
+    parser.add_argument('--paired-mode', metavar='int', type=int, default=1,
+                        help='Which of the three modes to run: both unpaired and paired (1), unpaired only (2), paired only (3)')
+    parser.add_argument('--reads-per-batch', metavar='int', type=int, default=33,
+                        help='for build which use it, how many reads to lightly format, ignored for those builds which don\'t use it')
 
     go(parser.parse_args())
