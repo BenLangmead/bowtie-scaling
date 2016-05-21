@@ -30,12 +30,14 @@ for mydr in sys.argv[1:]:
             elif run.startswith('bt-'):
                 tool = 'bowtie'
             lock = 'tinythreads fast_mutex'
-            if 'tbbpin-spin' in run:
+            if 'batch-tt' in run:
+                lock = 'batch tinythreads fast_mutex'
+            elif 'batch-tbbpin-q' in run:
+                lock = 'batch TBB queuing_mutex'
+            elif 'tbbpin-spin' in run:
                 lock = 'TBB spin_mutex'
             elif 'tbbpin-heavy' in run:
                 lock = 'TBB mutex'
-            elif 'tbbpin-q' in run:
-                lock = 'TBB queuing_mutex'
             elif 'tbbpin-q' in run:
                 lock = 'TBB queuing_mutex'
             elif 'tbbpin-co' in run:
@@ -43,6 +45,7 @@ for mydr in sys.argv[1:]:
             elif 'no-io' in run or 'noio' in run:
                 lock = 'None (stubbed I/O)'
             version = 'Original parsing'
-            if 'cleanparse' in run:
+            #since batch_parsing is built on cleanparse
+            if 'cleanparse' in run or 'batch' in lock:
                 version = 'Optimized parsing'
             print('\t'.join(map(str, [exp, run, tool, lock, version, sens, pe, thr, secs])))
