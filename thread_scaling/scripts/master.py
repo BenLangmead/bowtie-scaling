@@ -10,7 +10,6 @@ import shutil
 import argparse
 import subprocess
 import tempfile
-import re
 
 def mkdir_quiet(dr):
     """ Create directories needed to ensure 'dr' exists; no complaining """
@@ -316,7 +315,6 @@ def go(args):
 	paired_modes.append(False)
     if args.paired_mode != UNPAIRED_ONLY:
 	paired_modes.append(True)
-    branch_batch_patt = re.compile(r'batch_parsing')
     # iterate over sensitivity levels
     for sens, sens_short in sensitivities:
 
@@ -348,7 +346,7 @@ def go(args):
                     sam_ofn = '/dev/null' if args.sam_dev_null else sam_ofn
                     cmd = ['build/%s/%s' % (name, tool_exe(tool))]
                     cmd.extend(['-p', str(nthreads)])
-                    if branch_batch_patt.search(branch) is not None:
+                    if 'batch_parsing' in branch:
                         cmd.extend(['--reads-per-batch', str(args.reads_per_batch)])
                     if tool == 'bowtie2' or tool == 'hisat':
                         nr_pe = nreads_pe if tool == 'bowtie2' else nreads_pe_hs
