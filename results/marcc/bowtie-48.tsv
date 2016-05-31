@@ -1,0 +1,1537 @@
+experiment	run	tool	lock	version	sensitivity	paired	threads	seconds
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	12	71.292
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	15	71.799
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	20	72.054
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	27	75.431
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	29	74.94
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	43	75.605
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	44	76.097
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	38	75.363
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	36	75.46
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	31	74.971
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	7	70.167
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	9	70.451
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	28	75.258
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	26	75.181
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	21	72.361
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	14	71.011
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	13	71.201
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	8	70.155
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	1	60.677
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	6	70.197
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	30	74.863
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	37	75.347
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	45	75.92
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	39	75.522
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	42	75.525
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	5	69.267
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	2	68.824
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	48	76.886
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	34	75.224
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	33	74.967
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	41	75.504
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	46	76.205
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	22	73.513
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	25	75.29
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	10	70.87
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	17	71.693
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	19	71.878
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	47	76.761
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	40	75.241
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	32	74.944
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	35	75.435
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	3	69.293
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	4	69.87
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	18	71.959
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	16	71.857
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	11	71.071
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	24	75.201
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	pe	23	74.047
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	21	16.53
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	26	19.357
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	28	19.882
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	13	14.729
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	14	14.93
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	42	27.394
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	3	16.961
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	39	25.909
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	45	28.363
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	4	14.801
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	37	25.029
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	30	20.312
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	15	14.93
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	12	14.568
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	29	20.265
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	27	19.509
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	20	16.04
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	31	21.156
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	36	24.249
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	38	25.442
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	44	28.267
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	5	14.913
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	43	27.82
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	2	17.069
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	35	23.835
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	8	14.428
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	32	22.455
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	40	25.834
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	1	16.162
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	47	29.958
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	6	14.742
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	11	14.668
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	16	15.193
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	18	15.71
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	23	16.953
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	24	17.568
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	46	28.833
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	7	14.526
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	41	27.139
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	33	22.341
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	34	23.528
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	48	30.596
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	9	14.45
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	25	18.96
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	22	16.497
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	19	15.837
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	17	15.292
+results_48	bt-cleanparse-no-io	bowtie	None (stubbed I/O)	Optimized parsing	sensitive	unp	10	14.587
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	4	68.357
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	3	68.717
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	34	74.204
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	48	73.867
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	33	73.421
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	41	72.944
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	46	73.888
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	22	70.8
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	25	71.013
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	10	69.426
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	17	70.029
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	19	70.168
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	47	73.562
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	40	72.513
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	32	70.907
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	35	71.088
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	2	68.597
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	5	69.953
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	18	69.907
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	16	69.95
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	11	69.173
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	24	70.237
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	23	70.665
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	12	69.916
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	15	71.658
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	20	71.367
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	27	72.217
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	29	71.274
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	43	72.42
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	38	71.988
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	44	73.207
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	36	71.476
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	31	70.757
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	6	68.723
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	1	70.006
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	8	69.051
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	28	70.968
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	26	70.578
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	21	70.03
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	14	69.92
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	13	69.44
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	9	69.697
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	7	69.177
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	30	71.52
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	37	71.809
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	39	71.478
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	45	73.055
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	pe	42	72.529
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	23	13.293
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	24	13.268
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	11	13.32
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	16	12.933
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	2	15.68
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	18	13.131
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	5	15.51
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	35	15.806
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	32	15.09
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	40	17.886
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	47	22.87
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	4	15.828
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	3	15.826
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	19	13.149
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	17	13.002
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	10	13.47
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	25	13.395
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	22	13.159
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	46	20.126
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	41	17.989
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	33	14.865
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	34	15.227
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	48	21.99
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	42	18.23
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	39	17.277
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	45	19.96
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	37	17.221
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	30	14.218
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	7	14.149
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	13	13.19
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	9	13.606
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	14	13.205
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	21	13.149
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	26	13.534
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	28	13.646
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	31	14.317
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	36	15.862
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	38	17.063
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	44	18.599
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	43	18.59
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	29	14.129
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	27	13.753
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	20	13.089
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	15	13.045
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	12	13.151
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	8	13.584
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	6	14.948
+results_48	bt-no-io	bowtie	None (stubbed I/O)	Original parsing	sensitive	unp	1	14.977
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	26	76.578
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	21	76.807
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	28	76.979
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	14	73.852
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	13	73.311
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	45	81.325
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	39	79.781
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	42	80.485
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	30	77.212
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	5	70.743
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	2	68.915
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	37	79.334
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	12	74.178
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	15	73.486
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	29	78.137
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	20	76.094
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	27	76.683
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	3	68.883
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	36	79.021
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	31	77.481
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	4	71.085
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	43	80.794
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	44	81.017
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	38	79.554
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	32	77.888
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	7	71.753
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	35	78.597
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	47	82.06
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	9	72.335
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	40	80.027
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	16	74.645
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	11	72.777
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	18	74.625
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	24	76.956
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	23	75.921
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	8	72.166
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	41	80.285
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	46	81.636
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	1	63.318
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	48	82.498
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	34	78.401
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	33	78.088
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	6	71.791
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	22	77.618
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	25	76.715
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	19	75.644
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	10	72.715
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	pe	17	73.898
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	29	30.508
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	20	27.482
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	27	29.798
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	12	26.169
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	15	26.599
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	36	34.137
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	31	31.447
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	43	38.769
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	2	24.264
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	38	35.32
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	5	24.824
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	44	39.955
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	14	26.587
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	13	26.231
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	26	29.351
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	21	27.992
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	28	30.154
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	39	36.045
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	4	25.19
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	45	40.799
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	42	38.122
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	3	23.911
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	30	30.923
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	37	34.646
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	41	37.437
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	7	25.278
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	46	41.968
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	34	33.124
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	9	25.481
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	48	44.17
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	33	32.49
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	19	27.095
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	10	25.758
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	17	26.82
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	22	28.496
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	25	29.09
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	32	31.961
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	35	33.538
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	8	25.626
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	6	25.364
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	47	43.1
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	40	36.626
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	1	21.27
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	24	29.222
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	23	28.654
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	16	26.891
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	11	25.938
+results_48	bt-cleanparse-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Optimized parsing	sensitive	unp	18	27.109
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	13	27.265
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	14	27.74
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	28	33.407
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	2	24.599
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	5	25.224
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	21	29.366
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	26	31.856
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	37	40.039
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	30	34.781
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	42	43.195
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	39	41.242
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	45	45.028
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	27	32.611
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	20	29.413
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	4	25.317
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	29	34.087
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	3	24.089
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	15	27.881
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	12	27.143
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	38	40.692
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	44	44.479
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	43	43.975
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	31	35.676
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	36	39.268
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	40	41.915
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	47	46.514
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	35	38.597
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	32	36.459
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	9	26.192
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	23	30.507
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	24	31.045
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	7	25.839
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	18	28.828
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	11	26.865
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	16	28.402
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	33	37.275
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	34	37.946
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	48	47.418
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	46	45.669
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	41	42.65
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	17	28.305
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	10	26.716
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	19	29.016
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	6	25.968
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	1	21.504
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	25	31.391
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	8	26.242
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	unp	22	30.02
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	21	77.845
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	26	79.847
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	28	80.405
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	4	70.691
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	13	73.812
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	14	74.324
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	3	68.975
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	42	85.398
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	39	84.048
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	45	87.524
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	37	83.312
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	30	80.756
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	2	69.408
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	15	74.005
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	12	73.911
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	5	71.194
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	29	80.632
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	27	80.138
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	20	76.963
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	31	81.165
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	36	82.951
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	38	83.612
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	44	86.997
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	43	86.176
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	35	82.513
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	32	81.54
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	40	84.458
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	47	88.742
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	11	73.222
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	6	72.675
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	1	63.356
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	16	74.569
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	18	74.953
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	8	72.924
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	23	79.123
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	24	80.111
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	46	88.288
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	41	84.998
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	33	81.922
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	34	82.249
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	48	89.767
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	25	79.726
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	22	78.524
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	9	72.597
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	19	76.445
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	17	74.399
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	7	71.997
+results_48	bt-cleanparse-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Optimized parsing	sensitive	pe	10	73.385
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	19	78.389
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	17	76.092
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	10	74.301
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	25	82.724
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	22	80.956
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	9	73.606
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	46	104.331
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	41	96.314
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	33	87.882
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	34	88.849
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	7	72.747
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	48	108.486
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	23	81.693
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	24	82.857
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	11	74.313
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	16	76.047
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	18	76.623
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	6	73.283
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	35	89.887
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	1	63.65
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	32	87.125
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	40	95.159
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	8	73.651
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	47	106.03
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	31	86.255
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	2	69.669
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	36	90.755
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	5	71.739
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	38	92.879
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	44	101.108
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	43	99.595
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	29	84.807
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	27	83.587
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	20	78.829
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	15	75.185
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	12	75.032
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	42	97.765
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	39	93.984
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	45	102.746
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	4	71.402
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	37	91.731
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	3	69.211
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	30	85.352
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	13	74.926
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	14	75.685
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	21	79.94
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	26	83.074
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	pe	28	84.227
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	7	27.683
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	9	29.164
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	42	80.12
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	39	74.782
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	45	84.668
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	37	71.112
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	30	58.476
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	21	42.77
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	26	51.168
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	28	55.147
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	13	33.285
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	14	34.539
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	31	60.407
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	36	69.222
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	38	73.093
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	44	83.027
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	43	81.692
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	8	28.631
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	1	21.627
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	6	27.316
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	15	35.496
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	12	31.99
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	29	57.026
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	27	53.008
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	20	42.236
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	11	31.133
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	16	37.342
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	18	39.927
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	23	45.536
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	24	46.572
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	35	67.576
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	32	62.069
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	40	76.707
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	47	87.849
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	5	26.252
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	2	25.198
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	25	48.714
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	22	44.098
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	19	40.594
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	17	38.203
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	10	30.083
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	3	24.61
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	4	26.095
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	46	86.241
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	41	78.47
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	33	63.997
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	34	65.606
+results_48	bt-tbbpin-co-q	bowtie	TBB/JHU CohortLock queue	Original parsing	sensitive	unp	48	90.464
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	32	30.267
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	35	31.446
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	47	38.414
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	40	33.751
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	24	28.514
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	23	28.054
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	16	26.348
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	8	25.319
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	11	25.386
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	1	21.229
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	18	26.595
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	6	24.984
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	41	34.166
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	46	37.773
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	48	39.335
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	34	30.981
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	33	30.645
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	19	26.633
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	7	24.73
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	10	25.484
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	17	26.282
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	9	25.212
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	22	27.742
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	25	28.215
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	3	23.608
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	4	24.552
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	14	26.105
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	13	25.741
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	26	28.406
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	21	27.401
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	28	28.989
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	45	36.678
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	39	33.063
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	42	34.767
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	30	29.396
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	37	32.205
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	29	29.177
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	20	27.099
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	27	28.539
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	12	25.626
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	15	26.046
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	5	24.48
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	2	24.133
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	36	31.809
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	31	29.86
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	43	35.34
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	44	36.173
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	unp	38	32.779
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	15	73.661
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	12	73.472
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	2	69.087
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	5	70.807
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	29	77.927
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	27	76.609
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	20	75.959
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	31	77.349
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	36	78.705
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	44	80.574
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	38	79.242
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	43	80.339
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	21	76.812
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	26	76.355
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	4	71.179
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	28	76.82
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	3	69.127
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	13	72.785
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	14	73.841
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	42	80.072
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	45	80.838
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	39	79.431
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	37	79.006
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	30	77.015
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	46	81.238
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	41	79.93
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	33	77.875
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	48	83.341
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	34	78.072
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	9	72.322
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	25	76.553
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	22	77.66
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	7	72.025
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	19	75.644
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	17	73.971
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	10	73.217
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	35	78.319
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	32	77.669
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	40	79.688
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	47	81.687
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	11	72.608
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	16	73.938
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	18	74.467
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	6	71.861
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	1	63.435
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	23	75.73
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	8	72.19
+results_48	bt-cleanparse-tbbpin-q	bowtie	TBB queuing_mutex	Optimized parsing	sensitive	pe	24	77.052
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	28	78.898
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	21	77.983
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	26	78.256
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	13	73.489
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	14	74.394
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	5	70.966
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	2	69.273
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	37	82.522
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	30	79.194
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	42	85.33
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	39	83.578
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	45	87.566
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	3	68.659
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	4	71.384
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	15	74.395
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	12	74.085
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	27	78.312
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	20	77.324
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	29	80.052
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	38	83.037
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	44	86.7
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	43	85.939
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	31	79.713
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	36	82.063
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	40	88.041
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	47	89.765
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	35	81.506
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	32	80.031
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	18	75.512
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	7	72.141
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	11	73.087
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	16	75.253
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	9	73.083
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	23	77.427
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	24	78.529
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	33	80.466
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	34	81.029
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	48	91.931
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	46	88.814
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	41	84.701
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	25	78.254
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	22	78.823
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	17	75.095
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	8	72.963
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	10	73.641
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	1	63.347
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	19	76.716
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	6	72.923
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	25	44.741
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	22	38.951
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	19	33.578
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	17	31.069
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	10	26.722
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	5	25.053
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	2	24.248
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	46	86.287
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	41	74.682
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	33	59.505
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	48	90.878
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	34	61.55
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	11	27.035
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	16	30.112
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	18	32.41
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	23	40.849
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	24	43.539
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	35	63.127
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	32	57.535
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	40	72.727
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	47	88.358
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	3	24.094
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	4	25.148
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	31	55.769
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	36	65.461
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	44	81.496
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	38	68.792
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	43	79.125
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	7	25.696
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	9	26.291
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	15	29.312
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	12	27.854
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	29	52.084
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	27	48.114
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	20	35.19
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	8	26.081
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	1	21.435
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	6	25.901
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	42	76.683
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	45	83.84
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	39	70.709
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	37	67.305
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	30	53.907
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	21	37.108
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	26	46.243
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	28	50.239
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	13	27.794
+results_48	bt-tbbpin-q	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	14	28.75
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	14	28.871
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	13	28.398
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	26	46.276
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	21	36.65
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	28	51.58
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	45	86.391
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	39	73.511
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	7	26.162
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	42	79.168
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	9	26.586
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	30	55.987
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	37	69.565
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	29	53.974
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	20	34.875
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	27	49.203
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	12	27.76
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	15	29.357
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	36	67.506
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	8	26.402
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	31	58.063
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	6	26.1
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	43	80.977
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	44	82.919
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	1	21.468
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	38	71.514
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	32	59.932
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	35	66.003
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	47	89.58
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	2	24.477
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	5	25.459
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	40	75.396
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	24	42.428
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	23	40.558
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	16	30.242
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	11	27.32
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	18	32.249
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	4	25.392
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	41	77.284
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	46	87.8
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	3	24.349
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	48	92.702
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	34	63.951
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	33	61.965
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	19	33.16
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	10	27.063
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	17	31.03
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	22	38.524
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	unp	25	44.466
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	34	81.644
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	48	92.051
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	33	81.195
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	41	85.512
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	46	89.405
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	10	74.043
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	17	75.458
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	19	77.046
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	2	69.955
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	5	71.461
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	22	79.396
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	25	78.667
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	47	90.706
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	40	84.914
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	32	80.696
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	35	82.128
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	24	78.943
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	23	77.765
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	4	71.467
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	3	69.255
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	18	75.802
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	16	75.393
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	11	73.531
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	9	73.127
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	20	77.754
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	27	78.974
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	29	80.69
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	7	72.406
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	12	74.206
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	15	74.882
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	43	86.873
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	38	83.877
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	44	87.538
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	36	82.778
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	31	80.191
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	14	75.1
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	13	73.937
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	6	72.882
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	1	63.684
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	28	79.289
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	26	78.662
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	8	73.418
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	21	78.064
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	30	79.791
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	37	83.237
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	39	84.212
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	45	88.514
+results_48	bt-tbbpin-co-tktptl	bowtie	TBB/JHU CohortLock tktptl	Original parsing	sensitive	pe	42	86.134
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	6	25.65
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	1	21.374
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	8	26.101
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	47	431.741
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	40	292.323
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	32	213.485
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	35	251.798
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	24	64.214
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	23	53.252
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	18	34.732
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	16	31.258
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	11	26.895
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	48	422.564
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	34	234.605
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	33	224.537
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	41	304.732
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	46	410.722
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	9	26.097
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	7	25.566
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	10	26.693
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	17	32.446
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	19	36.901
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	22	47.22
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	25	77.683
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	14	28.984
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	13	27.904
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	28	153.192
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	26	105.051
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	21	43.496
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	30	212.11
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	37	267.426
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	45	389.711
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	39	280.706
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	42	318.731
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	4	24.947
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	3	23.902
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	20	39.437
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	27	142.521
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	29	188.462
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	12	27.549
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	15	29.62
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	2	24.192
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	5	24.924
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	43	331.778
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	44	356.257
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	38	271.199
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	36	260.127
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	31	216.901
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	33	81.502
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	34	82.512
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	48	165.005
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	3	68.847
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	46	147.928
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	41	102.474
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	4	71.236
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	17	74.703
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	10	73.361
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	19	76.376
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	25	78.268
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	22	78.574
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	40	95.241
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	5	70.861
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	2	69.215
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	47	154.365
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	35	83.377
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	32	80.947
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	23	77.453
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	24	78.39
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	18	75.378
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	11	73.374
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	16	75.266
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	27	78.626
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	20	76.897
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	29	80.436
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	15	74.275
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	12	74.017
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	38	88.616
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	1	63.271
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	44	127.915
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	43	118.544
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	6	71.999
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	31	80.303
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	8	73.257
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	36	85.068
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	13	73.379
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	14	74.662
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	28	78.946
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	21	77.721
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	26	78.386
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	37	86.323
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	30	79.691
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	9	72.327
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	42	110.82
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	7	71.939
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	39	91.484
+results_48	bt-tbbpin-spin	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	45	130.16
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	40	83.078
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	47	87.767
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	35	82.896
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	32	81.919
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	2	68.018
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	23	82.872
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	24	81.38
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	5	72.212
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	18	78.574
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	11	75.046
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	16	77.625
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	33	82.561
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	34	82.681
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	48	89.879
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	46	90.384
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	41	83.227
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	17	78.341
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	10	74.051
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	19	79.324
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	25	81.041
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	4	69.802
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	3	70.736
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	22	79.375
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	13	76.578
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	14	76.248
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	28	82.051
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	9	73.987
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	21	80.343
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	26	82.207
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	7	72.596
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	37	83.312
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	30	81.765
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	42	83.827
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	39	82.968
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	45	87.98
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	27	82.076
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	6	71.465
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	1	60.402
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	20	79.484
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	29	81.667
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	8	72.919
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	15	77.349
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	12	75.149
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	38	83.333
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	44	86.64
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	43	88.555
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	31	82.178
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	pe	36	83.095
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	1	16.2
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	46	30.897
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	6	21.39
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	41	29.164
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	33	27.099
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	8	22.147
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	48	31.792
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	34	26.786
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	25	25.22
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	22	24.843
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	19	24.204
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	17	23.775
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	10	22.344
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	35	27.54
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	32	26.749
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	9	22.066
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	40	28.473
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	7	22.016
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	47	31.96
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	11	22.731
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	16	23.958
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	18	24.248
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	23	24.84
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	24	25.055
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	15	23.767
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	12	23.107
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	29	26.038
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	27	25.776
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	20	24.561
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	31	26.672
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	36	27.696
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	3	20.852
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	44	30.096
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	38	28.301
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	4	20.53
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	43	30.016
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	21	24.636
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	26	25.839
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	28	26.214
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	13	23.182
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	14	23.286
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	42	29.501
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	5	21.079
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	45	30.694
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	2	19.789
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	39	28.884
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	37	27.672
+results_48	bt-cleanparse-no-io_norandom	bowtie	None (stubbed I/O)	Optimized parsing, No randomization	sensitive	unp	30	26.405
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	31	76.79
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	36	78.296
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	38	78.897
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	44	80.277
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	43	80.065
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	15	73.209
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	12	73.326
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	8	72.201
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	6	72.017
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	1	63.193
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	29	76.785
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	27	76.264
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	20	75.465
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	42	79.823
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	39	79.063
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	45	80.657
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	37	78.585
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	30	76.495
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	21	76.036
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	26	75.929
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	28	76.384
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	7	71.429
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	13	72.837
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	9	72.04
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	14	73.701
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	25	76.113
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	22	77.005
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	4	71.194
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	3	68.683
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	19	74.964
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	17	73.612
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	10	72.904
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	46	80.954
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	41	79.566
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	33	77.348
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	34	77.73
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	48	81.726
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	11	72.558
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	16	73.79
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	2	68.898
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	18	74.131
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	5	70.594
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	23	75.553
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	24	76.616
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	35	77.871
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	32	77.082
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	40	79.412
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	pe	47	81.334
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	4	24.471
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	3	23.716
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	32	34.204
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	35	45.475
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	47	105.821
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	40	78.049
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	24	28.996
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	23	28.521
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	16	26.379
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	11	25.377
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	18	26.861
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	41	75.539
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	46	100.016
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	48	108.066
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	34	40.384
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	33	36.035
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	2	23.868
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	5	24.334
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	19	26.897
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	10	25.463
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	17	26.498
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	22	27.849
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	25	28.868
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	14	26.034
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	13	25.759
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	26	29.285
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	21	27.348
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	28	30.094
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	45	96.43
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	39	73.613
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	42	83.748
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	30	31.661
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	37	58.367
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	6	25.09
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	1	21.163
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	8	25.162
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	29	30.83
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	20	27.227
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	27	29.594
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	12	25.776
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	15	26.467
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	9	25.06
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	7	24.749
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	36	48.329
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	31	32.775
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	43	86.35
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	44	88.36
+results_48	bt-cleanparse-tbbpin-spin	bowtie	TBB spin_mutex	Optimized parsing	sensitive	unp	38	64.764
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	2	31.136
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	5	25.283
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	25	29.399
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	22	28.409
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	17	27.422
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	10	26.263
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	19	27.701
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	33	36.681
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	34	41.728
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	48	93.801
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	46	93.426
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	41	69.601
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	18	27.641
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	11	26.567
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	16	27.11
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	23	29.038
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	24	29.03
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	4	25.018
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	3	29.242
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	40	66.144
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	47	94.845
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	35	44.798
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	32	35.062
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	38	59.596
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	44	82.811
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	43	81.072
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	31	34.059
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	36	54.876
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	15	27.511
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	12	26.587
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	27	30.477
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	9	25.975
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	20	27.891
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	29	31.771
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	7	25.597
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	37	56.497
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	30	32.793
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	42	76.934
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	39	64.193
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	45	87.382
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	28	30.921
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	6	25.513
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	1	31.547
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	21	28.353
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	26	29.882
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	8	26.071
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	13	26.565
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	unp	14	26.623
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	17	75.437
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	10	74.442
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	19	75.317
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	25	76.392
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	22	76.147
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	33	77.298
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	34	78.007
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	48	81.711
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	46	80.781
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	41	79.534
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	8	74.002
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	6	72.858
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	1	86.712
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	23	76.617
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	24	76.356
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	18	75.117
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	11	74.451
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	16	75.203
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	7	73.834
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	9	74.286
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	40	79.546
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	47	81.253
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	35	78.397
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	32	77.692
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	4	72.002
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	3	74.59
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	38	78.391
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	44	80.927
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	43	80.742
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	31	77.709
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	36	78.326
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	27	76.547
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	20	75.686
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	29	77.226
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	15	75.271
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	12	74.735
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	37	78.57
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	30	77.642
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	42	79.872
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	39	79.538
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	45	80.425
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	2	85.803
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	5	72.47
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	13	74.674
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	14	74.97
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	28	76.684
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	21	76.066
+results_48	bt-cleanparse-tt	bowtie	tinythreads fast_mutex	Optimized parsing	sensitive	pe	26	76.604
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	5	70.769
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	37	79.406
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	2	69.367
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	30	77.283
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	42	80.687
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	39	79.88
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	45	81.608
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	28	77.035
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	21	76.71
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	26	76.601
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	13	73.033
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	14	73.9
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	38	79.718
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	44	81.251
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	43	80.978
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	3	68.689
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	31	77.523
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	4	70.705
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	36	79.069
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	15	73.563
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	12	73.598
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	27	76.906
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	20	76.094
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	29	78.084
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	18	74.625
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	11	72.722
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	16	74.182
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	23	75.95
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	24	77.001
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	40	80.199
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	9	72.242
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	47	82.281
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	35	78.645
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	7	71.648
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	32	77.91
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	25	76.615
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	22	77.757
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	17	74.02
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	10	73.205
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	19	75.577
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	33	78.074
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	1	63.192
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	34	78.494
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	6	71.842
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	48	82.742
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	8	72.196
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	46	82.038
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	pe	41	80.531
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	48	65.947
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	34	44.341
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	33	42.67
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	41	55.163
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	46	63.732
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	22	30.413
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	25	31.774
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	7	25.278
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	10	26.028
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	17	27.837
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	19	28.448
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	9	25.754
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	47	64.554
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	40	53.319
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	32	40.934
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	35	46.184
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	8	25.799
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	18	28.315
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	1	21.323
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	16	27.593
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	6	25.493
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	11	26.192
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	24	31.552
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	23	30.828
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	5	24.735
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	12	26.466
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	2	24.089
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	15	27.351
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	20	29.093
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	27	33.903
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	29	36.152
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	43	57.634
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	44	60.137
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	38	51.103
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	36	48.07
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	31	39.038
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	28	34.925
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	26	32.54
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	21	29.74
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	3	23.849
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	14	27.147
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	4	24.736
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	13	26.689
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	30	38.005
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	37	49.827
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	45	61.168
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	39	52.216
+results_48	bt-cleanparse-tbbpin-heavy	bowtie	TBB mutex	Optimized parsing	sensitive	unp	42	57.043
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	14	75.691
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	13	74.945
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	28	83.586
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	26	81.879
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	21	79.85
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	30	85.332
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	9	73.195
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	37	97.911
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	45	118.091
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	7	72.564
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	39	102.351
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	42	110.471
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	20	79.004
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	27	82.64
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	29	85.958
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	12	75.082
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	15	75.701
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	43	112.834
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	1	63.467
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	44	116.205
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	6	72.857
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	38	100.323
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	8	73.821
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	36	95.608
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	31	86.594
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	47	124.573
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	5	71.542
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	40	105.25
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	2	69.604
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	32	88.104
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	35	93.433
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	24	81.59
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	23	80.046
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	18	77.054
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	16	76.362
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	11	74.325
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	48	126.961
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	34	91.473
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	33	89.424
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	41	107.619
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	3	69.214
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	46	121.196
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	4	71.49
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	10	74.336
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	17	76.504
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	19	78.264
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	22	81.081
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	pe	25	81.531
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	40	111.431
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	47	135.78
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	35	96.246
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	32	87.242
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	18	47.039
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	4	25.769
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	11	32.179
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	3	24.392
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	16	41.968
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	23	61.787
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	24	65.212
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	33	92.289
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	48	138.446
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	34	92.363
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	46	131.564
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	41	114.497
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	25	67.231
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	22	57.204
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	2	24.483
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	17	44.532
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	5	26.191
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	10	31.018
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	19	49.627
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	28	76.042
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	21	54.612
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	26	68.9
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	13	35.346
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	6	27.314
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	14	37.445
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	1	21.399
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	8	28.974
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	37	101.937
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	30	82.452
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	42	117.756
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	45	128.034
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	39	107.693
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	9	29.661
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	15	39.89
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	12	33.96
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	7	27.635
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	27	72.756
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	20	52.172
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	29	77.725
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	44	125.477
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	38	106.69
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	43	122.497
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	31	84.03
+results_48	bt-tbbpin-heavy	bowtie	TBB mutex	Original parsing	sensitive	unp	36	99.706
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	32	81.257
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	35	84.204
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	47	185.422
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	40	103.533
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	16	76.14
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	11	75.581
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	18	76.643
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	4	72.17
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	24	78.039
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	23	78.551
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	3	71.305
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	41	118.391
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	46	173.857
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	48	193.907
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	34	82.976
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	33	82.088
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	22	78.272
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	2	87.157
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	5	73.11
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	25	78.511
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	19	76.951
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	10	74.599
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	17	76.61
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	6	73.452
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	26	79.088
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	21	77.758
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	1	87.414
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	8	74.357
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	28	79.554
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	14	75.682
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	13	75.312
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	45	165.547
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	39	98.824
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	42	122.454
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	30	80.752
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	37	87.526
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	12	75.339
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	15	76.134
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	9	74.465
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	29	79.961
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	20	77.025
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	7	73.966
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	27	79.428
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	36	85.807
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	31	80.626
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	43	145.065
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	44	150.525
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	38	93.385
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	37	170.208
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	9	27.3
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	30	119.423
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	42	218.506
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	39	186.905
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	7	26.611
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	45	226.97
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	13	31.456
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	14	33.067
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	28	110.641
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	21	71.232
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	26	102.717
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	38	163.683
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	6	26.036
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	44	240.558
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	43	217.367
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	1	32.115
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	31	125.396
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	36	161.275
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	8	27.046
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	27	107.272
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	20	67.514
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	29	117.497
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	15	37.266
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	12	30.33
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	23	86.742
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	24	90.803
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	18	55.332
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	11	29.127
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	16	41.602
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	40	197.702
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	2	31.785
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	5	26.058
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	47	259.001
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	35	153.323
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	32	127.34
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	17	48.099
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	10	28.106
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	19	60.548
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	25	99.062
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	22	82.374
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	33	136.614
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	34	139.433
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	48	254.899
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	4	25.58
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	46	262.68
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	41	207.032
+results_48	bt-tt	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	3	29.883
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	36	27.524
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	31	23.394
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	43	33.309
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	44	41.793
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	38	29.044
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	12	16.831
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	15	17.432
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	29	22.446
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	9	16.418
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	20	18.559
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	7	16.296
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	27	21.334
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	45	41.011
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	39	29.775
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	42	32.417
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	30	23.125
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	37	28.477
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	1	16.807
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	26	20.824
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	21	19.077
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	6	15.986
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	8	16.216
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	28	21.798
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	14	17.198
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	13	17.15
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	22	19.438
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	5	16.129
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	2	15.092
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	25	20.574
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	19	18.337
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	10	16.597
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	17	17.927
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	41	31.565
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	46	38.725
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	48	39.952
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	34	26.071
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	33	25.309
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	16	17.627
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	11	16.733
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	18	18.092
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	3	16.202
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	24	20.205
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	23	19.819
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	4	15.461
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	32	24.163
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	35	26.529
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	47	39.027
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	unp	40	30.811
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	37	219.599
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	30	216.927
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	42	221.667
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	39	220.428
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	45	222.876
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	13	205.432
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	14	206.608
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	28	216.33
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	7	202.668
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	9	203.365
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	21	212.693
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	26	215.625
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	38	220.156
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	44	222.402
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	43	221.891
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	31	217.298
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	36	219.211
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	27	215.744
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	8	203.729
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	20	209.725
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	6	203.18
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	29	216.236
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	1	181.905
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	15	206.438
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	12	206.185
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	23	215.342
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	24	218.151
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	2	194.872
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	5	199.864
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	18	207.629
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	11	204.653
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	16	207.415
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	40	220.843
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	47	225.047
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	35	218.837
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	32	217.642
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	17	206.877
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	10	205.327
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	19	207.437
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	4	200.387
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	3	194.758
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	25	216.177
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	22	213.754
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	33	218.16
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	34	218.395
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	48	229.426
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	46	223.479
+results_48	bt-cleanparse-tbbpin-q_rawseqs	bowtie	TBB queuing_mutex noio reads	Optimized parsing	sensitive	pe	41	221.317

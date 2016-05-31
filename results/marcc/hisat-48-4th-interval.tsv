@@ -1,0 +1,239 @@
+experiment	run	tool	lock	version	sensitivity	paired	threads	seconds
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	19	26.131
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	10	25.072
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	7	24.715
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	22	26.376
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	25	26.55
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	46	36.108
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	48	40.399
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	34	30.076
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	16	25.841
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	1	20.569
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	40	31.496
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	31	29.448
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	43	32.67
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	37	30.702
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	4	24.461
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	13	25.329
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	unp	28	26.879
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	4	23.478
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	40	26.284
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	16	24.736
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	48	53.044
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	34	25.695
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	46	27.103
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	10	24.338
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	19	24.932
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	25	25.456
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	22	25.127
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	13	24.582
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	28	25.459
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	37	26.121
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	1	20.095
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	7	24.001
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	43	26.881
+results_48	hisat-batch-tbbpin-q	hisat	batch TBB queuing_mutex	Optimized parsing	sensitive	pe	31	25.657
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	31	56.686
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	43	80.086
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	4	25.385
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	37	68.369
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	13	28.473
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	28	48.35
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	19	33.818
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	1	21.036
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	10	27.318
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	25	43.087
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	22	38.472
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	46	89.442
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	48	96.986
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	34	61.984
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	7	26.329
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	16	30.602
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	40	74.027
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	10	27.5
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	19	40.888
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	25	54.001
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	22	47.246
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	34	72.8
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	48	127.63
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	7	26.198
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	46	102.903
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	16	34.856
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	40	86.983
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	1	20.603
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	43	95.32
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	31	66.477
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	37	79.332
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	4	24.738
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	13	30.262
+results_48	hisat-tbbpin-q	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	28	60.3
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	40	25.717
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	16	21.272
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	4	20.837
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	46	29.169
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	48	30.038
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	34	23.484
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	25	21.613
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	22	21.629
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	19	21.142
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	10	21.131
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	28	22.22
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	13	20.913
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	1	18.934
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	37	24.17
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	7	20.384
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	31	22.27
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	pe	43	27.044
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	40	23.247
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	1	18.436
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	16	18.93
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	7	18.66
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	46	25.116
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	48	25.627
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	34	21.891
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	22	19.83
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	25	20.228
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	19	20.145
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	10	19.028
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	28	23.21
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	13	19.455
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	4	19.241
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	37	22.591
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	31	21.156
+results_48	hisat-no-io	hisat	None (stubbed I/O)	Original parsing	sensitive	unp	43	25.776
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	25	27.799
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	22	27.324
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	10	25.815
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	19	26.841
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	7	25.26
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	48	223.356
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	34	93.049
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	46	195.577
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	16	26.36
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	40	144.052
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	1	30.428
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	43	162.524
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	31	69.062
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	4	24.833
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	37	123.141
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	28	33.061
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	unp	13	26.113
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	13	25.559
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	28	26.859
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	37	28.471
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	1	29.042
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	7	24.741
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	31	27.317
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	43	31.095
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	4	24.338
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	40	29.563
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	16	25.946
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	46	61.058
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	48	67.796
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	34	28.034
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	19	25.991
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	10	25.154
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	25	26.746
+results_48	hisat-batch-tt	hisat	batch tinythreads fast_mutex	Optimized parsing	sensitive	pe	22	26.442
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	34	115.356
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	48	220.231
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	46	209.317
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	25	66.402
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	22	52.234
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	10	28.34
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	19	38.934
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	4	26.261
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	40	156.396
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	16	32.212
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	7	27.253
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	43	174.893
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	31	93.375
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	28	82.181
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	13	29.673
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	37	138.324
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	1	31.167
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	40	143.537
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	1	30.394
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	16	35.917
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	46	181.099
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	34	109.673
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	48	187.059
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	25	66.953
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	22	55.529
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	19	45.439
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	7	26.616
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	10	27.996
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	28	81.722
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	13	30.777
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	4	25.383
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	37	123.181
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	31	93.666
+results_48	hisat-tt	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	43	160.342
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	43	30.537
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	31	27.163
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	37	28.221
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	4	23.68
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	28	26.836
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	13	25.327
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	25	26.309
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	22	25.999
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	10	25.023
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	19	25.776
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	48	61.45
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	34	27.812
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	7	24.459
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	46	31.704
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	16	25.59
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	40	29.183
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	pe	1	20.319
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	4	24.121
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	37	33.754
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	13	25.775
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	28	28.055
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	31	31.539
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	43	37.153
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	16	26.047
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	1	20.461
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	40	35.227
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	19	26.532
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	10	25.534
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	22	27.135
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	25	27.31
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	46	41.842
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	34	32.551
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	48	46.226
+results_48	hisat-cleanparse-tbbpin-q	hisat	TBB queuing_mutex	Optimized parsing	sensitive	unp	7	24.676
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	46	142.295
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	34	70.699
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	48	157.132
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	19	27.649
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	10	26.2
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	25	29.6
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	22	28.179
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	40	108.646
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	4	25.184
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	16	27.044
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	7	25.509
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	31	49.619
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	43	127.259
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	13	26.603
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	1	30.658
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	28	34.472
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	unp	37	88.857
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	31	35.963
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	43	98.321
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	37	72.059
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	4	24.61
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	13	26.117
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	28	30.24
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	19	26.953
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	10	25.614
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	22	27.876
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	25	28.514
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	46	113.871
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	34	53.571
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	48	122.121
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	7	25.133
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	16	26.587
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	1	30.197
+results_48	hisat-cleanparse-tt	hisat	tinythreads fast_mutex	Optimized parsing	sensitive	pe	40	82.85
