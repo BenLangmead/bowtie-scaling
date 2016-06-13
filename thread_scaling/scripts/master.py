@@ -10,6 +10,7 @@ import shutil
 import argparse
 import subprocess
 import tempfile
+import re
 
 def mkdir_quiet(dr):
     """ Create directories needed to ensure 'dr' exists; no complaining """
@@ -87,15 +88,16 @@ def make_tool_version(name, tool, preproc):
         raise RuntimeError('non-zero return from make for %s version "%s"' % (tool, name))
 
 
-def install_tool_version(name, tool, url, branch, preproc):
+def install_tool_version(name, tool, url, branch, preproc, build_dir='build', make_tool=True):
     """ Clones appropriate branch """
-    mkdir_quiet(os.path.join('build', name))
-    cmd = "git clone -b %s %s build/%s" % (branch, url, name)
+    mkdir_quiet(os.path.join(build_dir, name))
+    cmd = "git clone -b %s %s %s/%s" % (branch, url, build_dir, name)
     print('  command: ' + cmd, file=sys.stderr)
     ret = os.system(cmd)
     if ret != 0:
         raise RuntimeError('non-zero return from git clone for %s version "%s"' % (tool, name))
-    make_tool_version(name, tool, preproc)
+    if make_tool:
+        make_tool_version(name, tool, preproc)
 
 
 def get_configs(config_fn):
@@ -184,7 +186,7 @@ def cat_shorten(fns, dest_fn, n):
     cat([dest_fn + ".tmp"], dest_fn, n)
 
 
-def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2):
+def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2, generate_reads=True):
 
     print('Counting %s reads' % tool, file=sys.stderr)
 
@@ -202,29 +204,31 @@ def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2):
           (nreads_pe, nreads_pe_full, max_threads, args.multiply_reads, paired_end_divisor), file=sys.stderr)
 
     tmpfile = os.path.join(tmpdir, tool + '_' + "reads.fq")
-    print('Concatenating new unpaired long-read file and storing in "%s"' % tmpfile, file=sys.stderr)
-    cat([args_U], tmpfile, max_threads * args.multiply_reads)
-
     tmpfile_short = os.path.join(tmpdir, tool + '_' + "reads_short.fq")
-    print('Concatenating new unpaired short-read file and storing in "%s"' % tmpfile_short, file=sys.stderr)
-    cat_shorten([args_U], tmpfile_short, max_threads * short_read_multiplier * args.multiply_reads)
-
     tmpfile_1 = os.path.join(tmpdir, tool + '_' + "reads_1.fq")
-    print('Concatenating new long paired-end mate 1s and storing in "%s"' % tmpfile_1, file=sys.stderr)
-    cat([args_m1], tmpfile_1, (max_threads * args.multiply_reads) / paired_end_divisor)
-
     tmpfile_short_1 = os.path.join(tmpdir, tool + '_' + "reads_1_short.fq")
-    print('Concatenating new short paired-end mate 1s and storing in "%s"' % tmpfile_short_1, file=sys.stderr)
-    cat_shorten([args_m1], tmpfile_short_1,
-                (max_threads * short_read_multiplier * args.multiply_reads) / paired_end_divisor)
-
     tmpfile_2 = os.path.join(tmpdir, tool + '_' + "reads_2.fq")
-    print('Concatenating new long paired-end mate 2s and storing in "%s"' % tmpfile_2, file=sys.stderr)
-    cat([args_m2], tmpfile_2, (max_threads * args.multiply_reads) / paired_end_divisor)
-
     tmpfile_short_2 = os.path.join(tmpdir, tool + '_' + "reads_2_short.fq")
-    print('Concatenating new short paired-end mate 2s and storing in "%s"' % tmpfile_short_2, file=sys.stderr)
-    cat_shorten([args_m2], tmpfile_short_2,
+
+    if generate_reads:
+        print('Concatenating new unpaired long-read file and storing in "%s"' % tmpfile, file=sys.stderr)
+        cat([args_U], tmpfile, max_threads * args.multiply_reads)
+
+        print('Concatenating new unpaired short-read file and storing in "%s"' % tmpfile_short, file=sys.stderr)
+        cat_shorten([args_U], tmpfile_short, max_threads * short_read_multiplier * args.multiply_reads)
+
+        print('Concatenating new long paired-end mate 1s and storing in "%s"' % tmpfile_1, file=sys.stderr)
+        cat([args_m1], tmpfile_1, (max_threads * args.multiply_reads) / paired_end_divisor)
+
+        print('Concatenating new short paired-end mate 1s and storing in "%s"' % tmpfile_short_1, file=sys.stderr)
+        cat_shorten([args_m1], tmpfile_short_1,
+                    (max_threads * short_read_multiplier * args.multiply_reads) / paired_end_divisor)
+
+        print('Concatenating new long paired-end mate 2s and storing in "%s"' % tmpfile_2, file=sys.stderr)
+        cat([args_m2], tmpfile_2, (max_threads * args.multiply_reads) / paired_end_divisor)
+
+        print('Concatenating new short paired-end mate 2s and storing in "%s"' % tmpfile_short_2, file=sys.stderr)
+        cat_shorten([args_m2], tmpfile_short_2,
                 (max_threads * short_read_multiplier * args.multiply_reads) / paired_end_divisor)
 
     return tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, \
@@ -233,6 +237,66 @@ def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2):
            nreads_unp * args.multiply_reads * short_read_multiplier,\
            nreads_pe * args.multiply_reads * short_read_multiplier / paired_end_divisor
 
+
+non_fastq_line = re.compile('^\s*[\{\}]')
+def extract_noio_reads(tool,rawseqs_filepath,tmpdir,suffix,generate_reads=True):
+    """does the extraction of the compiled in reads from the header files of the tool for both single and paired reads"""
+    fout_name = "%s/%s.noio%s.fastq" % (tmpdir,tool,suffix)
+    if not generate_reads:
+        return fout_name
+    with open(fout_name,'w') as fout:
+        ctr=0
+        with open("%s" % (rawseqs_filepath),"r") as fin:
+            for line in fin:
+                line = line.rstrip()
+                if '  {' in line or '  },' in line:
+                    continue
+                ctr+=1
+                #remove c-language related characters (escapes, braces)
+                line = re.sub(r'^\s*"','',line)
+                line = re.sub(r'",?\s*$','',line)
+                line = re.sub(r'\\\?','?',line)
+                line = re.sub(r'\\"','"',line)
+                if ctr % 3 == 1:
+                    fout.write("@")
+                    if suffix == '2':
+                        #adjust for pairing
+                        line = re.sub(r'\/1$','\/2',line)
+                elif ctr % 3 == 0:
+                    fout.write("+\n")
+                fout.write("%s\n" % (line))
+    return fout_name
+
+
+def setup_noio_reads(args,tmpdir,tool,name,generate_reads=True):
+    """temporarily clones and extracts compiled-in reads from the no-io branch of the given tool"""
+    branch = 'no-io'
+    temp_build_dir = './'
+    multiply_factor = 5
+    if generate_reads:
+        install_tool_version(name, tool, tool_repo(tool, args), branch, None, build_dir=temp_build_dir, make_tool=False)
+    seqs_fname = 'rawseqs'
+    rawseqs_filepath = "%s/%s/%s.h" % (temp_build_dir, name, seqs_fname)
+    rawseqs_fastq = extract_noio_reads(tool,rawseqs_filepath,tmpdir,'',generate_reads=generate_reads)
+    rawseqs_filepath = "%s/%s/%s_1.h" % (temp_build_dir, name, seqs_fname)
+    rawseqs_fastq_p1 = extract_noio_reads(tool,rawseqs_filepath,tmpdir,'1',generate_reads=generate_reads)
+    rawseqs_filepath = "%s/%s/%s_2.h" % (temp_build_dir, name,seqs_fname)
+    rawseqs_fastq_p2 = extract_noio_reads(tool,rawseqs_filepath,tmpdir,'2',generate_reads=generate_reads)
+
+    rawseqs_fastq_10k = "%s.10k.fq" % (rawseqs_fastq)
+    rawseqs_fastq_p1_10k = "%s.10k.fq" % (rawseqs_fastq_p1)
+    rawseqs_fastq_p2_10k = "%s.10k.fq" % (rawseqs_fastq_p2)
+   
+    if generate_reads:
+        shutil.rmtree("%s/%s" % (temp_build_dir,name))
+        cat([rawseqs_fastq], rawseqs_fastq_10k, multiply_factor)
+        os.remove(rawseqs_fastq)
+        cat([rawseqs_fastq_p1], rawseqs_fastq_p1_10k, multiply_factor)
+        os.remove(rawseqs_fastq_p1)
+        cat([rawseqs_fastq_p2], rawseqs_fastq_p2_10k, multiply_factor)
+        os.remove(rawseqs_fastq_p2)
+
+    return (rawseqs_fastq_10k,rawseqs_fastq_p1_10k,rawseqs_fastq_p2_10k)
 
 def run_cmd(cmd, odir, nthreads):
     ret = os.system(cmd)
@@ -243,6 +307,11 @@ def run_cmd(cmd, odir, nthreads):
 
 
 def go(args):
+    #make sure we either are going to generate from no-io or have passed in sequence read files
+    #this allows flexibility where the user may pass in read files but prefer to use the generated no-io reads anyway
+    if args.no_no_io_reads and not (args.U and args.m1 and args.m2 and args.hisat_U and args.hisat_m1 and args.hisat_m2):
+        sys.stderr.write("--no-no-io-reads cannot be true if one or more of the read file arguments (U,m1,m2,hiast-U,hisat-m1,hisat-m2) is also not specified")
+        sys.exit(-1)
     nnodes, ncpus = get_num_nodes(), get_num_cores()
     print('# NUMA nodes = %d' % nnodes, file=sys.stderr)
     print('# CPUs = %d' % ncpus, file=sys.stderr)
@@ -255,6 +324,26 @@ def go(args):
                        'fl': '--fast-local',
                        'vf': '--very-fast',
                        'vfl': '--very-fast-local'}
+    
+    tmpdir = args.tempdir
+    if tmpdir is None:
+        tmpdir = tempfile.mkdtemp()
+    if not os.path.exists(tmpdir):
+        mkdir_quiet(tmpdir)
+    if not os.path.isdir(tmpdir):
+        raise RuntimeError('Temporary directory isn\'t a directory: "%s"' % tmpdir)
+
+    (hisat_reads,hisat_reads_p1,hisat_reads_p2) = (None,None,None)
+    (bt2_reads,bt2_reads_p1,bt2_reads_p2) = (None,None,None)
+    
+    if not args.no_no_io_reads:
+        print('generating base reads from no-io compiled headers', file=sys.stderr)
+        (hisat_reads,hisat_reads_p1,hisat_reads_p2) = setup_noio_reads(args,tmpdir,'hisat','hisat-no-io', generate_reads=(not args.no_reads))
+        (bt2_reads,bt2_reads_p1,bt2_reads_p2) = setup_noio_reads(args,tmpdir,'bowtie2','bt2-no-io', generate_reads=(not args.no_reads))
+    else:
+        print('getting base reads from passed in files', file=sys.stderr)
+        (hisat_reads,hisat_reads_p1,hisat_reads_p2) = (args.hisat_U, args.hisat_m1, args.hisat_m2)
+        (bt2_reads,bt2_reads_p1,bt2_reads_p2) = (args.U, args.m1, args.m2)
 
     print('Setting up binaries', file=sys.stderr)
     for name, tool, branch, preproc, aligner_args in get_configs(args.config):
@@ -283,20 +372,12 @@ def go(args):
     series = gen_thread_series(args, ncpus)
     print('  series = %s' % str(series))
 
-    tmpdir = args.tempdir
-    if tmpdir is None:
-        tmpdir = tempfile.mkdtemp()
-    if not os.path.exists(tmpdir):
-        mkdir_quiet(tmpdir)
-    if not os.path.isdir(tmpdir):
-        raise RuntimeError('Temporary directory isn\'t a directory: "%s"' % tmpdir)
-
     tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, \
         nreads_unp, nreads_pe, nreads_unp_short, nreads_pe_short = \
-        prepare_reads(args, tmpdir, max(series), 'bowtie', args.U, args.m1, args.m2)
+        prepare_reads(args, tmpdir, max(series), 'bowtie', bt2_reads, bt2_reads_p1, bt2_reads_p2, generate_reads=(not args.no_reads))
 
     tmpfile_hs, _, tmpfile_1_hs, _, tmpfile_2_hs, _, nreads_unp_hs, nreads_pe_hs, _, _ = \
-        prepare_reads(args, tmpdir, max(series), 'hisat', args.hisat_U, args.hisat_m1, args.hisat_m2)
+        prepare_reads(args, tmpdir, max(series), 'hisat', hisat_reads, hisat_reads_p1, hisat_reads_p2, generate_reads=(not args.no_reads))
 
     sensitivities = args.sensitivities.split(',')
     sensitivities = zip(map(sensitivity_map.get, sensitivities), sensitivities)
@@ -468,5 +549,9 @@ if __name__ == '__main__':
                         help='Which of the three modes to run: both unpaired and paired (1), unpaired only (2), paired only (3)')
     parser.add_argument('--reads-per-batch', metavar='int', type=int, default=33,
                         help='for build which use it, how many reads to lightly format, ignored for those builds which don\'t use it')
+    parser.add_argument('--no-no-io-reads', action='store_const', const=True, default=False,
+                        help='Don\'t Extract compiled reads from no-io branches of Bowtie2 and Hisat; instead use what\'s passed in')
+    parser.add_argument('--no-reads', action='store_const', const=True, default=False,
+                        help='skip read generation step; assumes reads have already been generated in the --tempdir location')
 
     go(parser.parse_args())
