@@ -11,6 +11,7 @@ import argparse
 import subprocess
 import tempfile
 import re
+import multiprocessing
 
 def mkdir_quiet(dr):
     """ Create directories needed to ensure 'dr' exists; no complaining """
@@ -200,7 +201,7 @@ def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2, gen
 
     nreads_pe = count_reads([args_m1])
     nreads_pe_full = nreads_pe * max_threads * args.multiply_reads / paired_end_divisor
-    print('  counted %d paired-end reads, %d for a full series w/ %d threads (multiplier=%d, divisor=%d)' %
+    print('  counted %d paired-end reads, %d for a full series w/ %d threads (multiplier=%f, divisor=%d)' %
           (nreads_pe, nreads_pe_full, max_threads, args.multiply_reads, paired_end_divisor), file=sys.stderr)
 
     tmpfile = os.path.join(tmpdir, tool + '_' + "reads.fq")
@@ -298,7 +299,36 @@ def setup_noio_reads(args,tmpdir,tool,name,generate_reads=True):
 
     return (rawseqs_fastq_10k,rawseqs_fastq_p1_10k,rawseqs_fastq_p2_10k)
 
-def run_cmd(cmd, odir, nthreads):
+def run_subprocess(cmd_):
+     subprocess.Popen(cmd_,shell=True,bufsize=-1)
+
+MP_DISABLED=0
+MP_SHARED=1
+MP_SEPARATE=2
+def run_cmd(cmd, odir, nthreads, nthreads_total, paired, args):
+    #if we're running with multiprocess
+    if args.multiprocess != MP_DISABLED:
+       #pool = multiprocessing.Pool(processes=nthreads_total)
+       #pool.map(run_subprocess,[cmd] * nthreads_total)
+       running = []
+       for thread in (xrange(0,nthreads_total)):
+           #cmd_ = "%s.%d" % (cmd,thread)
+           cmd_ = cmd
+           if args.multiprocess >= MP_SEPARATE:
+               if paired:
+                   cmd_ = cmd_ % (thread+1,thread+1)
+               else:
+                   cmd_ = cmd_ % (thread+1)
+           print(cmd_)
+           subp = subprocess.Popen(cmd_,shell=True,bufsize=-1)
+           running.append(subp)
+       for (i,subp) in enumerate(running):
+           ret = subp.wait()
+           if ret !=0:
+               return ret
+       with open(os.path.join(odir, 'cmd_%d.sh' % nthreads_total), 'a') as ofh:
+           ofh.write(cmd + "\n")
+       return 0
     ret = os.system(cmd)
     with open(os.path.join(odir, 'cmd_%d.sh' % nthreads), 'w') as ofh:
         ofh.write("#!/bin/sh\n")
@@ -306,7 +336,14 @@ def run_cmd(cmd, odir, nthreads):
     return ret
 
 
+UNPAIRED_ONLY = 2
+PAIRED_ONLY = 3
 def go(args):
+    #if we're doing multiprocess with a pre-split set of files dont want to auto generate the reads
+    if args.multiprocess >= MP_SEPARATE:
+        args.no_reads = True
+        #we still need the user to pass in the prefixes of the statically split files
+        args.no_no_io_reads = True
     #make sure we either are going to generate from no-io or have passed in sequence read files
     #this allows flexibility where the user may pass in read files but prefer to use the generated no-io reads anyway
     if args.no_no_io_reads and not (args.U and args.m1 and args.m2 and args.hisat_U and args.hisat_m1 and args.hisat_m2):
@@ -372,12 +409,19 @@ def go(args):
     series = gen_thread_series(args, ncpus)
     print('  series = %s' % str(series))
 
+    #assumes args.multiprocess is set >1 and == nrreads to pull per thread for unpaired mode
+    nr = args.multiprocess
+    nr_pe = args.multiprocess/2
     tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, \
-        nreads_unp, nreads_pe, nreads_unp_short, nreads_pe_short = \
-        prepare_reads(args, tmpdir, max(series), 'bowtie', bt2_reads, bt2_reads_p1, bt2_reads_p2, generate_reads=(not args.no_reads))
+        nreads_unp, nreads_pe, nreads_unp_short, nreads_pe_short = ("","","","","","",nr,nr_pe,nr,nr_pe)
+    tmpfile_hs, _, tmpfile_1_hs, _, tmpfile_2_hs, _, nreads_unp_hs, nreads_pe_hs, _, _ = ("","","","","","",nr,nr_pe,nr,nr_pe)
+    if args.multiprocess < MP_SEPARATE:
+        tmpfile, tmpfile_short, tmpfile_1, tmpfile_short_1, tmpfile_2, tmpfile_short_2, \
+            nreads_unp, nreads_pe, nreads_unp_short, nreads_pe_short = \
+            prepare_reads(args, tmpdir, max(series), 'bowtie', bt2_reads, bt2_reads_p1, bt2_reads_p2, generate_reads=(not args.no_reads))
 
-    tmpfile_hs, _, tmpfile_1_hs, _, tmpfile_2_hs, _, nreads_unp_hs, nreads_pe_hs, _, _ = \
-        prepare_reads(args, tmpdir, max(series), 'hisat', hisat_reads, hisat_reads_p1, hisat_reads_p2, generate_reads=(not args.no_reads))
+	tmpfile_hs, _, tmpfile_1_hs, _, tmpfile_2_hs, _, nreads_unp_hs, nreads_pe_hs, _, _ = \
+            prepare_reads(args, tmpdir, max(series), 'hisat', hisat_reads, hisat_reads_p1, hisat_reads_p2, generate_reads=(not args.no_reads))
 
     sensitivities = args.sensitivities.split(',')
     sensitivities = zip(map(sensitivity_map.get, sensitivities), sensitivities)
@@ -389,8 +433,6 @@ def go(args):
     print('Generating %scommands' % ('' if args.dry_run else 'and running '), file=sys.stderr)
 
     #allows for doing one or both paired modes
-    UNPAIRED_ONLY = 2
-    PAIRED_ONLY = 3
     paired_modes = []
     if args.paired_mode != PAIRED_ONLY:
 	paired_modes.append(False)
@@ -426,6 +468,19 @@ def go(args):
                     sam_ofn = os.path.join(odir if args.sam_output_dir else tmpdir, '%s.sam' % runname)
                     sam_ofn = '/dev/null' if args.sam_dev_null else sam_ofn
                     cmd = ['build/%s/%s' % (name, tool_exe(tool))]
+                    nthreads_total = nthreads
+                    if args.multiprocess != MP_DISABLED:
+                        nthreads = 1
+                    if args.multiprocess >= MP_SEPARATE:
+                        tmpfile = args.U+".%d.fq"
+                        tmpfile_1 = args.m1+".%d.fq"
+                        tmpfile_2 = args.m2+".%d.fq"
+                        tmpfile_hs = args.hisat_U+".%d.fq"
+                        tmpfile_1_hs = args.hisat_m1+".%d.fq"
+                        tmpfile_2_hs = args.hisat_m2+".%d.fq"
+                        tmpfile_short = args.U+".%d.fq.short"
+                        tmpfile_short_1 = args.m1+".%d.fq.short"
+                        tmpfile_short_2 = args.m2+".%d.fq.short"
                     cmd.extend(['-p', str(nthreads)])
                     if 'batch_parsing' in branch:
                         cmd.extend(['--reads-per-batch', str(args.reads_per_batch)])
@@ -445,7 +500,11 @@ def go(args):
                         cmd.append('-t')
                         if aligner_args is not None and len(aligner_args) > 0:  # from config file
                             cmd.extend(aligner_args.split())
-                        cmd.extend(['>', stdout_ofn])
+                        if args.multiprocess != MP_DISABLED:
+                            cmd.append('--mm')
+                            cmd.extend(['>>', stdout_ofn])
+                        else:
+                            cmd.extend(['>', stdout_ofn])
                     elif tool == 'bowtie':
                         nreads = (nreads_pe_short * nthreads) if paired else (nreads_unp_short * nthreads)
                         cmd.extend(['-u', str(nreads)])
@@ -460,7 +519,11 @@ def go(args):
                         cmd.append('-S')
                         if aligner_args is not None and len(aligner_args) > 0:  # from config file
                             cmd.extend(aligner_args.split())
-                        cmd.extend(['>', stdout_ofn])
+                        if args.multiprocess != MP_DISABLED:
+                            cmd.append('--mm')
+                            cmd.extend(['>>', stdout_ofn])
+                        else:
+                            cmd.extend(['>', stdout_ofn])
                     else:
                         raise RuntimeError('Unsupported tool: "%s"' % tool)
                     cmd = ' '.join(cmd)
@@ -476,10 +539,11 @@ def go(args):
                         else:
                             run = True
                     if run:
-                        run_cmd(cmd, odir, nthreads)
-                        assert os.path.exists(sam_ofn)
-                        if args.delete_sam and not args.sam_dev_null:
-                            os.remove(sam_ofn)
+                        run_cmd(cmd, odir, nthreads, nthreads_total, paired, args)
+                        if args.multiprocess == MP_DISABLED:
+			    assert os.path.exists(sam_ofn)
+		            if args.delete_sam and not args.sam_dev_null:
+			        os.remove(sam_ofn)
 
 
 if __name__ == '__main__':
@@ -553,5 +617,8 @@ if __name__ == '__main__':
                         help='Don\'t Extract compiled reads from no-io branches of Bowtie2 and Hisat; instead use what\'s passed in')
     parser.add_argument('--no-reads', action='store_const', const=True, default=False,
                         help='skip read generation step; assumes reads have already been generated in the --tempdir location')
+    parser.add_argument('--multiprocess', metavar='int', type=int, default=MP_DISABLED,
+                        help='run n independent processes instead of n threads in one process where n is the current thread count. 0=disable, 1=use same source reads file for every process, 2=use pre-split sources files one per process')
+                        help='for build which use it, how many reads to lightly format, ignored for those builds which don\'t use it')
 
     go(parser.parse_args())
