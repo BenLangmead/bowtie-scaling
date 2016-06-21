@@ -13,10 +13,20 @@ import tempfile
 import re
 import multiprocessing
 
+LINES_PER_FASTQ_REC = 4
 #used as the base size of the input read set to be repeated
 #user may pass in their own read set files 
 #whose read count will override this #
 DEFAULT_BASE_READS_COUNT = 10000
+
+#"enum" for paired mode
+UNPAIRED_ONLY = 2
+PAIRED_ONLY = 3
+
+#"enum" for multiprocess mode
+MP_DISABLED=0
+MP_SHARED=1
+MP_SEPARATE=2
 
 def mkdir_quiet(dr):
     """ Create directories needed to ensure 'dr' exists; no complaining """
@@ -172,7 +182,7 @@ def count_reads(fns):
                 nlines += 1
     return nlines / 4
 
-
+#seqs_to_cat is just for compatibility with cat_shorten's signature
 def cat(fns, dest_fn, n, seqs_to_cat=0):
     """ Concatenate one or more read files into one output file """
     with open(dest_fn, 'wb') as ofh:
@@ -180,6 +190,12 @@ def cat(fns, dest_fn, n, seqs_to_cat=0):
             for fn in fns:
                 with open(fn,'rb') as fh:
                     shutil.copyfileobj(fh, ofh, 1024*1024*10)
+
+def shorten(source_fns, dest_fn, input_cmd='cat %s', suffix='tmp'):
+    """ Reduces the read/qual length by half (100bp=>50bp); used for shorter read aligners (bowtie) """
+    output_fn = "%s.%s" % (dest_fn, suffix)
+    os.system((input_cmd % ' '.join(source_fns)) + " | awk -f shorten.awk > %s" % output_fn)
+    return output_fn
 
 
 def cat_shorten(fns, dest_fn, n, seqs_to_cat=0):
@@ -190,72 +206,168 @@ def cat_shorten(fns, dest_fn, n, seqs_to_cat=0):
         os.remove(dest_fn + ".tmp")
     #if # of lines are requested, don't do a copy as well
     if seqs_to_cat > 0:
-        os.system("head -%d %s | awk -f shorten.awk > %s" % (4*seqs_to_cat, ' '.join(fns), dest_fn + ".tmp"))
-        os.rename(dest_fn + ".tmp", dest_fn)
+        input_cmd = 'head -%d' % (4*seqs_to_cat)
+        output_fn = shorten(fns, dest_fn, input_cmd=(input_cmd + " %s"))
+        os.rename(output_fn, dest_fn)
     else:
-        os.system("cat %s | awk -f shorten.awk > %s" % (' '.join(fns), dest_fn + ".tmp"))
-        cat([dest_fn + ".tmp"], dest_fn, n)
+        output_fn = shorten(fns, dest_fn)
+        cat([output_fn], dest_fn, n)
 
-def symlink(src_fn, dest_fn):
-    if os.path.exists(dest_fn):
-        os.remove(dest_fn)
-    os.symlink(src_fn, dest_fn)
+def split_read_set(source_path, dest_dir, reads_per_file, nfiles, shorten_first=False):
+    """ Similar to the split command, but stops after nfiles has been reached; also supports shortening first """
+    (source_dir, source_fn) = os.path.split(source_path)
+    dest_path = os.path.join(dest_dir, source_fn)
+    fctr = 0
+    rctr = 0
+    fout = None
+    if shorten_first:
+        total_lines_needed = LINES_PER_FASTQ_REC * reads_per_file * nfiles
+        input_cmd = "head -%d" % total_lines_needed
+        source_path = shorten([source_path], dest_path, input_cmd=input_cmd + " %s", suffix='short')
+    lines_per_file_limit = LINES_PER_FASTQ_REC * reads_per_file
+    with open(source_path,"r") as fin:
+       for line in fin:
+           line = line.rstrip()
+           if(rctr % lines_per_file_limit == 0):
+               if fout:
+                   fout.close()
+               fctr+=1
+               if fctr > nfiles:
+                   break
+               fout = open("%s.%d.fq" % (dest_path, fctr),"w")
+           rctr+=1
+           fout.write("%s\n" % (line))
+    if fout:
+        fout.close()
+
+def copy_read_set(source_path, dest_dir, num_cats, nfiles, shorten_first=False):
+    """ Sister method to split_read_set for no-io derived reads which need to be repeated first """
+    (source_dir, source_fn) = os.path.split(source_path)
+    dest_path = os.path.join(dest_dir, source_fn)
+    cat_func = cat
+    if shorten_first:
+        cat_func = cat_shorten
+    intermediate_path = "%s.inter" % (dest_path)
+    cat_func([source_path], intermediate_path, num_cats)    
+    for i in xrange(1, nfiles+1):
+        with open("%s.%d.fq" % (dest_path,i),'wb') as ofh:
+            with open(intermediate_path,'rb') as fh:
+                shutil.copyfileobj(fh, ofh, 1024*1024*10)
+
+def calculate_read_partitions(args, max_threads, tool, input_fns, tmpfiles, multiply_reads, paired_end_factor, generate_reads):
+    """ Determines the following: 1) # of reads per thread 2) # of base units of copy (for catting) 3) do we need to generate reads 4) which read files to use as source """
+    multiplier = multiply_reads
+    if args.shorten_reads or tool == 'bowtie':
+        short_read_multiplier = int(round(args.short_factor))
+        multiplier *= short_read_multiplier
+    paired_end_divisor = int(round(1.0 / paired_end_factor))
+    nreads = DEFAULT_BASE_READS_COUNT
+    nreads_per_thread = nreads * multiplier / paired_end_divisor
+    #this is the unit of reads to repeat for repetitive read generation
+    #if not paired, paired_end_divisor is just 1
+    nreads_full = multiplier * max_threads / paired_end_divisor
+
+    if args.reads_per_thread > 0:
+        nreads_per_thread = args.reads_per_thread / paired_end_divisor
+
+    if input_fns[0]:
+        nreads = args.reads_count
+        if nreads <= 0:
+            nreads = count_reads([input_fns[0]])
+        #sepcial case where the # of reads is greater than our base unit of concatenation
+        #means we don't do an catting/repeating  
+        if nreads > DEFAULT_BASE_READS_COUNT:
+            #assume we've been passed enough reads in the origin file for the max thread count in the series
+            #and therefore no need to copy/repeat reads to up the total number
+            generate_reads = False
+            if paired_end_factor < 1:
+                tmpfiles[0] = input_fns[0]
+                tmpfiles[1] = input_fns[1]
+            else:
+                tmpfiles[0] = input_fns[0]
+            assert args.reads_per_thread > 0
+            #if we;re just pulling reads from a full source file (no repeats)
+            #just set this to be the entire set we'll need
+            nreads_full = nreads_per_thread * max_threads
+    print('  counted %d paired-end reads, %d for a full series w/, %d reads per thread, %d threads (multiplier=%f, divisor=%d), generating reads? %s' %
+          (nreads, nreads_full, nreads_per_thread, max_threads, multiplier, paired_end_divisor, generate_reads), file=sys.stderr)
+
+    return (generate_reads, tmpfiles, nreads_per_thread, nreads_full)
+
+
+
+def prepare_mp_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2, generate_reads=True):
+    """ Calculates read units (e.g. # per thread) and possibly generates read sets for multiprocess aligning """
+
+    #if we've been passed in the # of reads explicitly
+    #set it here and assume the original files are also 
+    #fine for using for a source
+    nreads_unp_per_thread = args.multiprocess
+    nreads_pe_per_thread = args.multiprocess / 2
+    tmpfile = args_U
+    tmpfile_1 = args_m1
+    tmpfile_2 = args_m2    
+
+    #if we didn't get the explicit # of reads per unp process passed in
+    #do the default/normal calculation based on multiply-reads and related options
+    #**but** we don't care about re-assigning the input reads files as in the multithread case
+    if args.multiprocess <= MP_SEPARATE:
+        print('Counting %s reads' % tool, file=sys.stderr)
+        #caculate for single end reads (tmpfile_1 and tmpfile_2 don't change)
+        (_, _, nreads_unp_per_thread, nreads_unp_full) = \
+            calculate_read_partitions(args, max_threads, tool, [args_U], [tmpfile], 
+                      args.multiply_reads, 1, generate_reads)
+    
+        #now calculate for paired ends (same as above except tmpfile doesn't change)
+        (_, _, nreads_pe_per_thread, nreads_pe_full) = \
+            calculate_read_partitions(args, max_threads, tool, [args_m1, args_m2], [tmpfile_1, tmpfile_2], 
+                     args.multiply_reads, args.paired_end_factor, generate_reads)
+
+    shorten = args.shorten_reads or tool == 'bowtie'    
+ 
+    if generate_reads:
+        #use a large FASTQ file as the split source
+        if args.no_no_io_reads:
+            if args.paired_mode != PAIRED_ONLY:
+                split_read_set(args_U, dest_dir, nreads_unp_per_thread, nfiles, shorten_first=shorten)
+            if args.paired_mode != UNPAIRED_ONLY:
+                split_read_set(args_m1, dest_dir, nreads_pe_per_thread, nfiles, shorten_first=shorten)
+                split_read_set(args_m2, dest_dir, nreads_pe_per_thread, nfiles, shorten_first=shorten)
+        #use the (probably) small set of noio reads as the copy source
+        else:
+            if args.paired_mode != PAIRED_ONLY:
+                copy_read_set(args_U, dest_dir, nreads_unp_per_thread, nfiles, shorten_first=shorten)
+            if args.paired_mode != UNPAIRED_ONLY:
+                copy_read_set(args_m1, dest_dir, nreads_pe_per_thread, nfiles, shorten_first=shorten)
+                copy_read_set(args_m2, dest_dir, nreads_pe_per_thread, nfiles, shorten_first=shorten)
+            
+    return tmpfile, tmpfile_1, tmpfile_2, nreads_unp_per_thread, nreads_pe_per_thread
+
 
 def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2, generate_reads=True):
+    """ Calculates read units (e.g. # per thread) and possibly generates read sets for multithread aligning """
 
-    print('Counting %s reads' % tool, file=sys.stderr)
-
-    short_read_multiplier = int(round(args.short_factor))
-    multiplier = args.multiply_reads
-    if args.shorten_reads or tool == 'bowtie':
-        multiplier *= short_read_multiplier
-    paired_end_divisor = int(round(1.0 / args.paired_end_factor))
-    
     tmpfile = os.path.join(tmpdir, tool + '_' + "reads.fq")
     tmpfile_1 = os.path.join(tmpdir, tool + '_' + "reads_1.fq")
     tmpfile_2 = os.path.join(tmpdir, tool + '_' + "reads_2.fq")
 
+    print('Counting %s reads' % tool, file=sys.stderr)
 
-    nreads_unp = DEFAULT_BASE_READS_COUNT
+    #caculate for single end reads (tmpfile_1 and tmpfile_2 don't change)
+    (generate_reads, tmpfiles, nreads_unp_per_thread, nreads_unp_full) = \
+        calculate_read_partitions(args, max_threads, tool, [args_U], [tmpfile], 
+                  args.multiply_reads, 1, generate_reads)
+    tmpfile = tmpfiles[0]
 
-    nreads_unp_per_thread = nreads_unp * multiplier
-    nreads_unp_full = multiplier * max_threads
-    if args.reads_per_thread > 0:
-        nreads_unp_per_thread = args.reads_per_thread
-    if args_U:
-        nreads_unp = count_reads([args_U])
-        if nreads_unp > DEFAULT_BASE_READS_COUNT:
-            #assume we've been passed enough reads in the origin file for the max thread count in the series
-            #and therefore no need to copy/repeat reads to up the total number
-            generate_reads = False
-            tmpfile = args_U
-            assert args.reads_per_thread > 0
-            nreads_unp_full = nreads_unp_per_thread * max_threads
-
-    print('  counted %d unpaired reads, %d for a full series w/, %d reads per thread, %d threads (multiplier=%d)' %
-          (nreads_unp, nreads_unp_full, nreads_unp_per_thread, max_threads, multiplier), file=sys.stderr)
-
-    #now calculate for paired ends
-    nreads_pe = DEFAULT_BASE_READS_COUNT
-    nreads_pe_per_thread = nreads_pe * multiplier / paired_end_divisor
-    nreads_pe_full = multiplier * max_threads / paired_end_divisor
-    if args.reads_per_thread > 0:
-        nreads_pe_per_thread = args.reads_per_thread / paired_end_divisor
-    if args_m1:
-        nreads_pe = count_reads([args_m1])
-        if nreads_pe > DEFAULT_BASE_READS_COUNT:
-            #assume we've been passed enough reads in the origin file for the max thread count in the series
-            #and therefore no need to copy/repeat reads to up the total number
-            generate_reads = False
-            tmpfile_1 = args_m1
-            tmpfile_2 = args_m2
-            assert args.reads_per_thread > 0
-            nreads_pe_full = nreads_pe_per_thread * max_threads
-
-    print('  counted %d paired-end reads, %d for a full series w/, %d reads per thread, %d threads (multiplier=%f, divisor=%d), generating reads? %s' %
-          (nreads_pe, nreads_pe_full, nreads_pe_per_thread, max_threads, multiplier, paired_end_divisor, generate_reads), file=sys.stderr)
+    #now calculate for paired ends (same as above except tmpfile doesn't change)
+    (generate_reads, tmpfiles, nreads_pe_per_thread, nreads_pe_full) = \
+        calculate_read_partitions(args, max_threads, tool, [args_m1, args_m2], [tmpfile_1, tmpfile_2], 
+                  args.multiply_reads, args.paired_end_factor, generate_reads)
+    tmpfile_1 = tmpfiles[0]
+    tmpfile_2 = tmpfiles[1]
 
     cat_func = cat
+    #default=0 means everything
     seqs_to_cat_unp = 0
     seqs_to_cat_pe = 0
     #special case: short reads (e.g. bowtie) get generated even with an
@@ -265,8 +377,10 @@ def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2, gen
         tmpfile = os.path.join(tmpdir, tool + '_' + "reads_short.fq")
         tmpfile_1 = os.path.join(tmpdir, tool + '_' + "reads_1_short.fq")
         tmpfile_2 = os.path.join(tmpdir, tool + '_' + "reads_2_short.fq")
+        #we still have to generate reads for short alingerxs (bowtie) no matter what
         if not generate_reads:
             generate_reads = True
+            #have to explicitly limit # of sequences to pull from source file
             seqs_to_cat_unp = nreads_unp_full
             seqs_to_cat_pe = nreads_pe_full
         cat_func = cat_shorten
@@ -275,20 +389,22 @@ def prepare_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2, gen
     #doesn't include an OR check here for bowtie as the tool since there will be times when 
     #we're running for bowtie but don't want to actually generate reads
     if generate_reads:
-        print('Concatenating new unpaired long-read file of %d reads and storing in "%s"' % (nreads_unp_full,tmpfile), file=sys.stderr)
-        cat_func([args_U], tmpfile, nreads_unp_full, seqs_to_cat=seqs_to_cat_unp)
+        if args.paired_mode != PAIRED_ONLY:
+            print('Concatenating new unpaired long-read file of %d reads and storing in "%s"' % (nreads_unp_full,tmpfile), file=sys.stderr)
+            cat_func([args_U], tmpfile, nreads_unp_full, seqs_to_cat=seqs_to_cat_unp)
         #paired
-        print('Concatenating new long paired-end mate 1s of %d reads and storing in "%s"' % (nreads_pe_full, tmpfile_1), file=sys.stderr)
-        cat_func([args_m1], tmpfile_1, nreads_pe_full, seqs_to_cat=seqs_to_cat_pe)
-        print('Concatenating new long paired-end mate 2s of %d reads and storing in "%s"' % (nreads_pe_full, tmpfile_2), file=sys.stderr)
-        cat_func([args_m2], tmpfile_2, nreads_pe_full, seqs_to_cat=seqs_to_cat_pe)
+        if args.paired_mode != UNPAIRED_ONLY:
+            print('Concatenating new long paired-end mate 1s of %d reads and storing in "%s"' % (nreads_pe_full, tmpfile_1), file=sys.stderr)
+            cat_func([args_m1], tmpfile_1, nreads_pe_full, seqs_to_cat=seqs_to_cat_pe)
+            print('Concatenating new long paired-end mate 2s of %d reads and storing in "%s"' % (nreads_pe_full, tmpfile_2), file=sys.stderr)
+            cat_func([args_m2], tmpfile_2, nreads_pe_full, seqs_to_cat=seqs_to_cat_pe)
 
     return tmpfile, tmpfile_1, tmpfile_2, nreads_unp_per_thread, nreads_pe_per_thread
 
 
 non_fastq_line = re.compile('^\s*[\{\}]')
 def extract_noio_reads(tool,rawseqs_filepath,tmpdir,suffix,generate_reads=True):
-    """does the extraction of the compiled in reads from the header files of the tool for both single and paired reads"""
+    """ Does the extraction of the compiled in reads from the header files of the tool for both single and paired reads """
     fout_name = "%s/%s.noio%s.fastq" % (tmpdir,tool,suffix)
     if not generate_reads:
         return fout_name
@@ -317,7 +433,7 @@ def extract_noio_reads(tool,rawseqs_filepath,tmpdir,suffix,generate_reads=True):
 
 
 def setup_noio_reads(args,tmpdir,tool,name,generate_reads=True):
-    """temporarily clones and extracts compiled-in reads from the no-io branch of the given tool"""
+    """ Temporarily clones and extracts compiled-in reads from the no-io branch of the given tool """
     branch = 'no-io'
     temp_build_dir = './'
     multiply_factor = 5
@@ -349,9 +465,6 @@ def setup_noio_reads(args,tmpdir,tool,name,generate_reads=True):
 def run_subprocess(cmd_):
      subprocess.Popen(cmd_,shell=True,bufsize=-1)
 
-MP_DISABLED=0
-MP_SHARED=1
-MP_SEPARATE=2
 def run_cmd(cmd, odir, nthreads, nthreads_total, paired, args):
     #if we're running with multiprocess
     if args.multiprocess != MP_DISABLED:
@@ -383,8 +496,6 @@ def run_cmd(cmd, odir, nthreads, nthreads_total, paired, args):
     return ret
 
 
-UNPAIRED_ONLY = 2
-PAIRED_ONLY = 3
 def go(args):
     #if we're doing multiprocess with a pre-split set of files dont want to auto generate the reads
     if args.multiprocess >= MP_SEPARATE:
@@ -463,21 +574,26 @@ def go(args):
         nreads_unp, nreads_pe, nreads_unp_short, nreads_pe_short = ("","","","","","",nr,nr_pe,nr,nr_pe)
     tmpfile_hs, _, tmpfile_1_hs, _, tmpfile_2_hs, _, nreads_unp_hs, nreads_pe_hs, _, _ = ("","","","","","",nr,nr_pe,nr,nr_pe)
 
-    if args.multiprocess < MP_SEPARATE:
-        if args.U or not (args.U or args.hisat_U):
-            if args.shorten_reads or not (args.U or args.hisat_U): 
-                tmpfile_short, tmpfile_short_1, tmpfile_short_2, \
-                    nreads_unp_short, nreads_pe_short = \
-                    prepare_reads(args, tmpdir, max(series), 'bowtie', bt2_reads, bt2_reads_p1, bt2_reads_p2, generate_reads=(not args.no_reads))
-            if not args.shorten_reads or not (args.U or args.hisat_U):
-                tmpfile, tmpfile_1, tmpfile_2, \
-                    nreads_unp, nreads_pe = \
-                    prepare_reads(args, tmpdir, max(series), 'bowtie2', bt2_reads, bt2_reads_p1, bt2_reads_p2, generate_reads=(not args.no_reads))
-        
-        if args.hisat_U or not (args.U or args.hisat_U):
-	    tmpfile_hs, tmpfile_1_hs, tmpfile_2_hs, \
+    #if we're not running n separate multiprocesses
+    prepare_reads_func = prepare_reads
+    if args.multiprocess >= MP_SEPARATE:
+        prepare_reads_func = prepare_mp_reads
+    #either we've got bowtie1/2 input reads or none of the input file options have been set in which case
+    #we generate for each aligner case (bowtie, bowtie2, and hisat) 
+    if args.U or not (args.U or args.hisat_U):
+        if args.shorten_reads or not (args.U or args.hisat_U):
+            tmpfile_short, tmpfile_short_1, tmpfile_short_2, \
+                nreads_unp_short, nreads_pe_short = \
+                prepare_reads_func(args, tmpdir, max(series), 'bowtie', bt2_reads, bt2_reads_p1, bt2_reads_p2, generate_reads=(not args.no_reads))
+        if not args.shorten_reads or not (args.U or args.hisat_U):
+            tmpfile, tmpfile_1, tmpfile_2, \
+                nreads_unp, nreads_pe = \
+                prepare_reads_func(args, tmpdir, max(series), 'bowtie2', bt2_reads, bt2_reads_p1, bt2_reads_p2, generate_reads=(not args.no_reads))
+       
+    if args.hisat_U or not (args.U or args.hisat_U):
+        tmpfile_hs, tmpfile_1_hs, tmpfile_2_hs, \
             nreads_unp_hs, nreads_pe_hs = \
-                prepare_reads(args, tmpdir, max(series), 'hisat', hisat_reads, hisat_reads_p1, hisat_reads_p2, generate_reads=(not args.no_reads))
+            prepare_reads_func(args, tmpdir, max(series), 'hisat', hisat_reads, hisat_reads_p1, hisat_reads_p2, generate_reads=(not args.no_reads))
 
     sensitivities = args.sensitivities.split(',')
     sensitivities = zip(map(sensitivity_map.get, sensitivities), sensitivities)
@@ -534,9 +650,9 @@ def go(args):
                         tmpfile_hs = args.hisat_U+".%d.fq"
                         tmpfile_1_hs = args.hisat_m1+".%d.fq"
                         tmpfile_2_hs = args.hisat_m2+".%d.fq"
-                        tmpfile_short = args.U+".%d.fq.short"
-                        tmpfile_short_1 = args.m1+".%d.fq.short"
-                        tmpfile_short_2 = args.m2+".%d.fq.short"
+                        tmpfile_short = args.U+".short.%d.fq"
+                        tmpfile_short_1 = args.m1+".short.%d.fq"
+                        tmpfile_short_2 = args.m2+".short.%d.fq"
                     cmd.extend(['-p', str(nthreads)])
                     if 'batch_parsing' in branch:
                         cmd.extend(['--reads-per-batch', str(args.reads_per_batch)])
@@ -679,5 +795,7 @@ if __name__ == '__main__':
                         help='set # of reads to align per thread/process directly, overrides --multiply-reads setting')
     parser.add_argument('--shorten-reads', action='store_const', const=True, default=False,
                         help='if running Bowtie or something similar set this so that generated reads will be half the normal size (e.g. 50 vs. 100 bp)')
+    parser.add_argument('--reads-count', metavar='int', type=int, default=0,
+                        help='set explicitly to # of reads in source reads file to avoid the cost of counting each time')
 
     go(parser.parse_args())
