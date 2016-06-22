@@ -642,13 +642,19 @@ def go(args):
                 last_tool = ''
                 # iterate over configurations
                 for name, tool, branch, preproc, aligner_args in get_configs(args.config):
-                    odir = os.path.join(args.output_dir, name, sens[2:], 'pe' if paired else 'unp')
+                    name_ = name
+                    if args.no_no_io_reads:
+                        name_ = "%s-id" % (name)
+                    else:
+                        name_ = "%s-nid" % (name)
+                    odir = os.path.join(args.output_dir, name_, sens[2:], 'pe' if paired else 'unp')
                     if tool != last_tool:
                         print('Checking that index files exist', file=sys.stderr)
                         index = args.hisat_index if tool == 'hisat' else args.index
                         if not verify_index(index, tool):
                             raise RuntimeError('Could not verify index files')
                         last_tool = tool
+
 
                     if not os.path.exists(odir):
                         print('  Creating output directory "%s"' % odir, file=sys.stderr)
