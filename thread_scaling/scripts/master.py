@@ -19,14 +19,21 @@ LINES_PER_FASTQ_REC = 4
 #whose read count will override this #
 DEFAULT_BASE_READS_COUNT = 10000
 
-#"enum" for paired mode
+#for paired mode
 UNPAIRED_ONLY = 2
 PAIRED_ONLY = 3
 
-#"enum" for multiprocess mode
+#for multiprocess mode
 MP_DISABLED=0
 MP_SHARED=1
 MP_SEPARATE=2
+
+#for prog (no-io mode)
+#so we don't have to generate reads
+#for all 3 when we only want 1
+BOWTIE_PROG=1
+BOWTIE2_PROG=2
+HISAT_PROG=3
 
 def mkdir_quiet(dr):
     """ Create directories needed to ensure 'dr' exists; no complaining """
@@ -191,9 +198,9 @@ def cat(fns, dest_fn, n, seqs_to_cat=0):
                 with open(fn,'rb') as fh:
                     shutil.copyfileobj(fh, ofh, 1024*1024*10)
 
-def shorten(source_fns, dest_fn, input_cmd='cat %s', suffix='tmp'):
+def shorten(source_fns, dest_fn, input_cmd='cat %s'):
     """ Reduces the read/qual length by half (100bp=>50bp); used for shorter read aligners (bowtie) """
-    output_fn = "%s.%s" % (dest_fn, suffix)
+    output_fn = dest_fn
     os.system((input_cmd % ' '.join(source_fns)) + " | awk -f shorten.awk > %s" % output_fn)
     return output_fn
 
@@ -202,15 +209,15 @@ def cat_shorten(fns, dest_fn, n, seqs_to_cat=0):
     """ Concatenate one or more read files into one output file """
     if os.path.exists(dest_fn):
         os.remove(dest_fn)
-    if os.path.exists(dest_fn + ".tmp"):
-        os.remove(dest_fn + ".tmp")
+    if os.path.exists(dest_fn + ".short"):
+        os.remove(dest_fn + ".short")
     #if # of lines are requested, don't do a copy as well
     if seqs_to_cat > 0:
         input_cmd = 'head -%d' % (4*seqs_to_cat)
         output_fn = shorten(fns, dest_fn, input_cmd=(input_cmd + " %s"))
         os.rename(output_fn, dest_fn)
     else:
-        output_fn = shorten(fns, dest_fn)
+        output_fn = shorten(fns, "%s.short" % dest_fn)
         cat([output_fn], dest_fn, n)
 
 def split_read_set(source_path, dest_dir, reads_per_file, nfiles, shorten_first=False):
@@ -220,10 +227,12 @@ def split_read_set(source_path, dest_dir, reads_per_file, nfiles, shorten_first=
     fctr = 0
     rctr = 0
     fout = None
+    infix = ''
     if shorten_first:
         total_lines_needed = LINES_PER_FASTQ_REC * reads_per_file * nfiles
         input_cmd = "head -%d" % total_lines_needed
-        source_path = shorten([source_path], dest_path, input_cmd=input_cmd + " %s", suffix='short')
+        source_path = shorten([source_path], "%s.short" % dest_path, input_cmd=input_cmd + " %s")
+        infix = '.short'
     lines_per_file_limit = LINES_PER_FASTQ_REC * reads_per_file
     with open(source_path,"r") as fin:
        for line in fin:
@@ -234,7 +243,7 @@ def split_read_set(source_path, dest_dir, reads_per_file, nfiles, shorten_first=
                fctr+=1
                if fctr > nfiles:
                    break
-               fout = open("%s.%d.fq" % (dest_path, fctr),"w")
+               fout = open("%s%s.%d.fq" % (dest_path, infix, fctr),"w")
            rctr+=1
            fout.write("%s\n" % (line))
     if fout:
@@ -245,13 +254,15 @@ def copy_read_set(source_path, dest_dir, num_cats, nfiles, shorten_first=False):
     (source_dir, source_fn) = os.path.split(source_path)
     dest_path = os.path.join(dest_dir, source_fn)
     cat_func = cat
+    infix = ''
     if shorten_first:
         cat_func = cat_shorten
+        infix = '.short'
     intermediate_path = "%s.inter" % (dest_path)
     cat_func([source_path], intermediate_path, num_cats)    
     for i in xrange(1, nfiles+1):
-        with open("%s.%d.fq" % (dest_path,i),'wb') as ofh:
-            with open(intermediate_path,'rb') as fh:
+        with open("%s%s.%d.fq" % (dest_path, infix, i),'wb') as ofh:
+            with open(intermediate_path, 'rb') as fh:
                 shutil.copyfileobj(fh, ofh, 1024*1024*10)
 
 def calculate_read_partitions(args, max_threads, tool, input_fns, tmpfiles, multiply_reads, paired_end_factor, generate_reads):
@@ -329,18 +340,32 @@ def prepare_mp_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2, 
         #use a large FASTQ file as the split source
         if args.no_no_io_reads:
             if args.paired_mode != PAIRED_ONLY:
-                split_read_set(args_U, dest_dir, nreads_unp_per_thread, nfiles, shorten_first=shorten)
+                split_read_set(args_U, tmpdir, nreads_unp_per_thread, max_threads, shorten_first=shorten)
+
+		(tmpfile_dir, tmpfile) = os.path.split(tmpfile)
+                tmpfile = os.path.join(tmpdir, tmpfile)
             if args.paired_mode != UNPAIRED_ONLY:
-                split_read_set(args_m1, dest_dir, nreads_pe_per_thread, nfiles, shorten_first=shorten)
-                split_read_set(args_m2, dest_dir, nreads_pe_per_thread, nfiles, shorten_first=shorten)
+                split_read_set(args_m1, tmpdir, nreads_pe_per_thread, max_threads, shorten_first=shorten)
+                split_read_set(args_m2, tmpdir, nreads_pe_per_thread, max_threads, shorten_first=shorten)
+		
+                (tmpfile_dir, tmpfile_1) = os.path.split(tmpfile_1)
+                tmpfile_1 = os.path.join(tmpdir, tmpfile_1)
+		(tmpfile_dir, tmpfile_2) = os.path.split(tmpfile_2)
+                tmpfile_2 = os.path.join(tmpdir, tmpfile_2)
         #use the (probably) small set of noio reads as the copy source
         else:
             if args.paired_mode != PAIRED_ONLY:
-                copy_read_set(args_U, dest_dir, nreads_unp_per_thread, nfiles, shorten_first=shorten)
+                copy_read_set(args_U, tmpdir, nreads_unp_per_thread / DEFAULT_BASE_READS_COUNT, max_threads, shorten_first=shorten)
             if args.paired_mode != UNPAIRED_ONLY:
-                copy_read_set(args_m1, dest_dir, nreads_pe_per_thread, nfiles, shorten_first=shorten)
-                copy_read_set(args_m2, dest_dir, nreads_pe_per_thread, nfiles, shorten_first=shorten)
-            
+                copy_read_set(args_m1, tmpdir, nreads_pe_per_thread / DEFAULT_BASE_READS_COUNT, max_threads, shorten_first=shorten)
+                copy_read_set(args_m2, tmpdir, nreads_pe_per_thread / DEFAULT_BASE_READS_COUNT, max_threads, shorten_first=shorten)
+    infix = ''
+    if shorten:
+        infix = '.short'
+    tmpfile = tmpfile + infix + ".%d.fq" 
+    tmpfile_1 = tmpfile_1 + infix + ".%d.fq" 
+    tmpfile_2 = tmpfile_2 + infix + ".%d.fq" 
+
     return tmpfile, tmpfile_1, tmpfile_2, nreads_unp_per_thread, nreads_pe_per_thread
 
 
@@ -497,11 +522,6 @@ def run_cmd(cmd, odir, nthreads, nthreads_total, paired, args):
 
 
 def go(args):
-    #if we're doing multiprocess with a pre-split set of files dont want to auto generate the reads
-    if args.multiprocess >= MP_SEPARATE:
-        args.no_reads = True
-        #we still need the user to pass in the prefixes of the statically split files
-        args.no_no_io_reads = True
     #make sure we either are going to generate from no-io or have passed in sequence read files
     #this allows flexibility where the user may pass in read files but prefer to use the generated no-io reads anyway
     if args.no_no_io_reads and not ((args.U and args.m1 and args.m2) or (args.hisat_U and args.hisat_m1 and args.hisat_m2)):
@@ -581,16 +601,16 @@ def go(args):
     #either we've got bowtie1/2 input reads or none of the input file options have been set in which case
     #we generate for each aligner case (bowtie, bowtie2, and hisat) 
     if args.U or not (args.U or args.hisat_U):
-        if args.shorten_reads or not (args.U or args.hisat_U):
+        if args.shorten_reads or not (args.U or args.hisat_U or args.prog == BOWTIE2_PROG or args.prog == HISAT_PROG):
             tmpfile_short, tmpfile_short_1, tmpfile_short_2, \
                 nreads_unp_short, nreads_pe_short = \
                 prepare_reads_func(args, tmpdir, max(series), 'bowtie', bt2_reads, bt2_reads_p1, bt2_reads_p2, generate_reads=(not args.no_reads))
-        if not args.shorten_reads or not (args.U or args.hisat_U):
+        if not args.shorten_reads or not (args.U or args.hisat_U or args.prog == BOWTIE_PROG or args.prog == HISAT_PROG):
             tmpfile, tmpfile_1, tmpfile_2, \
                 nreads_unp, nreads_pe = \
                 prepare_reads_func(args, tmpdir, max(series), 'bowtie2', bt2_reads, bt2_reads_p1, bt2_reads_p2, generate_reads=(not args.no_reads))
        
-    if args.hisat_U or not (args.U or args.hisat_U):
+    if args.hisat_U or not (args.U or args.hisat_U or args.prog == BOWTIE_PROG or args.prog == BOWTIE2_PROG):
         tmpfile_hs, tmpfile_1_hs, tmpfile_2_hs, \
             nreads_unp_hs, nreads_pe_hs = \
             prepare_reads_func(args, tmpdir, max(series), 'hisat', hisat_reads, hisat_reads_p1, hisat_reads_p2, generate_reads=(not args.no_reads))
@@ -643,16 +663,6 @@ def go(args):
                     nthreads_total = nthreads
                     if args.multiprocess != MP_DISABLED:
                         nthreads = 1
-                    if args.multiprocess >= MP_SEPARATE:
-                        tmpfile = args.U+".%d.fq"
-                        tmpfile_1 = args.m1+".%d.fq"
-                        tmpfile_2 = args.m2+".%d.fq"
-                        tmpfile_hs = args.hisat_U+".%d.fq"
-                        tmpfile_1_hs = args.hisat_m1+".%d.fq"
-                        tmpfile_2_hs = args.hisat_m2+".%d.fq"
-                        tmpfile_short = args.U+".short.%d.fq"
-                        tmpfile_short_1 = args.m1+".short.%d.fq"
-                        tmpfile_short_2 = args.m2+".short.%d.fq"
                     cmd.extend(['-p', str(nthreads)])
                     if 'batch_parsing' in branch:
                         cmd.extend(['--reads-per-batch', str(args.reads_per_batch)])
@@ -797,5 +807,7 @@ if __name__ == '__main__':
                         help='if running Bowtie or something similar set this so that generated reads will be half the normal size (e.g. 50 vs. 100 bp)')
     parser.add_argument('--reads-count', metavar='int', type=int, default=0,
                         help='set explicitly to # of reads in source reads file to avoid the cost of counting each time')
+    parser.add_argument('--prog', metavar='int', type=int, default=0,
+                        help='which aligner to generate reads for when using compiled in reads (no-io); overridden by the --U,--hisat-U options.  bowtie=1,bowtie2=2 (default),hisat=3')
 
     go(parser.parse_args())
