@@ -729,9 +729,9 @@ def go(args):
                     if run:
                         run_cmd(cmd, odir, nthreads, nthreads_total, paired, args)
                         if args.multiprocess == MP_DISABLED:
-			    assert os.path.exists(sam_ofn)
-		            if args.delete_sam and not args.sam_dev_null:
-			        os.remove(sam_ofn)
+                            assert os.path.exists(sam_ofn)
+                            if args.delete_sam and not args.sam_dev_null:
+                                os.remove(sam_ofn)
 
 
 if __name__ == '__main__':
@@ -747,22 +747,22 @@ if __name__ == '__main__':
                         help='Path to bowtie & bowtie2 indexes; omit final ".1.bt2" or ".1.ebwt".  Should usually be a human genome index, with filenames like hg19.* or hg38.*')
     requiredNamed.add_argument('--hisat-index', metavar='index_basename', type=str, required=True,
                         help='Path to HISAT index; omit final ".1.bt2".  Should usually be a human genome index, with filenames like hg19.* or hg38.*')
-    requiredNamed.add_argument('--U', metavar='path', type=str, required=False,
-                        help='Path to file to use for unpaired reads for tools other than HISAT.  Will concatenate multiple copies according to # threads.')
-    requiredNamed.add_argument('--m1', metavar='path', type=str, required=False,
-                        help='Path to file to use for mate 1s for paried-end runs for tools other than HISAT.  Will concatenate multiple copies according to # threads.')
-    requiredNamed.add_argument('--m2', metavar='path', type=str, required=False,
-                        help='Path to file to use for mate 2s for paried-end runs for tools other than HISAT.  Will concatenate multiple copies according to # threads.')
-    requiredNamed.add_argument('--hisat-U', metavar='path', type=str, required=False,
-                        help='Path to file to use for unpaired reads for HISAT.  Will concatenate multiple copies according to # threads.')
-    requiredNamed.add_argument('--hisat-m1', metavar='path', type=str, required=False,
-                        help='Path to file to use for mate 1s for paried-end runs for HISAT.  Will concatenate multiple copies according to # threads.')
-    requiredNamed.add_argument('--hisat-m2', metavar='path', type=str, required=False,
-                        help='Path to file to use for mate 2s for paried-end runs for HISAT.  Will concatenate multiple copies according to # threads.')
     requiredNamed.add_argument('--config', metavar='pct,pct,...', type=str, required=True,
                         help='Specifies path to config file giving configuration short-names, tool names, branch names, compilation macros, and command-line args.  (Provided master_config.tsv is probably sufficient)')
     requiredNamed.add_argument('--output-dir', metavar='path', type=str, required=True,
                         help='Directory to put thread timings in.')
+    parser.add_argument('--U', metavar='path', type=str, required=False,
+                        help='Path to file to use for unpaired reads for tools other than HISAT.  Will concatenate multiple copies according to # threads.')
+    parser.add_argument('--m1', metavar='path', type=str, required=False,
+                        help='Path to file to use for mate 1s for paried-end runs for tools other than HISAT.  Will concatenate multiple copies according to # threads.')
+    parser.add_argument('--m2', metavar='path', type=str, required=False,
+                        help='Path to file to use for mate 2s for paried-end runs for tools other than HISAT.  Will concatenate multiple copies according to # threads.')
+    parser.add_argument('--hisat-U', metavar='path', type=str, required=False,
+                        help='Path to file to use for unpaired reads for HISAT.  Will concatenate multiple copies according to # threads.')
+    parser.add_argument('--hisat-m1', metavar='path', type=str, required=False,
+                        help='Path to file to use for mate 1s for paried-end runs for HISAT.  Will concatenate multiple copies according to # threads.')
+    parser.add_argument('--hisat-m2', metavar='path', type=str, required=False,
+                        help='Path to file to use for mate 2s for paried-end runs for HISAT.  Will concatenate multiple copies according to # threads.')
     parser.add_argument('--nthread-series', metavar='int,int,...', type=str, required=False,
                         help='Series of comma-separated ints giving the number of threads to use.  E.g. --nthread-series 10,20,30 will run separate experiments using 10, 20 and 30 threads respectively.  Deafult: just one experiment using max # threads.')
     parser.add_argument('--multiply-reads', metavar='int', type=int, default=20,
