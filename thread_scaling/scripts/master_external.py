@@ -24,6 +24,24 @@ import master
 #4) reads count per thread
 #5) don't generate reads (if already present)
 
+def head(in_fn, num_seqs, process_cmd, out_fn):
+    extra_cmd = ''
+    if process_cmd:
+        extra_cmd = "| %s" % (process_cmd)
+    cmd = 'head -%d %s %s > %s' % (master.LINES_PER_FASTQ_REC * num_seqs, in_fn, extra_cmd, out_fn)
+    os.system(cmd)
+    return out_fn 
+
+def prepare_reads(args, tmpdir, max_threads, tool, input_fn, generate_reads=True):
+    num_seqs = max_threads * args.reads_per_thread
+    if args.multiprocess >= master.MP_SEPARATE:
+        num_seqs = args.reads_per_thread
+    out_fn = "%s.%s.%d" % (input_fn, tool, num_seqs)
+    sys.stdout.write("Preparing reads: %s %s %d\n" % (input_fn, out_fn, num_seqs))
+    head(input_fn, num_seqs, '', out_fn)
+    #TODO implement MP version (split vs. copy depending on real vs. io)
+    #if args.multiprocess >= master.MP_SEPARATE:
+    return out_fn
 
 def go(args):
     nnodes, ncpus = master.get_num_nodes(), master.get_num_cores()
@@ -42,10 +60,6 @@ def go(args):
     series = master.gen_thread_series(args, ncpus)
     print('  series = %s' % str(series))
     
-    #if we're not running n separate multiprocesses
-    prepare_reads_func = master.prepare_reads
-    if args.multiprocess >= master.MP_SEPARATE:
-        prepare_reads_func = master.prepare_mp_reads
     #TODO: implement this
     #(tool, input_opt, threads_opt, mm_opt) = get_tool_params(args)
     (tool, input_opt, threads_opt, mm_opt, output) = ('bwa', '', '-t', '', '> /dev/null')
@@ -57,7 +71,7 @@ def go(args):
 
     #now loop over series generating reads for each thread point
     for i in series:
-        (processed_fn, _, _, _, _) = prepare_reads_func(args, tmpdir, i, tool, args.U, None, None, generate_reads=(not args.no_reads))
+        processed_fn = prepare_reads(args, tmpdir, i, tool, args.U, generate_reads=(not args.no_reads))
         cmd = [args.cmd]
         cmd.append(threads_opt)
         num_threads = i
