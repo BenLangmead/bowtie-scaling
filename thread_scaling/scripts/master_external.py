@@ -90,7 +90,7 @@ def go(args):
         print(cmd)
         paired = False
         master.run_cmd(cmd, odir, num_threads, i, paired, args)
-
+        os.remove(processed_fn)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Set up thread scaling experiments.')
