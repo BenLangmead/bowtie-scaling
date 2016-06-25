@@ -62,7 +62,7 @@ def go(args):
     
     #TODO: implement this
     #(tool, input_opt, threads_opt, mm_opt) = get_tool_params(args)
-    (tool, input_opt, threads_opt, mm_opt, output) = ('bwa', '', '-t', '', '> /dev/null')
+    (tool, input_opt, threads_opt, mm_opt, output) = ('bwa', '', '-t', '', '> /dev/null 2> %s')
    
     odir = os.path.join(args.output_dir, tool, 'unp')
     if not os.path.exists(odir):
@@ -84,7 +84,8 @@ def go(args):
         cmd.append(num_threads)
         cmd.append(mm)
         cmd.append(input_fn)
-        cmd.append(output)
+        output_ = output % (os.path.join(odir, "%d.txt" % int(i)))
+        cmd.append(output_)
         cmd = ' '.join([str(x) for x in cmd])
         print(cmd)
         paired = False
