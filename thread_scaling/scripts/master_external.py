@@ -32,16 +32,37 @@ def head(in_fn, num_seqs, process_cmd, out_fn):
     os.system(cmd)
     return out_fn 
 
-def prepare_reads(args, tmpdir, max_threads, tool, input_fn, generate_reads=True):
+#assumes input reads file (either real or no-io derived) has already been shortened for tools like bowtie
+def prepare_reads(args, tmpdir, max_threads, tool, input_fn, cat_reads=False, generate_reads=True):
     num_seqs = max_threads * args.reads_per_thread
     if args.multiprocess >= master.MP_SEPARATE:
         num_seqs = args.reads_per_thread
-    out_fn = "%s.%s.%d" % (input_fn, tool, num_seqs)
+    (in_path, in_fn) = os.path.split(input_fn)
+    #out_fn = "%s.%s.%d" % (os.path.join(tmpdir, in_fn), tool, num_seqs)
+    out_fn = "%s.fq" % os.path.join(tmpdir, in_fn)
+    if args.multiprocess >= master.MP_SEPARATE:
+        out_fn = os.path.join(tmpdir, ("%s." % in_fn) + '%d.fq')
     sys.stdout.write("Preparing reads: %s %s %d\n" % (input_fn, out_fn, num_seqs))
-    head(input_fn, num_seqs, '', out_fn)
+    #if doing a small set of input reads which needs to be copied to be amplified for the # of threads (e.e. no-io derived reads)
+    if cat_reads:
+        num_cats = num_seqs / master.DEFAULT_BASE_READS_COUNT
+        if num_cats < 1:
+            sys.stderr.write("total number of sequences for maximum threads in series %d must be >= %d, exiting\n" % (max_threads, master.DEFAULT_BASE_READS_COUNT))
+            sys.exit(-1)
+        if args.multiprocess >= master.MP_SEPARATE:
+            num_cats = args.reads_per_thread / master.DEFAULT_BASE_READS_COUNT
+            master.copy_read_set(input_fn, tmpdir, num_cats, max_threads) 
+        else:
+            master.cat([input_fn], out_fn, num_cats) 
+    #instead we just assume the input file is large enough for the number of reads we want
+    else:
+        if args.multiprocess >= master.MP_SEPARATE:
+            master.split_read_set(input_fn, tmpdir, args.reads_per_thread, max_threads) 
+        else:
+            head(input_fn, num_seqs, '', out_fn)
     #TODO implement MP version (split vs. copy depending on real vs. io)
-    #if args.multiprocess >= master.MP_SEPARATE:
     return out_fn
+
 
 def go(args):
     nnodes, ncpus = master.get_num_nodes(), master.get_num_cores()
@@ -63,24 +84,34 @@ def go(args):
     #TODO: implement this
     #(tool, input_opt, threads_opt, mm_opt) = get_tool_params(args)
     (tool, input_opt, threads_opt, mm_opt, output) = ('bwa', '', '-t', '', '> /dev/null 2> %s')
+    if args.multiprocess != master.MP_DISABLED:
+        output = '> /dev/null 2>> %s'
    
     odir = os.path.join(args.output_dir, tool, 'unp')
     if not os.path.exists(odir):
         print('  Creating output directory "%s"' % odir, file=sys.stderr)
         master.mkdir_quiet(odir)
 
+    #TODO: implement read counting if not passed in
+    reads_count = args.reads_count
+    cat_reads = False
+    #if we get the exact # of reads as in the default no-io derived reads
+    #we'll concatenate, otherwise assume we have enough to get to # of reads
+    #for max thread count
+    if reads_count == master.DEFAULT_BASE_READS_COUNT:
+       cat_reads = True 
+
     #now loop over series generating reads for each thread point
     for i in series:
-        processed_fn = prepare_reads(args, tmpdir, i, tool, args.U, generate_reads=(not args.no_reads))
+        processed_fn = prepare_reads(args, tmpdir, i, tool, args.U, cat_reads=cat_reads, generate_reads=(not args.no_reads))
         cmd = [args.cmd]
         cmd.append(threads_opt)
         num_threads = i
         mm = ''
         input_fn = processed_fn
-        if args.multiprocess:
+        if args.multiprocess != master.MP_DISABLED:
             num_threads = 1
             mm = mm_opt
-            input_fn = ("%s." % input_fn) + '%d.fq'
         cmd.append(num_threads)
         cmd.append(mm)
         cmd.append(input_fn)
@@ -90,7 +121,13 @@ def go(args):
         print(cmd)
         paired = False
         master.run_cmd(cmd, odir, num_threads, i, paired, args)
-        os.remove(processed_fn)
+        if args.multiprocess >= master.MP_SEPARATE:
+            (in_path, in_fn) = os.path.split(args.U)
+            input_fns = os.path.join(tmpdir, "%s*.fq" % in_fn)
+            sys.stderr.write("deleting %s\n" % input_fns)
+            os.system('rm %s' % input_fns)
+        else:
+            os.remove(processed_fn)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Set up thread scaling experiments.')
