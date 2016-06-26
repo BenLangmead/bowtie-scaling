@@ -213,7 +213,7 @@ def cat_shorten(fns, dest_fn, n, seqs_to_cat=0):
         os.remove(dest_fn + ".short")
     #if # of lines are requested, don't do a copy as well
     if seqs_to_cat > 0:
-        input_cmd = 'head -%d' % (4*seqs_to_cat)
+        input_cmd = 'head -%d' % (LINES_PER_FASTQ_REC*seqs_to_cat)
         output_fn = shorten(fns, dest_fn, input_cmd=(input_cmd + " %s"))
         os.rename(output_fn, dest_fn)
     else:
