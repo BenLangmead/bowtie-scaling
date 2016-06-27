@@ -64,7 +64,7 @@ def prepare_reads(args, tmpdir, max_threads, tool, input_fn, cat_reads=False, ge
     return out_fn
 
 #mapping exec name => (tool_name, input param, thread param, additional params, output param)
-tool_map = {'bwa':['bwa','','-t','','> /dev/null 2> %s'], 'classify':['kraken', '-f', '-t', '-M -u %d', '> /dev/null 2> %s']}
+tool_map = {'bwa':['bwa','','-t','','> /dev/null 2> %s'], 'classify':['kraken', '-f', '-t', '-M -u %d', '> /dev/null 2> %s'], 'jellyfish':['jellyfish', '', '-t', '-m 21 -s 100M -C','-o /dev/null --timing=%s']}
 def get_tool_params(args):
     tool_fields = args.cmd.split(' ')
     tool_path = tool_fields[0]
@@ -126,7 +126,6 @@ def go(args):
         cmd = [tool_cmd]
         cmd.append(threads_opt)
         num_threads = i
-        mm = ''
         input_fn = processed_fn
         if args.multiprocess != master.MP_DISABLED:
             num_threads = 1
@@ -144,9 +143,10 @@ def go(args):
             (in_path, in_fn) = os.path.split(args.U)
             input_fns = os.path.join(tmpdir, "%s*.fq" % in_fn)
             sys.stderr.write("deleting %s\n" % input_fns)
-            os.system('rm %s' % input_fns)
+            #os.system('rm %s' % input_fns)
         else:
-            os.remove(processed_fn)
+            pass
+            #os.remove(processed_fn)
 
     if args.multiprocess != master.MP_DISABLED:
         unload_genome_index(args, tool, tool_path)
