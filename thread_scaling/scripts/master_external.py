@@ -63,6 +63,21 @@ def prepare_reads(args, tmpdir, max_threads, tool, input_fn, cat_reads=False, ge
     #TODO implement MP version (split vs. copy depending on real vs. io)
     return out_fn
 
+tool_map = {'bwa':['bwa','','-t','','> /dev/null 2> %s'], 'classify':['kraken']}
+def get_tool_params(args):
+    (tool_path, tool_cmd) = args.cmd.split(' ')
+    (tool_path_, tool) = os.path.split(tool_path)
+    (tool, input_opt, threads_opt, mm_opt, output) = tool_map[tool]
+    tool_cmd = "%s %s" % (args.cmd, args.genome)
+    return (tool, tool_path, tool_cmd, input_opt, threads_opt, mm_opt, output) 
+
+def load_genome_index(args, tool, tool_path, mm_opt):
+    if tool == 'bwa':
+        os.system("%s shm %s" % (tool_path, args.genome))
+
+def unload_genome_index(args, tool, tool_path, mm_opt):
+    if tool == 'bwa':
+        os.system("%s shm -d" % (tool_path))
 
 def go(args):
     nnodes, ncpus = master.get_num_nodes(), master.get_num_cores()
@@ -79,15 +94,15 @@ def go(args):
     
     print('Generating thread series', file=sys.stderr)
     series = master.gen_thread_series(args, ncpus)
-    print('  series = %s' % str(series))
+    print(' series = %s' % str(series))
     
-    #TODO: implement this
-    #(tool, input_opt, threads_opt, mm_opt) = get_tool_params(args)
-    (tool, input_opt, threads_opt, mm_opt, output) = ('bwa', '', '-t', '', '> /dev/null 2> %s')
+    (tool, tool_path, tool_cmd, input_opt, threads_opt, mm_opt, output) = get_tool_params(args)
     if args.multiprocess != master.MP_DISABLED:
         output = '> /dev/null 2>> %s'
+        #load shared memory with genome index
+        load_genome_index(args, tool, tool_path, mm_opt)
    
-    odir = os.path.join(args.output_dir, tool, 'unp')
+    odir = os.path.join(args.output_dir)
     if not os.path.exists(odir):
         print('  Creating output directory "%s"' % odir, file=sys.stderr)
         master.mkdir_quiet(odir)
@@ -104,7 +119,7 @@ def go(args):
     #now loop over series generating reads for each thread point
     for i in series:
         processed_fn = prepare_reads(args, tmpdir, i, tool, args.U, cat_reads=cat_reads, generate_reads=(not args.no_reads))
-        cmd = [args.cmd]
+        cmd = [tool_cmd]
         cmd.append(threads_opt)
         num_threads = i
         mm = ''
@@ -129,12 +144,18 @@ def go(args):
         else:
             os.remove(processed_fn)
 
+    if args.multiprocess != master.MP_DISABLED:
+        unload_genome_index(args, tool, tool_path, mm_opt)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Set up thread scaling experiments.')
     
     requiredNamed = parser.add_argument_group('required named arguments')
     requiredNamed.add_argument('--cmd', metavar='tool command line', type=str, required=True,
-                               help="partial command line of tool to run (including full path to tool exe); do not include 1) input reads file 2) threads option")
+                               help="path to aligner + command to run (e.g. /path/to/bwa mem)")
+    requiredNamed.add_argument('--genome', metavar='path to genome index', type=str, required=True,
+                               help="index genome file appropriate for current tool (e.g. /path/to/hg19.fa for bwa)")
     requiredNamed.add_argument('--U', metavar='path', type=str, required=False,
                         help='Path to file to use for unpaired reads; will concatenate multiple copies according to # threads.')
     requiredNamed.add_argument('--output-dir', metavar='path', type=str, required=True,
