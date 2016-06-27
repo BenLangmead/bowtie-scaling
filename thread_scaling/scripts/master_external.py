@@ -63,19 +63,23 @@ def prepare_reads(args, tmpdir, max_threads, tool, input_fn, cat_reads=False, ge
     #TODO implement MP version (split vs. copy depending on real vs. io)
     return out_fn
 
-tool_map = {'bwa':['bwa','','-t','','> /dev/null 2> %s'], 'classify':['kraken']}
+#mapping exec name => (tool_name, input param, thread param, additional params, output param)
+tool_map = {'bwa':['bwa','','-t','','> /dev/null 2> %s'], 'classify':['kraken', '-f', '-t', '-M -u %d', '> /dev/null 2> %s']}
 def get_tool_params(args):
-    (tool_path, tool_cmd) = args.cmd.split(' ')
+    tool_fields = args.cmd.split(' ')
+    tool_path = tool_fields[0]
     (tool_path_, tool) = os.path.split(tool_path)
-    (tool, input_opt, threads_opt, mm_opt, output) = tool_map[tool]
+    (tool, input_opt, threads_opt, additional_opts, output) = tool_map[tool]
     tool_cmd = "%s %s" % (args.cmd, args.genome)
-    return (tool, tool_path, tool_cmd, input_opt, threads_opt, mm_opt, output) 
+    if tool == 'kraken':
+        additional_opts = additional_opts % args.reads_per_thread
+    return (tool, tool_path, tool_cmd, input_opt, threads_opt, additional_opts, output) 
 
-def load_genome_index(args, tool, tool_path, mm_opt):
+def load_genome_index(args, tool, tool_path):
     if tool == 'bwa':
         os.system("%s shm %s" % (tool_path, args.genome))
 
-def unload_genome_index(args, tool, tool_path, mm_opt):
+def unload_genome_index(args, tool, tool_path):
     if tool == 'bwa':
         os.system("%s shm -d" % (tool_path))
 
@@ -96,11 +100,11 @@ def go(args):
     series = master.gen_thread_series(args, ncpus)
     print(' series = %s' % str(series))
     
-    (tool, tool_path, tool_cmd, input_opt, threads_opt, mm_opt, output) = get_tool_params(args)
+    (tool, tool_path, tool_cmd, input_opt, threads_opt, additional_opts, output) = get_tool_params(args)
     if args.multiprocess != master.MP_DISABLED:
         output = '> /dev/null 2>> %s'
         #load shared memory with genome index
-        load_genome_index(args, tool, tool_path, mm_opt)
+        load_genome_index(args, tool, tool_path)
    
     odir = os.path.join(args.output_dir)
     if not os.path.exists(odir):
@@ -126,9 +130,9 @@ def go(args):
         input_fn = processed_fn
         if args.multiprocess != master.MP_DISABLED:
             num_threads = 1
-            mm = mm_opt
         cmd.append(num_threads)
-        cmd.append(mm)
+        cmd.append(additional_opts)
+        cmd.append(input_opt)
         cmd.append(input_fn)
         output_ = output % (os.path.join(odir, "%d.txt" % int(i)))
         cmd.append(output_)
@@ -145,7 +149,7 @@ def go(args):
             os.remove(processed_fn)
 
     if args.multiprocess != master.MP_DISABLED:
-        unload_genome_index(args, tool, tool_path, mm_opt)
+        unload_genome_index(args, tool, tool_path)
 
 
 if __name__ == '__main__':
@@ -154,14 +158,14 @@ if __name__ == '__main__':
     requiredNamed = parser.add_argument_group('required named arguments')
     requiredNamed.add_argument('--cmd', metavar='tool command line', type=str, required=True,
                                help="path to aligner + command to run (e.g. /path/to/bwa mem)")
-    requiredNamed.add_argument('--genome', metavar='path to genome index', type=str, required=True,
-                               help="index genome file appropriate for current tool (e.g. /path/to/hg19.fa for bwa)")
     requiredNamed.add_argument('--U', metavar='path', type=str, required=False,
                         help='Path to file to use for unpaired reads; will concatenate multiple copies according to # threads.')
     requiredNamed.add_argument('--output-dir', metavar='path', type=str, required=True,
                         help='Directory to put thread timings in.')
     requiredNamed.add_argument('--reads-per-thread', metavar='int', type=int, required=True,
                         help='set # of reads to align per thread/process directly')
+    parser.add_argument('--genome', metavar='path to genome index', type=str, default="",
+                               help="index genome file appropriate for current tool (e.g. /path/to/hg19.fa for bwa)")
     parser.add_argument('--tempdir', metavar='path', type=str, required=False,
                         help='Picks a path for temporary files.')
     parser.add_argument('--nthread-series', metavar='int,int,...', type=str, required=False,
