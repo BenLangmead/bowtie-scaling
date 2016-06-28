@@ -5,6 +5,7 @@ Script for tabulating results from master.py
 from __future__ import print_function
 import subprocess
 import sys
+from operator import itemgetter
 
 if len(sys.argv) < 2:
     raise RuntimeError('Too few arguments')
@@ -27,25 +28,22 @@ for mydr in sys.argv[1:]:
         dedup = {}
         #first find the longest time for each thread count
         for ln in p.stdout:
-	    if True:
-                sys.stderr.write("%s" % ln)
-                (dr, secs) = ln.rstrip().split(":")
-                secs = float(secs)
-	        exp, run, thr = dr.split('/')
-                if dr in dedup:
-                    if secs < dedup[dr]:
-                        secs = dedup[dr]
-                dedup[dr] = secs
+            sys.stderr.write("%s" % ln)
+            (dr, secs) = ln.rstrip().split(":")
+            secs = float(secs)
+            if dr in dedup:
+                if secs < dedup[dr]:
+                    secs = dedup[dr]
+            dedup[dr] = secs
         #now print out
-        for (dr,secs) in dedup.iteritems():
-            if True: 
-	        exp, run, thr = dr.split('/')
-	        thr = thr[:-4]
-	        tool = 'bwa'
-	        if run.startswith('k-'):
-		    tool = 'kraken'
-	        elif run.startswith('jf-'):
-		    tool = 'jellyfish'
-	        lock = 'default'
-	        version = 'Original parsing'
-	        print('\t'.join(map(str, [exp, run, tool, lock, version, sens, pe, thr, secs])))
+        for (dr,secs) in sorted(dedup.iteritems(), key=itemgetter(0,1)):
+            exp, run, thr = dr.split('/')
+            thr = thr[:-4]
+            tool = 'bwa'
+            if run.startswith('k-'):
+                tool = 'kraken'
+            elif run.startswith('jf-'):
+                tool = 'jellyfish'
+            lock = 'default'
+            version = 'Original parsing'
+            print('\t'.join(map(str, [exp, run, tool, lock, version, sens, pe, thr, secs])))
