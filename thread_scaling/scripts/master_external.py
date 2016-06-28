@@ -64,15 +64,13 @@ def prepare_reads(args, tmpdir, max_threads, tool, input_fn, cat_reads=False, ge
     return out_fn
 
 #mapping exec name => (tool_name, input param, thread param, additional params, output param)
-tool_map = {'bwa':['bwa','','-t','','> /dev/null 2> %s'], 'classify':['kraken', '-f', '-t', '-M -u %d', '> /dev/null 2> %s'], 'jellyfish':['jellyfish', '', '-t', '-m 21 -s 100M -C','--no-write --timing=%s']}
+tool_map = {'bwa':['bwa','','-t','','> /dev/null 2> %s'], 'classify':['kraken', '-f', '-t', '-M', '> /dev/null 2> %s'], 'jellyfish':['jellyfish', '', '-t', '-m 21 -s 100M -C --no-write --timing=/dev/stderr','> /dev/null 2> %s']}
 def get_tool_params(args):
     tool_fields = args.cmd.split(' ')
     tool_path = tool_fields[0]
     (tool_path_, tool) = os.path.split(tool_path)
     (tool, input_opt, threads_opt, additional_opts, output) = tool_map[tool]
     tool_cmd = "%s %s" % (args.cmd, args.genome)
-    if tool == 'kraken':
-        additional_opts = additional_opts % args.reads_per_thread
     return (tool, tool_path, tool_cmd, input_opt, threads_opt, additional_opts, output) 
 
 def load_genome_index(args, tool, tool_path):
@@ -103,6 +101,9 @@ def go(args):
     (tool, tool_path, tool_cmd, input_opt, threads_opt, additional_opts, output) = get_tool_params(args)
     if args.multiprocess != master.MP_DISABLED:
         output = '> /dev/null 2>> %s'
+        #jellyfish will open for writing not appending, so pipe and then redirect
+        if tool == 'jellyfish':
+            output = '> /dev/null 2>&1 | cat >> %s'
         #load shared memory with genome index
         load_genome_index(args, tool, tool_path)
    
