@@ -460,7 +460,7 @@ def extract_noio_reads(tool,rawseqs_filepath,tmpdir,suffix,generate_reads=True):
 def setup_noio_reads(args,tmpdir,tool,name,generate_reads=True):
     """ Temporarily clones and extracts compiled-in reads from the no-io branch of the given tool """
     branch = 'no-io'
-    temp_build_dir = './'
+    temp_build_dir = tmpdir
     multiply_factor = 5
     if generate_reads:
         install_tool_version(name, tool, tool_repo(tool, args), branch, None, build_dir=temp_build_dir, make_tool=False)
