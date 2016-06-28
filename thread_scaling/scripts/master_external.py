@@ -100,11 +100,6 @@ def go(args):
     
     (tool, tool_path, tool_cmd, input_opt, threads_opt, additional_opts, output) = get_tool_params(args)
     if args.multiprocess != master.MP_DISABLED:
-        output = '> /dev/null 2>> %s'
-        #jellyfish will open for writing not appending, so pipe and then redirect
-        if tool == 'jellyfish':
-            output = '> /dev/null 2>&1 | cat >> %s'
-        #load shared memory with genome index
         load_genome_index(args, tool, tool_path)
    
     odir = os.path.join(args.output_dir)
@@ -128,13 +123,15 @@ def go(args):
         cmd.append(threads_opt)
         num_threads = i
         input_fn = processed_fn
+        output_path = os.path.join(odir, "%d.txt" % int(i))
         if args.multiprocess != master.MP_DISABLED:
             num_threads = 1
+            output_path = os.path.join(odir, "%d%%s.txt" % (int(i)))
         cmd.append(num_threads)
         cmd.append(additional_opts)
         cmd.append(input_opt)
         cmd.append(input_fn)
-        output_ = output % (os.path.join(odir, "%d.txt" % int(i)))
+        output_ = output % (output_path)
         cmd.append(output_)
         cmd = ' '.join([str(x) for x in cmd])
         print(cmd)
@@ -145,6 +142,8 @@ def go(args):
             input_fns = os.path.join(tmpdir, "%s*.fq" % in_fn)
             sys.stderr.write("deleting %s\n" % input_fns)
             os.system('rm %s' % input_fns)
+        if args.multiprocess != master.MP_DISABLED:
+            master.consolidate_mp_output(output_path)
         else:
             os.remove(processed_fn)
 

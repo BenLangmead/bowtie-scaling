@@ -324,6 +324,7 @@ def prepare_mp_reads(args, tmpdir, max_threads, tool, args_U, args_m1, args_m2, 
     #**but** we don't care about re-assigning the input reads files as in the multithread case
     if args.multiprocess <= MP_SEPARATE:
         print('Counting %s reads' % tool, file=sys.stderr)
+        generic_args_U = args_U
         #caculate for single end reads (tmpfile_1 and tmpfile_2 don't change)
         (_, _, nreads_unp_per_thread, nreads_unp_full) = \
             calculate_read_partitions(args, max_threads, tool, [args_U], [tmpfile], 
@@ -490,6 +491,12 @@ def setup_noio_reads(args,tmpdir,tool,name,generate_reads=True):
 def run_subprocess(cmd_):
      subprocess.Popen(cmd_,shell=True,bufsize=-1)
 
+def consolidate_mp_output(output_path):
+    output_path_glob = output_path % "_*"
+    output_path_final = output_path % ""
+    os.system('ls %s | xargs cat >> %s' % (output_path_glob,output_path_final))
+    #os.system('rm %s' % (output_path_glob))
+
 def run_cmd(cmd, odir, nthreads, nthreads_total, paired, args):
     #if we're running with multiprocess
     if args.multiprocess != MP_DISABLED:
@@ -501,9 +508,9 @@ def run_cmd(cmd, odir, nthreads, nthreads_total, paired, args):
            cmd_ = cmd
            if args.multiprocess >= MP_SEPARATE:
                if paired:
-                   cmd_ = cmd_ % (thread+1,thread+1)
+                   cmd_ = cmd_ % (thread+1,thread+1,"_%d" % (thread+1))
                else:
-                   cmd_ = cmd_ % (thread+1)
+                   cmd_ = cmd_ % (thread+1,"_%d" % (thread+1))
            print(cmd_)
            subp = subprocess.Popen(cmd_,shell=True,bufsize=-1)
            running.append(subp)
@@ -600,7 +607,7 @@ def go(args):
         prepare_reads_func = prepare_mp_reads
     #either we've got bowtie1/2 input reads or none of the input file options have been set in which case
     #we generate for each aligner case (bowtie, bowtie2, and hisat) 
-    if args.U or not (args.U or args.hisat_U):
+    if args.U or not (args.hisat_U):
         if args.shorten_reads or not (args.U or args.hisat_U or args.prog == BOWTIE2_PROG or args.prog == HISAT_PROG):
             tmpfile_short, tmpfile_short_1, tmpfile_short_2, \
                 nreads_unp_short, nreads_pe_short = \
@@ -610,7 +617,7 @@ def go(args):
                 nreads_unp, nreads_pe = \
                 prepare_reads_func(args, tmpdir, max(series), 'bowtie2', bt2_reads, bt2_reads_p1, bt2_reads_p2, generate_reads=(not args.no_reads))
        
-    if args.hisat_U or not (args.U or args.hisat_U or args.prog == BOWTIE_PROG or args.prog == BOWTIE2_PROG):
+    if args.hisat_U or not (args.U or args.prog == BOWTIE_PROG or args.prog == BOWTIE2_PROG):
         tmpfile_hs, tmpfile_1_hs, tmpfile_2_hs, \
             nreads_unp_hs, nreads_pe_hs = \
             prepare_reads_func(args, tmpdir, max(series), 'hisat', hisat_reads, hisat_reads_p1, hisat_reads_p2, generate_reads=(not args.no_reads))
@@ -669,6 +676,7 @@ def go(args):
                     nthreads_total = nthreads
                     if args.multiprocess != MP_DISABLED:
                         nthreads = 1
+                        stdout_ofn = os.path.join(odir, '%d%%s.txt' % (nthreads))
                     cmd.extend(['-p', str(nthreads)])
                     if 'batch_parsing' in branch:
                         cmd.extend(['--reads-per-batch', str(args.reads_per_batch)])
@@ -690,7 +698,6 @@ def go(args):
                             cmd.extend(aligner_args.split())
                         if args.multiprocess != MP_DISABLED:
                             cmd.append('--mm')
-                            cmd.extend(['>>', stdout_ofn])
                         else:
                             cmd.extend(['>', stdout_ofn])
                     elif tool == 'bowtie':
@@ -709,7 +716,6 @@ def go(args):
                             cmd.extend(aligner_args.split())
                         if args.multiprocess != MP_DISABLED:
                             cmd.append('--mm')
-                            cmd.extend(['>>', stdout_ofn])
                         else:
                             cmd.extend(['>', stdout_ofn])
                     else:
@@ -732,6 +738,8 @@ def go(args):
                             assert os.path.exists(sam_ofn)
                             if args.delete_sam and not args.sam_dev_null:
                                 os.remove(sam_ofn)
+                        else:
+                            consolidate_mp_output(stdout_ofn % "_*")
 
 
 if __name__ == '__main__':
