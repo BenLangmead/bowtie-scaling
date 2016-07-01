@@ -675,8 +675,8 @@ def go(args):
                     cmd = ['build/%s/%s' % (name, tool_exe(tool))]
                     nthreads_total = nthreads
                     if args.multiprocess != MP_DISABLED:
-                        nthreads = 1
                         stdout_ofn = os.path.join(odir, '%d%%s.txt' % (nthreads))
+                        nthreads = 1
                     cmd.extend(['-p', str(nthreads)])
                     if 'batch_parsing' in branch:
                         cmd.extend(['--reads-per-batch', str(args.reads_per_batch)])
@@ -698,8 +698,7 @@ def go(args):
                             cmd.extend(aligner_args.split())
                         if args.multiprocess != MP_DISABLED:
                             cmd.append('--mm')
-                        else:
-                            cmd.extend(['>', stdout_ofn])
+                        cmd.extend(['>', stdout_ofn])
                     elif tool == 'bowtie':
                         nreads = (nreads_pe_short * nthreads) if paired else (nreads_unp_short * nthreads)
                         cmd.extend(['-u', str(nreads)])
@@ -716,8 +715,7 @@ def go(args):
                             cmd.extend(aligner_args.split())
                         if args.multiprocess != MP_DISABLED:
                             cmd.append('--mm')
-                        else:
-                            cmd.extend(['>', stdout_ofn])
+                        cmd.extend(['>', stdout_ofn])
                     else:
                         raise RuntimeError('Unsupported tool: "%s"' % tool)
                     cmd = ' '.join(cmd)
@@ -739,7 +737,7 @@ def go(args):
                             if args.delete_sam and not args.sam_dev_null:
                                 os.remove(sam_ofn)
                         else:
-                            consolidate_mp_output(stdout_ofn % "_*")
+                            consolidate_mp_output(stdout_ofn)
 
 
 if __name__ == '__main__':
