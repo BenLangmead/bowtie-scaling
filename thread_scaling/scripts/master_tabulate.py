@@ -12,7 +12,7 @@ if len(sys.argv) < 2:
 
 print('\t'.join(['experiment', 'run', 'tool', 'lock', 'version', 'sensitivity', 'paired', 'threads', 'seconds']))
 for mydr in sys.argv[1:]:
-    p = subprocess.Popen("find %s -name '*.txt' | xargs grep \"thread:.*time\" | sed 's/:thread:.*time: /|/'" % mydr,
+    p = subprocess.Popen("find %s -name '*.txt' -not -name \"*_*\" | xargs grep \"thread:.*time\" | sed 's/:thread:.*time: /|/'" % mydr,
                          stdout=subprocess.PIPE, shell=True)
     dr = None
     dedup = {}

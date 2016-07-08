@@ -13,13 +13,13 @@ if len(sys.argv) < 2:
 print('\t'.join(['experiment', 'run', 'tool', 'lock', 'version', 'sensitivity', 'paired', 'threads', 'seconds']))
 for mydr in sys.argv[1:]:
     #bwa
-    bwap = subprocess.Popen("find %s -wholename '*bwa-*.txt' | xargs grep \"M::mem_process_seqs.*Processed\" | sed 's/\[M::mem_process_seqs\].*CPU sec, //' | sed 's/ real sec$//'" % mydr,
+    bwap = subprocess.Popen("find %s -wholename '*bwa-*.txt' -not -name '*_*' | xargs grep \"M::mem_process_seqs.*Processed\" | sed 's/\[M::mem_process_seqs\].*CPU sec, //' | sed 's/ real sec$//'" % mydr,
                         stdout=subprocess.PIPE, shell=True)
     #kraken
-    kp = subprocess.Popen("find %s -wholename '*k-*.txt' | xargs grep \"processed in \" | sed 's/:.*processed in /:/' | sed 's/s (.*$//'" % mydr,
+    kp = subprocess.Popen("find %s -wholename '*k-*.txt' -not -name '*_*' | xargs grep \"processed in \" | sed 's/:.*processed in /:/' | sed 's/s (.*$//'" % mydr,
                          stdout=subprocess.PIPE, shell=True)
     #jellyfish
-    jfp = subprocess.Popen("find %s -wholename '*jf-*.txt' | xargs grep \"Counting \" | sed 's/Counting //'" % mydr,
+    jfp = subprocess.Popen("find %s -wholename '*jf-*.txt' -not -name '*_*' | xargs grep \"Counting \" | sed 's/Counting //'" % mydr,
                          stdout=subprocess.PIPE, shell=True)
     dr = None
     sens = 'default'
