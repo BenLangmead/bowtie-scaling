@@ -511,6 +511,8 @@ def run_cmd(cmd, odir, nthreads, nthreads_total, paired, args):
                    cmd_ = cmd_ % (thread+1,thread+1,"_%d" % (thread+1))
                else:
                    cmd_ = cmd_ % (thread+1,"_%d" % (thread+1))
+	   if args.task_set:
+               cmd_ = "taskset -c %d %s" % (thread+1,cmd_) 
            print(cmd_)
            subp = subprocess.Popen(cmd_,shell=True,bufsize=-1)
            running.append(subp)
@@ -821,5 +823,7 @@ if __name__ == '__main__':
                         help='set explicitly to # of reads in source reads file to avoid the cost of counting each time')
     parser.add_argument('--prog', metavar='int', type=int, default=0,
                         help='which aligner to generate reads for when using compiled in reads (no-io); overridden by the --U,--hisat-U options.  bowtie=1,bowtie2=2 (default),hisat=3')
+    parser.add_argument('--task-set', action='store_const', const=True, default=False,
+                        help='if running Bowtie in multiprocess mode, this will force each process to affinitize to its own core')
 
     go(parser.parse_args())
