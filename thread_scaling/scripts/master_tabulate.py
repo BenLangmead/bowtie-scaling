@@ -41,8 +41,8 @@ for mydr in sys.argv[1:]:
             lock = 'batch tinythreads fast_mutex'
         elif 'tbbpin-q' in run and 'rawseqs' in run:
             lock = 'TBB queuing_mutex noio reads'
-        elif 'batch-tbbpin-q' in run:
-            lock = 'batch TBB queuing_mutex'
+        #elif 'batch-tbbpin-q' in run:
+        #    lock = 'batch TBB queuing_mutex'
         elif 'tbbpin-spin' in run:
             lock = 'TBB spin_mutex'
         elif 'tbbpin-heavy' in run:
@@ -55,10 +55,14 @@ for mydr in sys.argv[1:]:
             lock = 'TBB/JHU CohortLock tktptl'
         elif 'no-io' in run or 'noio' in run:
             lock = 'None (stubbed I/O)'
+        elif '-mp' in run:
+            lock = 'MP tinythreads fast_mutex'
         version = 'Original parsing'
         #since batch_parsing is built on cleanparse
-        if 'cleanparse' in run or 'batch' in lock:
-            version = 'Optimized parsing'
+        if 'cleanparse' in run:
+            version = 'Clean parsing'
+        if 'batch' in run:
+            version = 'Batch parsing'
         if 'norandom' in run:
             version = "%s, No randomization" % (version)
         print('\t'.join(map(str, [exp, run, tool, lock, version, sens, pe, thr, secs])))
