@@ -12,7 +12,7 @@ if len(sys.argv) < 2:
 
 print('\t'.join(['experiment', 'run', 'tool', 'lock', 'version', 'sensitivity', 'paired', 'threads', 'seconds']))
 for mydr in sys.argv[1:]:
-    p = subprocess.Popen("find %s -name '*.txt' -not -name \"*_*\" | xargs grep \"thread:.*time\" | sed 's/:thread:.*time: /|/'" % mydr,
+    p = subprocess.Popen("find -L %s -name '*.txt' -not -name \"*_*\" | xargs grep \"thread:.*time\" | sed 's/:thread:.*time: /|/'" % mydr,
                          stdout=subprocess.PIPE, shell=True)
     dr = None
     dedup = {}
@@ -60,7 +60,7 @@ for mydr in sys.argv[1:]:
         version = 'Original parsing'
         #since batch_parsing is built on cleanparse
         if 'cleanparse' in run:
-            version = 'Clean parsing'
+            version = 'Two-phase parsing'
         if 'batch' in run:
             version = 'Batch parsing'
         if 'norandom' in run:
