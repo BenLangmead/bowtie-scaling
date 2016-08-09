@@ -1,0 +1,931 @@
+experiment	run	tool	lock	version	sensitivity	paired	threads	seconds
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	1	47.291
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	4	44.525
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	8	47.85
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	12	49.344
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	16	50.499
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	20	52.129
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	24	52.185
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	28	55.333
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	32	52.703
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	36	55.042
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	40	56.773
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	44	56.057
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	48	57.686
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	52	58.73
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	56	58.409
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	60	59.788
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	64	69.268
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	68	69.761
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	72	70.416
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	76	71.258
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	80	71.12
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	84	72.556
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	88	72.952
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	92	74.302
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	96	75.178
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	100	74.702
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	104	76.991
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	108	79.519
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	112	77.632
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	116	78.153
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	pe	120	79.759
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	1	14.369
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	4	13.355
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	8	13.836
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	12	14.332
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	16	15.098
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	20	15.704
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	24	15.489
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	28	15.737
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	32	15.93
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	36	16.011
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	40	16.095
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	44	16.309
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	48	16.283
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	52	17.208
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	56	16.633
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	60	17.617
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	64	19.376
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	68	19.641
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	72	19.952
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	76	20.673
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	80	20.471
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	84	20.946
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	88	20.412
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	92	20.938
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	96	20.938
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	100	22.192
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	104	21.671
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	108	22.154
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	112	22.728
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	116	22.861
+pub_runs	bt-mp-id	bowtie	MP tinythreads fast_mutex	Original parsing	sensitive	unp	120	23.293
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	1	35.406
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	4	40.682
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	8	41.149
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	12	41.945
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	16	42.026
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	20	42.292
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	24	42.485
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	28	42.504
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	32	43.28
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	36	42.898
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	40	43.084
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	44	43.342
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	48	43.418
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	52	43.735
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	56	43.899
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	60	44.254
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	64	45.806
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	68	47.437
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	72	48.933
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	76	50.329
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	80	51.865
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	84	53.202
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	88	54.587
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	92	55.732
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	96	57.647
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	100	58.362
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	104	59.618
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	108	61.211
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	112	62.243
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	116	63.683
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	120	64.961
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	1	11.333
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	4	12.1
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	8	13.535
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	12	16.501
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	16	20.397
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	20	25.463
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	24	30.256
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	28	36.058
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	32	39.977
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	36	45.383
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	40	52.026
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	44	56.928
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	48	64.086
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	52	72.03
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	56	104.865
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	60	112.504
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	64	118.837
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	68	124.594
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	72	131.355
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	76	140.816
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	80	146.852
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	84	146.875
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	88	157.892
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	92	159.69
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	96	157.897
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	100	168.844
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	104	168.209
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	108	185.448
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	112	186.434
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	116	195.546
+pub_runs	bt-tbbpin-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	120	200.368
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	1	35.491
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	4	40.467
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	8	41.121
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	12	42.034
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	16	41.494
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	20	42.269
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	24	42.543
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	28	42.345
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	32	42.707
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	36	42.932
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	40	43.015
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	44	43.104
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	48	43.499
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	52	43.644
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	56	43.773
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	60	43.899
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	64	45.703
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	68	47.173
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	72	48.654
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	76	50.156
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	80	51.401
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	84	52.623
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	88	54.0
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	92	55.259
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	96	56.63
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	100	57.635
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	104	58.743
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	108	60.048
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	112	61.122
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	116	62.476
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	120	63.85
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	1	9.598
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	4	11.691
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	8	12.261
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	12	12.945
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	16	14.16
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	20	16.521
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	24	19.645
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	28	22.902
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	32	26.405
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	36	29.804
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	40	32.894
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	44	35.729
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	48	38.944
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	52	41.899
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	56	46.174
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	60	49.896
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	64	56.506
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	68	63.928
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	72	70.825
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	76	78.444
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	80	86.835
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	84	93.106
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	88	100.743
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	92	107.921
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	96	114.849
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	100	124.487
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	104	132.069
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	108	138.591
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	112	147.352
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	116	158.234
+pub_runs	bt-tbbpin-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	120	166.341
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	1	35.539
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	4	40.443
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	8	41.52
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	12	41.925
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	16	42.136
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	20	42.223
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	24	42.188
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	28	42.476
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	32	42.563
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	36	42.765
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	40	42.845
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	44	43.048
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	48	43.366
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	52	43.517
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	56	43.698
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	60	43.799
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	64	45.613
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	68	47.094
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	72	48.562
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	76	50.023
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	80	51.335
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	84	52.854
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	88	53.86
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	92	55.459
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	96	56.391
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	100	57.953
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	104	59.095
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	108	60.234
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	112	61.272
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	116	62.636
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	120	63.832
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	1	13.903
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	4	11.634
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	8	12.297
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	12	13.182
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	16	15.095
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	20	21.306
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	24	45.586
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	28	61.161
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	32	82.73
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	36	98.481
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	40	120.266
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	44	152.129
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	48	183.908
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	52	203.882
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	56	249.348
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	60	277.766
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	64	308.797
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	68	325.592
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	72	357.996
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	76	370.056
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	80	388.971
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	84	422.911
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	88	467.404
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	92	488.203
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	96	482.19
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	100	511.28
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	104	542.127
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	108	561.594
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	112	586.378
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	116	609.873
+pub_runs	bt-tbbpin-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	120	643.412
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	1	37.308
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	4	40.12
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	8	41.486
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	12	41.852
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	16	42.05
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	20	42.085
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	24	42.371
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	28	42.385
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	32	42.606
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	36	42.727
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	40	42.846
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	44	43.067
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	48	43.216
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	52	43.286
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	56	43.518
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	60	43.721
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	64	45.413
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	68	47.208
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	72	48.582
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	76	49.921
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	80	51.64
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	84	52.809
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	88	54.148
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	92	55.283
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	96	56.557
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	100	58.019
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	104	59.438
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	108	60.069
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	112	61.409
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	116	62.614
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	120	63.959
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	1	11.145
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	4	11.603
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	8	12.291
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	12	13.094
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	16	15.293
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	20	21.493
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	24	43.637
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	28	61.607
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	32	74.891
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	36	94.071
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	40	117.394
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	44	145.659
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	48	168.719
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	52	209.296
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	56	241.71
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	60	263.709
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	64	301.762
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	68	305.512
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	72	344.638
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	76	365.433
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	80	384.462
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	84	419.883
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	88	430.309
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	92	474.101
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	96	474.956
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	100	511.525
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	104	526.351
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	108	560.651
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	112	561.364
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	116	609.8
+pub_runs	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	120	655.867
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	1	25.844
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	4	25.11
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	8	26.268
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	12	27.364
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	16	27.688
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	20	27.937
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	24	28.066
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	28	28.14
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	32	28.511
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	36	29.413
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	40	28.877
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	44	29.248
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	48	29.568
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	52	29.855
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	56	30.43
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	60	31.066
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	64	38.545
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	68	39.558
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	72	39.985
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	76	40.322
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	80	40.963
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	84	41.998
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	88	41.848
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	92	43.974
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	96	45.38
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	100	45.557
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	104	46.946
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	108	47.995
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	112	49.774
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	116	50.077
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	pe	120	51.996
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	1	18.35
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	4	16.822
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	8	17.862
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	12	18.268
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	16	18.428
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	20	18.565
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	24	18.774
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	28	18.97
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	32	19.216
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	36	19.049
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	40	19.224
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	44	19.309
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	48	19.4
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	52	19.447
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	56	19.704
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	60	21.086
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	64	24.898
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	68	25.486
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	72	25.781
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	76	25.58
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	80	26.193
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	84	26.169
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	88	26.874
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	92	27.429
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	96	28.164
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	100	28.382
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	104	28.217
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	108	29.321
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	112	29.809
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	116	30.177
+pub_runs	bt2-mp-id	bowtie2	MP tinythreads fast_mutex	Original parsing	sensitive	unp	120	30.818
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	1	21.526
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	4	22.86
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	8	23.589
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	12	24.152
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	16	24.335
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	20	24.549
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	24	24.634
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	28	24.886
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	32	25.113
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	36	25.365
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	40	25.662
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	44	26.185
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	48	26.557
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	52	27.357
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	56	28.607
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	60	30.755
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	64	33.437
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	68	36.342
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	72	39.596
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	76	42.931
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	80	47.394
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	84	51.997
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	88	55.264
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	92	58.502
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	96	61.813
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	100	65.737
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	104	68.986
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	108	72.861
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	112	75.966
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	116	78.652
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	120	81.96
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	1	13.705
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	4	14.739
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	8	16.474
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	12	15.545
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	16	15.622
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	20	15.805
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	24	15.895
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	28	16.16
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	32	16.203
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	36	16.416
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	40	16.577
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	44	16.815
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	48	17.001
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	52	17.249
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	56	17.736
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	60	18.539
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	64	19.644
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	68	21.095
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	72	22.764
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	76	24.646
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	80	26.52
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	84	28.303
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	88	30.168
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	92	32.018
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	96	34.03
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	100	35.817
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	104	37.418
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	108	38.984
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	112	40.884
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	116	42.138
+pub_runs	bt2-tbbpin-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	120	43.686
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	1	21.201
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	4	22.892
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	8	23.526
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	12	23.944
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	16	24.039
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	20	24.273
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	24	24.369
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	28	24.503
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	32	24.638
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	36	24.78
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	40	25.04
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	44	25.246
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	48	25.494
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	52	25.805
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	56	26.148
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	60	26.673
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	64	28.051
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	68	29.651
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	72	31.26
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	76	33.107
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	80	35.04
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	84	37.086
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	88	39.389
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	92	42.281
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	96	45.617
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	100	49.008
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	104	52.515
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	108	56.78
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	112	59.844
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	116	64.18
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	120	67.912
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	1	14.132
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	4	14.805
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	8	15.153
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	12	15.461
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	16	15.452
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	20	15.547
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	24	15.716
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	28	15.805
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	32	15.922
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	36	16.034
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	40	16.139
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	44	16.251
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	48	16.419
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	52	16.677
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	56	16.758
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	60	17.043
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	64	17.76
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	68	18.736
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	72	19.603
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	76	20.377
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	80	21.252
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	84	22.243
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	88	23.405
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	92	24.398
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	96	25.903
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	100	27.419
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	104	29.394
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	108	31.113
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	112	32.877
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	116	34.739
+pub_runs	bt2-tbbpin-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	120	36.627
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	1	23.974
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	4	23.037
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	8	23.561
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	12	24.176
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	16	24.267
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	20	24.482
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	24	24.49
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	28	24.645
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	32	24.844
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	36	25.04
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	40	25.217
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	44	25.427
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	48	25.695
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	52	26.03
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	56	26.463
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	60	26.806
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	64	28.313
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	68	30.012
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	72	31.63
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	76	33.419
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	80	35.51
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	84	38.316
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	88	41.346
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	92	46.546
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	96	54.139
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	100	60.857
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	104	69.591
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	108	73.294
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	112	78.914
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	116	84.973
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	120	95.067
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	1	13.765
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	4	14.93
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	8	15.295
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	12	15.426
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	16	15.592
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	20	15.69
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	24	15.839
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	28	15.886
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	32	16.026
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	36	16.118
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	40	16.253
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	44	16.353
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	48	16.583
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	52	16.698
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	56	17.017
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	60	17.032
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	64	18.069
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	68	19.046
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	72	20.306
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	76	21.63
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	80	28.199
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	84	34.921
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	88	41.057
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	92	47.37
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	96	50.099
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	100	55.784
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	104	58.595
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	108	64.588
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	112	67.814
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	116	73.765
+pub_runs	bt2-tbbpin-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	120	76.35
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	1	21.319
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	4	22.648
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	8	23.356
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	12	23.938
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	16	24.019
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	20	24.056
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	24	24.419
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	28	24.59
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	32	24.447
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	36	25.035
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	40	25.249
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	44	25.093
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	48	25.855
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	52	26.24
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	56	26.708
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	60	27.214
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	64	28.825
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	68	30.326
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	72	32.122
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	76	33.738
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	80	35.511
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	84	38.316
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	88	41.627
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	92	49.459
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	96	56.417
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	100	62.88
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	104	71.177
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	108	79.075
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	112	85.788
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	116	92.848
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	120	100.033
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	1	13.898
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	4	14.47
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	8	14.846
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	12	15.317
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	16	15.654
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	20	15.846
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	24	16.066
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	28	16.271
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	32	16.541
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	36	15.918
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	40	17.098
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	44	17.373
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	48	17.603
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	52	17.966
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	56	16.654
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	60	18.727
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	64	19.754
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	68	20.729
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	72	20.059
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	76	22.715
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	80	23.782
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	84	25.331
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	88	33.141
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	92	46.904
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	96	48.258
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	100	52.728
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	104	58.191
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	108	64.807
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	112	69.813
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	116	71.066
+pub_runs	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	120	79.613
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	1	15.083
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	4	15.311
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	8	15.809
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	12	16.373
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	16	16.448
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	20	16.753
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	24	16.832
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	28	17.125
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	32	17.143
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	36	17.781
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	40	17.428
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	44	17.634
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	48	17.812
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	52	17.803
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	56	18.397
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	60	18.008
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	64	22.173
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	68	22.212
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	72	22.434
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	76	22.583
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	80	22.821
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	84	23.346
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	88	23.119
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	92	23.656
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	96	23.711
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	100	24.202
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	104	23.87
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	108	24.314
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	112	24.751
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	116	24.812
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	pe	120	25.362
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	1	10.354
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	4	9.923
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	8	10.4
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	12	10.68
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	16	11.162
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	20	11.002
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	24	11.521
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	28	11.364
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	32	11.52
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	36	11.826
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	40	11.743
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	44	11.869
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	48	12.292
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	52	12.203
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	56	12.36
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	60	13.756
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	64	14.99
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	68	15.504
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	72	15.495
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	76	15.119
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	80	15.983
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	84	15.689
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	88	15.709
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	92	16.278
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	96	16.392
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	100	16.349
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	104	16.768
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	108	16.897
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	112	17.25
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	116	17.019
+pub_runs	hisat-mp-id	hisat	MP tinythreads fast_mutex	Original parsing	sensitive	unp	120	17.305
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	1	12.04
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	4	14.745
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	8	15.46
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	12	17.013
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	16	19.905
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	20	25.354
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	24	30.409
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	28	35.055
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	32	40.533
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	36	45.604
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	40	50.96
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	44	57.273
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	48	65.452
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	52	69.678
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	56	74.881
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	60	81.159
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	64	87.014
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	68	93.404
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	72	100.098
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	76	106.673
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	80	114.181
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	84	119.484
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	88	126.592
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	92	131.557
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	96	137.591
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	100	144.749
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	104	151.297
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	108	159.34
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	112	163.093
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	116	172.342
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	120	176.955
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	1	9.584
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	4	10.147
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	8	11.174
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	12	13.302
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	16	16.824
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	20	20.373
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	24	23.95
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	28	28.144
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	32	31.955
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	36	36.049
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	40	40.924
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	44	44.322
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	48	49.196
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	52	53.526
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	56	58.308
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	60	63.908
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	64	68.887
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	68	75.779
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	72	78.925
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	76	83.042
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	80	86.97
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	84	93.521
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	88	96.97
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	92	104.419
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	96	108.036
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	100	111.512
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	104	118.765
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	108	125.219
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	112	129.896
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	116	133.275
+pub_runs	hisat-tbbpin-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	120	136.066
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	1	14.515
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	4	14.678
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	8	15.573
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	12	16.172
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	16	16.581
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	20	17.927
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	24	20.544
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	28	23.825
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	32	27.419
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	36	31.002
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	40	34.291
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	44	37.648
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	48	40.786
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	52	44.546
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	56	47.924
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	60	51.05
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	64	58.388
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	68	65.685
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	72	71.79
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	76	78.028
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	80	84.761
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	84	92.13
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	88	100.246
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	92	106.181
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	96	113.764
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	100	120.131
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	104	127.824
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	108	135.318
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	112	142.945
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	116	150.005
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	120	157.848
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	1	7.938
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	4	9.537
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	8	10.152
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	12	10.977
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	16	12.343
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	20	14.384
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	24	17.634
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	28	20.067
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	32	22.612
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	36	25.871
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	40	28.398
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	44	31.351
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	48	34.123
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	52	37.199
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	56	39.782
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	60	43.088
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	64	48.357
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	68	53.001
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	72	58.771
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	76	63.416
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	80	69.469
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	84	73.956
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	88	79.805
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	92	84.897
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	96	90.236
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	100	96.141
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	104	101.891
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	108	107.771
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	112	112.184
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	116	118.089
+pub_runs	hisat-tbbpin-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	120	125.183
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	1	15.015
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	4	14.669
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	8	15.088
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	12	15.679
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	16	16.234
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	20	17.49
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	24	21.307
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	28	28.858
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	32	33.976
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	36	45.594
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	40	51.173
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	44	59.61
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	48	69.889
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	52	82.419
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	56	93.484
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	60	103.804
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	64	116.938
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	68	129.438
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	72	138.467
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	76	151.441
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	80	162.286
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	84	177.011
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	88	189.131
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	92	202.717
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	96	213.487
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	100	235.043
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	104	243.72
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	108	256.035
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	112	268.515
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	116	283.174
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	120	304.18
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	1	9.632
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	4	9.811
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	8	10.209
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	12	10.79
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	16	11.989
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	20	16.435
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	24	23.717
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	28	30.999
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	32	39.383
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	36	49.752
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	40	60.027
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	44	71.202
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	48	82.495
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	52	95.859
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	56	108.415
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	60	125.692
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	64	135.455
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	68	146.412
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	72	158.917
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	76	167.958
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	80	181.642
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	84	190.386
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	88	195.134
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	92	207.21
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	96	218.531
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	100	229.96
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	104	252.525
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	108	276.854
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	112	287.53
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	116	285.639
+pub_runs	hisat-tbbpin-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	120	294.093
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	1	13.878
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	4	14.746
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	8	15.072
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	12	15.606
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	16	16.175
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	20	17.651
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	24	22.124
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	28	27.223
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	32	35.91
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	36	43.223
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	40	52.217
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	44	61.415
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	48	70.645
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	52	84.451
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	56	95.779
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	60	108.003
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	64	115.665
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	68	126.813
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	72	140.788
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	76	154.097
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	80	163.367
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	84	178.151
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	88	191.769
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	92	201.11
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	96	218.372
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	100	228.495
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	104	244.306
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	108	263.669
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	112	288.082
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	116	293.312
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	120	313.487
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	1	9.326
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	4	9.754
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	8	10.12
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	12	11.059
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	16	12.053
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	20	16.063
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	24	22.739
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	28	30.01
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	32	38.809
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	36	47.583
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	40	54.696
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	44	67.673
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	48	75.583
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	52	87.354
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	56	105.993
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	60	112.221
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	64	130.25
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	68	138.696
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	72	149.575
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	76	166.364
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	80	172.866
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	84	190.593
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	88	205.539
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	92	214.824
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	96	231.484
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	100	245.32
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	104	256.847
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	108	287.716
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	112	288.442
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	116	317.911
+pub_runs	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	120	322.292
