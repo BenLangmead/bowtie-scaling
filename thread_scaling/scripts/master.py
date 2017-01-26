@@ -680,7 +680,7 @@ def go(args):
                         stdout_ofn = os.path.join(odir, '%d%%s.txt' % (nthreads))
                         nthreads = 1
                     cmd.extend(['-p', str(nthreads)])
-                    if 'batch_parsing' in branch:
+                    if (branch == 'master' and tool == 'bowtie2') or ('batch_parsing' in branch and tool != 'bowtie2'):
                         cmd.extend(['--reads-per-batch', str(args.reads_per_batch)])
                     if tool == 'bowtie2' or tool == 'hisat':
                         nr_pe = nreads_pe if tool == 'bowtie2' else nreads_pe_hs
