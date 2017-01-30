@@ -39,19 +39,19 @@ for mydr in sys.argv[1:]:
         lock = 'tinythreads fast_mutex'
         if 'batch-tt' in run:
             lock = 'batch tinythreads fast_mutex'
-        elif 'tbbpin-q' in run and 'rawseqs' in run:
+        elif 'tbb-q' in run and 'rawseqs' in run:
             lock = 'TBB queuing_mutex noio reads'
-        #elif 'batch-tbbpin-q' in run:
+        #elif 'batch-tbb-q' in run:
         #    lock = 'batch TBB queuing_mutex'
-        elif 'tbbpin-spin' in run:
+        elif 'tbb-spin' in run:
             lock = 'TBB spin_mutex'
-        elif 'tbbpin-heavy' in run:
+        elif 'tbb-heavy' in run:
             lock = 'TBB mutex'
-        elif 'tbbpin-q' in run:
+        elif 'tbb-q' in run:
             lock = 'TBB queuing_mutex'
-        elif 'tbbpin-co-q' in run:
+        elif 'tbb-co-q' in run:
             lock = 'TBB/JHU CohortLock queue'
-        elif 'tbbpin-co-tktptl' in run:
+        elif 'tbb-co-tktptl' in run:
             lock = 'TBB/JHU CohortLock tktptl'
         elif 'no-io' in run or 'noio' in run:
             lock = 'None (stubbed I/O)'
