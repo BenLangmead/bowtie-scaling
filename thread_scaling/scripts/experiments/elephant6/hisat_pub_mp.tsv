@@ -1,0 +1,2 @@
+hisat-mp	hisat	master	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"
+hisat-batch-mp	hisat	batch_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"
