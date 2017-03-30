@@ -1,14 +1,12 @@
 #!/bin/bash
 
 module load git
-#module load intel-tbb-oss/intel64/43_20150424oss
-#export LD_LIBRARY_PATH=/home-1/cwilks3@jhu.edu/tbb4.1/tbb41_20130613oss/lib/intel64/gcc4.1
 export LD_LIBRARY_PATH=/home-1/cwilks3@jhu.edu/tbb2017_20161128oss.bin/lib/intel64/gcc4.1:$LD_LIBRARY_PATH
 export LIBRARY_PATH=/home-1/cwilks3@jhu.edu/tbb2017_20161128oss.bin/lib/intel64/gcc4.1:$LIBRARY_PATH
 export CPATH=/home-1/cwilks3@jhu.edu/tbb2017_20161128oss.bin/include:$CPATH
 export LIBS="-lpthread -ltbb -ltbbmalloc -ltbbmalloc_proxy"
 
-export INDEX_ROOT=/scratch/groups/blangme2/indexes
+export INDEX_ROOT=/storage/indexes
 
 export BT2_INDEX=$INDEX_ROOT
 export HISAT_INDEX=$INDEX_ROOT
@@ -23,8 +21,6 @@ export HISAT_READS_1=$ROOT2/SRR651662_1.fastq.shuffled2.fq
 export HISAT_READS_2=$ROOT2/SRR651662_2.fastq.shuffled2.fq
 
 CONFIG=hisat_pub.tsv
-#CONFIG=hisat_tt.tsv
-#CONFIG=hisat_tt.tsv
 CONFIG_MP=hisat_pub_mp.tsv
 
 #hisat mp batch-cleanparse
