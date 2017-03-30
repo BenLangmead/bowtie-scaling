@@ -740,6 +740,8 @@ def go(args):
                                 os.remove(sam_ofn)
                         else:
                             consolidate_mp_output(stdout_ofn)
+                    #put nthreads back to the total for the next run
+                    nthreads = nthreads_total
 
 
 if __name__ == '__main__':
