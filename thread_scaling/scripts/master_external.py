@@ -13,6 +13,8 @@ import re
 import multiprocessing
 import master
 
+READ_BASES=100
+
 #use methods from master.py to implement a "light" version 
 #that doesn't have tool specific code
 
@@ -33,16 +35,27 @@ def head(in_fn, num_seqs, process_cmd, out_fn):
     return out_fn 
 
 #assumes input reads file (either real or no-io derived) has already been shortened for tools like bowtie
-def prepare_reads(args, tmpdir, max_threads, tool, input_fn, cat_reads=False, generate_reads=True):
+def prepare_reads(args, tmpdir, max_threads, tool, input_fn, input_fn2, cat_reads=False):
     num_seqs = max_threads * args.reads_per_thread
     if args.multiprocess >= master.MP_SEPARATE:
         num_seqs = args.reads_per_thread
+    if input_fn2 is not None:
+        num_seqs /= 2
     (in_path, in_fn) = os.path.split(input_fn)
+    (in_path2, in_fn2) = (None, None)
+    if input_fn2 is not None:
+        (in_path2, in_fn2) = os.path.split(input_fn2)
     #out_fn = "%s.%s.%d" % (os.path.join(tmpdir, in_fn), tool, num_seqs)
-    out_fn = "%s.fq" % os.path.join(tmpdir, in_fn)
+    out_fn = "%s.%d.fq" % (os.path.join(tmpdir, in_fn), max_threads)
+    out_fn2 = None
+    if in_fn2 is not None:
+        out_fn2 = "%s.%d.fq" % (os.path.join(tmpdir, in_fn2), max_threads)
     if args.multiprocess >= master.MP_SEPARATE:
         out_fn = os.path.join(tmpdir, ("%s." % in_fn) + '%d.fq')
-    sys.stdout.write("Preparing reads: %s %s %d\n" % (input_fn, out_fn, num_seqs))
+        if in_fn2 is not None:
+            out_fn2 = os.path.join(tmpdir, ("%s." % in_fn2) + '%d.fq')
+    out_fn1 = out_fn
+    sys.stdout.write("Preparing reads: %s %s %s %s %d\n" % (input_fn, input_fn2, out_fn, out_fn2, num_seqs))
     #if doing a small set of input reads which needs to be copied to be amplified for the # of threads (e.e. no-io derived reads)
     if cat_reads:
         num_cats = num_seqs / master.DEFAULT_BASE_READS_COUNT
@@ -58,10 +71,14 @@ def prepare_reads(args, tmpdir, max_threads, tool, input_fn, cat_reads=False, ge
     else:
         if args.multiprocess >= master.MP_SEPARATE:
             master.split_read_set(input_fn, tmpdir, args.reads_per_thread, max_threads) 
+            if input_fn2 is not None:
+                master.split_read_set(input_fn2, tmpdir, args.reads_per_thread, max_threads) 
         else:
-            head(input_fn, num_seqs, '', out_fn)
+            head(input_fn, num_seqs, '', out_fn1)
+            if in_fn2 is not None:
+                head(input_fn2, num_seqs, '', out_fn2)
     #TODO implement MP version (split vs. copy depending on real vs. io)
-    return out_fn
+    return (out_fn1, out_fn2)
 
 #mapping exec name => (tool_name, input param, thread param, additional params, output param)
 tool_map = {'bwa':['bwa','','-t','','> /dev/null 2> %s'], 'classify':['kraken', '-f', '-t', '-M', '> /dev/null 2> %s'], 'jellyfish':['jellyfish', '', '-t', '-m 21 -s 100M -C --no-write --timing=/dev/stderr','> /dev/null 2> %s']}
@@ -107,22 +124,15 @@ def go(args):
         print('  Creating output directory "%s"' % odir, file=sys.stderr)
         master.mkdir_quiet(odir)
 
-    #TODO: implement read counting if not passed in
-    reads_count = args.reads_count
-    cat_reads = False
-    #if we get the exact # of reads as in the default no-io derived reads
-    #we'll concatenate, otherwise assume we have enough to get to # of reads
-    #for max thread count
-    if reads_count == master.DEFAULT_BASE_READS_COUNT:
-       cat_reads = True 
-
     #now loop over series generating reads for each thread point
     for i in series:
-        processed_fn = prepare_reads(args, tmpdir, i, tool, args.U, cat_reads=cat_reads, generate_reads=(not args.no_reads))
+        (processed_fn1,processed_fn2) = prepare_reads(args, tmpdir, i, tool, args.U, args.U2, cat_reads=False)
         cmd = [tool_cmd]
         cmd.append(threads_opt)
+        #undocumented argument to BWA to change how many reads it loads up in a single batch
         num_threads = i
-        input_fn = processed_fn
+        input_fn = processed_fn1
+        input_fn2 = processed_fn2
         output_path = os.path.join(odir, "%d.txt" % int(i))
         if args.multiprocess != master.MP_DISABLED:
             num_threads = 1
@@ -131,21 +141,35 @@ def go(args):
         cmd.append(additional_opts)
         cmd.append(input_opt)
         cmd.append(input_fn)
+        if input_fn2 is not None:
+            cmd.append(input_fn2)
         output_ = output % (output_path)
         cmd.append(output_)
+        if 'bwa' in tool_cmd:
+            #cmd = ["%s mem" % (tool_path),"-t %d" % i,"-K %d" % (i * args.reads_per_thread * READ_BASES),args.genome,input_fn,output_]
+            cmd = ["%s mem" % (tool_path),"-t %d" % i,args.genome,input_fn,output_]
+            if input_fn2 is not None:
+                cmd = ["%s mem" % (tool_path),"-t %d" % i,args.genome,input_fn,input_fn2,output_]
         cmd = ' '.join([str(x) for x in cmd])
         print(cmd)
         paired = False
         master.run_cmd(cmd, odir, num_threads, i, paired, args)
         if args.multiprocess >= master.MP_SEPARATE:
             (in_path, in_fn) = os.path.split(args.U)
+            if args.U2 is not None:
+                (in_path2, in_fn2) = os.path.split(args.U2)
+                input_fns2 = os.path.join(tmpdir, "%s*.fq" % in_fn2)
+                sys.stderr.write("deleting %s\n" % input_fns2)
+                os.system('rm %s' % input_fns2)
             input_fns = os.path.join(tmpdir, "%s*.fq" % in_fn)
             sys.stderr.write("deleting %s\n" % input_fns)
             os.system('rm %s' % input_fns)
         if args.multiprocess != master.MP_DISABLED:
             master.consolidate_mp_output(output_path)
         else:
-            os.remove(processed_fn)
+            os.remove(processed_fn1)
+            if processed_fn2 is not None:
+                os.remove(processed_fn2)
 
     if args.multiprocess != master.MP_DISABLED:
         unload_genome_index(args, tool, tool_path)
@@ -159,6 +183,8 @@ if __name__ == '__main__':
                                help="path to aligner + command to run (e.g. /path/to/bwa mem)")
     requiredNamed.add_argument('--U', metavar='path', type=str, required=False,
                         help='Path to file to use for unpaired reads; will concatenate multiple copies according to # threads.')
+    requiredNamed.add_argument('--U2', metavar='path', type=str, required=False,
+                        help='Path to 2nd mate file to use for paired reads; will concatenate multiple copies according to # threads.')
     requiredNamed.add_argument('--output-dir', metavar='path', type=str, required=True,
                         help='Directory to put thread timings in.')
     requiredNamed.add_argument('--reads-per-thread', metavar='int', type=int, required=True,
