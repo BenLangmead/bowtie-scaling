@@ -1,0 +1,4 @@
+hisat-batch1-mp	hisat	batch_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	--no-spliced-alignment --no-temp-splicesite --reads-per-batch 1
+hisat-batch32-mp	hisat	batch_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	--no-spliced-alignment --no-temp-splicesite --reads-per-batch 32
+hisat-mp	hisat	master	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	--no-spliced-alignment --no-temp-splicesite
+#hisat-cleanparse-mp	hisat	cleaner_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	--no-spliced-alignment --no-temp-splicesite
