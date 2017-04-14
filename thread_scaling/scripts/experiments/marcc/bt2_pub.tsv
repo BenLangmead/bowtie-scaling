@@ -6,5 +6,8 @@ bt2-cleanparse-tbb-spin	bowtie2	cleaner_parsing	WITH_THREAD_PROFILING=1 EXTRA_FL
 bt2-cleanparse-tbb-heavy	bowtie2	cleaner_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER -g" WITH_TBB=1 NO_SPINLOCK=1	-I 250 -X 800
 bt2-cleanparse-tbb-q	bowtie2	cleaner_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER -g" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800
 bt2-batch-tbb-q	bowtie2	master	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800
+bt2-batch-tbb-spin	bowtie2	master	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" NO_QUEUELOCK=1	-I 250 -X 800
+bt2-batch-tbb-heavy	bowtie2	master	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" NO_QUEUELOCK=1 NO_SPINLOCK=1	-I 250 -X 800
 bt2-tbb-spin	bowtie2	pre_batch_parsing_master	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER -g" WITH_TBB=1	-I 250 -X 800
 bt2-tbb-heavy	bowtie2	pre_batch_parsing_master	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER -g" WITH_TBB=1 NO_SPINLOCK=1	-I 250 -X 800
+bt2-batch-tbb-q-tbbd-out-p	bowtie2	batch_parsing_output	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800
