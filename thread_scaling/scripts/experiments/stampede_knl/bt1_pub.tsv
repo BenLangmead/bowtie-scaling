@@ -1,0 +1,19 @@
+bt-tt	bowtie	scaling-old-parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800
+bt-batch-cleanparse-tt	bowtie	batch_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800
+bt-tbbpin-q	bowtie	scaling-old-parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800
+bt-cleanparse-tt	bowtie	scaling	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800
+bt-cleanparse-tbbpin-spin	bowtie	scaling	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1	-I 250 -X 800
+bt-cleanparse-tbbpin-heavy	bowtie	scaling	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1	-I 250 -X 800
+bt-cleanparse-tbbpin-q	bowtie	scaling	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800
+bt-batch-cleanparse-tbbpin-q	bowtie	batch_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800
+bt-tbbpin-spin	bowtie	scaling-old-parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER -g" WITH_TBB=1	-I 250 -X 800
+bt-tbbpin-heavy	bowtie	scaling-old-parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER -g" WITH_TBB=1 NO_SPINLOCK=1	-I 250 -X 800
+bt-batch-cleanparse-tbbpin-heavy	bowtie	batch_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1	-I 250 -X 800
+bt-batch-cleanparse-tbbpin-spin	bowtie	batch_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1	-I 250 -X 800
+bt-batch1-cleanparse-tbbpin-q-out1-td	bowtie	batch_parsing_new	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 1
+bt-batch32-cleanparse-tbbpin-q-out32-td	bowtie	batch_parsing_new	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32
+bt-batch32-cleanparse-tbbpin-h-out32-td	bowtie	batch_parsing_new	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32
+bt-batch512-cleanparse-tbbpin-q-out512-td	bowtie	batch_parsing_new	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 512
+bt-obbatch32-cleanparse-tbbpin-q-output32-td-fixed	bowtie	fixed_record_batch_parsing_new	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32
+bt-obbatch32-cleanparse-tbbpin-h-output32-td-fixed	bowtie	fixed_record_batch_parsing_new	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1	-I 250 -X 800 --reads-per-batch 32
+bt-obbatch512-cleanparse-tbbpin-q-output512-td-fixed	bowtie	fixed_record_batch_parsing_new	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 512

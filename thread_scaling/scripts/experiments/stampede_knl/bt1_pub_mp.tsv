@@ -1,0 +1,3 @@
+bt-batch32-mp	bowtie	batch_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800 --reads-per-batch 32
+bt-batch1-mp	bowtie	batch_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800  --reads-per-batch 1
+bt-mp	bowtie	scaling-old-parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800

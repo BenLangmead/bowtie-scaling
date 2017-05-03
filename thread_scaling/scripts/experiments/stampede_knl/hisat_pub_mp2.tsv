@@ -1,2 +1,2 @@
 hisat-batch512-tbb-q-tbbd-out512-p-mp	hisat	batch_parsing_output	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	--no-spliced-alignment --no-temp-splicesite --reads-per-out-batch 512 --reads-per-batch 512
-hisat-batch32-tbb-qtbbd-out32-p-mp	hisat	batch_parsing_output	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	--no-spliced-alignment --no-temp-splicesite --reads-per-out-batch 32 --reads-per-batch 32
+hisat-batch32-tbb-q-tbbd-out32-p-mp	hisat	batch_parsing_output	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	--no-spliced-alignment --no-temp-splicesite --reads-per-out-batch 32 --reads-per-batch 32

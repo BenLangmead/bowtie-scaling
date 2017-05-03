@@ -1,0 +1,2 @@
+bt-batch32-cleanparse-tbbpin-q-out32-td-mp	bowtie	batch_parsing_new	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32
+bt-batch512-cleanparse-tbbpin-q-out512-td-mp	bowtie	batch_parsing_new	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 512
