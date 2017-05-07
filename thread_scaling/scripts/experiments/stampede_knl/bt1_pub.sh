@@ -42,3 +42,5 @@ python ./master.py --multiprocess 8000 --index $BT2_INDEX/hg19 --hisat-index $HI
 
 #UNP out MP
 python ./master.py --multiprocess 22000 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --U $BT2_READS --m1 $BT2_READS_1 --m2 $BT2_READS_2 --sensitivities s --sam-dev-null --tempdir /tmp --output-dir ${1} --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272 --config ${CONFIG_MP2} --multiply-reads 10 --reads-per-batch 32 --paired-mode 2 --no-no-io-reads --shorten-reads
+
+./run_mp_mt_bt1.sh > run_mp_mt_bt1.run 2>&1
