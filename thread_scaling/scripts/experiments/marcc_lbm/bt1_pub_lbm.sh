@@ -31,7 +31,7 @@ CONFIG=bt1_pub.tsv
 CONFIG_MP=bt1_pub_mp.tsv
 CONFIG_MP2=bt1_pub_mp2.tsv
 
-#./run_mp_mt_bt1.sh > run_mp_mt_bt1.run 2>&1
+./experiments/marcc_lbm/run_mp_mt_bt1.sh > run_mp_mt_bt1.run 2>&1
 
 python ./master.py --reads-per-thread 450000 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --U $BT2_READS --m1 $BT2_READS_1 --m2 $BT2_READS_2 --sensitivities s --sam-dev-null --tempdir $ROOT2 --output-dir ${1} --nthread-series 1,4,8,12,16,20,24,28,32,36,40,44,48,56,60,68,76,84,92,96,100,104,108 --config ${CONFIG} --multiply-reads 60 --reads-per-batch 32 --paired-mode 2 --no-no-io-reads --shorten-reads
 

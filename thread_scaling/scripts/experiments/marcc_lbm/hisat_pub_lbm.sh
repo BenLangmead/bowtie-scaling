@@ -24,7 +24,7 @@ CONFIG=hisat_pub.tsv
 CONFIG_MP=hisat_pub_mp.tsv
 CONFIG_MP2=hisat_pub_mp2.tsv
 
-#./run_mp_mt_hisat.sh > run_mp_mt_hisat.run 2>&1
+./experiments/marcc_lbm/run_mp_mt_hisat.sh > run_mp_mt_hisat.run 2>&1
 
 #hisat sp
 python ./master.py --reads-per-thread 330016 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --hisat-U $HISAT_READS --hisat-m1 $HISAT_READS_1 --hisat-m2 $HISAT_READS_2 --sensitivities s --sam-dev-null --tempdir $ROOT2 --output-dir ${1} --nthread-series 1,4,8,12,16,20,24,28,32,36,40,44,48,56,60,68,76,84,92,96,100,104,108 --config ${CONFIG} --multiply-reads 32 --reads-per-batch 32 --paired-mode 2 --no-no-io-reads --reads-count 125531901
