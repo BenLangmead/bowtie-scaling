@@ -33,8 +33,12 @@ for mydr in sys.argv[1:]:
     for (dr_, thr, secs) in sorted(dedup.values(), key=itemgetter(0,1,2)):
         exp, run, sens, pe = dr_.split('/')
         tool = 'hisat'
+        inbuff = ''
+        m1=re.compile(r'batch(\d+)-').search(run)
+        if m1 is not None:
+            inbuff = m1.group(1)
         outbuff = ''
-        m1=re.compile(r'output(\d+)-').search(run)
+        m1=re.compile(r'out(\d+)-').search(run)
         if m1 is not None:
             outbuff = m1.group(1)            
         #if '-tbb-' in run or ('batch' in run and 'cleanparse' not in run):
@@ -46,6 +50,8 @@ for mydr in sys.argv[1:]:
         lock = 'tinythreads fast_mutex'
         if 'batch-tt' in run:
             lock = 'batch tinythreads fast_mutex'
+        #elif 'tbb-q' in run and '-mp' in run:
+        #    lock = 'MP TBB queuing_mutex'
         elif 'tdelay' in run:
             lock = 'Delayed TBB Threads Queuelock'
         elif 'tndelay' in run:
@@ -56,7 +62,7 @@ for mydr in sys.argv[1:]:
         #    lock = 'batch TBB queuing_mutex'
         elif 'tbbpin-spin' in run or 'tbb-spin' in run:
             lock = 'TBB spin_mutex'
-        elif 'tbbpin-heavy' in run or 'tbb-heavy' in run:
+        elif 'tbbpin-heavy' in run or 'tbb-heavy' in run or 'tbb-h' in run:
             lock = 'TBB mutex'
         elif 'tbbpin-q' in run or 'tbb-q' in run:
             lock = 'TBB queuing_mutex'
@@ -66,23 +72,36 @@ for mydr in sys.argv[1:]:
             lock = 'TBB/JHU CohortLock tktptl'
         elif 'no-io' in run or 'noio' in run:
             lock = 'None (stubbed I/O)'
-        elif '-mp' in run:
-            lock = 'MP tinythreads fast_mutex'
+        #elif '-mp' in run:
+        #    lock = 'MP tinythreads fast_mutex'
+        if '-mp' in run:
+            lock = "%s MP" % (lock)
+        if '-mt' in run:
+            lock = "%s-MT" % (lock)
         version = 'Original parsing'
         #since batch_parsing is built on cleanparse
         if 'cleanparse' in run:
             version = 'Two-phase parsing'
         if 'batch' in run or 'delay' in run:
-            version = 'Batch parsing'
+            if len(inbuff) == 0:
+                inbuff = "32"
+            version = 'Batch parsing input=%s' % inbuff
         if '_bbp_' in run or 'obbatch' in run or '-bbatch' in run:
-            version = 'Fixed Batch parsing'
+            if len(inbuff) == 0:
+                inbuff = "32"
+            version = 'Fixed Batch parsing input=%s' % inbuff
         if 'output' in run or '-out' in run:
-            version = "%s New Output" % (version)
+            if len(outbuff) == 0:
+                outbuff = "32"
+            version = "%s & output=%s" % (version,outbuff)
         if 'mem' in run or '-p' in run:
             #version = "%s Large Pool" % (version)
             lock = "%s Large Pool" % (lock)
-        if len(outbuff) > 0:
-            lock = "%s OutBuff=%s" % (lock,outbuff) 
+        if '-s-' in run:
+            #version = "%s Large Pool" % (version)
+            lock = "%s Stack" % (lock)
+        #if len(outbuff) > 0:
+            #lock = "%s OutBuff=%s" % (lock,outbuff) 
         if 'norandom' in run:
             version = "%s, No randomization" % (version)
         print('\t'.join(map(str, [exp, run, tool, lock, version, sens, pe, thr, secs])))
