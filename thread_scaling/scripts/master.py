@@ -104,7 +104,7 @@ def tool_repo(tool, args):
 def make_tool_version(name, tool, preproc):
     """ Builds target in specified clone """
     exe = tool_exe(tool)
-    cmd = "make -C build/%s %s %s" % (name, preproc, exe)
+    cmd = "make -e -C build/%s %s %s" % (name, preproc, exe)
     print('  command: ' + cmd, file=sys.stderr)
     ret = os.system(cmd)
     if ret != 0:
@@ -680,8 +680,6 @@ def go(args):
                         stdout_ofn = os.path.join(odir, '%d%%s.txt' % (nthreads))
                         nthreads = 1
                     cmd.extend(['-p', str(nthreads)])
-                    if (branch == 'master' and tool == 'bowtie2') or ('batch_parsing' in branch and tool != 'bowtie2'):
-                        cmd.extend(['--reads-per-batch', str(args.reads_per_batch)])
                     if tool == 'bowtie2' or tool == 'hisat':
                         nr_pe = nreads_pe if tool == 'bowtie2' else nreads_pe_hs
                         nr_unp = nreads_unp if tool == 'bowtie2' else nreads_unp_hs
