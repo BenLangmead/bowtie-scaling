@@ -6,15 +6,14 @@ export LD_LIBRARY_PATH=/work/04620/cwilks/tbb_gcc5.4_lib:$LD_LIBRARY_PATH
 export CPATH=/work/04620/cwilks/tbb2017_20161128oss/include:$CPATH
 export LIBS='-lpthread -ltbb -ltbbmalloc -ltbbmalloc_proxy'
 
-#export INDEX_ROOT=/work/04620/cwilks/data
+export ROOT1=/work/04620/cwilks/data
+export ROOT2=/tmp
 export INDEX_ROOT=/dev/shm
-
 export BT2_INDEX=$INDEX_ROOT
 export HISAT_INDEX=$INDEX_ROOT
-
-export ROOT2=/tmp
-#rsync -av $INDEX_ROOT/ERR050082_1.fastq.shuffled2.fq.block $ROOT2/
-#rsync -av $INDEX_ROOT/ERR050082_2.fastq.shuffled2.fq.block $ROOT2/
+rsync -av ${ROOT1}/hg19* ${INDEX_ROOT}/
+rsync -av $INDEX_ROOT/ERR050082_1.fastq.shuffled2.fq.block $ROOT2/
+rsync -av $INDEX_ROOT/ERR050082_2.fastq.shuffled2.fq.block $ROOT2/
 
 export BT2_READS=$ROOT2/ERR050082_1.fastq.shuffled2.fq.block
 export BT2_READS_1=$ROOT2/ERR050082_1.fastq.shuffled2.fq.block
