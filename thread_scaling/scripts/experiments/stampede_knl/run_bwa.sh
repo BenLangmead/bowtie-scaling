@@ -1,14 +1,21 @@
 #!/bin/bash
 
-rsync -av ~/work/data/ERR050082_1.fastq.shuffled2.fq /tmp/
-rsync -av ~/work/data/ERR050082_2.fastq.shuffled2.fq /tmp/
+BWA_CMD=/home1/04620/cwilks/bwa
+OUTDIR="bwa0.7.15"
+
+export ROOT1=/work/04620/cwilks/data
+export ROOT2=/tmp
+rsync -av $ROOT1/ERR050082_1.fastq.shuffled2.fq.block $ROOT2/
+rsync -av $ROOT1/ERR050082_2.fastq.shuffled2.fq.block $ROOT2/
+export READS1=$ROOT2/ERR050082_1.fastq.shuffled2.fq.block
+export READS2=$ROOT2/ERR050082_1.fastq.shuffled2.fq.block
+
+export INDEX_ROOT=/dev/shm
+rsync -av $ROOT1/hg19.fa* $INDEX_ROOT/
+
 
 #single
-#python master_external.py --cmd '/home/langmead.jhu/bwa mem' --genome /onetb/index/hg19.fa --U /onetb/ERR050082_1.fastq.shuffled2.fq --nthread-series 1,5,9,13,17,101,105,109,113,117,120 --tempdir /local --output-dir ./${1}/bwa-id --reads-per-thread 12500
-#python master_external.py --cmd '/home/langmead.jhu/bwa mem' --genome /onetb/index/hg19.fa --U /onetb/ERR050082_1.fastq.shuffled2.fq --nthread-series 128,136,144,152,160,168,176,184,192,200,208,216,224,232,240,248  --tempdir /local --output-dir ./${1}/bwa-id --reads-per-thread 12500
-
-#unp
-python master_external.py --cmd '/home1/04620/cwilks/bwa mem' --genome /dev/shm/hg19.fa --U /tmp/ERR050082_1.fastq.shuffled2.fq.block --nthread-series 1,4,12,20,28,36,44,52,60,68,76,84,92,100,108,112,120,128,136,144,152,160,168,176,184,192,200,208  --tempdir /tmp --output-dir ./${1}/bwa-unp-id --reads-per-thread 12500
+python master_external.py --cmd "$BWA_CMD mem" --genome $INDEX_ROOT/hg19.fa --U $READS1 --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272  --tempdir /tmp --output-dir ./${1}/$OUTDIR/sensitive/unp --reads-per-thread 12500
 
 #paired
-python master_external.py --cmd '/home1/04620/cwilks/bwa mem' --genome /dev/shm/hg19.fa --U /tmp/ERR050082_1.fastq.shuffled2.fq.block --U2 /tmp/ERR050082_2.fastq.shuffled2.fq.block --nthread-series 1,4,12,20,28,36,44,52,60,68,76,84,92,100,108,112,120,128,136,144,152,160,168,176,184,192,200,208  --tempdir /tmp --output-dir ./${1}/bwa-pe-id --reads-per-thread 12500
+python master_external.py --cmd "$BWA_CMD mem" --genome $INDEX_ROOT/hg19.fa --U $READS1 --U2 $READS2 --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272  --tempdir /tmp --output-dir ./${1}/$OUTDIR/sensitive/pe --reads-per-thread 18000
