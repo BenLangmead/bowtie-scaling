@@ -6,16 +6,11 @@ library(dplyr)
 library(ggplot2)
 library(ggrepel)
 
-baseline <- read.delim("F:/bowtie-scaling/new_results/stampede_knl/pub_final.run.tsv.baseline")
-locks <- read.delim("F:/bowtie-scaling/new_results/stampede_knl/pub_final.run.tsv.locks")
-parsing <- read.delim("F:/bowtie-scaling/new_results/stampede_knl/pub_final.run.tsv.parsing")
-bwa <- read.delim("F:/bowtie-scaling/new_results/stampede_knl/pub_final.run.tsv.bwa")
-mem <- read.delim("F:/bowtie-scaling/new_results/stampede_knl/pub_final.run.tsv.mem")
-qparsing <- read.delim("F:/bowtie-scaling/new_results/stampede_knl/pub_final.run.tsv.qlock_parsing")
+baseline <- read.delim("F:/bowtie-scaling/new_results/stampede_knl/pub_final.run.tsv.baseline.tsv")
+parsing <- read.delim("F:/bowtie-scaling/new_results/stampede_knl/pub_final.run.tsv.parsing.tsv")
+final <- read.delim("F:/bowtie-scaling/new_results/stampede_knl/pub_final.run.tsv.final.tsv")
 
-multip(c('bowtie2','hisat','bowtie'),c('unp','pe'),c('locks','parsing','baseline','qlock_parsing','bwa','mem'))
-
-multip(c('bowtie2','hisat','bowtie'),c('unp','pe'),c('bwa'))
+multip(c('bowtie2','hisat','bowtie'),c('unp','pe'),c('baseline','parsing','final'))
 
 multip<-function(tools,pairs,vars)
 {
@@ -28,25 +23,16 @@ multip<-function(tools,pairs,vars)
       {
         if(variable1 == 'bwa' & tool1 != 'bowtie2')
           next
-        dsource = locks
+        dsource = baseline
         dsource_flag = 0
-        if(variable1 == 'bwa')
-          dsource = bwa
-        if(variable1 == 'mem')
-          dsource = mem
         if(variable1 == 'parsing')
         {
           dsource = parsing
           dsource_flag = 1
         }
-        if(variable1 == 'baseline')
+        if(variable1 == 'final')
         {
-          dsource = baseline
-        }
-        if(variable1 == 'qlock_parsing')
-        {
-          dsource = qparsing
-          dsource_flag = 1
+          dsource = final
         }
         mtmp <- dsource %>% filter(tool == tool1 & paired == paired1)
         mop_<-findop(dsource,tool1,paired1)
