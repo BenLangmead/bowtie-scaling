@@ -1,4 +1,5 @@
 #!/bin/bash
+#filter original complete set of thread-scaling results into 3 plots (each with the aligners): baseline, parsing, and final
 
 #baseline: TT, TBB locks, MP, MP+MT (TTthreads) (no batch variations)
 egrep -v -e '-batch.*-' $1 | egrep -v -e '-bbatch.*-' | egrep -v -e '-cleanparse-' | egrep -v -e 'bwa' > ${1}.baseline.tsv
@@ -16,16 +17,3 @@ egrep -e 'TBB queuing_mutex' $1 | egrep -e 'Batch parsing input=32 & output=32' 
 #includes MP+MT
 grep "MP" $1 | egrep -e 'Original parsing' >> ${1}.final.tsv
 egrep -e 'bwa' $1 >> ${1}.final.tsv
-
-#Bowtie2 vs. BWA
-#echo 'experiment	run	tool	lock	version	sensitivity	paired	threads	seconds' > ${1}.bwa
-#egrep -e 'bwa' $1 >> ${1}.bwa
-#egrep -e 'input=32 & output=32' $1 | egrep -e 'queuing' | egrep -e 'bowtie2' | egrep -v -e 'MP' >> ${1}.bwa
-
-#memory
-#echo 'experiment	run	tool	lock	version	sensitivity	paired	threads	seconds' > ${1}.mem
-#egrep -e '-batch-tbb-q-id	' $1 >> ${1}.mem
-#egrep -e 'TBB queuing_mutex' $1 | egrep -e 'Stack' | egrep -e 'Batch parsing input=32 & output=32' | egrep -v -e 'MP' | egrep -v -e 'Fixed' >> ${1}.mem
-
-
-#grep "MP" $1 | egrep -v -e 'Large Pool Stack' >> ${1}.qlock_parsing
