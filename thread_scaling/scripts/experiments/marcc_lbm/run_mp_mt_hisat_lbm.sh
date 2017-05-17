@@ -38,7 +38,7 @@ do
 
 	cat $D2/$F2 | perl -ne 'BEGIN{ open(OUT,">'${D}'/err.1.mt2"); $i=1; $c=0;} chomp; $s=$_; $c++; if($c=='${rpp2}'*4+1) { $i++; close(OUT); if($i>'${N}') {exit(0);} open(OUT,">'${D}'/err.$i.mt2"); $c=1;} print OUT "$s\n"; END { close(OUT);}'
 
-	perl -e '$N='${N}'; $rpt='${R}'; $T='${T}'; $tpp=$T/$N; $rpp=$rpt*$tpp; for $i (1..$N) {  $p=fork(); if($p==0) { $outf="hisat_mp_mt2_".$tpp."_".$rpp."_$i"; print "$tpp $rpp $i $T $N $rpt\n"; `'${TOOL}' -p $tpp -u $rpp --sensitive -S /dev/null -x /storage/indexes/hg19_hisat -1 '${D}'/err.$i.mt -2 '${D}'/err.$i.mt2 -t --no-spliced-alignment --no-temp-splicesite  --mm 2> '${OUTDIR}'/$outf.err | sort > '${OUTDIR}'/$outf`; exit(0); }} wait();'
+	perl -e '$N='${N}'; $rpt='${R}'; $T='${T}'; $tpp=$T/$N; $rpp=$rpt*$tpp/2; for $i (1..$N) {  $p=fork(); if($p==0) { $outf="hisat_mp_mt2_".$tpp."_".$rpp."_$i"; print "$tpp $rpp $i $T $N $rpt\n"; `'${TOOL}' -p $tpp -u $rpp --sensitive -S /dev/null -x /storage/indexes/hg19_hisat -1 '${D}'/err.$i.mt -2 '${D}'/err.$i.mt2 -t --no-spliced-alignment --no-temp-splicesite  --mm 2> '${OUTDIR}'/$outf.err | sort > '${OUTDIR}'/$outf`; exit(0); }} wait();'
 	
 	sleep 5
 done
