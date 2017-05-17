@@ -15,7 +15,7 @@ rsync -av $ROOT1/hg19.fa* $INDEX_ROOT/
 
 
 #single
-python master_external.py --cmd "$BWA_CMD mem" --genome $INDEX_ROOT/hg19.fa --U $READS1 --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272  --tempdir /tmp --output-dir ./${1}/$OUTDIR/sensitive/unp --reads-per-thread 12500
+python master_external.py --cmd "$BWA_CMD mem" --genome $INDEX_ROOT/hg19.fa --U $READS1 --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272  --tempdir $ROOT2 --output-dir ./${1}/$OUTDIR/sensitive/unp --reads-per-thread 12500
 
 #paired
-python master_external.py --cmd "$BWA_CMD mem" --genome $INDEX_ROOT/hg19.fa --U $READS1 --U2 $READS2 --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272  --tempdir /tmp --output-dir ./${1}/$OUTDIR/sensitive/pe --reads-per-thread 18000
+python master_external.py --cmd "$BWA_CMD mem" --genome $INDEX_ROOT/hg19.fa --U $READS1 --U2 $READS2 --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272  --tempdir $ROOT2 --output-dir ./${1}/$OUTDIR/sensitive/pe --reads-per-thread 18000
