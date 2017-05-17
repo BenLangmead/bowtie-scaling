@@ -1,0 +1,505 @@
+experiment	run	tool	lock	version	sensitivity	paired	threads	seconds
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	1	17.358
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	4	8.069
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	8	8.059
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	12	7.986
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	16	7.917
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	17	7.926
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	34	7.7
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	51	7.665
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	68	7.658
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	85	8.359
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	100	8.827
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	102	8.95
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	119	9.533
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	136	10.298
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	150	11.25
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	153	11.493
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	170	12.46
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	200	14.158
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	204	14.326
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	221	15.451
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	238	16.694
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	255	17.792
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	pe	272	19.556
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	1	3.342
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	2	3.42
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	4	3.425
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	8	3.43
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	12	3.436
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	16	3.498
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	17	3.428
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	34	3.584
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	51	3.677
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	68	3.964
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	85	4.955
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	100	6.183
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	102	6.335
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	119	7.641
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	136	8.957
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	150	10.473
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	153	10.785
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	170	12.676
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	200	16.056
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	204	16.525
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	221	18.508
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	238	20.689
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	255	22.579
+pub_final	bt-batch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Batch parsing input=32 & output=32	sensitive	unp	272	25.624
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	1	15.205
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	4	6.542
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	8	5.828
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	12	5.788
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	16	5.781
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	17	5.747
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	34	5.752
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	51	5.81
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	68	5.862
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	85	6.547
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	100	7.085
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	102	7.171
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	119	7.966
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	136	8.774
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	150	9.88
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	153	10.072
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	170	11.248
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	200	13.253
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	204	13.52
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	221	14.931
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	238	16.114
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	255	17.502
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	272	19.482
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	1	3.321
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	2	3.414
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	4	3.424
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	8	3.441
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	12	3.427
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	16	3.452
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	17	3.439
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	34	3.495
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	51	3.65
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	68	3.809
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	85	4.19
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	100	4.518
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	102	4.497
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	119	4.798
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	136	5.148
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	150	5.949
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	153	6.161
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	170	7.361
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	200	9.76
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	204	10.054
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	221	11.284
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	238	12.536
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	255	13.775
+pub_final	bt-bbatch32-tbb-q-tbbd-out32-s-id	bowtie	TBB queuing_mutex Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	272	16.229
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	1	30.386
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	4	30.998
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	8	31.423
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	12	31.053
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	16	31.593
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	17	31.685
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	34	33.066
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	51	33.626
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	68	33.835
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	85	38.158
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	100	40.374
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	102	41.015
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	119	42.85
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	136	44.996
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	150	48.256
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	153	49.04
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	170	53.117
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	200	59.849
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	204	60.759
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	221	63.645
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	238	67.584
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	255	71.258
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	272	77.673
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	1	19.638
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	4	19.768
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	8	19.733
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	12	20.124
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	16	19.734
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	17	20.011
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	34	20.325
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	51	20.829
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	68	21.688
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	85	24.018
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	100	26.011
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	102	26.348
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	119	28.015
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	136	29.944
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	150	32.011
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	153	32.561
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	170	35.396
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	200	40.321
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	204	40.938
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	221	43.109
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	238	45.254
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	255	47.274
+pub_final	bt2-batch32-tbb-q-tbbd-out32-p-s-id	bowtie2	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	272	50.426
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	1	3.234
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	4	3.333
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	8	3.322
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	12	3.321
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	16	3.352
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	17	3.352
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	34	3.564
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	51	4.663
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	68	6.232
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	85	8.486
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	100	10.488
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	102	10.992
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	119	13.225
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	136	15.346
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	150	18.858
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	153	19.667
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	170	24.007
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	200	31.926
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	204	32.936
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	221	36.98
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	238	40.986
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	255	44.983
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	pe	272	49.502
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	1	3.868
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	4	3.928
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	8	3.927
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	12	3.917
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	16	3.907
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	17	3.951
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	34	4.098
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	51	5.513
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	68	7.404
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	85	9.945
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	100	12.803
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	102	12.971
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	119	15.757
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	136	18.34
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	150	23.001
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	153	23.607
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	170	28.967
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	200	38.554
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	204	39.835
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	221	44.79
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	238	49.965
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	255	54.525
+pub_final	hisat-batch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Batch parsing input=32 & output=32	sensitive	unp	272	60.241
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	1	3.156
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	4	3.317
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	8	3.255
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	12	3.259
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	16	3.251
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	17	3.259
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	34	3.366
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	51	3.592
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	68	3.853
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	85	4.344
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	100	5.064
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	102	5.253
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	119	6.148
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	136	7.198
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	150	8.529
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	153	8.852
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	170	10.63
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	200	13.884
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	204	14.318
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	221	16.011
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	238	17.651
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	255	19.591
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	pe	272	22.258
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	1	3.793
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	4	3.864
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	8	3.846
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	12	3.831
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	16	3.842
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	17	3.823
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	34	3.882
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	51	4.171
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	68	4.397
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	85	5.043
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	100	6.116
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	102	6.295
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	119	7.485
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	136	8.614
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	150	10.275
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	153	10.606
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	170	12.953
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	200	16.91
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	204	17.449
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	221	19.655
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	238	22.032
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	255	23.699
+pub_final	hisat-bbatch32-tbb-q-tbbd-out32-p-s-id	hisat	TBB queuing_mutex Large Pool Stack	Fixed Batch parsing input=32 & output=32	sensitive	unp	272	27.137
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	1	4.83
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	4	4.913
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	8	4.903
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	12	5.061
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	16	5.059
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	17	5.105
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	34	5.095
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	51	5.435
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	68	6.387
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	85	7.181
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	100	7.842
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	102	7.777
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	119	9.673
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	136	10.604
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	150	11.777
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	153	11.624
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	170	12.915
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	200	14.755
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	204	14.819
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	221	16.883
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	238	18.048
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	255	20.1
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	272	19.606
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	1	4.75
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	4	4.917
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	8	5.07
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	12	5.043
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	16	5.111
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	17	5.102
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	34	5.18
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	51	5.242
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	68	5.433
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	85	6.792
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	100	7.0
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	102	7.09
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	119	8.034
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	136	7.046
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	150	8.355
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	153	8.713
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	170	8.439
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	200	9.306
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	204	9.732
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	221	10.066
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	238	10.544
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	255	10.545
+pub_final	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	272	11.041
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	17	4.995
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	34	4.836
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	51	4.619
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	68	4.759
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	85	5.261
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	102	5.896
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	119	6.023
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	136	6.45
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	153	7.369
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	170	7.478
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	187	7.85
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	204	8.151
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	221	8.759
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	238	9.107
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	255	9.54
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	272	9.861
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	17	5.234
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	34	4.88
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	51	4.57
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	68	4.714
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	85	5.355
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	102	5.571
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	119	5.945
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	136	6.077
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	153	6.704
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	170	7.332
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	187	7.951
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	204	8.609
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	221	9.796
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	238	10.657
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	255	11.931
+pub_final	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	272	13.052
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	1	31.786
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	4	33.02
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	8	34.531
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	12	34.669
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	16	35.022
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	17	35.203
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	34	35.391
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	51	39.917
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	68	39.812
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	85	44.55
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	100	45.903
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	102	47.551
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	119	49.123
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	136	50.451
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	150	58.648
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	153	57.835
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	170	61.402
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	200	65.596
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	204	66.204
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	221	71.596
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	238	73.848
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	255	76.93
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	272	80.363
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	1	21.718
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	4	21.982
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	8	21.801
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	12	23.534
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	16	22.77
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	17	22.861
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	34	24.837
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	51	26.138
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	68	25.543
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	85	32.939
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	100	33.207
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	102	31.553
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	119	35.254
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	136	33.618
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	150	39.274
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	153	39.901
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	170	41.958
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	200	45.329
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	204	46.153
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	221	49.994
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	238	51.405
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	255	52.998
+pub_final	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	272	54.902
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	17	35.066
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	34	34.958
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	51	36.11
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	68	36.731
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	85	41.48
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	102	44.372
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	119	46.565
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	136	47.81
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	153	52.313
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	170	56.423
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	187	60.128
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	204	62.915
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	221	66.63
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	238	70.384
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	255	74.062
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	272	77.903
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	17	23.096
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	34	23.015
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	51	22.282
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	68	23.328
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	85	26.438
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	102	29.249
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	119	30.567
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	136	32.652
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	153	35.446
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	170	37.751
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	187	40.589
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	204	42.757
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	221	45.318
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	238	47.39
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	255	49.747
+pub_final	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	272	51.718
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	1	4.293
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	4	4.451
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	8	4.415
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	12	4.447
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	16	4.434
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	17	4.447
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	34	4.68
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	51	4.695
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	68	4.98
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	85	5.971
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	100	6.008
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	102	6.535
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	119	7.089
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	136	7.247
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	150	7.978
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	153	7.924
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	170	8.221
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	200	8.934
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	204	8.842
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	221	9.919
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	238	10.177
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	255	10.395
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	272	10.569
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	1	5.207
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	4	5.235
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	8	5.38
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	12	5.227
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	16	5.26
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	17	5.258
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	34	5.427
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	51	5.365
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	68	6.053
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	85	7.131
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	100	7.396
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	102	7.444
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	119	7.33
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	136	8.634
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	150	9.481
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	153	9.533
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	170	9.573
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	200	10.002
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	204	10.338
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	221	11.285
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	238	11.522
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	255	12.274
+pub_final	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	272	12.121
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	17	4.568
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	34	4.614
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	51	4.468
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	68	4.499
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	85	5.227
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	102	5.454
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	119	5.879
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	136	6.257
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	153	7.229
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	170	7.942
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	187	8.972
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	204	10.133
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	221	11.656
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	238	13.068
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	255	14.518
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	272	16.22
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	17	5.369
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	34	5.119
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	51	5.341
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	68	5.099
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	85	6.056
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	102	6.387
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	119	6.549
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	136	6.873
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	153	7.487
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	170	8.141
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	187	8.891
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	204	9.645
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	221	10.849
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	238	12.208
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	255	13.536
+pub_final	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	272	14.915
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	1	19.783
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	4	20.987
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	8	21.207
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	12	21.865
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	16	21.838
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	17	21.836
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	34	23.705
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	51	24.520
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	68	28.724
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	85	29.069
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	100	31.488
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	102	32.202
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	119	34.822
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	136	37.157
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	150	40.838
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	153	41.534
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	170	44.915
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	200	51.834
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	unp	204	53.030
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	1	31.418
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	4	34.428
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	8	34.821
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	12	34.789
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	16	35.595
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	17	35.599
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	34	36.827
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	51	39.469
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	68	40.943
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	85	46.611
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	100	51.287
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	102	52.023
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	119	56.826
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	136	61.195
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	150	66.211
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	153	67.328
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	170	73.335
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	200	85.146
+pub_final	bwa0.7.15	bowtie2	BWA Pthread Lock	Original Parsing	sensitive	pe	204	86.645
