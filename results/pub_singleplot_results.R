@@ -1,18 +1,11 @@
-root<-'F:/bowtie-scaling'
-#source<-'langmead-bigmem/'
-source<-'stampede_knl_new/'
-detach("package:plyr",unload=TRUE)
 library(dplyr)
 library(ggplot2)
 library(ggrepel)
 
-baseline <- read.delim("F:/bowtie-scaling/new_results/stampede_knl/pub_final.run.tsv.baseline.tsv")
-parsing <- read.delim("F:/bowtie-scaling/new_results/stampede_knl/pub_final.run.tsv.parsing.tsv")
-final <- read.delim("F:/bowtie-scaling/new_results/stampede_knl/pub_final.run.tsv.final.tsv")
+width1=13
+height1=13
 
-multip(c('bowtie2','hisat','bowtie'),c('unp','pe'),c('baseline','parsing','final'))
-
-multip<-function(tools,pairs,vars)
+multip<-function(tools,pairs,vars,source_)
 {
 
   for(tool1 in tools)
@@ -36,7 +29,7 @@ multip<-function(tools,pairs,vars)
         }
         mtmp <- dsource %>% filter(tool == tool1 & paired == paired1)
         mop_<-findop(dsource,tool1,paired1)
-        pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=TRUE)
+        pdf(paste(source_,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=TRUE)
         plotme(mtmp,mop_,dsource_flag)
         dev.off()
       }
@@ -83,123 +76,12 @@ findop<-function(m,tool_,paired_)
   return (m3a)
 }
 
-width1=13
-height1=13
-
-
-
-
-
-
-
-#Bowtie2 unp lock
-tool1='bowtie2'
-paired1='unp'
-variable1='locks'
-mtmp <- locks %>% filter(tool == tool1 & paired == paired1)
-mop_<-findop(locks,tool1,paired1)
-pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=FALSE)
-plotme(mtmp,mop_,0)
-dev.off()
-
-#Bowtie2 pe lock
-paired1='pe'
-mtmp <- locks %>% filter(tool == tool1 & paired == paired1)
-mop_<-findop(locks,tool1,paired1)
-pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=FALSE)
-plotme(mtmp,mop_,0)
-dev.off()
-
-
-#Bowtie2 unp parsing
-variable1='parsing'
-paired1='unp'
-mtmp <- parsing %>% filter(tool == tool1 & paired == paired1)
-mop_<-findop(parsing,tool1,paired1)
-pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=FALSE)
-plotme(mtmp,mop_,1)
-dev.off()
-
-#Bowtie2 pe parsing
-paired1='pe'
-mtmp <- parsing %>% filter(tool == tool1 & paired == paired1)
-mop_<-findop(parsing,tool1,paired1)
-pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=FALSE)
-plotme(mtmp,mop_,1)
-dev.off()
-
-
-
-#Hisat unp lock
-tool1='hisat'
-paired1='unp'
-variable1='locks'
-mtmp <- locks %>% filter(tool == tool1 & paired == paired1)
-mop_<-findop(locks,tool1,paired1)
-pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=FALSE)
-plotme(mtmp,mop_,0)
-dev.off()
-
-#Hisat pe lock
-paired1='pe'
-mtmp <- locks %>% filter(tool == tool1 & paired == paired1)
-mop_<-findop(locks,tool1,paired1)
-pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=FALSE)
-plotme(mtmp,mop_,0)
-dev.off()
-
-
-#Hisat unp parsing
-variable1='parsing'
-paired1='unp'
-mtmp <- parsing %>% filter(tool == tool1 & paired == paired1)
-mop_<-findop(parsing,tool1,paired1)
-pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=FALSE)
-plotme(mtmp,mop_,1)
-dev.off()
-
-#Hisat pe parsing
-paired1='pe'
-mtmp <- parsing %>% filter(tool == tool1 & paired == paired1)
-mop_<-findop(parsing,tool1,paired1)
-pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=FALSE)
-plotme(mtmp,mop_,1)
-dev.off()
-
-
-
-#Bowtie1 unp lock
-tool1='bowtie'
-paired1='unp'
-variable1='locks'
-mtmp <- locks %>% filter(tool == tool1 & paired == paired1)
-mop_<-findop(locks,tool1,paired1)
-pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=FALSE)
-plotme(mtmp,mop_,0)
-dev.off()
-
-#Bowtie1 pe lock
-paired1='pe'
-mtmp <- locks %>% filter(tool == tool1 & paired == paired1)
-mop_<-findop(locks,tool1,paired1)
-pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=FALSE)
-plotme(mtmp,mop_,0)
-dev.off()
-
-
-#Bowtie1 unp parsing
-variable1='parsing'
-paired1='unp'
-mtmp <- parsing %>% filter(tool == tool1 & paired == paired1)
-mop_<-findop(parsing,tool1,paired1)
-pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=FALSE)
-plotme(mtmp,mop_,1)
-dev.off()
-
-#Bowtie1 pe parsing
-paired1='pe'
-mtmp <- parsing %>% filter(tool == tool1 & paired == paired1)
-mop_<-findop(parsing,tool1,paired1)
-pdf(paste(root,"/results/",source,tool1,"_",paired1,"_",variable1,".pdf",sep=""), width=width1, height=height1, paper='a4r', onefile=FALSE)
-plotme(mtmp,mop_,1)
-dev.off()
+#RUN
+#assumes we're in the results subdir
+for(source_ in c("stampede_knl/","marcc_langmead_bigmem/"))
+{
+	baseline <- read.delim(paste(source_,"pub_final.run.tsv.baseline.tsv",sep=""))
+	parsing <- read.delim(paste(source_,"pub_final.run.tsv.parsing.tsv",sep=""))
+	final <- read.delim(paste(source_,"pub_final.run.tsv.final.tsv",sep=""))
+	multip(c('bowtie2','hisat','bowtie'),c('unp','pe'),c('baseline','parsing','final'),source_)
+}
