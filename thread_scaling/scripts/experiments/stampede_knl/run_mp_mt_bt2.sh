@@ -9,11 +9,12 @@
 N=17
 D2="/home1/04620/cwilks/work/data/"
 D="/tmp"
-F="ERR050082_1.fastq.shuffled2.fq.block"
+F="ERR050082_1.fastq.shuffled2_extended.fq.block"
 F2="ERR050082_2.fastq.shuffled2.fq.block"
 #TOOL="build/bt2-batch32-tbb-q-tbbd-out32-p/bowtie2-align-s"
 TOOL="build/bt2-tt/bowtie2-align-s"
 OUTDIR='bt2_mp_mt_tt'
+OUTDIR=$1
 
 #for T in 4 12 20 28 36 44 52 60 68 76 84 92 100 108 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272
 for T in 17 34 51 68 85 102 119 136 153 170 187 204 221 238 255 272
