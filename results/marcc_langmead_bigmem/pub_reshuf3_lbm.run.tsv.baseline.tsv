@@ -1,0 +1,781 @@
+experiment	run	tool	lock	version	sensitivity	paired	threads	seconds
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	1	26.536
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	4	30.428
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	8	31.892
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	12	34.264
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	16	34.938
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	20	36.166
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	24	39.743
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	28	38.447
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	32	38.899
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	36	39.049
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	40	39.431
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	44	39.595
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	48	39.802
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	56	40.414
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	60	45.76
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	68	49.527
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	76	50.845
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	84	52.386
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	92	53.544
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	96	54.292
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	100	54.392
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	104	55.098
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	pe	108	55.67
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	1	23.757
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	4	31.087
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	8	32.141
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	12	33.383
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	16	34.708
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	20	35.323
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	24	36.003
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	28	36.694
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	32	37.521
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	36	37.473
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	40	37.796
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	44	38.234
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	48	38.253
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	56	38.594
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	60	41.787
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	68	45.37
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	76	46.236
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	84	47.621
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	92	48.155
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	96	48.222
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	100	48.352
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	104	49.303
+pub_reshuf3_lbm	bt-mp-id	bowtie	tinythreads fast_mutex MP	Original parsing	sensitive	unp	108	49.673
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	1	23.769
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	4	30.075
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	8	30.873
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	12	32.897
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	16	34.057
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	20	35.343
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	24	36.524
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	28	37.305
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	32	37.888
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	36	38.725
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	40	40.303
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	44	41.905
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	48	45.171
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	56	65.278
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	60	87.807
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	68	149.199
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	76	172.228
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	84	188.411
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	92	205.773
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	96	214.97
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	100	225.312
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	104	236.109
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	pe	108	247.296
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	1	25.811
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	4	28.752
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	8	30.533
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	12	33.877
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	16	37.926
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	20	44.043
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	24	52.127
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	28	63.263
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	32	253.636
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	36	284.815
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	40	303.724
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	44	308.665
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	48	323.249
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	56	381.175
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	60	403.878
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	68	437.855
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	76	478.519
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	84	495.999
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	92	544.929
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	96	571.476
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	100	618.848
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	104	644.947
+pub_reshuf3_lbm	bt-tbb-heavy-id	bowtie	TBB mutex	Original parsing	sensitive	unp	108	673.419
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	1	24.192
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	4	30.145
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	8	30.481
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	12	31.653
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	16	32.522
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	20	33.145
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	24	33.926
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	28	34.864
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	32	35.233
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	36	35.695
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	40	35.379
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	44	36.307
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	48	36.167
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	56	38.526
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	60	39.973
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	68	46.899
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	76	56.959
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	84	66.464
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	92	78.77
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	96	88.459
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	100	91.478
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	104	97.121
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	pe	108	190.805
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	1	20.49
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	4	28.231
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	8	29.123
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	12	30.589
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	16	31.676
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	20	33.972
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	24	37.858
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	28	44.505
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	32	50.173
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	36	56.398
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	40	62.175
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	44	68.766
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	48	75.11
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	56	92.189
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	60	103.002
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	68	126.94
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	76	155.776
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	84	182.12
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	92	215.198
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	96	229.387
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	100	245.095
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	104	254.893
+pub_reshuf3_lbm	bt-tbb-q-id	bowtie	TBB queuing_mutex	Original parsing	sensitive	unp	108	341.044
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	1	23.717
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	4	29.493
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	8	30.009
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	12	31.183
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	16	31.955
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	20	32.999
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	24	33.725
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	28	34.505
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	32	34.943
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	36	35.158
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	40	35.682
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	44	37.483
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	48	39.876
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	56	66.063
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	60	75.929
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	68	97.384
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	76	120.658
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	84	137.785
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	92	165.519
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	96	170.452
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	100	180.98
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	104	194.755
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	pe	108	198.687
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	1	20.452
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	4	28.265
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	8	29.03
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	12	30.652
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	16	32.591
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	20	37.684
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	24	100.034
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	28	151.001
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	32	185.269
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	36	243.229
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	40	304.766
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	44	352.811
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	48	418.546
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	56	578.609
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	60	644.983
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	68	710.983
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	76	836.958
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	84	912.441
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	92	974.321
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	96	1095.225
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	100	1098.535
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	104	1119.732
+pub_reshuf3_lbm	bt-tbb-spin-id	bowtie	TBB spin_mutex	Original parsing	sensitive	unp	108	1186.91
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	1	32.436
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	4	29.889
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	8	30.309
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	12	31.604
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	16	32.006
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	20	33.094
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	24	33.845
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	28	34.641
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	32	35.094
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	36	35.272
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	40	35.873
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	44	36.627
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	48	39.322
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	56	66.181
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	60	77.667
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	68	98.046
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	76	123.85
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	84	139.181
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	92	159.121
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	96	165.214
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	100	185.895
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	104	163.329
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	pe	108	163.224
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	1	31.08
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	4	28.263
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	8	29.086
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	12	30.363
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	16	32.246
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	20	40.487
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	24	105.396
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	28	156.223
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	32	182.665
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	36	227.31
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	40	275.428
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	44	328.002
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	48	393.875
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	56	573.255
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	60	627.357
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	68	683.591
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	76	750.328
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	84	909.504
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	92	986.502
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	96	1037.199
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	100	1065.291
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	104	1071.528
+pub_reshuf3_lbm	bt-tt-id	bowtie	tinythreads fast_mutex	Original parsing	sensitive	unp	108	1166.932
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	4	36.202
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	8	36.464
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	16	36.435
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	20	37.902
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	28	38.733
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	36	38.144
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	44	38.317
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	56	39.015
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	68	44.011
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	76	46.115
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	84	47.825
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	92	50.131
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	100	51.858
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	104	53.256
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	108	59.957
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	4	32.059
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	8	33.579
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	16	35.808
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	20	36.243
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	28	36.354
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	36	36.441
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	44	36.578
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	56	37.59
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	68	42.336
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	76	46.05
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	84	51.656
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	92	60.466
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	100	75.986
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	104	82.922
+pub_reshuf3_lbm	bt-tt-mp-mt	bowtie	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	108	92.464
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	1	40.952
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	4	45.981
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	8	45.483
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	12	51.463
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	16	52.197
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	20	54.593
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	24	54.102
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	28	56.461
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	32	57.036
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	36	57.944
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	40	57.872
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	44	58.563
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	48	59.069
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	56	68.875
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	60	72.428
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	68	76.796
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	76	81.178
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	84	85.428
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	92	89.135
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	96	91.049
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	100	92.587
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	104	95.056
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	pe	108	100.707
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	1	30.555
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	4	33.299
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	8	34.814
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	12	37.889
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	16	39.09
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	20	39.34
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	24	40.153
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	28	41.119
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	32	41.474
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	36	41.685
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	40	43.921
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	44	42.147
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	48	42.22
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	56	50.562
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	60	48.431
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	68	53.41
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	76	56.108
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	84	58.159
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	92	59.578
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	96	60.544
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	100	61.17
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	104	62.016
+pub_reshuf3_lbm	bt2-mp-id	bowtie2	tinythreads fast_mutex MP	Original parsing	sensitive	unp	108	62.478
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	1	37.697
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	4	42.757
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	8	43.351
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	12	46.07
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	16	47.827
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	20	49.61
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	24	51.481
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	28	53.359
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	32	53.897
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	36	54.73
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	40	55.561
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	44	57.15
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	48	58.689
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	56	65.101
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	60	71.386
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	68	96.043
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	76	116.966
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	84	130.618
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	92	142.73
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	96	148.935
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	100	157.09
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	104	164.686
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	pe	108	175.003
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	1	27.461
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	4	31.689
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	8	31.895
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	12	33.693
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	16	34.785
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	20	36.065
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	24	37.347
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	28	38.443
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	32	38.605
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	36	38.802
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	40	39.121
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	44	39.326
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	48	40.096
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	56	42.129
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	60	43.946
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	68	49.868
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	76	58.081
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	84	69.565
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	92	81.565
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	96	85.721
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	100	89.097
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	104	92.258
+pub_reshuf3_lbm	bt2-tbb-heavy-id	bowtie2	TBB mutex	Original parsing	sensitive	unp	108	95.485
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	1	37.729
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	4	42.392
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	8	42.882
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	12	45.518
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	16	46.911
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	20	48.457
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	24	50.144
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	28	51.919
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	32	52.444
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	36	52.721
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	40	53.088
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	44	53.871
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	48	54.635
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	56	57.415
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	60	59.174
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	68	65.281
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	76	71.511
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	84	77.492
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	92	82.978
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	96	86.068
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	100	90.172
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	104	96.014
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	pe	108	194.367
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	1	27.522
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	4	31.259
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	8	31.84
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	12	33.38
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	16	34.431
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	20	35.592
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	24	36.842
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	28	37.989
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	32	38.25
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	36	38.315
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	40	38.481
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	44	38.72
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	48	38.86
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	56	39.831
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	60	41.263
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	68	44.85
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	76	48.207
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	84	51.296
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	92	54.478
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	96	55.723
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	100	57.043
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	104	58.561
+pub_reshuf3_lbm	bt2-tbb-q-id	bowtie2	TBB queuing_mutex	Original parsing	sensitive	unp	108	156.363
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	1	42.214
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	4	41.534
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	8	42.446
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	12	44.401
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	16	46.302
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	20	47.606
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	24	48.99
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	28	50.966
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	32	51.418
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	36	51.878
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	40	52.758
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	44	53.697
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	48	54.294
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	56	57.183
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	60	61.268
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	68	67.687
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	76	79.21
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	84	100.028
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	92	136.905
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	96	150.541
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	100	168.147
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	104	175.8
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	pe	108	193.25
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	1	31.031
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	4	30.597
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	8	30.89
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	12	32.741
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	16	33.84
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	20	35.228
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	24	36.512
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	28	37.318
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	32	37.51
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	36	37.489
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	40	37.814
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	44	38.023
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	48	38.391
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	56	40.293
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	60	41.069
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	68	44.942
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	76	49.199
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	84	60.505
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	92	91.935
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	96	110.646
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	100	115.425
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	104	121.594
+pub_reshuf3_lbm	bt2-tbb-spin-id	bowtie2	TBB spin_mutex	Original parsing	sensitive	unp	108	136.485
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	1	43.535
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	4	42.457
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	8	42.951
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	12	45.483
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	16	47.132
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	20	48.804
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	24	50.589
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	28	52.378
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	32	52.947
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	36	53.476
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	40	54.37
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	44	55.288
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	48	56.12
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	56	58.423
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	60	62.05
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	68	69.329
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	76	79.436
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	84	98.202
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	92	140.479
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	96	153.712
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	100	175.32
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	104	192.704
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	pe	108	213.12
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	1	32.192
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	4	31.253
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	8	31.639
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	12	33.742
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	16	35.008
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	20	36.262
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	24	37.711
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	28	38.923
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	32	39.459
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	36	39.509
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	40	40.175
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	44	40.536
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	48	40.953
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	56	42.068
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	60	44.27
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	68	48.456
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	76	52.715
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	84	58.771
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	92	91.181
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	96	107.903
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	100	120.155
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	104	141.658
+pub_reshuf3_lbm	bt2-tt-id	bowtie2	tinythreads fast_mutex	Original parsing	sensitive	unp	108	133.125
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	4	53.017
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	8	50.247
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	16	53.457
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	20	54.641
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	28	57.36
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	36	58.054
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	44	59.821
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	56	64.266
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	68	72.992
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	76	79.456
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	84	85.21
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	92	90.226
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	100	97.076
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	104	100.487
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	108	104.302
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	4	39.18
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	8	38.588
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	16	39.474
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	20	40.977
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	28	41.752
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	36	42.174
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	44	42.567
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	56	44.158
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	68	49.177
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	76	52.833
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	84	55.882
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	92	58.43
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	100	61.055
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	104	62.469
+pub_reshuf3_lbm	bt2-tt-mp-mt	bowtie2	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	108	64.222
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	1	18.701
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	4	19.993
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	8	21.254
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	12	22.254
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	16	23.109
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	20	24.166
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	24	25.772
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	28	26.22
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	32	25.552
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	36	25.983
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	40	24.784
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	44	24.853
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	48	25.082
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	56	28.693
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	60	28.647
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	68	30.222
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	76	30.781
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	84	31.481
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	92	32.067
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	96	32.489
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	100	32.758
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	104	32.911
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	pe	108	32.722
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	1	19.36
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	4	20.435
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	8	21.566
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	12	21.96
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	16	23.611
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	20	24.925
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	24	25.796
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	28	25.453
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	32	24.988
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	36	25.264
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	40	25.225
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	44	25.428
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	48	25.699
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	56	25.886
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	60	29.508
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	68	30.726
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	76	31.475
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	84	32.013
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	92	32.541
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	96	32.822
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	100	33.321
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	104	33.527
+pub_reshuf3_lbm	hisat-mp-id	hisat	tinythreads fast_mutex MP	Original parsing	sensitive	unp	108	33.144
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	1	13.51
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	4	19.88
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	8	23.625
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	12	32.332
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	16	44.134
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	20	122.498
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	24	149.226
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	28	177.046
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	32	200.127
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	36	222.509
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	40	242.684
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	44	261.761
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	48	283.837
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	56	326.727
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	60	346.867
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	68	391.822
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	76	441.399
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	84	487.834
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	92	561.584
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	96	589.538
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	100	617.718
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	104	645.42
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	pe	108	671.899
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	1	13.628
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	4	19.701
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	8	21.856
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	12	26.347
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	16	36.322
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	20	49.296
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	24	126.631
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	28	158.471
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	32	182.703
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	36	205.105
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	40	225.369
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	44	242.567
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	48	243.138
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	56	292.875
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	60	314.812
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	68	351.037
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	76	388.632
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	84	425.461
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	92	463.806
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	96	484.571
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	100	504.668
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	104	529.653
+pub_reshuf3_lbm	hisat-tbb-heavy-id	hisat	TBB mutex	Original parsing	sensitive	unp	108	557.575
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	1	13.532
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	4	18.913
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	8	19.767
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	12	22.32
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	16	26.622
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	20	33.804
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	24	41.174
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	28	49.365
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	32	56.357
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	36	63.35
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	40	70.827
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	44	77.665
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	48	85.279
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	56	103.937
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	60	116.725
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	68	145.809
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	76	177.119
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	84	208.053
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	92	239.928
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	96	256.078
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	100	273.449
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	104	287.591
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	pe	108	302.853
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	1	13.608
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	4	18.874
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	8	20.139
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	12	21.314
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	16	24.445
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	20	28.991
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	24	35.549
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	28	42.264
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	32	48.101
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	36	54.022
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	40	60.285
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	44	66.143
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	48	72.11
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	56	87.608
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	60	95.526
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	68	121.178
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	76	144.258
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	84	168.541
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	92	192.711
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	96	205.173
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	100	217.859
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	104	231.695
+pub_reshuf3_lbm	hisat-tbb-q-id	hisat	TBB queuing_mutex	Original parsing	sensitive	unp	108	240.796
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	1	13.549
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	4	18.765
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	8	20.098
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	12	22.26
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	16	28.208
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	20	38.917
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	24	54.18
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	28	66.316
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	32	78.964
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	36	92.701
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	40	106.962
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	44	119.013
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	48	140.976
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	56	171.338
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	60	185.782
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	68	223.047
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	76	265.063
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	84	301.625
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	92	345.393
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	96	361.54
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	100	380.403
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	104	387.465
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	pe	108	428.507
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	1	13.658
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	4	19.033
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	8	19.906
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	12	21.521
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	16	25.017
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	20	34.192
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	24	52.387
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	28	69.455
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	32	90.957
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	36	106.133
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	40	128.216
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	44	148.251
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	48	175.83
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	56	233.871
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	60	256.131
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	68	291.7
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	76	342.766
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	84	394.972
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	92	441.613
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	96	464.703
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	100	475.734
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	104	518.248
+pub_reshuf3_lbm	hisat-tbb-spin-id	hisat	TBB spin_mutex	Original parsing	sensitive	unp	108	556.798
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	1	19.481
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	4	18.705
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	8	19.796
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	12	22.345
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	16	27.871
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	20	40.199
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	24	53.044
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	28	65.586
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	32	81.257
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	36	93.592
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	40	107.532
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	44	122.607
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	48	136.507
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	56	176.068
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	60	191.055
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	68	234.716
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	76	277.918
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	84	319.316
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	92	372.914
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	96	402.73
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	100	432.967
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	104	455.597
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	pe	108	475.992
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	1	19.592
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	4	18.871
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	8	19.845
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	12	21.288
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	16	25.3
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	20	35.874
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	24	53.101
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	28	73.432
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	32	95.662
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	36	117.722
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	40	133.627
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	44	155.783
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	48	181.631
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	56	241.769
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	60	262.996
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	68	302.356
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	76	345.999
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	84	402.674
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	92	435.088
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	96	475.12
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	100	486.906
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	104	546.039
+pub_reshuf3_lbm	hisat-tt-id	hisat	tinythreads fast_mutex	Original parsing	sensitive	unp	108	564.16
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	4	22.975
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	8	22.341
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	16	24.386
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	20	24.599
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	28	24.995
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	36	25.104
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	44	26.045
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	56	28.802
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	68	38.349
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	76	47.739
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	84	57.265
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	92	69.715
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	100	79.404
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	104	86.364
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	pe	108	91.602
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	4	23.883
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	8	23.368
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	16	24.856
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	20	24.997
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	28	25.222
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	36	25.181
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	44	26.015
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	56	27.619
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	68	33.265
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	76	39.309
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	84	46.893
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	92	56.788
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	100	67.777
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	104	71.633
+pub_reshuf3_lbm	hisat-tt-mp-mt	hisat	tinythreads fast_mutex MP-MT	Original parsing	sensitive	unp	108	80.094
