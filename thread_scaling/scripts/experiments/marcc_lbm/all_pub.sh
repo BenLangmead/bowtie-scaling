@@ -60,6 +60,9 @@ do
 	if [ "$tool" == "hisat" ]; then
 		export CMD="--hisat-U $READS_1 --hisat-m1 $READS_1 --hisat-m2 $READS_2"
 	fi
+	if [ "$tool" == "bt1" ]; then
+		export CMD="--U $READS_1 --m1 $READS_1 --m2 $READS_2 --shorten-reads"
+	fi
 
 	for paired_mode in 2 3
 	do

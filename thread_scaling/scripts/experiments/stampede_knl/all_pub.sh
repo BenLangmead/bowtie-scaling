@@ -36,13 +36,20 @@ for tool in hisat bt1 bt2
 do
 	CONFIG=${tool}_pub.tsv
 	CONFIG_MP=${tool}_pub_mp.tsv
+	
+	if [ ! -d "${1}/run_mp_mt_${tool}" ]; then
+		mkdir -p ${1}/run_mp_mt_${tool}
+	fi
 
 	#run MP+MT single and paired
-	./run_mp_mt_${tool}.sh > run_mp_mt_${tool}.run 2>&1
+	./experiments/stampede_knl/run_mp_mt_${tool}.sh ${1}/run_mp_mt_${tool} > run_mp_mt_${tool}.run 2>&1
+	#format and move results
+	cd ${1}/run_mp_mt_${tool} && ls | perl -ne 'BEGIN { $D="../'${tool}'-tt-mp-mt";  $D=~s/bt1-/bt-/; $num_procs=17; `mkdir -p $D/sensitive/unp`; `mkdir -p $D/sensitive/pe`; }  chomp; $f=$_; next if($f=~/err/); ($a,$j1,$j2,$j3,$t,$s,$p)=split(/_/,$f); $t2=$t*$num_procs; $type="unp"; $type="pe" if($j3=~/2/); `cat $f >> $D/sensitive/$type/$t2.txt`;'
+	cd ../../
 
 	#run BWA single and paired
 	if [ "$tool" == "bt2" ]; then
-		./run_bwa.sh ${1} > bwa_run.run 2>&1 &
+		./experiments/stampede_knl/run_bwa.sh ${1} > bwa_run.run 2>&1 &
 	fi
 
 	#defaults are BT2
@@ -51,6 +58,9 @@ do
 	export CMD="--U $READS_1 --m1 $READS_1 --m2 $READS_2"
 	if [ "$tool" == "hisat" ]; then
 		export CMD="--hisat-U $READS_1 --hisat-m1 $READS_1 --hisat-m2 $READS_2"
+	fi
+	if [ "$tool" == "bt1" ]; then
+		export CMD="--U $READS_1 --m1 $READS_1 --m2 $READS_2 --shorten-reads"
 	fi
 
 	for paired_mode in 2 3
