@@ -45,8 +45,8 @@ do
 	#run MP+MT single and paired
 	./experiments/marcc_lbm/run_mp_mt_${tool}.sh ${1}/run_mp_mt_${tool} > run_mp_mt_${tool}.run 2>&1
 	#format and move results
-	cd ${1}/run_mp_mt_${tool} && ls | perl -ne 'BEGIN { $D="../'${tool}'-tt-mp-mt";  $D=~s/bt1-/bt-/; $num_procs=17; `mkdir -p $D/sensitive/unp`; `mkdir -p $D/sensitive/pe`; }  chomp; $f=$_; next if($f=~/err/); ($a,$j1,$j2,$j3,$t,$s,$p)=split(/_/,$f); $t2=$t*$num_procs; $type="unp"; $type="pe" if($j3=~/2/); `cat $f >> $D/sensitive/$type/$t2.txt`;'
-	cd ..
+	cd ${1}/run_mp_mt_${tool} && ls | perl -ne 'BEGIN { $D="../'${tool}'-tt-mp-mt";  $D=~s/bt1-/bt-/; $num_procs=4; `mkdir -p $D/sensitive/unp`; `mkdir -p $D/sensitive/pe`; }  chomp; $f=$_; next if($f=~/err/); ($a,$j1,$j2,$j3,$t,$s,$p)=split(/_/,$f); $t2=$t*$num_procs; $type="unp"; $type="pe" if($j3=~/2/); `cat $f >> $D/sensitive/$type/$t2.txt`;'
+	cd ../../
 
 	#run BWA single and paired
 	if [ "$tool" == "bt2" ]; then
