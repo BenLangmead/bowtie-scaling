@@ -22,7 +22,7 @@ if [ ! -d "build/bwa-0.7.15" ]; then
 fi
 
 #unp
-python master_external.py --cmd './bwa mem' --genome $BT2_INDEX/hg19.fa --U $BT2_READS_1 --nthread-series $THREAD_SERIES  --tempdir $ROOT2 --output-dir ./${1}/$OUTDIR/sensitive/unp --reads-per-thread 85000
+python master_external.py --cmd './bwa mem' --genome $INDEX_ROOT/hg19.fa --U $BT2_READS_1 --nthread-series $THREAD_SERIES  --tempdir $ROOT2 --output-dir ./${1}/$OUTDIR/sensitive/unp --reads-per-thread 85000
 
 #paired
-python master_external.py --cmd './bwa mem' --genome $BT2_INDEX/hg19.fa --U $BT2_READS_1 --U2 $BT2_READS_2 --nthread-series $THREAD_SERIES  --tempdir $ROOT2 --output-dir ./${1}/$OUTDIR/sensitive/pe --reads-per-thread 120000
+python master_external.py --cmd './bwa mem' --genome $INDEX_ROOT/hg19.fa --U $BT2_READS_1 --U2 $BT2_READS_2 --nthread-series $THREAD_SERIES  --tempdir $ROOT2 --output-dir ./${1}/$OUTDIR/sensitive/pe --reads-per-thread 120000
