@@ -17,7 +17,8 @@ F="ERR050082_1.fastq.shuffled2.fq.block"
 F2="ERR050082_2.fastq.shuffled2.fq.block"
 #TOOL="build/bt2-batch32-tbb-q-tbbd-out32-p/bowtie2-align-s"
 TOOL="build/bt2-tt/bowtie2-align-s"
-OUTDIR='bt2_mp_mt_tt'
+#OUTDIR='bt2_mp_mt_tt'
+OUTDIR=$1
 
 for T in 4 8 16 20 28 36 44 56 68 76 84 92 100 104 108
 do

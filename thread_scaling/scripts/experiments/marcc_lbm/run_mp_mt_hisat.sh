@@ -16,7 +16,8 @@ F="ERR050082_1.fastq.shuffled2.fq.block"
 F2="ERR050082_2.fastq.shuffled2.fq.block"
 #TOOL="build/hisat-batch32-tbb-q-tbbd-out32-p-s/hisat-align-s"
 TOOL="build/hisat-tt/hisat-align-s"
-OUTDIR='hisat_mp_mt_tt'
+#OUTDIR='hisat_mp_mt_tt'
+OUTDIR=$1
 
 for T in 4 8 16 20 28 36 44 56 68 76 84 92 100 104 108
 do
