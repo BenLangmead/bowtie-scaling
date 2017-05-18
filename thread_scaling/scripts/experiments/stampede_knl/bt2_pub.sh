@@ -27,7 +27,7 @@ CONFIG_MP2=bt2_pub_mp2.tsv
 ./run_mp_mt_bt2.sh > run_bt2_mp_mt 2>&1
 
 #run BWA single and paired
-./run_bwa.sh ${1} > bwa_run.run 2>&1 &
+./run_bwa.sh ${1} > bwa_run.run 2>&1
 
 #single
 python ./master.py --reads-per-thread 12500 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --U $BT2_READS --m1 $BT2_READS_1 --m2 $BT2_READS_2 --sensitivities s --sam-dev-null --tempdir $ROOT2 --output-dir ${1} --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272 --config ${CONFIG} --multiply-reads 8 --reads-per-batch 32 --paired-mode 2 --no-no-io-reads
