@@ -7,7 +7,8 @@ export ROOT1=/home-1/cwilks3@jhu.edu/scratch
 export ROOT2=/local
 export INDEX_ROOT=/storage/indexes
 
-export THREAD_SERIES = "1,4,8,12,16,20,24,28,32,36,40,44,48,56,60,68,76,84,92,96,100,104,108"
+#export THREAD_SERIES="1,4,8,12,16,20,24,28,32,36,40,44,48,56,60,68,76,84,92,96,100,104,108"
+export THREAD_SERIES="1,4"
 
 #READS PER THREAD settsings for each tool
 export bt2_RPT_UNP=85000
@@ -38,16 +39,16 @@ do
 	CONFIG_MP=${tool}_pub_mp.tsv
 
 	#run MP+MT single and paired
-	./run_mp_mt_${tool}.sh > run_mp_mt_${tool}.run 2>&1
+	#./experiments/marcc_lbm/run_mp_mt_${tool}.sh > run_mp_mt_${tool}.run 2>&1
 
 	#run BWA single and paired
-	if [ "$tool" == "bt2" ]; then
-		./run_bwa.sh ${1} > bwa_run.run 2>&1 &
-	fi
+	#if [ "$tool" == "bt2" ]; then
+		#./experiments/marcc_lbm/run_bwa.sh ${1} > bwa_run.run 2>&1 &
+	#fi
 
 	#defaults are BT2
-	export RPT_UNP=${tool}_RPT_UNP
-	export RPT_PE=${tool}_RPT_PE
+	eval RPT_UNP='$'${tool}_RPT_UNP
+	eval RPT_PE='$'${tool}_RPT_PE
 	export CMD="--U $READS_1 --m1 $READS_1 --m2 $READS_2"
 	if [ "$tool" == "hisat" ]; then
 		export CMD="--hisat-U $READS_1 --hisat-m1 $READS_1 --hisat-m2 $READS_2"
