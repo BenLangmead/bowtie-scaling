@@ -1,5 +1,7 @@
 #!/bin/bash
 
+THREAD_SERIES="1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272"
+
 module load git
 export LIBRARY_PATH=/work/04620/cwilks/tbb_gcc5.4_lib:$LIBRARY_PATH
 export LD_LIBRARY_PATH=/work/04620/cwilks/tbb_gcc5.4_lib:$LD_LIBRARY_PATH
@@ -27,24 +29,24 @@ export BT2_READS=$ROOT2/ERR050082_1.fastq.shuffled2_extended.fq.block
 export BT2_READS_1=$ROOT2/ERR050082_1.fastq.shuffled2_extended.fq.block
 export BT2_READS_2=$ROOT2/ERR050082_2.fastq.shuffled2.fq.block
 
-CONFIG=bt1_pub.tsv
-CONFIG_MP=bt1_pub_mp.tsv
-CONFIG_MP2=bt1_pub_mp2.tsv
+CONFIG=./experiments/bt1_pub.tsv
+CONFIG_MP=./experiments/bt1_pub_mp.tsv
+
+if [ ! -d "${1}/mp_mt_bt2" ]; then
+	mkdir -p ${1}/mp_mt_bt1
+fi
 
 #run MP+MT single and paired
-./run_mp_mt_bt1.sh > run_mp_mt_bt1.run 2>&1
+./experiments/stampede_knl/run_mp_mt_bt1.sh ${1}/mp_mt_bt1 > run_mp_mt_bt1.run 2>&1
 
 #single
-python ./master.py --reads-per-thread 22000 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --U $BT2_READS --m1 $BT2_READS_1 --m2 $BT2_READS_2 --sensitivities s --sam-dev-null --tempdir /tmp --output-dir ${1} --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272 --config ${CONFIG} --multiply-reads 10 --reads-per-batch 32 --paired-mode 2 --no-no-io-reads --shorten-reads
+python ./master.py --reads-per-thread 22000 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --U $BT2_READS --m1 $BT2_READS_1 --m2 $BT2_READS_2 --sensitivities s --sam-dev-null --tempdir $ROOT2 --output-dir ${1} --nthread-series $THREAD_SERIES --config ${CONFIG} --multiply-reads 10 --reads-per-batch 32 --paired-mode 2 --no-no-io-reads --shorten-reads
 
-python ./master.py --multiprocess 22000 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --U $BT2_READS --m1 $BT2_READS_1 --m2 $BT2_READS_2 --sensitivities s --sam-dev-null --tempdir /tmp --output-dir ${1} --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272 --config ${CONFIG_MP} --multiply-reads 10 --reads-per-batch 32 --paired-mode 2 --no-no-io-reads --shorten-reads
+#single MP
+python ./master.py --multiprocess 22000 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --U $BT2_READS --m1 $BT2_READS_1 --m2 $BT2_READS_2 --sensitivities s --sam-dev-null --tempdir $ROOT2 --output-dir ${1} --nthread-series $THREAD_SERIES --config ${CONFIG_MP} --multiply-reads 10 --reads-per-batch 32 --paired-mode 2 --no-no-io-reads --shorten-reads
 
 #paired
-python ./master.py --reads-per-thread 8000 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --U $BT2_READS --m1 $BT2_READS_1 --m2 $BT2_READS_2 --sensitivities s --sam-dev-null --tempdir /tmp --output-dir ${1} --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272 --config ${CONFIG} --multiply-reads 1 --reads-per-batch 32 --paired-mode 3 --no-no-io-reads --shorten-reads
+python ./master.py --reads-per-thread 8000 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --U $BT2_READS --m1 $BT2_READS_1 --m2 $BT2_READS_2 --sensitivities s --sam-dev-null --tempdir $ROOT2 --output-dir ${1} --nthread-series $THREAD_SERIES --config ${CONFIG} --multiply-reads 1 --reads-per-batch 32 --paired-mode 3 --no-no-io-reads --shorten-reads
 
-python ./master.py --multiprocess 8000 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --U $BT2_READS --m1 $BT2_READS_1 --m2 $BT2_READS_2 --sensitivities s --sam-dev-null --tempdir /tmp --output-dir ${1} --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272 --config ${CONFIG_MP} --multiply-reads 1 --reads-per-batch 32 --paired-mode 3 --no-no-io-reads --shorten-reads
-
-
-#UNP out MP
-python ./master.py --multiprocess 22000 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --U $BT2_READS --m1 $BT2_READS_1 --m2 $BT2_READS_2 --sensitivities s --sam-dev-null --tempdir /tmp --output-dir ${1} --nthread-series 1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272 --config ${CONFIG_MP2} --multiply-reads 10 --reads-per-batch 32 --paired-mode 2 --no-no-io-reads --shorten-reads
-
+#paired MP
+python ./master.py --multiprocess 8000 --index $BT2_INDEX/hg19 --hisat-index $HISAT_INDEX/hg19_hisat --U $BT2_READS --m1 $BT2_READS_1 --m2 $BT2_READS_2 --sensitivities s --sam-dev-null --tempdir $ROOT2 --output-dir ${1} --nthread-series $THREAD_SERIES --config ${CONFIG_MP} --multiply-reads 1 --reads-per-batch 32 --paired-mode 3 --no-no-io-reads --shorten-reads
