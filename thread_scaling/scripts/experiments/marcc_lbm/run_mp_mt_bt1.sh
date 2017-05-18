@@ -15,7 +15,7 @@ F2="ERR050082_2.fastq.shuffled2.fq.block"
 TOOL="build/bt-tt/bowtie-align-s"
 OUTDIR='bt1_mp_mt_tt'
 
-for T in 4,8,16,20,28,36,44,56,68,76,84,92,100,104,108
+for T in 4 8 16 20 28 36 44 56 68 76 84 92 100 104 108
 #for T in 4,20
 do
 	R=450000
