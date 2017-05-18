@@ -39,12 +39,12 @@ do
 	CONFIG_MP=${tool}_pub_mp.tsv
 
 	#run MP+MT single and paired
-	#./experiments/marcc_lbm/run_mp_mt_${tool}.sh > run_mp_mt_${tool}.run 2>&1
+	./experiments/marcc_lbm/run_mp_mt_${tool}.sh > run_mp_mt_${tool}.run 2>&1
 
 	#run BWA single and paired
-	#if [ "$tool" == "bt2" ]; then
-		#./experiments/marcc_lbm/run_bwa.sh ${1} > bwa_run.run 2>&1 &
-	#fi
+	if [ "$tool" == "bt2" ]; then
+		./experiments/marcc_lbm/run_bwa.sh ${1} > bwa_run.run 2>&1 &
+	fi
 
 	#defaults are BT2
 	eval RPT_UNP='$'${tool}_RPT_UNP
