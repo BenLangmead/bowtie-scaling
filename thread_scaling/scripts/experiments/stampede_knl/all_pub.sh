@@ -7,7 +7,7 @@ export ROOT1=/work/04620/cwilks/data
 export ROOT2=/tmp
 export INDEX_ROOT=/dev/shm
 
-export THREAD_SERIES = "1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272"
+export THREAD_SERIES="1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272"
 
 #READS PER THREAD settsings for each tool
 export bt2_RPT_UNP=12500
@@ -46,8 +46,8 @@ do
 	fi
 
 	#defaults are BT2
-	export RPT_UNP=${tool}_RPT_UNP
-	export RPT_PE=${tool}_RPT_PE
+	eval RPT_UNP='$'${tool}_RPT_UNP
+	eval RPT_PE='$'${tool}_RPT_PE
 	export CMD="--U $READS_1 --m1 $READS_1 --m2 $READS_2"
 	if [ "$tool" == "hisat" ]; then
 		export CMD="--hisat-U $READS_1 --hisat-m1 $READS_1 --hisat-m2 $READS_2"
