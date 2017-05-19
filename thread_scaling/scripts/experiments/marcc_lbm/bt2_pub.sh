@@ -6,7 +6,7 @@ module load git
 export LD_LIBRARY_PATH=/home-1/cwilks3@jhu.edu/tbb2017_20161128oss.bin/lib/intel64/gcc4.1:$LD_LIBRARY_PATH
 export LIBRARY_PATH=/home-1/cwilks3@jhu.edu/tbb2017_20161128oss.bin/lib/intel64/gcc4.1:$LIBRARY_PATH
 export CPATH=/home-1/cwilks3@jhu.edu/tbb2017_20161128oss.bin/include:$CPATH
-export LIBS="-lpthread -ltbb -ltbbmalloc -ltbbmalloc_proxy"
+export LIBS="-lz -lpthread -ltbb -ltbbmalloc -ltbbmalloc_proxy"
 
 export INDEX_ROOT=/storage/indexes
 
@@ -25,7 +25,7 @@ export BT2_READS_2=$ROOT2/ERR050082_2.fastq.shuffled2.fq.block
 CONFIG=./experiments/bt2_pub.tsv
 CONFIG_MP=./experiments/bt2_pub_mp.tsv
 
-./experiments/marcc_lbm/run_bwa ${1} > rbwa 2>&1 
+./experiments/marcc_lbm/run_bwa.sh ${1} > rbwa 2>&1 
 
 if [ ! -d "${1}/mp_mt_bt2" ]; then
 	mkdir -p ${1}/mp_mt_bt2
