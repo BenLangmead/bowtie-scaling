@@ -18,8 +18,8 @@ if [ ! -d "build/bwa-0.7.15" ]; then
 	tar -xvf bwa-0.7.15.tar
 	mv bwa-0.7.15 build/
 	make -C build/bwa-0.7.15
-	ln -s build/bwa-0.7.15/bwa ./bwa
 fi
+ln -fs build/bwa-0.7.15/bwa ./bwa
 
 #unp
 python master_external.py --cmd './bwa mem' --genome $INDEX_ROOT/hg19.fa --U $BT2_READS_1 --nthread-series $THREAD_SERIES  --tempdir $ROOT2 --output-dir ./${1}/$OUTDIR/sensitive/unp --reads-per-thread 85000
