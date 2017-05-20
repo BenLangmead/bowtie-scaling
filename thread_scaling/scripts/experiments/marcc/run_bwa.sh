@@ -1,13 +1,11 @@
 #!/bin/bash
 
-THREAD_SERIES="1,4,8,12,16,20,24,28,32,36,40,44,48,56,60,68,76,84,92,96,100,104,108"
+THREAD_SERIES="1,4,8,12,16,20,24,28,32,36,40,44,48"
 
 OUTDIR="bwa0.7.15"
-#export INDEX_ROOT=/storage/indexes
 export INDEX_ROOT=/scratch/groups/blangme2/indexes
 export ROOT1=/home-1/cwilks3@jhu.edu/scratch
-#export ROOT2=/local
-export ROOT2=$ROOT1
+export ROOT2=/tmp
 rsync -av $ROOT1/ERR050082_1.fastq.shuffled2_extended.fq.block $ROOT2/
 rsync -av $ROOT1/ERR050082_2.fastq.shuffled2.fq.block $ROOT2/
 

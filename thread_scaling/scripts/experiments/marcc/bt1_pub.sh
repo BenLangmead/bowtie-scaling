@@ -17,7 +17,6 @@ export HISAT_INDEX=$INDEX_ROOT
 export ROOT1=/home-1/cwilks3@jhu.edu/scratch
 export ROOT2=/tmp
 rsync -av $ROOT1/ERR050082_1.fastq.shuffled2_extended.fq  $ROOT2/
-rsync -av $ROOT1/ERR050082_1.fastq.shuffled2.fq  $ROOT2/
 rsync -av $ROOT1/ERR050082_2.fastq.shuffled2.fq  $ROOT2/
 
 
