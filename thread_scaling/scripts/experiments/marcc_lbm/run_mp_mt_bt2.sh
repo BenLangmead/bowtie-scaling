@@ -2,7 +2,7 @@
 export LD_LIBRARY_PATH=/home-1/cwilks3@jhu.edu/tbb2017_20161128oss.bin/lib/intel64/gcc4.1:$LD_LIBRARY_PATH
 export LIBRARY_PATH=/home-1/cwilks3@jhu.edu/tbb2017_20161128oss.bin/lib/intel64/gcc4.1:$LIBRARY_PATH
 export CPATH=/home-1/cwilks3@jhu.edu/tbb2017_20161128oss.bin/include:$CPATH
-export LIBS="-lpthread -ltbb -ltbbmalloc -ltbbmalloc_proxy"
+export LIBS="-lz -lpthread -ltbb -ltbbmalloc -ltbbmalloc_proxy"
 
 #$1: path to local FS
 #$2: filename of original input file
@@ -23,6 +23,7 @@ OUTDIR=$1
 
 #for T in 4 8 16 20 28 36 44 56 68 76 84 92 100 104 108
 for N in 1 2 3 4 5 6
+#for N in 1 2
 do
 	R=85000
 	tpp=$T
