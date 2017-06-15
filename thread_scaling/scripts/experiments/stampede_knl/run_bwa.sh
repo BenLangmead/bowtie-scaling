@@ -2,7 +2,7 @@
 
 THREAD_SERIES="1,4,8,12,16,17,34,51,68,85,100,102,119,136,150,153,170,200,204,221,238,255,272"
 
-BWA_CMD=/home1/04620/cwilks/bwa
+BWA_CMD="./bwa"
 OUTDIR="bwa0.7.15"
 export INDEX_ROOT=/dev/shm
 export ROOT1=/work/04620/cwilks/data
