@@ -1,1 +1,0 @@
-/usr/bin/time -f %U,%S,%E ./bowtie2 -x ../data/genomes/hg19 -U ../data/reads/ERR000589.fastq -p 1 >/dev/null
