@@ -9,8 +9,16 @@ library(ggplot2)
 ```
 
 ```{r}
+# Elephant6
 m <- read.table('showcase2016/results_showcase_2016.tsv', header=T, sep='\t')
 head(m)
+```
+
+```{r}
+# MARCC
+m_marcc <- read.table('marcc/bowtie-48.tsv', header=T, sep='\t')
+m_marcc <- rbind(m_marcc, read.table('marcc/hisat-48.tsv', header=T, sep='\t'))
+head(m_marcc)
 ```
 
 ## Bowtie 
@@ -35,7 +43,7 @@ bt-tbbpin-co-tktptl	            bowtie	scaling-old-parsing	WITH_THREAD_PROFILING
 
 ### Bowtie unpaired
 
-A challenge here is that original tinythreads is so bad, everyone else gets crowded with the scale_y_continuous below.  I'll plot
+Elephant 6, showcase:
 
 ```{r}
 mtmp <- m %>% filter(tool == 'bowtie' & paired == 'unp')
@@ -43,6 +51,16 @@ ggplot(mtmp, aes(x=threads, y=seconds, color=lock, linetype=version)) +
   geom_line() + geom_point() + theme_bw() +
   labs(y="Normalized running time", x="# threads") +
   coord_cartesian(ylim=c(0, 350))
+```
+
+MARCC, June 2016:
+
+```{r}
+mtmp <- m_marcc %>% filter(tool == 'bowtie' & paired == 'unp')
+ggplot(mtmp, aes(x=threads, y=seconds, color=lock, linetype=version)) +
+  geom_line() + geom_point() + theme_bw() +
+  labs(y="Normalized running time", x="# threads") +
+  coord_cartesian(ylim=c(0, 150))
 ```
 
 A few remarkable things:
@@ -75,6 +93,8 @@ hisat-cleanparse-tbbpin-q	hisat	cleaner_parsing	WITH_THREAD_PROFILING=1 EXTRA_FL
 
 ### HISAT unpaired
 
+Elephant 6 showcase:
+
 ```{r}
 mtmp <- m %>% filter(tool == 'hisat' & paired == 'unp')
 ggplot(mtmp, aes(x=threads, y=seconds, color=lock, linetype=version)) +
@@ -83,13 +103,37 @@ ggplot(mtmp, aes(x=threads, y=seconds, color=lock, linetype=version)) +
   coord_cartesian(ylim=c(0, max(mtmp$seconds)*1.05))
 ```
 
+MARCC, June 2016:
+
+```{r}
+mtmp <- m_marcc %>% filter(tool == 'hisat' & paired == 'unp')
+ggplot(mtmp, aes(x=threads, y=seconds, color=lock, linetype=version)) +
+  geom_line() + geom_point() + theme_bw() +
+  labs(y="Normalized running time", x="# threads") +
+  coord_cartesian(ylim=c(0, 100))
+#  coord_cartesian(ylim=c(0, max(mtmp$seconds)*1.05))
+```
+
 * Both lock type and optimized parsing help very appreciably
 * Haven't implemented no-io yet, so can't compare to "ideal"
 
 ### HISAT paired-end
 
+Elephant 6 showcase:
+
 ```{r}
 mtmp <- m %>% filter(tool == 'hisat' & paired == 'pe')
+ggplot(mtmp, aes(x=threads, y=seconds, color=lock, linetype=version)) +
+  geom_line() + geom_point() + theme_bw() +
+  labs(y="Normalized running time", x="# threads") +
+  coord_cartesian(ylim=c(0, max(mtmp$seconds)*1.05))
+```
+
+MARCC, June 2016:
+
+```{r}
+m_marcc_4ival <- read.table('marcc/hisat-48-4th-interval.tsv', header=T, sep='\t')
+mtmp <- m_marcc_4ival %>% filter(tool == 'hisat' & paired == 'pe')
 ggplot(mtmp, aes(x=threads, y=seconds, color=lock, linetype=version)) +
   geom_line() + geom_point() + theme_bw() +
   labs(y="Normalized running time", x="# threads") +
