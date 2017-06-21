@@ -1,6 +1,0 @@
-thread: 2 cpu_changeovers: 0
-thread: 2 node_changeovers: 0
-thread: 1 cpu_changeovers: 0
-thread: 1 node_changeovers: 0
-thread: 2 time: 00:00:41.441
-thread: 1 time: 00:00:41.433
