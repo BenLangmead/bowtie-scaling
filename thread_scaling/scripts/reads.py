@@ -34,10 +34,10 @@ reads = [
      'url2': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR194/ERR194147/ERR194147_2.fastq.gz',
      'tech': 'Illumina HiSeq 2000', 'paired': True, 'length': (101, 101)},
     # https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR424287
-    # 1000 Genomes Project, Broad
-    {'srr': 'SRR424287',
-     'url1': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR424/SRR424287/SRR424287_1.fastq.gz',
-     'url2': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR424/SRR424287/SRR424287_2.fastq.gz',
+    # 1000 Genomes Project, Broad Institute
+    {'srr': 'SRR069520',
+     'url1': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR069/SRR069520/SRR069520_1.fastq.gz',
+     'url2': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR069/SRR069520/SRR069520_2.fastq.gz',
      'tech': 'Illumina HiSeq 2000', 'paired': True, 'length': (101, 101)},
     # https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR3947551
     # Baylor, low-coverage WGS blood
