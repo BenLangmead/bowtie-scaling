@@ -28,16 +28,19 @@ class ReservoirSampler(object):
 
 reads = [
     # https://www.ncbi.nlm.nih.gov/sra/?term=ERR194147
+    # Platinum genomes project, Illumina Cambridge
     {'srr': 'ERR194147',
      'url1': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR194/ERR194147/ERR194147_1.fastq.gz',
      'url2': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR194/ERR194147/ERR194147_2.fastq.gz',
      'tech': 'Illumina HiSeq 2000', 'paired': True, 'length': (101, 101)},
-    # https://www.ncbi.nlm.nih.gov/sra/?term=SRR642636
-    {'srr': 'SRR642636',
-     'url1': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR642/SRR642636/SRR642636_1.fastq.gz',
-     'url2': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR642/SRR642636/SRR642636_2.fastq.gz',
+    # https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR424287
+    # 1000 Genomes Project, Broad
+    {'srr': 'SRR424287',
+     'url1': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR424/SRR424287/SRR424287_1.fastq.gz',
+     'url2': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR424/SRR424287/SRR424287_2.fastq.gz',
      'tech': 'Illumina HiSeq 2000', 'paired': True, 'length': (101, 101)},
     # https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR3947551
+    # Baylor, low-coverage WGS blood
     {'srr': 'SRR3947551',
      'url1': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR394/001/SRR3947551/SRR3947551_1.fastq.gz',
      'url2': 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR394/001/SRR3947551/SRR3947551_2.fastq.gz',
