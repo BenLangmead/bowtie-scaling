@@ -56,6 +56,7 @@ def go(args):
         for ur in ['url1', 'url2']:
         if not os.path.exists(os.path.basename(rd[ur])):
             raise RuntimeError('No file for %s' % rd[ur])
+        nfile = 0
         with gzip.open(os.path.basename(rd['url1'])) as r1:
             with gzip.open(os.path.basename(rd['url2'])) as r2:
                 while True:
@@ -81,6 +82,9 @@ def go(args):
                         ival = int(ival * ival_mult)
                         print('Handled %d reads, sampled %d' % (n, sum([len(x.r) for x in samplers])))
                     n += 1
+                    nfile += 1
+                    if args.stop_after is not None and nfile >= args.stop_after:
+                        break
     big_list = [x for n in [y.r for y in samplers] for x in n]
     del samplers
     random.shuffle(big_list)
@@ -113,6 +117,8 @@ if __name__ == '__main__':
 
     parser.add_argument('--reads-per-accession', metavar='int', type=int, default=1000000,
                         help='# reads per accession to keep')
+    parser.add_argument('--stop-after', metavar='int', type=int,
+                        help='stop after parsing this many reads in an input file')
     parser.add_argument('--block-boundary', metavar='int', type=int, default=16 * 1024,
                         help='# characters constituting a single fixed-size block of FASTQ input')
     parser.add_argument('--seed', metavar='int', type=int, default=5744,
