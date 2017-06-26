@@ -5,6 +5,7 @@ import sys
 import random
 import gzip
 import urllib
+import os
 
 
 class ReservoirSampler(object):
@@ -49,39 +50,60 @@ def go(args):
     n = 0
     ival = 100
     ival_mult = 1.2
+    last_seqlen = None
     for rd, samp in zip(reads, samplers):
         print('Handling ' + rd['srr'], file=sys.stderr)
-        r1 = gzip.open(urllib.urlretrieve(rd['url1'])[0])
-        r2 = gzip.open(urllib.urlretrieve(rd['url2'])[0])
-        while True:
-            l1 = r1.readline().rstrip()
-            l2 = r2.readline().rstrip()
-            if len(l1) == 0:
-                break
-            seq1 = r1.readline().rstrip()
-            seq2 = r2.readline().rstrip()
-            assert len(seq1) > 0
-            assert len(seq1) == len(seq2)
-            r1.readline()
-            r2.readline()
-            qual1 = r1.readline().rstrip()
-            qual2 = r2.readline().rstrip()
-            assert len(qual1) > 0
-            assert len(qual1) == len(seq1)
-            assert len(qual1) == len(qual2)
-            samp.add([l1, seq1, '+', qual1, l2, seq2, '+', qual1])
-            if n == ival:
-                ival = int(ival * ival_mult)
-                print('Handled %d reads, sampled %d' % (n, sum([len(x.r) for x in samplers])))
-            n += 1
+        for ur in ['url1', 'url2']:
+        if not os.path.exists(os.path.basename(rd[ur])):
+            raise RuntimeError('No file for %s' % rd[ur])
+        with gzip.open(os.path.basename(rd['url1'])) as r1:
+            with gzip.open(os.path.basename(rd['url2'])) as r2:
+                while True:
+                    l1 = r1.readline().rstrip()
+                    l2 = r2.readline().rstrip()
+                    if len(l1) == 0:
+                        break
+                    seq1 = r1.readline().rstrip()
+                    seq2 = r2.readline().rstrip()
+                    assert last_seqlen is None or len(seq1) == last_seqlen
+                    last_seqlen = len(seq1)
+                    assert len(seq1) > 0
+                    assert len(seq1) == len(seq2)
+                    r1.readline()
+                    r2.readline()
+                    qual1 = r1.readline().rstrip()
+                    qual2 = r2.readline().rstrip()
+                    assert len(qual1) > 0
+                    assert len(qual1) == len(seq1)
+                    assert len(qual1) == len(qual2)
+                    samp.add([l1, seq1, '+', qual1, l2, seq2, '+', qual1])
+                    if n == ival:
+                        ival = int(ival * ival_mult)
+                        print('Handled %d reads, sampled %d' % (n, sum([len(x.r) for x in samplers])))
+                    n += 1
     big_list = [x for n in [y.r for y in samplers] for x in n]
     del samplers
     random.shuffle(big_list)
+    nwritten1, nwritten2 = 0, 0
     with open('out_1.fq', 'wb') as ofh1:
         with open('out_2.fq', 'wb') as ofh2:
-            for o in big_list:
-                print('\n'.join(o[:4]), file=ofh1)
-                print('\n'.join(o[4:]), file=ofh2)
+            with open('out_block_1.fq', 'wb') as ofhb1:
+                with open('out_block_2.fq', 'wb') as ofhb2:
+                    for o in big_list:
+                        rec1 = '\n'.join(o[:4]) + '\n'
+                        rec2 = '\n'.join(o[4:]) + '\n'
+                        assert len(rec1) < args.block_boundary
+                        assert len(rec2) < args.block_boundary
+                        print(rec1, file=ofh1, end='')
+                        print(rec2, file=ofh2, end='')
+                        if left1 + len(rec1) > args.block_boundary or left2 + len(rec2) > args.block_boundary:
+                            print(' ' * (args.block_boundary - nwritten1), file=ofhb1, end='')
+                            print(' ' * (args.block_boundary - nwritten2), file=ofhb2, end='')
+                            nwritten1, nwritten2 = 0, 0
+                        print(rec1, file=ofhb1, end='')
+                        print(rec2, file=ofhb2, end='')
+                        nwritten1 += len(rec1)
+                        nwritten2 += len(rec2)
 
 
 if __name__ == '__main__':
