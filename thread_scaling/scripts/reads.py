@@ -54,8 +54,8 @@ def go(args):
     for rd, samp in zip(reads, samplers):
         print('Handling ' + rd['srr'], file=sys.stderr)
         for ur in ['url1', 'url2']:
-        if not os.path.exists(os.path.basename(rd[ur])):
-            raise RuntimeError('No file for %s' % rd[ur])
+            if not os.path.exists(os.path.basename(rd[ur])):
+                raise RuntimeError('No file for %s' % rd[ur])
         nfile = 0
         with gzip.open(os.path.basename(rd['url1'])) as r1:
             with gzip.open(os.path.basename(rd['url2'])) as r2:
