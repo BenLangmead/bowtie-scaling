@@ -1,5 +1,17 @@
 #!/usr/bin/env python
 
+"""
+Constructs reads files for thread-scaling experiments.
+- Can produce blocked output for use with `blocked_input` branches of bowtie,
+  bowtie2 and hisat
+- Can trim reads as it goes, so can produce either reads the same length as
+  input, or shorter for tools like bowtie
+
+To construct inputs for our experiments:
+- pypy reads.py --prefix=mix100
+- pypy reads.py --trim-to 50 --max-read-size 175 --prefix=mix50
+"""
+
 from __future__ import print_function
 import sys
 import random
@@ -99,6 +111,12 @@ def go(args):
                         assert len(qual1) > 0
                         assert len(qual1) == len(seq1)
                         assert len(qual1) == len(qual2)
+                        if len(seq1) > args.trim_to:
+                            seq1 = seq1[:args.trim_to]
+                            qual1 = qual1[:args.trim_to]
+                        if len(seq2) > args.trim_to:
+                            seq2 = seq2[:args.trim_to]
+                            qual2 = qual2[:args.trim_to]
                         samp.add_post([l1, seq1, '+', qual1, l2, seq2, '+', qual2,
                                        len(l1) + len(seq1) + 1 + len(qual1) + 4,
                                        len(l2) + len(seq2) + 1 + len(qual2) + 4], j)
@@ -121,13 +139,13 @@ def go(args):
     big_list = [x for n in [y.r for y in samplers] for x in n]
     del samplers
     random.shuffle(big_list)
-    with open('out_1.fq', 'wb') as ofh1:
-        with open('out_2.fq', 'wb') as ofh2:
+    with open(args.prefix + '_1.fq', 'wb') as ofh1:
+        with open(args.prefix + '_2.fq', 'wb') as ofh2:
             for rec in big_list:
                 ofh1.write(b'\n'.join(rec[0:4]) + b'\n')
                 ofh2.write(b'\n'.join(rec[4:8]) + b'\n')
-    with open('out_block_1.fq', 'wb') as ofhb1:
-        with open('out_block_2.fq', 'wb') as ofhb2:
+    with open(args.prefix + '_block_1.fq', 'wb') as ofhb1:
+        with open(args.prefix + '_block_2.fq', 'wb') as ofhb2:
             block_i = 0
             while block_i < len(big_list):
                 block_recs = big_list[block_i:block_i + reads_per_block]
@@ -159,4 +177,8 @@ if __name__ == '__main__':
                         help='# characters constituting a single fixed-size block of FASTQ input')
     parser.add_argument('--seed', metavar='int', type=int, default=5744,
                         help='Pseudo-random seed.')
+    parser.add_argument('--trim-to', metavar='int', type=int, default=9999,
+                        help='If read is longer than this, trim to this length.')
+    parser.add_argument('--prefix', metavar='str', type=str, default='out',
+                        help='Prefix for output files.')
     go(parser.parse_args())
