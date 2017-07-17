@@ -4,7 +4,6 @@ from __future__ import print_function
 import sys
 import random
 import gzip
-import urllib
 import os
 
 
@@ -20,10 +19,26 @@ class ReservoirSampler(object):
         if self.n < self.k:
             self.r.append(obj)
         else:
-            j = random.randint(0, self.n)
+            j = random.randint(0, self.n+1)
             if j < self.k:
                 self.r[j] = obj
         self.n += 1
+
+    def add_pre(self):
+        if self.n < self.k:
+            self.n += 1
+            return -1
+        else:
+            self.n += 1
+            j = random.randint(0, self.n)
+            return j if j < self.k else None
+
+    def add_post(self, obj, j):
+        if j == -1:
+            self.r.append(obj)
+        else:
+            assert j < self.k
+            self.r[j] = obj
 
 
 reads = [
@@ -48,6 +63,8 @@ reads = [
 
 
 def go(args):
+    block_sz = args.block_boundary
+    reads_per_block = int(block_sz / args.max_read_size)
     random.seed(args.seed)
     samplers = [ReservoirSampler(args.reads_per_accession) for _ in reads]
     n = 0
@@ -60,27 +77,39 @@ def go(args):
             if not os.path.exists(os.path.basename(rd[ur])):
                 raise RuntimeError('No file for %s' % rd[ur])
         nfile = 0
-        with gzip.open(os.path.basename(rd['url1'])) as r1:
-            with gzip.open(os.path.basename(rd['url2'])) as r2:
+        with gzip.open(os.path.basename(rd['url1']), 'rb') as r1:
+            with gzip.open(os.path.basename(rd['url2']), 'rb') as r2:
                 while True:
-                    l1 = r1.readline().rstrip()
-                    l2 = r2.readline().rstrip()
-                    if len(l1) == 0:
-                        break
-                    seq1 = r1.readline().rstrip()
-                    seq2 = r2.readline().rstrip()
-                    assert last_seqlen is None or len(seq1) == last_seqlen
-                    last_seqlen = len(seq1)
-                    assert len(seq1) > 0
-                    assert len(seq1) == len(seq2)
-                    r1.readline()
-                    r2.readline()
-                    qual1 = r1.readline().rstrip()
-                    qual2 = r2.readline().rstrip()
-                    assert len(qual1) > 0
-                    assert len(qual1) == len(seq1)
-                    assert len(qual1) == len(qual2)
-                    samp.add([l1, seq1, '+', qual1, l2, seq2, '+', qual1])
+                    j = samp.add_pre()
+                    if j is not None:
+                        l1 = r1.readline().rstrip()
+                        l2 = r2.readline().rstrip()
+                        if len(l1) == 0:
+                            break
+                        seq1 = r1.readline().rstrip()
+                        seq2 = r2.readline().rstrip()
+                        assert last_seqlen is None or len(seq1) == last_seqlen
+                        last_seqlen = len(seq1)
+                        assert len(seq1) > 0
+                        assert len(seq1) == len(seq2)
+                        r1.readline()
+                        r2.readline()
+                        qual1 = r1.readline().rstrip()
+                        qual2 = r2.readline().rstrip()
+                        assert len(qual1) > 0
+                        assert len(qual1) == len(seq1)
+                        assert len(qual1) == len(qual2)
+                        samp.add_post([l1, seq1, '+', qual1, l2, seq2, '+', qual2,
+                                       len(l1) + len(seq1) + 1 + len(qual1) + 4,
+                                       len(l2) + len(seq2) + 1 + len(qual2) + 4], j)
+                    else:
+                        # skip
+                        if len(r1.readline()) == 0:
+                            break
+                        r2.readline()
+                        for r in [r1, r2]:
+                            for _ in range(3):
+                                r.readline()
                     if n == ival:
                         ival = int(ival * ival_mult)
                         print('Handled %d reads, sampled %d' % (n, sum([len(x.r) for x in samplers])))
@@ -88,29 +117,31 @@ def go(args):
                     nfile += 1
                     if args.stop_after is not None and nfile >= args.stop_after:
                         break
+
     big_list = [x for n in [y.r for y in samplers] for x in n]
     del samplers
     random.shuffle(big_list)
-    nwritten1, nwritten2 = 0, 0
     with open('out_1.fq', 'wb') as ofh1:
         with open('out_2.fq', 'wb') as ofh2:
-            with open('out_block_1.fq', 'wb') as ofhb1:
-                with open('out_block_2.fq', 'wb') as ofhb2:
-                    for o in big_list:
-                        rec1 = '\n'.join(o[:4]) + '\n'
-                        rec2 = '\n'.join(o[4:]) + '\n'
-                        assert len(rec1) < args.block_boundary
-                        assert len(rec2) < args.block_boundary
-                        print(rec1, file=ofh1, end='')
-                        print(rec2, file=ofh2, end='')
-                        if left1 + len(rec1) > args.block_boundary or left2 + len(rec2) > args.block_boundary:
-                            print(' ' * (args.block_boundary - nwritten1), file=ofhb1, end='')
-                            print(' ' * (args.block_boundary - nwritten2), file=ofhb2, end='')
-                            nwritten1, nwritten2 = 0, 0
-                        print(rec1, file=ofhb1, end='')
-                        print(rec2, file=ofhb2, end='')
-                        nwritten1 += len(rec1)
-                        nwritten2 += len(rec2)
+            for rec in big_list:
+                ofh1.write(b'\n'.join(rec[0:4]) + b'\n')
+                ofh2.write(b'\n'.join(rec[4:8]) + b'\n')
+    with open('out_block_1.fq', 'wb') as ofhb1:
+        with open('out_block_2.fq', 'wb') as ofhb2:
+            block_i = 0
+            while block_i < len(big_list):
+                block_recs = big_list[block_i:block_i + reads_per_block]
+                if block_i + reads_per_block <= len(big_list):  # not the last
+                    block_len1 = sum(map(lambda x: x[-2], block_recs))
+                    block_len2 = sum(map(lambda x: x[-1], block_recs))
+                    assert block_len1 < block_sz, (block_len1, block_sz, reads_per_block)
+                    assert block_len2 < block_sz, (block_len1, block_sz, reads_per_block)
+                    block_recs[-1][0] += b' ' * (block_sz - block_len1)
+                    block_recs[-1][4] += b' ' * (block_sz - block_len2)
+                for rd in block_recs:
+                    ofhb1.write(b'\n'.join(rd[0:4]) + b'\n')
+                    ofhb2.write(b'\n'.join(rd[4:8]) + b'\n')
+                block_i += reads_per_block
 
 
 if __name__ == '__main__':
@@ -122,7 +153,9 @@ if __name__ == '__main__':
                         help='# reads per accession to keep')
     parser.add_argument('--stop-after', metavar='int', type=int,
                         help='stop after parsing this many reads in an input file')
-    parser.add_argument('--block-boundary', metavar='int', type=int, default=16 * 1024,
+    parser.add_argument('--max-read-size', metavar='int', type=int, default=275,
+                        help='max # bytes / read, for calculating # reads per block')
+    parser.add_argument('--block-boundary', metavar='int', type=int, default=12288,
                         help='# characters constituting a single fixed-size block of FASTQ input')
     parser.add_argument('--seed', metavar='int', type=int, default=5744,
                         help='Pseudo-random seed.')
