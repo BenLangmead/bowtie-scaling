@@ -1,6 +1,7 @@
 #!/bin/bash
 
-THREAD_SERIES="1,4,8,12,16,20,24,28,32,36,40,44,48,56,60,68,76,84,92,96,100,104,108"
+# ','.join(map(str, sorted(set([i for i in range(12, 112+1, 12)] + [i for i in range(8, 112+1, 8)] + [1]))))
+THREAD_SERIES="1,8,12,16,24,32,36,40,48,56,60,64,72,80,84,88,96,104,108,112"
 
 module load git
 export LD_LIBRARY_PATH=/home-1/cwilks3@jhu.edu/tbb2017_20161128oss.bin/lib/intel64/gcc4.1:$LD_LIBRARY_PATH
