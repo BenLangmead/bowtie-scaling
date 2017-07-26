@@ -167,7 +167,7 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='Compose read files for experiments.')
 
-    parser.add_argument('--reads-per-accession', metavar='int', type=int, default=1000000,
+    parser.add_argument('--reads-per-accession', metavar='int', type=int, default=100000000,
                         help='# reads per accession to keep')
     parser.add_argument('--stop-after', metavar='int', type=int,
                         help='stop after parsing this many reads in an input file')
