@@ -8,8 +8,8 @@ Constructs reads files for thread-scaling experiments.
   input, or shorter for tools like bowtie
 
 To construct inputs for our experiments:
-- pypy reads.py --prefix=mix100
-- pypy reads.py --trim-to 50 --max-read-size 175 --prefix=mix50
+- pypy reads.py --prefix=mix100 --reads-per-accession=100000000
+- pypy reads.py --trim-to 50 --max-read-size 175 --prefix=mix50 --reads-per-accession=100000000
 """
 
 from __future__ import print_function
@@ -17,40 +17,34 @@ import sys
 import random
 import gzip
 import os
+import numpy as np
 
 
 class ReservoirSampler(object):
     """ Simple reservoir sampler """
 
-    def __init__(self, k):
+    def __init__(self, k, fn):
         self.k = k  # # elts to collect
-        self.r = []  # the elts
         self.n = 0  # # elts scanned
-
-    def add(self, obj):
-        if self.n < self.k:
-            self.r.append(obj)
-        else:
-            j = random.randint(0, self.n+1)
-            if j < self.k:
-                self.r[j] = obj
-        self.n += 1
+        self.fn = fn
+        self.ofh = open(fn, 'wb')
 
     def add_pre(self):
         if self.n < self.k:
             self.n += 1
-            return -1
+            return self.n - 1
         else:
             self.n += 1
             j = random.randint(0, self.n)
             return j if j < self.k else None
 
     def add_post(self, obj, j):
-        if j == -1:
-            self.r.append(obj)
-        else:
-            assert j < self.k
-            self.r[j] = obj
+        self.ofh.write('\t'.join([str(j)] + list(map(str, obj))) + '\n')
+
+    def close(self):
+        if self.ofh is not None:
+            self.ofh.close()
+        self.ofh = None
 
 
 reads = [
@@ -74,11 +68,47 @@ reads = [
      'tech': 'Illumina HiSeq 2000', 'paired': True, 'length': (101, 101)}]
 
 
+def reverse_readline(filename, buf_size=8192):
+    """a generator that returns the lines of a file in reverse order"""
+    with open(filename, 'rb') as fh:
+        segment = None
+        offset = 0
+        fh.seek(0, os.SEEK_END)
+        file_size = remaining_size = fh.tell()
+        while remaining_size > 0:
+            offset = min(file_size, offset + buf_size)
+            fh.seek(file_size - offset)
+            buffer = fh.read(min(remaining_size, buf_size))
+            remaining_size -= buf_size
+            lines = buffer.split('\n')
+            # the first line of the buffer is probably not a complete line so
+            # we'll save it and append it to the last line of the next buffer
+            # we read
+            if segment is not None:
+                # if the previous chunk starts right from the beginning of line
+                # do not concact the segment to the last line of new chunk
+                # instead, yield the segment first
+                if buffer[-1] is not '\n':
+                    lines[-1] += segment
+                else:
+                    yield segment
+            segment = lines[0]
+            for index in range(len(lines) - 1, 0, -1):
+                if len(lines[index]):
+                    yield lines[index]
+        # Don't yield None if the file was empty
+        if segment is not None:
+            yield segment
+
+
 def go(args):
+    random.seed(34635)
+    np.random.seed(34635)
     block_sz = args.block_boundary
     reads_per_block = int(block_sz / args.max_read_size)
     random.seed(args.seed)
-    samplers = [ReservoirSampler(args.reads_per_accession) for _ in reads]
+    tmpfns = ['.reads.py.tmp%d' % i for i in range(len(reads))]
+    samplers = [ReservoirSampler(args.reads_per_accession, tmpfns[i]) for i in range(len(reads))]
     n = 0
     ival = 100
     ival_mult = 1.2
@@ -130,36 +160,101 @@ def go(args):
                                 r.readline()
                     if n == ival:
                         ival = int(ival * ival_mult)
-                        print('Handled %d reads, sampled %d' % (n, sum([len(x.r) for x in samplers])))
+                        print('Handled %d reads' % n)
                     n += 1
                     nfile += 1
                     if args.stop_after is not None and nfile >= args.stop_after:
                         break
+        samp.close()
 
-    big_list = [x for n in [y.r for y in samplers] for x in n]
-    del samplers
-    random.shuffle(big_list)
-    with open(args.prefix + '_1.fq', 'wb') as ofh1:
-        with open(args.prefix + '_2.fq', 'wb') as ofh2:
-            for rec in big_list:
-                ofh1.write(b'\n'.join(rec[0:4]) + b'\n')
-                ofh2.write(b'\n'.join(rec[4:8]) + b'\n')
-    with open(args.prefix + '_block_1.fq', 'wb') as ofhb1:
-        with open(args.prefix + '_block_2.fq', 'wb') as ofhb2:
-            block_i = 0
-            while block_i < len(big_list):
-                block_recs = big_list[block_i:block_i + reads_per_block]
-                if block_i + reads_per_block <= len(big_list):  # not the last
-                    block_len1 = sum(map(lambda x: x[-2], block_recs))
-                    block_len2 = sum(map(lambda x: x[-1], block_recs))
-                    assert block_len1 < block_sz, (block_len1, block_sz, reads_per_block)
-                    assert block_len2 < block_sz, (block_len1, block_sz, reads_per_block)
-                    block_recs[-1][0] += b' ' * (block_sz - block_len1)
-                    block_recs[-1][4] += b' ' * (block_sz - block_len2)
-                for rd in block_recs:
-                    ofhb1.write(b'\n'.join(rd[0:4]) + b'\n')
-                    ofhb2.write(b'\n'.join(rd[4:8]) + b'\n')
-                block_i += reads_per_block
+    nreads = args.reads_per_accession * len(samplers)
+    print('Generating permutation with %d elements' % nreads, file=sys.stderr)
+    idxs = np.random.permutation(nreads)
+    unsrt_fn = '.reads.py.unsorted'
+    n = 0
+    ival = 100
+    with open(unsrt_fn, 'wb') as ofh:
+        for si, sampler in enumerate(samplers):
+            seen_items = set()
+            for ln in reverse_readline(sampler.fn):
+                orig_rank = int(ln[:ln.find('\t')])
+                if orig_rank not in seen_items:
+                    i = orig_rank + si * args.reads_per_accession
+                    shuf_rank = idxs[i]
+                    ofh.write(str(shuf_rank) + ln)
+                    ofh.write('\t')
+                    ofh.write(ln)
+                    ofh.write('\n')
+                    seen_items.add(orig_rank)
+                if n == ival:
+                    ival = int(ival * ival_mult)
+                    print('Handled %d unsorted records' % n)
+            del seen_items
+
+    if not args.keep_intermediates:
+        print('Deleting %d reservoir temporary files:' % len(samplers), file=sys.stderr)
+        for fn in tmpfns:
+            os.remove(fn)
+
+    print('Deleting %d reservoir samplers and temporary files:' % len(samplers), file=sys.stderr)
+    for samp in samplers:
+        del samp
+
+    print('Sorting temporary sample file by permuted index', file=sys.stderr)
+    del idxs
+    cmd = 'sort -n -k1,1 .reads.py.unsorted > .reads.py.sorted'
+    print(cmd, file=sys.stderr)
+    ret = os.system(cmd)
+    if ret != 0:
+        raise RuntimeError('sort command failed')
+
+    if not args.keep_intermediates:
+        print('Deleting temporary sample file', file=sys.stderr)
+        os.remove('.reads.py.unsorted')
+
+    print('Preparing unblocked reads:', file=sys.stderr)
+    with open('.reads.py.sorted', 'rb') as fh:
+        with open(args.prefix + '_1.fq', 'wb') as ofh1:
+            with open(args.prefix + '_2.fq', 'wb') as ofh2:
+                n = 0
+                ival = 100
+                for ln in fh:
+                    toks = ln.split('\t')
+                    ofh1.write(b'\n'.join(toks[1:5]) + b'\n')
+                    ofh2.write(b'\n'.join(toks[5:9]) + b'\n')
+                    if n == ival:
+                        ival = int(ival * ival_mult)
+                        print('Handled %d unsorted records' % n)
+
+    print('Preparing blocked reads:', file=sys.stderr)
+    with open('.reads.py.sorted', 'rb') as fh:
+        with open(args.prefix + '_block_1.fq', 'wb') as ofhb1:
+            with open(args.prefix + '_block_2.fq', 'wb') as ofhb2:
+                toks1, toks2 = [], []
+                nbytes1, nbytes2 = 0, 0
+                for i, ln in enumerate(fh):
+                    toks = ln.split('\t')
+                    toks1.append(toks[1:5])
+                    toks2.append(toks[5:9])
+                    nbytes1 += sum(map(len, toks1[-1])) + 4
+                    nbytes2 += sum(map(len, toks2[-1])) + 4
+                    if (i+1) % reads_per_block == 0:
+                        toks1[-1][0] += b' ' * (block_sz - nbytes1)
+                        toks2[-1][0] += b' ' * (block_sz - nbytes2)
+                        for rec in toks1:
+                            ofhb1.write(b'\n'.join(rec) + b'\n')
+                        for rec in toks2:
+                            ofhb2.write(b'\n'.join(rec) + b'\n')
+                        toks1, toks2 = [], []
+                        nbytes1, nbytes2 = 0, 0
+                for rec in toks1:
+                    ofhb1.write(b'\n'.join(rec) + b'\n')
+                for rec in toks2:
+                    ofhb2.write(b'\n'.join(rec) + b'\n')
+
+    if not args.keep_intermediates:
+        print('Deleting sorted sample file', file=sys.stderr)
+        os.remove('.reads.py.sorted')
 
 
 if __name__ == '__main__':
@@ -179,6 +274,8 @@ if __name__ == '__main__':
                         help='Pseudo-random seed.')
     parser.add_argument('--trim-to', metavar='int', type=int, default=9999,
                         help='If read is longer than this, trim to this length.')
+    parser.add_argument('--keep-intermediates', action='store_const', const=True, default=False,
+                        help='If set, intermediate files are not deleted.')
     parser.add_argument('--prefix', metavar='str', type=str, default='out',
                         help='Prefix for output files.')
     go(parser.parse_args())
