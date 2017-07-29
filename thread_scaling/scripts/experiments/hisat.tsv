@@ -1,0 +1,12 @@
+name	tool	branch	mp_mt	preproc	args
+ht-baseline-old	hisat	haswell	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800 --no-spliced-alignment --no-temp-splicesite
+ht-baseline-tbbspin	hisat	haswell	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1	-I 250 -X 800 --no-spliced-alignment --no-temp-splicesite
+ht-baseline-tbbq	hisat	haswell	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --no-spliced-alignment --no-temp-splicesite
+ht-parsing-clean	hisat	batch_parsing_output	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 1 --no-spliced-alignment --no-temp-splicesite
+ht-parsing-batch	hisat	batch_parsing_output	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32 --no-spliced-alignment --no-temp-splicesite
+ht-final-mp1	hisat	batch_parsing_output	1	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32 --no-spliced-alignment --no-temp-splicesite
+ht-final-mp2	hisat	batch_parsing_output	2	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32 --no-spliced-alignment --no-temp-splicesite
+ht-final-mp3	hisat	batch_parsing_output	3	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32 --no-spliced-alignment --no-temp-splicesite
+ht-final-mp8	hisat	batch_parsing_output	8	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32 --no-spliced-alignment --no-temp-splicesite
+ht-final-mp16	hisat	batch_parsing_output	16	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32 --no-spliced-alignment --no-temp-splicesite
+ht-final-block	hisat	blocked_input	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --block-bytes 12288 --reads-per-block 44 --no-spliced-alignment --no-temp-splicesite
