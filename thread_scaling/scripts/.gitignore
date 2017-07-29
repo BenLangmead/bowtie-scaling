@@ -1,4 +1,7 @@
 min_max*.tsv
 thread_times*.tsv
 *.pdf
-b2_scale_data
+b2_scale_data.*.sorted
+.*.tmp?
+.*.unsorted
+*.fastq.gz
