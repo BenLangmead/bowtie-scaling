@@ -72,7 +72,7 @@ CONFIG=${BASEDIR}/../${TOOL_SHORT}.tsv
 #
 # Paired
 #
-python ${BASEDIR}/../../master.py \
+python ${BASEDIR}/master.py \
     --repo "${REPO}" \
     --reads-per-thread ${TOOL_PAIRED_READS} \
     --index "${TS_INDEXES}/${TOOL}/${REF}" \
@@ -89,7 +89,7 @@ python ${BASEDIR}/../../master.py \
 #
 # Unpaired
 #
-python ${BASEDIR}/../../master.py \
+python ${BASEDIR}/master.py \
     --repo "${REPO}" \
     --reads-per-thread ${TOOL_UNP_READS} \
     --index "${TS_INDEXES}/${TOOL}/${REF}" \
