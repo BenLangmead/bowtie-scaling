@@ -147,9 +147,7 @@ def go(args):
                         if len(seq2) > args.trim_to:
                             seq2 = seq2[:args.trim_to]
                             qual2 = qual2[:args.trim_to]
-                        samp.add_post([l1, seq1, '+', qual1, l2, seq2, '+', qual2,
-                                       len(l1) + len(seq1) + 1 + len(qual1) + 4,
-                                       len(l2) + len(seq2) + 1 + len(qual2) + 4], j)
+                        samp.add_post([l1, seq1, '+', qual1, l2, seq2, '+', qual2], j)
                     else:
                         # skip
                         if len(r1.readline()) == 0:
@@ -180,15 +178,12 @@ def go(args):
                 orig_rank = int(ln[:ln.find('\t')])
                 if orig_rank not in seen_items:
                     i = orig_rank + si * args.reads_per_accession
-                    shuf_rank = idxs[i]
-                    ofh.write(str(shuf_rank) + ln)
-                    ofh.write('\t')
-                    ofh.write(ln)
-                    ofh.write('\n')
+                    ofh.write(str(idxs[i]) + '\t' + ln + '\n')
                     seen_items.add(orig_rank)
                 if n == ival:
                     ival = int(ival * ival_mult)
                     print('Handled %d unsorted records' % n)
+                n += 1
             del seen_items
 
     if not args.keep_intermediates:
@@ -225,11 +220,14 @@ def go(args):
                     if n == ival:
                         ival = int(ival * ival_mult)
                         print('Handled %d unsorted records' % n)
+                    n += 1
 
     print('Preparing blocked reads:', file=sys.stderr)
     with open('.reads.py.sorted', 'rb') as fh:
         with open(args.prefix + '_block_1.fq', 'wb') as ofhb1:
             with open(args.prefix + '_block_2.fq', 'wb') as ofhb2:
+                n = 0
+                ival = 100
                 toks1, toks2 = [], []
                 nbytes1, nbytes2 = 0, 0
                 for i, ln in enumerate(fh):
@@ -247,6 +245,10 @@ def go(args):
                             ofhb2.write(b'\n'.join(rec) + b'\n')
                         toks1, toks2 = [], []
                         nbytes1, nbytes2 = 0, 0
+                    if n == ival:
+                        ival = int(ival * ival_mult)
+                        print('Handled %d sorted records' % n)
+                    n += 1
                 for rec in toks1:
                     ofhb1.write(b'\n'.join(rec) + b'\n')
                 for rec in toks2:
