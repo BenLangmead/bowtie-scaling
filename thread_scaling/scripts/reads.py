@@ -126,7 +126,7 @@ def go(args):
     mkdir_quiet(args.temp_dir)
     block_sz = args.block_boundary
     reads_per_block = int(block_sz / args.max_read_size)
-    tmpfns = ['.reads.py.tmp%d' % i for i in range(len(reads))]
+    tmpfns = [os.path.join(args.temp_dir, '.reads.py.tmp%d') % i for i in range(len(reads))]
     samplers = [ReservoirSampler(args.reads_per_accession, tmpfns[i]) for i in range(len(reads))]
     n = 0
     ival = 100
