@@ -18,6 +18,8 @@ import random
 import gzip
 import os
 import numpy as np
+import subprocess
+import shutil
 
 
 class ReservoirSampler(object):
@@ -45,6 +47,21 @@ class ReservoirSampler(object):
         if self.ofh is not None:
             self.ofh.close()
         self.ofh = None
+
+
+def mkdir_quiet(dr):
+    """ Create directories needed to ensure 'dr' exists; no complaining """
+    import errno
+    if not os.path.isdir(dr):
+        try:
+            os.makedirs(dr)
+        except OSError as exception:
+            if exception.errno != errno.EEXIST:
+                raise
+
+
+def wcl(fn):
+    return int(subprocess.check_output('wc -l ' + fn, shell=True).strip().split()[0])
 
 
 reads = [
@@ -102,17 +119,20 @@ def reverse_readline(filename, buf_size=8192):
 
 
 def go(args):
-    random.seed(34635)
-    np.random.seed(34635)
+    random.seed(args.seed)
+    np.random.seed(args.seed)
+    if os.path.exists(args.temp_dir):
+        raise RuntimeError('--temp-dir %s already exists' % args.temp_dir)
+    mkdir_quiet(args.temp_dir)
     block_sz = args.block_boundary
     reads_per_block = int(block_sz / args.max_read_size)
-    random.seed(args.seed)
     tmpfns = ['.reads.py.tmp%d' % i for i in range(len(reads))]
     samplers = [ReservoirSampler(args.reads_per_accession, tmpfns[i]) for i in range(len(reads))]
     n = 0
     ival = 100
     ival_mult = 1.2
     last_seqlen = None
+    print('*** Initial sampling run ***', file=sys.stderr)
     for rd, samp in zip(reads, samplers):
         print('Handling ' + rd['srr'], file=sys.stderr)
         for ur in ['url1', 'url2']:
@@ -158,17 +178,18 @@ def go(args):
                                 r.readline()
                     if n == ival:
                         ival = int(ival * ival_mult)
-                        print('Handled %d reads' % n)
+                        print('  processed %d reads' % n, file=sys.stderr)
                     n += 1
                     nfile += 1
                     if args.stop_after is not None and nfile >= args.stop_after:
                         break
         samp.close()
 
+    print('*** Permuting ***', file=sys.stderr)
     nreads = args.reads_per_accession * len(samplers)
     print('Generating permutation with %d elements' % nreads, file=sys.stderr)
     idxs = np.random.permutation(nreads)
-    unsrt_fn = '.reads.py.unsorted'
+    unsrt_fn = os.path.join(args.temp_dir, '.reads.py.unsorted')
     n = 0
     ival = 100
     with open(unsrt_fn, 'wb') as ofh:
@@ -182,9 +203,14 @@ def go(args):
                     seen_items.add(orig_rank)
                 if n == ival:
                     ival = int(ival * ival_mult)
-                    print('Handled %d unsorted records' % n)
+                    print('  processed %d unsorted records' % n, file=sys.stderr)
                 n += 1
             del seen_items
+
+    unsrt_n = wcl(unsrt_fn)
+    if unsrt_n != nreads:
+        raise RuntimeError('Number of reads in unsorted file "%s" (%d) '
+                           'does not match target (%d)' % (unsrt_fn, unsrt_n, nreads))
 
     if not args.keep_intermediates:
         print('Deleting %d reservoir temporary files:' % len(samplers), file=sys.stderr)
@@ -195,9 +221,12 @@ def go(args):
     for samp in samplers:
         del samp
 
+    print('*** Sorting ***', file=sys.stderr)
     print('Sorting temporary sample file by permuted index', file=sys.stderr)
     del idxs
-    cmd = 'sort -n -k1,1 .reads.py.unsorted > .reads.py.sorted'
+    srt_fn = os.path.join(args.temp_dir, '.reads.py.sorted')
+    srt_tmp_dir = os.path.join(args.temp_dir, 'sort_temp')
+    cmd = 'sort -n -k1,1 -S %dG -T %s %s > %s' % (args.sort_gb, srt_tmp_dir, unsrt_fn, srt_fn)
     print(cmd, file=sys.stderr)
     ret = os.system(cmd)
     if ret != 0:
@@ -205,10 +234,11 @@ def go(args):
 
     if not args.keep_intermediates:
         print('Deleting temporary sample file', file=sys.stderr)
-        os.remove('.reads.py.unsorted')
+        os.remove(unsrt_fn)
 
+    print('*** Output ***', file=sys.stderr)
     print('Preparing unblocked reads:', file=sys.stderr)
-    with open('.reads.py.sorted', 'rb') as fh:
+    with open(srt_fn, 'rb') as fh:
         with open(args.prefix + '_1.fq', 'wb') as ofh1:
             with open(args.prefix + '_2.fq', 'wb') as ofh2:
                 n = 0
@@ -219,11 +249,11 @@ def go(args):
                     ofh2.write(b'\n'.join(toks[5:9]) + b'\n')
                     if n == ival:
                         ival = int(ival * ival_mult)
-                        print('Handled %d unsorted records' % n)
+                        print('  processed %d sorted records for unblocked output' % n, file=sys.stderr)
                     n += 1
 
     print('Preparing blocked reads:', file=sys.stderr)
-    with open('.reads.py.sorted', 'rb') as fh:
+    with open(srt_fn, 'rb') as fh:
         with open(args.prefix + '_block_1.fq', 'wb') as ofhb1:
             with open(args.prefix + '_block_2.fq', 'wb') as ofhb2:
                 n = 0
@@ -247,7 +277,7 @@ def go(args):
                         nbytes1, nbytes2 = 0, 0
                     if n == ival:
                         ival = int(ival * ival_mult)
-                        print('Handled %d sorted records' % n)
+                        print('  processed %d sorted records for blocked output' % n, file=sys.stderr)
                     n += 1
                 for rec in toks1:
                     ofhb1.write(b'\n'.join(rec) + b'\n')
@@ -256,7 +286,8 @@ def go(args):
 
     if not args.keep_intermediates:
         print('Deleting sorted sample file', file=sys.stderr)
-        os.remove('.reads.py.sorted')
+        os.remove(srt_fn)
+        shutil.rmtree(args.temp_dir)
 
 
 if __name__ == '__main__':
@@ -274,10 +305,14 @@ if __name__ == '__main__':
                         help='# characters constituting a single fixed-size block of FASTQ input')
     parser.add_argument('--seed', metavar='int', type=int, default=5744,
                         help='Pseudo-random seed.')
+    parser.add_argument('--sort-gb', metavar='int', type=int, default=3,
+                        help='GB of memory to allow sort to use.')
     parser.add_argument('--trim-to', metavar='int', type=int, default=9999,
                         help='If read is longer than this, trim to this length.')
     parser.add_argument('--keep-intermediates', action='store_const', const=True, default=False,
                         help='If set, intermediate files are not deleted.')
     parser.add_argument('--prefix', metavar='str', type=str, default='out',
                         help='Prefix for output files.')
+    parser.add_argument('--temp-dir', metavar='str', type=str, default='temp',
+                        help='Put intermediates in temporary directory with this name.')
     go(parser.parse_args())
