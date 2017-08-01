@@ -10,7 +10,7 @@ for i in `cat .reads.txt` ; do
 done
 
 for i in 0 1 2 3 4 5 6 7 8 9 ; do
-    cat >>.reads.${i}.sh <EOF
+    cat >.reads.${i}.sh <<EOF
 #!/bin/bash -l
 #SBATCH
 #SBATCH --partition=shared
