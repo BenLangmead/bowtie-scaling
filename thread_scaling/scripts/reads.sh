@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -ex
+set -e
 
 grep ftp reads.py | awk '{print $2}' | sed "s/[',]//g" > .reads.txt
 for i in `cat .reads.txt` ; do
