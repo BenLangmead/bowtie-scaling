@@ -121,91 +121,100 @@ def reverse_readline(filename, buf_size=8192):
 def go(args):
     random.seed(args.seed)
     np.random.seed(args.seed)
-    if os.path.exists(args.temp_dir):
+    if not args.resume and os.path.exists(args.temp_dir):
         raise RuntimeError('--temp-dir %s already exists' % args.temp_dir)
     mkdir_quiet(args.temp_dir)
     block_sz = args.block_boundary
     reads_per_block = int(block_sz / args.max_read_size)
+
     tmpfns = [os.path.join(args.temp_dir, '.reads.py.tmp%d') % i for i in range(len(reads))]
     samplers = [ReservoirSampler(args.reads_per_accession, tmpfns[i]) for i in range(len(reads))]
-    n = 0
-    ival = 100
-    ival_mult = 1.2
-    last_seqlen = None
-    print('*** Initial sampling run ***', file=sys.stderr)
-    for rd, samp in zip(reads, samplers):
-        print('Handling ' + rd['srr'], file=sys.stderr)
-        for ur in ['url1', 'url2']:
-            if not os.path.exists(os.path.basename(rd[ur])):
-                raise RuntimeError('No file for %s' % rd[ur])
-        nfile = 0
-        with gzip.open(os.path.basename(rd['url1']), 'rb') as r1:
-            with gzip.open(os.path.basename(rd['url2']), 'rb') as r2:
-                while True:
-                    j = samp.add_pre()
-                    if j is not None:
-                        l1 = r1.readline().rstrip()
-                        l2 = r2.readline().rstrip()
-                        if len(l1) == 0:
+    unsrt_fn = os.path.join(args.temp_dir, '.reads.py.unsorted')
+    nreads = args.reads_per_accession * len(samplers)
+
+    if os.path.exists(unsrt_fn) and args.resume:
+        n = 0
+        ival = 100
+        ival_mult = 1.2
+        last_seqlen = None
+        print('*** Initial sampling run ***', file=sys.stderr)
+        for rd, samp in zip(reads, samplers):
+            print('Handling ' + rd['srr'], file=sys.stderr)
+            for ur in ['url1', 'url2']:
+                if not os.path.exists(os.path.basename(rd[ur])):
+                    raise RuntimeError('No file for %s' % rd[ur])
+            nfile = 0
+            with gzip.open(os.path.basename(rd['url1']), 'rb') as r1:
+                with gzip.open(os.path.basename(rd['url2']), 'rb') as r2:
+                    while True:
+                        j = samp.add_pre()
+                        if j is not None:
+                            l1 = r1.readline().rstrip()
+                            l2 = r2.readline().rstrip()
+                            if len(l1) == 0:
+                                break
+                            seq1 = r1.readline().rstrip()
+                            seq2 = r2.readline().rstrip()
+                            assert last_seqlen is None or len(seq1) == last_seqlen
+                            last_seqlen = len(seq1)
+                            assert len(seq1) > 0
+                            assert len(seq1) == len(seq2)
+                            r1.readline()
+                            r2.readline()
+                            qual1 = r1.readline().rstrip()
+                            qual2 = r2.readline().rstrip()
+                            assert len(qual1) > 0
+                            assert len(qual1) == len(seq1)
+                            assert len(qual1) == len(qual2)
+                            if len(seq1) > args.trim_to:
+                                seq1 = seq1[:args.trim_to]
+                                qual1 = qual1[:args.trim_to]
+                            if len(seq2) > args.trim_to:
+                                seq2 = seq2[:args.trim_to]
+                                qual2 = qual2[:args.trim_to]
+                            samp.add_post([l1, seq1, '+', qual1, l2, seq2, '+', qual2], j)
+                        else:
+                            # skip
+                            if len(r1.readline()) == 0:
+                                break
+                            r2.readline()
+                            for r in [r1, r2]:
+                                for _ in range(3):
+                                    r.readline()
+                        if n == ival:
+                            ival = int(ival * ival_mult)
+                            print('  processed %d reads' % n, file=sys.stderr)
+                        n += 1
+                        nfile += 1
+                        if args.stop_after is not None and nfile >= args.stop_after:
                             break
-                        seq1 = r1.readline().rstrip()
-                        seq2 = r2.readline().rstrip()
-                        assert last_seqlen is None or len(seq1) == last_seqlen
-                        last_seqlen = len(seq1)
-                        assert len(seq1) > 0
-                        assert len(seq1) == len(seq2)
-                        r1.readline()
-                        r2.readline()
-                        qual1 = r1.readline().rstrip()
-                        qual2 = r2.readline().rstrip()
-                        assert len(qual1) > 0
-                        assert len(qual1) == len(seq1)
-                        assert len(qual1) == len(qual2)
-                        if len(seq1) > args.trim_to:
-                            seq1 = seq1[:args.trim_to]
-                            qual1 = qual1[:args.trim_to]
-                        if len(seq2) > args.trim_to:
-                            seq2 = seq2[:args.trim_to]
-                            qual2 = qual2[:args.trim_to]
-                        samp.add_post([l1, seq1, '+', qual1, l2, seq2, '+', qual2], j)
-                    else:
-                        # skip
-                        if len(r1.readline()) == 0:
-                            break
-                        r2.readline()
-                        for r in [r1, r2]:
-                            for _ in range(3):
-                                r.readline()
+            samp.close()
+
+        print('*** Permuting ***', file=sys.stderr)
+        print('Generating permutation with %d elements' % nreads, file=sys.stderr)
+        idxs = np.random.permutation(nreads)
+        n = 0
+        ival = 100
+        with open(unsrt_fn, 'wb') as ofh:
+            for si, sampler in enumerate(samplers):
+                seen_items = set()
+                for ln in reverse_readline(sampler.fn):
+                    orig_rank = int(ln[:ln.find('\t')])
+                    if orig_rank not in seen_items:
+                        i = orig_rank + si * args.reads_per_accession
+                        ofh.write(str(idxs[i]) + '\t' + ln + '\n')
+                        seen_items.add(orig_rank)
                     if n == ival:
                         ival = int(ival * ival_mult)
-                        print('  processed %d reads' % n, file=sys.stderr)
+                        print('  processed %d unsorted records' % n, file=sys.stderr)
                     n += 1
-                    nfile += 1
-                    if args.stop_after is not None and nfile >= args.stop_after:
-                        break
-        samp.close()
+                del seen_items
+        del idxs
 
-    print('*** Permuting ***', file=sys.stderr)
-    nreads = args.reads_per_accession * len(samplers)
-    print('Generating permutation with %d elements' % nreads, file=sys.stderr)
-    idxs = np.random.permutation(nreads)
-    unsrt_fn = os.path.join(args.temp_dir, '.reads.py.unsorted')
-    n = 0
-    ival = 100
-    with open(unsrt_fn, 'wb') as ofh:
-        for si, sampler in enumerate(samplers):
-            seen_items = set()
-            for ln in reverse_readline(sampler.fn):
-                orig_rank = int(ln[:ln.find('\t')])
-                if orig_rank not in seen_items:
-                    i = orig_rank + si * args.reads_per_accession
-                    ofh.write(str(idxs[i]) + '\t' + ln + '\n')
-                    seen_items.add(orig_rank)
-                if n == ival:
-                    ival = int(ival * ival_mult)
-                    print('  processed %d unsorted records' % n, file=sys.stderr)
-                n += 1
-            del seen_items
+        if not args.keep_intermediates:
+            print('Deleting %d reservoir samplers:' % len(samplers), file=sys.stderr)
+            for samp in samplers:
+                del samp
 
     unsrt_n = wcl(unsrt_fn)
     if unsrt_n != nreads:
@@ -217,15 +226,11 @@ def go(args):
         for fn in tmpfns:
             os.remove(fn)
 
-    print('Deleting %d reservoir samplers and temporary files:' % len(samplers), file=sys.stderr)
-    for samp in samplers:
-        del samp
-
     print('*** Sorting ***', file=sys.stderr)
     print('Sorting temporary sample file by permuted index', file=sys.stderr)
-    del idxs
     srt_fn = os.path.join(args.temp_dir, '.reads.py.sorted')
     srt_tmp_dir = os.path.join(args.temp_dir, 'sort_temp')
+    mkdir_quiet(srt_tmp_dir)
     cmd = 'sort -n -k1,1 -S %dG -T %s %s > %s' % (args.sort_gb, srt_tmp_dir, unsrt_fn, srt_fn)
     print(cmd, file=sys.stderr)
     ret = os.system(cmd)
@@ -311,6 +316,8 @@ if __name__ == '__main__':
                         help='If read is longer than this, trim to this length.')
     parser.add_argument('--keep-intermediates', action='store_const', const=True, default=False,
                         help='If set, intermediate files are not deleted.')
+    parser.add_argument('--resume', action='store_const', const=True, default=False,
+                        help='Try to resume a job partway.')
     parser.add_argument('--prefix', metavar='str', type=str, default='out',
                         help='Prefix for output files.')
     parser.add_argument('--temp-dir', metavar='str', type=str, default='temp',
