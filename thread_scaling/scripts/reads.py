@@ -132,7 +132,7 @@ def go(args):
     unsrt_fn = os.path.join(args.temp_dir, '.reads.py.unsorted')
     nreads = args.reads_per_accession * len(samplers)
 
-    if os.path.exists(unsrt_fn) and args.resume:
+    if (os.path.exists(unsrt_fn) and args.resume) or not os.path.exists(unsrt_fn):
         n = 0
         ival = 100
         ival_mult = 1.2
