@@ -132,10 +132,10 @@ def go(args):
     unsrt_fn = os.path.join(args.temp_dir, '.reads.py.unsorted')
     nreads = args.reads_per_accession * len(samplers)
 
+    ival_mult = 1.2
     if (os.path.exists(unsrt_fn) and args.resume) or not os.path.exists(unsrt_fn):
         n = 0
         ival = 100
-        ival_mult = 1.2
         last_seqlen = None
         print('*** Initial sampling run ***', file=sys.stderr)
         for rd, samp in zip(reads, samplers):
@@ -199,10 +199,12 @@ def go(args):
             for si, sampler in enumerate(samplers):
                 seen_items = set()
                 for ln in reverse_readline(sampler.fn):
-                    orig_rank = int(ln[:ln.find('\t')])
+                    taboff = ln.find('\t')
+                    assert taboff >= 0
+                    orig_rank = int(ln[:taboff])
                     if orig_rank not in seen_items:
                         i = orig_rank + si * args.reads_per_accession
-                        ofh.write(str(idxs[i]) + '\t' + ln + '\n')
+                        ofh.write(str(idxs[i]) + '\t' + ln[taboff+1:] + '\n')
                         seen_items.add(orig_rank)
                     if n == ival:
                         ival = int(ival * ival_mult)
@@ -250,6 +252,10 @@ def go(args):
                 ival = 100
                 for ln in fh:
                     toks = ln.split('\t')
+                    assert toks[1][0] == '@'
+                    assert toks[3][0] == '+'
+                    assert toks[5][0] == '@'
+                    assert toks[7][0] == '+'
                     ofh1.write(b'\n'.join(toks[1:5]) + b'\n')
                     ofh2.write(b'\n'.join(toks[5:9]) + b'\n')
                     if n == ival:
@@ -261,12 +267,15 @@ def go(args):
     with open(srt_fn, 'rb') as fh:
         with open(args.prefix + '_block_1.fq', 'wb') as ofhb1:
             with open(args.prefix + '_block_2.fq', 'wb') as ofhb2:
-                n = 0
                 ival = 100
                 toks1, toks2 = [], []
                 nbytes1, nbytes2 = 0, 0
                 for i, ln in enumerate(fh):
                     toks = ln.split('\t')
+                    assert toks[1][0] == '@'
+                    assert toks[3][0] == '+'
+                    assert toks[5][0] == '@'
+                    assert toks[7][0] == '+'
                     toks1.append(toks[1:5])
                     toks2.append(toks[5:9])
                     nbytes1 += sum(map(len, toks1[-1])) + 4
@@ -280,10 +289,9 @@ def go(args):
                             ofhb2.write(b'\n'.join(rec) + b'\n')
                         toks1, toks2 = [], []
                         nbytes1, nbytes2 = 0, 0
-                    if n == ival:
+                    if i == ival:
                         ival = int(ival * ival_mult)
-                        print('  processed %d sorted records for blocked output' % n, file=sys.stderr)
-                    n += 1
+                        print('  processed %d sorted records for blocked output' % i, file=sys.stderr)
                 for rec in toks1:
                     ofhb1.write(b'\n'.join(rec) + b'\n')
                 for rec in toks2:
