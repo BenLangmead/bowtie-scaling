@@ -199,6 +199,7 @@ def go(args):
             for si, sampler in enumerate(samplers):
                 seen_items = set()
                 for ln in reverse_readline(sampler.fn):
+                    ln = ln.rstrip()
                     taboff = ln.find('\t')
                     assert taboff >= 0
                     orig_rank = int(ln[:taboff])
@@ -251,7 +252,7 @@ def go(args):
                 n = 0
                 ival = 100
                 for ln in fh:
-                    toks = ln.split('\t')
+                    toks = ln.rstrip().split('\t')
                     assert toks[1][0] == '@'
                     assert toks[3][0] == '+'
                     assert toks[5][0] == '@'
@@ -271,7 +272,7 @@ def go(args):
                 toks1, toks2 = [], []
                 nbytes1, nbytes2 = 0, 0
                 for i, ln in enumerate(fh):
-                    toks = ln.split('\t')
+                    toks = ln.rstrip().split('\t')
                     assert toks[1][0] == '@'
                     assert toks[3][0] == '+'
                     assert toks[5][0] == '@'
