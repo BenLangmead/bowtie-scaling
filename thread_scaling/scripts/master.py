@@ -254,6 +254,7 @@ def go(args):
         for name, tool, branch, mp_mt, preproc, aligner_args in get_configs(args.config):
             pe_str = 'pe' if args.m2 is not None else 'unp'
             odir = join(args.output_dir, name, pe_str)
+            build_dir = join(args.build_dir, name)
 
             if tool not in indexes_verified:
                 print('#   Verifying index for ' + tool, file=sys.stderr)
@@ -299,7 +300,7 @@ def go(args):
 
             procs = []
             for i in range(nprocess):
-                cmd = ['build/%s/%s' % (name, tool_exe(tool))]
+                cmd = ['%s/%s' % (build_dir, tool_exe(tool))]
                 cmd.extend(['-p', str(nthreads_per_process)])
                 if tool == 'bowtie2' or tool == 'hisat':
                     cmd.append('-x')
