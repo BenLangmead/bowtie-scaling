@@ -1,6 +1,3 @@
 #!/bin/bash
 
-set -ex
-
-d=`dirname $0`
-sh $d/common.sh bt2
+sh `dirname $0`/common.sh bt2 $*

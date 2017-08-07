@@ -1,6 +1,3 @@
 #!/bin/bash
 
-set -ex
-
-d=`dirname $0`
-sh $d/common.sh ht
+sh `dirname $0`/common.sh ht $*
