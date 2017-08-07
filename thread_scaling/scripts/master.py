@@ -53,30 +53,28 @@ def tool_ext(tool):
         raise RuntimeError('Unknown tool: "%s"' % tool)
 
 
-def make_tool_version(name, tool, preproc):
+def make_tool_version(name, tool, preproc, build_dir):
     """ Builds target in specified clone """
     exe = tool_exe(tool)
-    cmd = "make -e -C build/%s %s %s" % (name, preproc, exe)
+    cmd = "make -e -C %s %s %s" % (build_dir, preproc, exe)
     print(cmd)
     ret = os.system(cmd)
     if ret != 0:
         raise RuntimeError('non-zero return from make for %s version "%s"' % (tool, name))
 
 
-def install_tool_version(name, tool, url, branch, preproc, build_dir='build', make_tool=True):
+def install_tool_version(name, tool, url, branch, preproc, build_dir, make_tool=True):
     """ Clones appropriate branch """
-    mkdir_quiet(join(build_dir, name))
     if len(branch) == 40 and branch.isalnum():
-        dir = '%s/%s' % (build_dir, name)
-        cmd = "git clone %s -- %s && cd %s && git reset --hard %s" % (url, dir, dir, branch)
+        cmd = "git clone %s -- %s && cd %s && git reset --hard %s" % (url, build_dir, build_dir, branch)
     else:
-        cmd = "git clone %s -b %s -- %s/%s" % (url, branch, build_dir, name)
+        cmd = "git clone %s -b %s -- %s" % (url, branch, build_dir)
     print(cmd)
     ret = os.system(cmd)
     if ret != 0:
         raise RuntimeError('non-zero return from git clone for %s version "%s"' % (tool, name))
     if make_tool:
-        make_tool_version(name, tool, preproc)
+        make_tool_version(name, tool, preproc, build_dir)
 
 
 def get_configs(config_fn):
@@ -171,6 +169,10 @@ def go(args):
     if not os.path.isdir(tmpdir):
         raise RuntimeError('Temporary directory isn\'t a directory: "%s"' % tmpdir)
 
+    if not os.path.exists(args.output_dir):
+        print('# Creating output directory "%s"' % args.output_dir, file=sys.stderr)
+        mkdir_quiet(args.output_dir)
+
     repos = {'bowtie': 'https://github.com/BenLangmead/bowtie.git',
              'bowtie2': 'https://github.com/BenLangmead/bowtie2.git',
              'hisat': 'https://github.com/BenLangmead/hisat.git'}
@@ -199,7 +201,7 @@ def go(args):
             npull += 1
             print('#   Pulling "%s"' % name, file=sys.stderr)
             os.system('cd %s && git pull' % build_dir)
-            make_tool_version(name, tool, preproc)
+            make_tool_version(name, tool, preproc, build_dir)
         elif build and tool == last_tool and branch == last_branch and preproc == last_preproc:
             nlink += 1
             print('#   Linking "%s"' % name, file=sys.stderr)
@@ -209,11 +211,11 @@ def go(args):
             print('#   Copying "%s"' % name, file=sys.stderr)
             os.system('cp -r %s %s' % (last_build_dir, build_dir))
             os.remove(os.path.join(build_dir, tool_exe(tool)))
-            make_tool_version(name, tool, preproc)
+            make_tool_version(name, tool, preproc, build_dir)
         elif build:
             nbuild += 1
             print('#   Building "%s"' % name, file=sys.stderr)
-            install_tool_version(name, tool, repos[tool], branch, preproc)
+            install_tool_version(name, tool, repos[tool], branch, preproc, build_dir)
         last_name, last_tool, last_branch, last_preproc, last_build_dir = name, tool, branch, preproc, build_dir
 
     print('# Finished setting up binaries; built %d, pulled %d, copied %d, linked %d' %
@@ -222,9 +224,6 @@ def go(args):
     series = list(map(int, args.nthread_series.split(',')))
     assert len(series) > 0
     print('#   series = %s' % str(series), file=sys.stderr)
-
-    print('# Creating output directory "%s"' % args.output_dir, file=sys.stderr)
-    mkdir_quiet(args.output_dir)
 
     print('# Verifying reads', file=sys.stderr)
     verify_reads([args.m1, args.m2, args.m1b, args.m2b])
