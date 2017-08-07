@@ -5,13 +5,10 @@ set -ex
 if ! which git ; then
     module load git
 fi
-
 ! which git && echo "No git in PATH" && exit 1
 
-# ','.join(map(str, sorted(set([i for i in range(12, 112+1, 12)] + [i for i in range(8, 112+1, 8)] + [1]))))
-THREAD_SERIES="2,3,4,6"
-
 TOOL_SHORT=$1
+THREAD_SERIES="2,3,4,6"
 REF=hg38
 
 if [ "${TOOL_SHORT}" = "bt2" ] ; then
@@ -29,8 +26,8 @@ elif [ "${TOOL_SHORT}" = "bt" ] ; then
 elif [ "${TOOL_SHORT}" = "ht" ] ; then
     TOOL=hisat
     TOOL_IDX_EXT=bt2
-    TOOL_UNP_READS=1200000
-    TOOL_PAIRED_READS=600000
+    TOOL_UNP_READS=500000
+    TOOL_PAIRED_READS=500000
     READLEN=100
 else
     echo "Bad tool shortname: ${TOOL_SHORT}"
@@ -66,7 +63,7 @@ fi
 [ ! -f "${TS_INDEXES}/${TOOL}/${REF}.1.${TOOL_IDX_EXT}" ] && echo "Missing index: ${TS_INDEXES}/${TOOL}/${REF}" && exit 1
 
 BASEDIR=$(dirname "$0")
-CONFIG=${BASEDIR}/../${TOOL_SHORT}.tsv
+CONFIG=${BASEDIR}/${TOOL_SHORT}.tsv
 [ ! -f "${CONFIG}" ] && echo "No such config file: \"${CONFIG}\"" && exit 1
 
 #
