@@ -346,7 +346,7 @@ def go(args):
             print('#   All processes joined; took %f seconds' % delt.total_seconds(), file=sys.stderr)
             if sum(exitlevels) > 0:
                 raise RuntimeError('At least one subprocess exited with non-zero exit level. '
-                                   'Exit levels: %s' + str(exitlevels))
+                                   'Exit levels: %s' % str(exitlevels))
 
             if args.delete_sam and not args.sam_dev_null:
                 print('#   Deleting SAM outputs', file=sys.stderr)
