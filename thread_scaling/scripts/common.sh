@@ -10,12 +10,13 @@ fi
 [ -z "$1" ] && echo "Specify tool shortname as first arg" && exit 1
 [ -z "$2" ] && echo "Specify system as second arg" && exit 1
 [ -z "$3" ] && echo "Specify unp or pe as third arg" && exit 1
-shift 3
 
 TOOL_SHORT=$1
 SYSTEM=$2
 PE=$3
 REF=hg38
+
+shift 3
 
 [ "${PE}" != "unp" -a "${PE}" != "pe" ] && echo "Third arg must be unp or pe" && exit 1
 
