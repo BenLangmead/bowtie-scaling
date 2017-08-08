@@ -14,9 +14,10 @@ fi
 TOOL_SHORT=$1
 SYSTEM=$2
 PE=$3
+TEMP=$4
 REF=hg38
 
-shift 3
+shift 4
 
 [ "${PE}" != "unp" -a "${PE}" != "pe" ] && echo "Third arg must be unp or pe" && exit 1
 
@@ -92,7 +93,7 @@ if [ "${PE}" = "pe" ] ; then
         --input-block-bytes 12288 \
         --input-reads-per-block 44 \
         --sam-dev-null \
-        --tempdir /tmp \
+        --tempdir "${TEMP}" \
         --preproc "$*" \
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
         --build-dir "${SYSTEM}/build-pe/${TOOL_SHORT}" \
@@ -113,7 +114,7 @@ if [ "${PE}" = "unp" ] ; then
         --input-block-bytes 12288 \
         --input-reads-per-block 44 \
         --sam-dev-null \
-        --tempdir /tmp \
+        --tempdir "${TEMP}" \
         --preproc "$*" \
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
         --build-dir "${SYSTEM}/build-unp/${TOOL_SHORT}" \
