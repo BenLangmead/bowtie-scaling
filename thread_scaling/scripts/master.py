@@ -250,6 +250,7 @@ def go(args):
     print('# Generating %scommands' % ('' if args.dry_run else 'and running '), file=sys.stderr)
 
     indexes_verified = set()
+    pe_str = 'pe' if args.m2 is not None else 'unp'
 
     read_set = None
 
@@ -260,18 +261,20 @@ def go(args):
 
         # iterate over configurations
         for name, tool, branch, mp_mt, preproc, aligner_args in get_configs(args.config):
-            pe_str = 'pe' if args.m2 is not None else 'unp'
-            odir = join(args.output_dir, name, pe_str)
             build_dir = join(args.build_dir, name)
+
+            odir = join(args.output_dir, name, pe_str)
+            if not os.path.exists(odir):
+                print('#   Creating output directory "%s"' % odir, file=sys.stderr)
+                mkdir_quiet(odir)
+
+            redo = 1
 
             if tool not in indexes_verified:
                 print('#   Verifying index for ' + tool, file=sys.stderr)
                 verify_index(args.index, tool)
                 indexes_verified.add(tool)
-
-            if not os.path.exists(odir):
-                print('#   Creating output directory "%s"' % odir, file=sys.stderr)
-                mkdir_quiet(odir)
+                redo = 2
 
             if mp_mt != 0 and (nthreads % mp_mt != 0):
                 continue  # skip experiment if # threads isn't evenly divisible
@@ -288,6 +291,7 @@ def go(args):
                 print('#   Preparing reads (%s) for nthreads=%d, mp_mt=%d' %
                       (blocked_str, nthreads, mp_mt), file=sys.stderr)
                 read_set = prepare_reads(args, nthreads, mp_mt, tmpdir, blocked=blocked)
+                redo = 2
                 last_mp_mt = mp_mt
 
             nprocess = 1 if mp_mt == 0 else nthreads // mp_mt
@@ -296,78 +300,84 @@ def go(args):
             print('# %s: nthreads=%d, nprocs=%d, threads per proc=%d' %
                   (name, nthreads, nprocess, nthreads_per_process), file=sys.stderr)
 
-            # Set up output files
-            run_names = ['%s_%s_%d_%d_%d' % (name, pe_str, mp_mt, i, nthreads) for i in range(nprocess)]
-            stdout_ofns = [join(odir, '%s.out' % runname) for runname in run_names]
-            stderr_ofns = [join(odir, '%s.err' % runname) for runname in run_names]
-            sh_ofns = [join(odir, '%s.sh' % runname) for runname in run_names]
-            sam_ofns = ['/dev/null'] * nprocess
-            if not args.sam_dev_null:
-                samdir = odir if args.sam_output_dir else tmpdir
-                sam_ofns = [join(samdir, '%s.sam' % runname) for runname in run_names]
+            for i in range(redo):
+                print('# --- Attempt %d/%d ---' % (i+1, redo))
 
-            procs = []
-            for i in range(nprocess):
-                cmd = ['%s/%s' % (build_dir, tool_exe(tool))]
-                if tool == 'bwa':
-                    cmd.append('mem')
-                cmd.extend(['-t' if tool == 'bwa' else '-p', str(nthreads_per_process)])
-                if tool == 'bowtie2' or tool == 'hisat':
-                    cmd.append('-x')
-                cmd.append(args.index)
-                if tool != 'bwa':
-                    cmd.append('-t')
-                    if args.m2 is not None:
-                        cmd.extend(['-1', read_set[i][0]])
-                        cmd.extend(['-2', read_set[i][1]])
-                    elif tool == 'bowtie2' or tool == 'hisat':
-                        cmd.extend(['-U', read_set[i][0]])
+                # Set up output files
+                run_names = ['%s_%s_%d_%d_%d' % (name, pe_str, mp_mt, i, nthreads) for i in range(nprocess)]
+                stdout_ofns = ['/dev/null'] * nprocess
+                stderr_ofns = ['/dev/null'] * nprocess
+                if i == redo - 1:
+                    stdout_ofns = [join(odir, '%s.out' % runname) for runname in run_names]
+                    stderr_ofns = [join(odir, '%s.err' % runname) for runname in run_names]
+                sh_ofns = [join(odir, '%s.sh' % runname) for runname in run_names]
+                sam_ofns = ['/dev/null'] * nprocess
+                if not args.sam_dev_null and i == redo - 1:
+                    samdir = odir if args.sam_output_dir else tmpdir
+                    sam_ofns = [join(samdir, '%s.sam' % runname) for runname in run_names]
+
+                procs = []
+                for i in range(nprocess):
+                    cmd = ['%s/%s' % (build_dir, tool_exe(tool))]
+                    if tool == 'bwa':
+                        cmd.append('mem')
+                    cmd.extend(['-t' if tool == 'bwa' else '-p', str(nthreads_per_process)])
+                    if tool == 'bowtie2' or tool == 'hisat':
+                        cmd.append('-x')
+                    cmd.append(args.index)
+                    if tool != 'bwa':
+                        cmd.append('-t')
+                        if args.m2 is not None:
+                            cmd.extend(['-1', read_set[i][0]])
+                            cmd.extend(['-2', read_set[i][1]])
+                        elif tool == 'bowtie2' or tool == 'hisat':
+                            cmd.extend(['-U', read_set[i][0]])
+                        else:
+                            cmd.append(read_set[i][0])
                     else:
                         cmd.append(read_set[i][0])
-                else:
-                    cmd.append(read_set[i][0])
-                    if args.m2 is not None:
-                        cmd.append(read_set[i][1])
+                        if args.m2 is not None:
+                            cmd.append(read_set[i][1])
 
-                cmd.extend(['-S', sam_ofns[i]])
-                if aligner_args is not None and len(aligner_args) > 0:
-                    cmd.extend(aligner_args.split())
-                if mp_mt > 0:
-                    cmd.append('--mm')
-                cmd.extend(['>', stdout_ofns[i]])
-                cmd.extend(['2>', stderr_ofns[i]])
-                cmd = ' '.join(cmd)
-                with open(sh_ofns[i], 'w') as ofh:
-                    ofh.write("#!/bin/sh\n")
-                    ofh.write("set -e\n")
-                    ofh.write(cmd + '\n')
-                print(cmd)
+                    cmd.extend(['-S', sam_ofns[i]])
+                    if aligner_args is not None and len(aligner_args) > 0:
+                        cmd.extend(aligner_args.split())
+                    if mp_mt > 0:
+                        cmd.append('--mm')
+                    cmd.extend(['>', stdout_ofns[i]])
+                    cmd.extend(['2>', stderr_ofns[i]])
+                    cmd = ' '.join(cmd)
+                    with open(sh_ofns[i], 'w') as ofh:
+                        ofh.write("#!/bin/sh\n")
+                        ofh.write("set -e\n")
+                        ofh.write(cmd + '\n')
+                    print(cmd)
 
-                def spawn_worker(shfn):
-                    def worker():
-                        sys.exit(0 if os.system('sh ' + shfn) == 0 else 1)
-                    return worker
+                    def spawn_worker(shfn):
+                        def worker():
+                            sys.exit(0 if os.system('sh ' + shfn) == 0 else 1)
+                        return worker
 
-                procs.append(multiprocessing.Process(target=spawn_worker(sh_ofns[i])))
+                    procs.append(multiprocessing.Process(target=spawn_worker(sh_ofns[i])))
 
-            print('#   Starting processes', file=sys.stderr)
-            ti = datetime.datetime.now()
-            for proc in procs:
-                proc.start()
-            exitlevels = []
-            for proc in procs:
-                proc.join()
-                exitlevels.append(proc.exitcode)
-            delt = datetime.datetime.now() - ti
-            print('#   All processes joined; took %f seconds' % delt.total_seconds(), file=sys.stderr)
-            if sum(exitlevels) > 0:
-                raise RuntimeError('At least one subprocess exited with non-zero exit level. '
-                                   'Exit levels: %s' % str(exitlevels))
+                print('#   Starting processes', file=sys.stderr)
+                ti = datetime.datetime.now()
+                for proc in procs:
+                    proc.start()
+                exitlevels = []
+                for proc in procs:
+                    proc.join()
+                    exitlevels.append(proc.exitcode)
+                delt = datetime.datetime.now() - ti
+                print('#   All processes joined; took %f seconds' % delt.total_seconds(), file=sys.stderr)
+                if sum(exitlevels) > 0:
+                    raise RuntimeError('At least one subprocess exited with non-zero exit level. '
+                                       'Exit levels: %s' % str(exitlevels))
 
-            if args.delete_sam and not args.sam_dev_null:
-                print('#   Deleting SAM outputs', file=sys.stderr)
-                for sam_ofn in sam_ofns:
-                    os.remove(sam_ofn)
+                if args.delete_sam and not args.sam_dev_null:
+                    print('#   Deleting SAM outputs', file=sys.stderr)
+                    for sam_ofn in sam_ofns:
+                        os.remove(sam_ofn)
 
     print('#   Purging some old reads', file=sys.stderr)
     if read_set is not None:
