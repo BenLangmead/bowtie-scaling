@@ -10,6 +10,7 @@ fi
 [ -z "$1" ] && echo "Specify tool shortname as first arg" && exit 1
 [ -z "$2" ] && echo "Specify system as second arg" && exit 1
 [ -z "$3" ] && echo "Specify unp or pe as third arg" && exit 1
+shift 3
 
 TOOL_SHORT=$1
 SYSTEM=$2
@@ -91,6 +92,7 @@ if [ "${PE}" = "pe" ] ; then
         --input-reads-per-block 44 \
         --sam-dev-null \
         --tempdir /tmp \
+        --preproc "$*" \
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
         --build-dir "${SYSTEM}/build-pe/${TOOL_SHORT}" \
         --nthread-series `cat ${SYSTEM}/thread_series.txt` \
@@ -111,6 +113,7 @@ if [ "${PE}" = "unp" ] ; then
         --input-reads-per-block 44 \
         --sam-dev-null \
         --tempdir /tmp \
+        --preproc "$*" \
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
         --build-dir "${SYSTEM}/build-unp/${TOOL_SHORT}" \
         --nthread-series `cat ${SYSTEM}/thread_series.txt` \

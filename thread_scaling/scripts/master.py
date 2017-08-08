@@ -40,6 +40,8 @@ def mkdir_quiet(dr):
 def tool_exe(tool):
     if tool == 'bowtie2' or tool == 'bowtie' or tool == 'hisat':
         return tool + '-align-s'
+    elif tool == 'bwa':
+        return 'bwa'
     else:
         raise RuntimeError('Unknown tool: "%s"' % tool)
 
@@ -94,14 +96,16 @@ def get_configs(config_fn):
 
 def verify_index(basename, tool):
     """ Check that all index files exist """
-    te = tool_ext(tool)
-
     def _ext_exists(ext):
+        print('#  checking for "%s"' % (basename + ext), file=sys.stderr)
         return os.path.exists(basename + ext)
-    print('#  checking for "%s"' % (basename + '.1.' + te), file=sys.stderr)
-    ret = all(_ext_exists(x + te) for x in ['.1.', '.2.', '.3.', '.4.', '.rev.1.', '.rev.2.'])
-    if ret and tool == 'hisat':
-        return all(_ext_exists(x + te) for x in ['.5.', '.6.', '.rev.5.', '.rev.6.'])
+    if tool == 'bwa':
+        ret = all(_ext_exists(x) for x in ['.amb', '.ann', '.pac'])
+    else:
+        te = tool_ext(tool)
+        ret = all(_ext_exists(x + te) for x in ['.1.', '.2.', '.3.', '.4.', '.rev.1.', '.rev.2.'])
+        if ret and tool == 'hisat':
+            return all(_ext_exists(x + te) for x in ['.5.', '.6.', '.rev.5.', '.rev.6.'])
     return ret
 
 
@@ -157,6 +161,12 @@ def prepare_reads(args, nthread, mp_mt, tmpdir, blocked=False):
     return read_sets
 
 
+repos = {'bowtie': 'https://github.com/BenLangmead/bowtie.git',
+         'bowtie2': 'https://github.com/BenLangmead/bowtie2.git',
+         'hisat': 'https://github.com/BenLangmead/hisat.git',
+         'bwa': 'https://github.com/ChristopherWilks/bwa.git'}
+
+
 def go(args):
     # Set up temporary directory, used for holding read inputs and SAM output.
     # Strongly suggest that it be local, non-networked storage.
@@ -173,14 +183,12 @@ def go(args):
         print('# Creating output directory "%s"' % args.output_dir, file=sys.stderr)
         mkdir_quiet(args.output_dir)
 
-    repos = {'bowtie': 'https://github.com/BenLangmead/bowtie.git',
-             'bowtie2': 'https://github.com/BenLangmead/bowtie2.git',
-             'hisat': 'https://github.com/BenLangmead/hisat.git'}
-
     print('# Setting up binaries', file=sys.stderr)
     last_name, last_tool, last_branch, last_preproc, last_build_dir = '', '', '', '', ''
     npull, nbuild, ncopy, nlink = 0, 0, 0, 0
     for name, tool, branch, _, preproc, _ in get_configs(args.config):
+        if args.preproc is not None:
+            preproc += ' ' + args.preproc
         if name == 'name' and branch == 'branch':
             continue  # skip header line
         if len(last_tool) == 0:
@@ -301,18 +309,26 @@ def go(args):
             procs = []
             for i in range(nprocess):
                 cmd = ['%s/%s' % (build_dir, tool_exe(tool))]
-                cmd.extend(['-p', str(nthreads_per_process)])
+                if tool == 'bwa':
+                    cmd.append('mem')
+                cmd.extend(['-t' if tool == 'bwa' else '-p', str(nthreads_per_process)])
                 if tool == 'bowtie2' or tool == 'hisat':
                     cmd.append('-x')
                 cmd.append(args.index)
-                cmd.append('-t')
-                if args.m2 is not None:
-                    cmd.extend(['-1', read_set[i][0]])
-                    cmd.extend(['-2', read_set[i][1]])
-                elif tool == 'bowtie2' or tool == 'hisat':
-                    cmd.extend(['-U', read_set[i][0]])
+                if tool != 'bwa':
+                    cmd.append('-t')
+                    if args.m2 is not None:
+                        cmd.extend(['-1', read_set[i][0]])
+                        cmd.extend(['-2', read_set[i][1]])
+                    elif tool == 'bowtie2' or tool == 'hisat':
+                        cmd.extend(['-U', read_set[i][0]])
+                    else:
+                        cmd.append(read_set[i][0])
                 else:
                     cmd.append(read_set[i][0])
+                    if args.m2 is not None:
+                        cmd.append(read_set[i][1])
+
                 cmd.extend(['-S', sam_ofns[i]])
                 if aligner_args is not None and len(aligner_args) > 0:
                     cmd.extend(aligner_args.split())
@@ -364,9 +380,6 @@ if __name__ == '__main__':
 
     # Output-related options
     parser = argparse.ArgumentParser(description='Run a single series of thread-scaling experiments.')
-    default_bt_repo = "https://github.com/BenLangmead/bowtie.git"
-    default_bt2_repo = "https://github.com/BenLangmead/bowtie2.git"
-    default_hs_repo = "https://github.com/BenLangmead/hisat.git"  # this is my fork
 
     requiredNamed = parser.add_argument_group('required named arguments')
     requiredNamed.add_argument('--index', metavar='index_basename', type=str, required=True,
@@ -397,11 +410,13 @@ if __name__ == '__main__':
                              'E.g. --nthread-series 10,20,30 will run separate experiments using '
                              '10, 20 and 30 threads respectively.  Deafult: just one experiment '
                              'using max # threads.')
-    parser.add_argument('--repo', metavar='url', type=str, default=default_bt_repo,
-                        help='Path to repo for tool, cloned as needed (default: %s)' % default_bt_repo)
+    parser.add_argument('--repo', metavar='url', type=str, default=repos['bowtie'],
+                        help='Path to repo for tool, cloned as needed (default: %s)' % repos['bowtie'])
     parser.add_argument('--tempdir', metavar='path', type=str, required=False,
                         help='Path for temporary files.  Used for reads files and output SAM.  Should be local, '
                              'non-networked storage.')
+    parser.add_argument('--preproc', metavar='args', type=str, required=False,
+                        help='Add preprocessing macros to be added to all build jobs.')
     parser.add_argument('--force-builds', action='store_const', const=True, default=False,
                         help='Overwrite binaries that already exist')
     parser.add_argument('--pull', action='store_const', const=True, default=False,
