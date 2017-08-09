@@ -27,14 +27,15 @@ def parse_dir(dr):
 def parse_file(fn, pe=None):
     fn = fn[:-4]  # remove .err/.out
     assert len(fn.split('_')) == 5, fn
-    prefix, pe2, threads_per_proc, proc_id, tot_threads = fn.split('_')
+    prefix, pe2, threads_per_proc, proc_id, tot_threads, attempt = fn.split('_')
     if pe2 is not None and pe2 != pe:
         raise RuntimeError('Unexpected prefix: "%s"' % (prefix + '_' + pe2))
     assert len(threads_per_proc) > 0, fn
     assert len(proc_id) > 0, fn
     assert len(tot_threads) > 0, fn
     threads_per_proc, proc_id, tot_threads = int(threads_per_proc), int(proc_id), int(tot_threads)
-    return threads_per_proc, proc_id, tot_threads
+    attempt = int(attempt)
+    return threads_per_proc, proc_id, tot_threads, attempt
 
 
 def parse_time(tmst):
@@ -146,7 +147,10 @@ def tabulate():
             for fn in filter(lambda x: x.endswith('.err'), files):
                 print('  Examining "%s/%s"' % (root, fn), file=sys.stderr)
                 dat = new_dat()
-                threads_per_proc, proc_id, tot_threads = parse_file(fn, pe)
+                threads_per_proc, proc_id, tot_threads, attempt = parse_file(fn, pe)
+                dat.update({'aligner': aligner, 'series': series, 'pe': pe,
+                            'threads_per_proc' : threads_per_proc, 'proc_id': proc_id,
+                            'totthreads': tot_threads, 'attempt': attempt})
                 if threads_per_proc == 0:
                     threads_per_proc = tot_threads
                 if fn.endswith('.err'):

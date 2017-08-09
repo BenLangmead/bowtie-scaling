@@ -300,21 +300,22 @@ def go(args):
             print('# %s: nthreads=%d, nprocs=%d, threads per proc=%d' %
                   (name, nthreads, nprocess, nthreads_per_process), file=sys.stderr)
 
-            for i in range(redo):
-                print('# --- Attempt %d/%d ---' % (i+1, redo))
+            for idx in range(redo):
+                idx_rev = redo - idx
+                print('# --- Attempt %d/%d ---' % (idx+1, redo))
 
                 # Set up output files
-                run_names = ['%s_%s_%d_%d_%d' % (name, pe_str, mp_mt, i, nthreads) for i in range(nprocess)]
+                run_names = ['%s_%s_%d_%d_%d_%d' % (name, pe_str, mp_mt, i, nthreads, idx_rev) for i in range(nprocess)]
                 stdout_ofns = ['/dev/null'] * nprocess
                 stderr_ofns = ['/dev/null'] * nprocess
-                if i == redo - 1:
+                sam_ofns = ['/dev/null'] * nprocess
+                if idx_rev == 1:
                     stdout_ofns = [join(odir, '%s.out' % runname) for runname in run_names]
                     stderr_ofns = [join(odir, '%s.err' % runname) for runname in run_names]
+                    if not args.sam_dev_null:
+                        samdir = odir if args.sam_output_dir else tmpdir
+                        sam_ofns = [join(samdir, '%s.sam' % runname) for runname in run_names]
                 sh_ofns = [join(odir, '%s.sh' % runname) for runname in run_names]
-                sam_ofns = ['/dev/null'] * nprocess
-                if not args.sam_dev_null and i == redo - 1:
-                    samdir = odir if args.sam_output_dir else tmpdir
-                    sam_ofns = [join(samdir, '%s.sam' % runname) for runname in run_names]
 
                 procs = []
                 for i in range(nprocess):
