@@ -12,7 +12,7 @@ for m in 1 2 ; do
 #SBATCH --mem=1G
 #SBATCH --time=12:00:00
 #SBATCH --ntasks-per-node=1
-cat mix${l}_?${b}_${m}.fq | grep -v '^$' | gzip -c9 > mix${l}_?${b}_${m}.fq.gz
+cat mix${l}_?${b}_${m}.fq | grep -v '^$' | gzip -c9 > mix${l}${b}_${m}.fq.gz
 EOF
 		echo "sbatch .zip${l}${b}_${m}.sh"
 	    fi
