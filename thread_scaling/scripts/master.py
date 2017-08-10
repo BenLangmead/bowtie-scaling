@@ -237,9 +237,9 @@ def go(args):
     verify_reads([args.m1, args.m2, args.m1b, args.m2b])
     nlines_tot = wcl(args.m1)
     nlines_tot_b = wcl(args.m1b)
-    if nlines_tot != nlines_tot_b:
-        raise RuntimeError('Mismatch in # lines between unblocked (%d) and blocked (%d) inputs' % \
-                           (nlines_tot, nlines_tot_b))
+    #if nlines_tot != nlines_tot_b:
+    #    raise RuntimeError('Mismatch in # lines between unblocked (%d) and blocked (%d) inputs' % \
+    #                       (nlines_tot, nlines_tot_b))
 
     nreads_tot = nlines_tot // 4
     nreads_needed = args.reads_per_thread * max(series)
