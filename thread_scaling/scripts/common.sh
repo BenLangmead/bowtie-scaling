@@ -95,6 +95,7 @@ if [ "${PE}" = "pe" ] ; then
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
         --build-dir "${SYSTEM}/build-pe/${TOOL_SHORT}" \
         --nthread-series "${THREAD_SERIES}" \
+	--no-count \
         --config "${CONFIG}"
 fi
 
@@ -116,6 +117,7 @@ if [ "${PE}" = "unp" ] ; then
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
         --build-dir "${SYSTEM}/build-unp/${TOOL_SHORT}" \
         --nthread-series "${THREAD_SERIES}" \
+	--no-count \
         --config "${CONFIG}"
 fi
 
