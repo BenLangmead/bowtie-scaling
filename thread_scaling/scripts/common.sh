@@ -83,7 +83,7 @@ CONFIG=${TOOL_SHORT}.tsv
 if [ "${PE}" = "pe" ] ; then
     python master.py \
         --repo "${REPO}" \
-        --reads-per-thread ${TOOL_READS} \
+        --reads-per-thread ${NREADS} \
         --index "${TS_INDEXES}/${TOOL}/${REF}" \
         --m1 `normalize ${RURL_1}` --m2 `normalize ${RURL_2}` \
         --m1b `normalize ${RURL_B_1}` --m2b `normalize ${RURL_B_2}` \
@@ -104,7 +104,7 @@ fi
 if [ "${PE}" = "unp" ] ; then
     python master.py \
         --repo "${REPO}" \
-        --reads-per-thread ${TOOL_READS} \
+        --reads-per-thread ${NREADS} \
         --index "${TS_INDEXES}/${TOOL}/${REF}" \
         --m1 `normalize ${RURL_1}` \
         --m1b `normalize ${RURL_B_1}` \
