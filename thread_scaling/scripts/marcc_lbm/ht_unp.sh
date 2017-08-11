@@ -1,6 +1,4 @@
 #!/bin/bash -l
 
-TEMP=/storage/bowtie-scaling/temp
-mkdir ${TEMP}
 d=`dirname $PWD`
-sh $d/ht.sh marcc_lbm unp ${TEMP}
+sh $d/ht.sh marcc_lbm unp 600000
