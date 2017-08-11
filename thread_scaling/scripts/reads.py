@@ -127,10 +127,12 @@ def go(args):
     block_sz = args.block_boundary
     reads_per_block = int(block_sz / args.max_read_size)
 
+    reads_per_accession = args.reads_per_accession - (args.reads_per_accession % reads_per_block)
+    assert reads_per_accession % reads_per_block == 0
     tmpfns = [os.path.join(args.temp_dir, '.reads.py.tmp%d') % i for i in range(len(reads))]
-    samplers = [ReservoirSampler(args.reads_per_accession, tmpfns[i]) for i in range(len(reads))]
+    samplers = [ReservoirSampler(reads_per_accession, tmpfns[i]) for i in range(len(reads))]
     unsrt_fn = os.path.join(args.temp_dir, '.reads.py.unsorted')
-    nreads = args.reads_per_accession * len(samplers)
+    nreads = reads_per_accession * len(samplers)
 
     ival_mult = 1.2
     if (os.path.exists(unsrt_fn) and args.resume) or not os.path.exists(unsrt_fn):
@@ -204,7 +206,7 @@ def go(args):
                     assert taboff >= 0
                     orig_rank = int(ln[:taboff])
                     if orig_rank not in seen_items:
-                        i = orig_rank + si * args.reads_per_accession
+                        i = orig_rank + si * reads_per_accession
                         ofh.write(str(idxs[i]) + '\t' + ln[taboff+1:] + '\n')
                         seen_items.add(orig_rank)
                     if n == ival:
@@ -293,10 +295,8 @@ def go(args):
                     if i == ival:
                         ival = int(ival * ival_mult)
                         print('  processed %d sorted records for blocked output' % i, file=sys.stderr)
-                for rec in toks1:
-                    ofhb1.write(b'\n'.join(rec) + b'\n')
-                for rec in toks2:
-                    ofhb2.write(b'\n'.join(rec) + b'\n')
+                if len(toks1) > 0:
+                    raise RuntimeError('Did not end on block boundary')
 
     if not args.keep_intermediates:
         print('Deleting sorted sample file', file=sys.stderr)

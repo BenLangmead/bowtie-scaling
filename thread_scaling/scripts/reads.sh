@@ -20,7 +20,8 @@ for i in 0 1 2 3 4 5 6 7 8 9 ; do
 #SBATCH --ntasks-per-node=1
 
 # For HISAT unpaired to run about a minute, we need about 300M reads
-python reads.py --prefix=mix100_${i} --temp-dir=mix100_${i}_temp --reads-per-accession 10000000 --keep-intermediates --resume --seed ${i}
+pypy reads.py --prefix=mix100_${i} --temp-dir=mix100_${i}_temp \
+              --reads-per-accession 10000000 --seed ${i}
 
 EOF
     echo "sbatch .reads100.${i}.sh"
@@ -35,7 +36,8 @@ EOF
 #SBATCH --ntasks-per-node=1
 
 # For Bowtie 1 unpaired to run about a mnute, we need about 300M reads
-python reads.py --trim-to 50 --max-read-size 175 --prefix=mix50_${i} --temp-dir=mix50_${i}_temp --reads-per-accession 10000000 --keep-intermediates --resume --seed ${i}
+pypy reads.py --trim-to 50 --max-read-size 175 --prefix=mix50_${i} --temp-dir=mix50_${i}_temp \
+              --reads-per-accession 10000000 --seed ${i}
 
 EOF
     echo "sbatch .reads50.${i}.sh"
