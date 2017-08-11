@@ -1,5 +1,5 @@
-Reserve a node for about 2 days.  The experiments altogether take about 30 hours.
+To run:
 
-To reserve a KNL node for 2 days using all cores:
-  
-    idev -N 1 -n 68 -m 2880 -A TG-CIE170020
+    for i in *.sh ; do sbatch $i ; done
+
+Time required per job (particular tool, particular paired-end status) is about 30 hours.
