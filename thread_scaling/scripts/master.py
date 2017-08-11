@@ -262,7 +262,7 @@ def go(args):
     # iterate over numbers of threads
     for nthreads in series:
 
-        last_mp_mt = None
+        last_mp_mt, last_blocked = None, False
 
         # iterate over configurations
         for name, tool, branch, mp_mt, preproc, aligner_args in get_configs(args.config):
@@ -284,20 +284,22 @@ def go(args):
             if mp_mt != 0 and (nthreads % mp_mt != 0):
                 continue  # skip experiment if # threads isn't evenly divisible
 
-            if last_mp_mt is None or mp_mt != last_mp_mt:
+            blocked = aligner_args is not None and 'block-bytes' in aligner_args
+            if last_mp_mt is None or mp_mt != last_mp_mt or blocked != last_blocked:
                 # Purge previous read set?
                 print('#   Purging some old reads', file=sys.stderr)
                 if read_set is not None:
                     for read_list in read_set:
                         for read_fn in read_list:
                             os.remove(read_fn)
-                blocked = aligner_args is not None and 'block-bytes' in aligner_args
                 blocked_str = 'blocked' if blocked else 'unblocked'
                 print('#   Preparing reads (%s) for nthreads=%d, mp_mt=%d' %
                       (blocked_str, nthreads, mp_mt), file=sys.stderr)
                 read_set = prepare_reads(args, nthreads, mp_mt, tmpdir, blocked=blocked)
                 redo = 2
                 last_mp_mt = mp_mt
+
+            last_blocked = blocked
 
             nprocess = 1 if mp_mt == 0 else nthreads // mp_mt
             assert nprocess >= 1
