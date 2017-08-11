@@ -121,6 +121,36 @@ def wcl(fn):
     return int(subprocess.check_output('wc -l ' + fn, shell=True).strip().split()[0])
 
 
+def slice_lab(i):
+    ret = ''
+    while i > 0:
+        rem = i % 26
+        remc = 'abcdefghijklmnopqrstuvwxyz'[rem]
+        ret = remc + ret
+        i /= 26
+    while len(ret) < 3:
+        ret = 'a' + ret
+    assert len(ret) == 3
+    return ret
+
+
+def slice_all_fastq(reads_per, n, ifn, ofn, sanity=True):
+    assert 'block' not in ifn
+    head_cmd = 'head -n %d %s' % (reads_per * n * 4, ifn)
+    split_cmd = 'split -l %d -a 3 - %s' % (reads_per * 4, ofn)
+    cmd = head_cmd + ' | ' + split_cmd
+    print(cmd)
+    ret = os.system(cmd)
+    if ret != 0:
+        raise RuntimeError('Exitlevel %d from command "%s"' % (ret, cmd))
+    if sanity:
+        for i in range(n):
+            fn = ofn + slice_lab(i)
+            actual_nlines = wcl(fn)
+            if actual_nlines != reads_per * 4:
+                raise RuntimeError('Expected %d lines, found %d in "%s"' % (reads_per * 4, actual_nlines, fn))
+
+
 def slice_fastq(begin, end, ifn, ofn, sanity=True):
     cmd = "sed -n '%d,%dp;%dq' < %s > %s" % (begin * 4 + 1, end * 4, end * 4 + 1, ifn, ofn)
     print(cmd)
@@ -136,18 +166,28 @@ def slice_fastq(begin, end, ifn, ofn, sanity=True):
 def prepare_reads(args, nthread, mp_mt, tmpdir, blocked=False):
     read_sets = []
     if mp_mt > 0:
+        if blocked:
+            raise RuntimeError('Unexpected combination of multiprocessing and blocked input')
         assert nthread % mp_mt == 0
         nprocess = int(nthread / mp_mt + 0.01)
         nreads_per_process = int((args.reads_per_thread * nthread) / nprocess + 0.01)
+        prefs = list(map(lambda x: join(tmpdir, "%d_" % x), [1, 2]))
+        slice_all_fastq(nreads_per_process, nprocess, args.m1, prefs[0])
+        if args.m2 is not None:
+            slice_all_fastq(nreads_per_process, nprocess, args.m2, prefs[1])
         for i in range(nprocess):
-            rds_1 = join(tmpdir, "1_p%d.fq" % i)
-            rds_2 = join(tmpdir, "2_p%d.fq" % i)
-            slice_fastq(i * nreads_per_process, (i+1) * nreads_per_process, args.m1b if blocked else args.m1, rds_1)
+            fn0, fn1 = join(tmpdir, "1_" + slice_lab(i)), join(tmpdir, "2_" + slice_lab(i))
+            if not os.path.exists(fn0):
+                raise RuntimeError('Split failed to create file "%s"' % fn0)
             if args.m2 is not None:
-                slice_fastq(i * nreads_per_process, (i+1) * nreads_per_process, args.m2b if blocked else args.m2, rds_2)
-                read_sets.append([rds_1, rds_2])
+                if not os.path.exists(fn1):
+                    raise RuntimeError('Split failed to create file "%s"' % fn1)
+                read_sets.append([fn0, fn1])
             else:
-                read_sets.append([rds_1])
+                read_sets.append([fn0])
+        extra_fn = join(tmpdir, "1_" + slice_lab(nprocess))
+        if os.path.exists(extra_fn):
+            raise RuntimeError('Got one more output file than expected from split: "%s"' % extra_fn)
     else:
         rds_1 = join(tmpdir, "1.fq")
         rds_2 = join(tmpdir, "2.fq")
