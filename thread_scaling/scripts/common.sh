@@ -14,7 +14,7 @@ fi
 TOOL_SHORT=$1
 SYSTEM=$2
 PE=$3
-TEMP=$4
+NREADS=$4
 REF=hg38
 
 shift 4
@@ -24,26 +24,22 @@ shift 4
 d=`dirname $0`
 pushd $d
 [ ! -f "${SYSTEM}/thread_series.txt" ] && echo "No thread_series.txt file for system ${SYSTEM}" && exit 1
+[ ! -f "${SYSTEM}/temp_dir.txt" ] && echo "No temp_dir.txt file for system ${SYSTEM}" && exit 1
 
+THREAD_SERIES=`cat ${SYSTEM}/thread_series.txt`
+TEMP=`cat ${SYSTEM}/temp_dir.txt`
 
+READLEN=100
 if [ "${TOOL_SHORT}" = "bt2" ] ; then
     TOOL=bowtie2
     TOOL_IDX_EXT=bt2
-    TOOL_UNP_READS=200000
-    TOOL_PAIRED_READS=20000
-    READLEN=100
 elif [ "${TOOL_SHORT}" = "bt" ] ; then
     TOOL=bowtie
     TOOL_IDX_EXT=ebwt
-    TOOL_UNP_READS=450000
-    TOOL_PAIRED_READS=60000
     READLEN=50
 elif [ "${TOOL_SHORT}" = "ht" ] ; then
     TOOL=hisat
     TOOL_IDX_EXT=bt2
-    TOOL_UNP_READS=500000
-    TOOL_PAIRED_READS=500000
-    READLEN=100
 else
     echo "Bad tool shortname: ${TOOL_SHORT}"
     exit 1
@@ -54,10 +50,11 @@ normalize() {
     echo `echo $TMP | sed 's/\.gz$//'`
 }
 
-RURL_1="http://www.cs.jhu.edu/~langmea/resources/mix${READLEN}_1.fq.gz"
-RURL_2="http://www.cs.jhu.edu/~langmea/resources/mix${READLEN}_2.fq.gz"
-RURL_B_1="http://www.cs.jhu.edu/~langmea/resources/mix${READLEN}_block_1.fq.gz"
-RURL_B_2="http://www.cs.jhu.edu/~langmea/resources/mix${READLEN}_block_2.fq.gz"
+PREF="http://www.cs.jhu.edu/~langmea/resources/mix"
+RURL_1="${PREF}${READLEN}_1.fq.gz"
+RURL_2="${PREF}${READLEN}_2.fq.gz"
+RURL_B_1="${PREF}${READLEN}_block_1.fq.gz"
+RURL_B_2="${PREF}${READLEN}_block_2.fq.gz"
 
 REPO="https://github.com/BenLangmead/${TOOL}.git"
 
@@ -86,7 +83,7 @@ CONFIG=${TOOL_SHORT}.tsv
 if [ "${PE}" = "pe" ] ; then
     python master.py \
         --repo "${REPO}" \
-        --reads-per-thread ${TOOL_PAIRED_READS} \
+        --reads-per-thread ${TOOL_READS} \
         --index "${TS_INDEXES}/${TOOL}/${REF}" \
         --m1 `normalize ${RURL_1}` --m2 `normalize ${RURL_2}` \
         --m1b `normalize ${RURL_B_1}` --m2b `normalize ${RURL_B_2}` \
@@ -97,7 +94,7 @@ if [ "${PE}" = "pe" ] ; then
         --preproc "$*" \
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
         --build-dir "${SYSTEM}/build-pe/${TOOL_SHORT}" \
-        --nthread-series `cat ${SYSTEM}/thread_series.txt` \
+        --nthread-series "${THREAD_SERIES}" \
         --config "${CONFIG}"
 fi
 
@@ -107,7 +104,7 @@ fi
 if [ "${PE}" = "unp" ] ; then
     python master.py \
         --repo "${REPO}" \
-        --reads-per-thread ${TOOL_UNP_READS} \
+        --reads-per-thread ${TOOL_READS} \
         --index "${TS_INDEXES}/${TOOL}/${REF}" \
         --m1 `normalize ${RURL_1}` \
         --m1b `normalize ${RURL_B_1}` \
@@ -118,7 +115,7 @@ if [ "${PE}" = "unp" ] ; then
         --preproc "$*" \
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
         --build-dir "${SYSTEM}/build-unp/${TOOL_SHORT}" \
-        --nthread-series `cat ${SYSTEM}/thread_series.txt` \
+        --nthread-series "${THREAD_SERIES}" \
         --config "${CONFIG}"
 fi
 

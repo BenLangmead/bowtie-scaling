@@ -10,4 +10,4 @@
 #SBATCH -A TG-CIE170020
 
 d=`dirname $PWD`
-sh $d/bt.sh stampede_knl pe /tmp "EXTRA_FLAGS+=\"-ltbbmalloc\""
+sh $d/bt.sh stampede_knl pe 50000 "EXTRA_FLAGS+=\"-ltbbmalloc\""
