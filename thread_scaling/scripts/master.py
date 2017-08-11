@@ -235,17 +235,22 @@ def go(args):
 
     print('# Verifying reads', file=sys.stderr)
     verify_reads([args.m1, args.m2, args.m1b, args.m2b])
-    nlines_tot = wcl(args.m1)
-    nlines_tot_b = wcl(args.m1b)
-    #if nlines_tot != nlines_tot_b:
-    #    raise RuntimeError('Mismatch in # lines between unblocked (%d) and blocked (%d) inputs' % \
-    #                       (nlines_tot, nlines_tot_b))
 
-    nreads_tot = nlines_tot // 4
-    nreads_needed = args.reads_per_thread * max(series)
-    if nreads_needed > nreads_tot:
-        raise RuntimeError('# reads required for biggest experiment (%d) exceeds number of input reads (%d)'
-                           % (nreads_needed, nreads_tot))
+    if not args.no_count:
+        print('# Counting total # reads', file=sys.stderr)
+        nlines_tot = wcl(args.m1)
+        nlines_tot_b = wcl(args.m1b)
+        #if nlines_tot != nlines_tot_b:
+        #    raise RuntimeError('Mismatch in # lines between unblocked (%d) and blocked (%d) inputs' % \
+        #                       (nlines_tot, nlines_tot_b))
+
+        nreads_tot = nlines_tot // 4
+        print('# Count = %d' % nreads_tot, file=sys.stderr)
+
+        nreads_needed = args.reads_per_thread * max(series)
+        if nreads_needed > nreads_tot:
+            raise RuntimeError('# reads required for biggest experiment (%d) exceeds number of input reads (%d)'
+                               % (nreads_needed, nreads_tot))
 
     print('# Generating %scommands' % ('' if args.dry_run else 'and running '), file=sys.stderr)
 
@@ -443,6 +448,8 @@ if __name__ == '__main__':
     parser.add_argument('--delete-sam', action='store_const', const=True, default=False,
                         help='Delete SAM file as soon as aligner finishes; useful if you need to avoid exhausting a '
                              'partition')
+    parser.add_argument('--no-count', action='store_const', const=True, default=False,
+                        help='Don\'t count reads at the beginning (can be slow)')
     parser.add_argument('--reads-per-thread', metavar='int', type=int, default=0,
                         help='set # of reads to align per thread/process directly, overrides --multiply-reads setting')
 
