@@ -137,7 +137,10 @@ def new_dat():
             'nconc_0al': 'NA', 'nconc_1al': 'NA', 'nconc_multial': 'NA',
             'ndisc_1al': 'NA',
             'nconcdisc_0al': 'NA',
-            'thread_times': [], 'cpu_changeovers': [], 'node_changeovers': []}
+            'thread_times': [], 'cpu_changeovers': [], 'node_changeovers': [],
+            'aligner': 'NA', 'series': 'NA', 'pe': 'NA',
+            'threads_per_proc': 'NA', 'proc_id': 'NA',
+            'totthreads': 'NA', 'attempt': 'NA'}
 
 
 def tabulate():
@@ -172,7 +175,7 @@ def tabulate():
                             elif ln.startswith('Time loading mirror index'):
                                 dat['rvload'] = parse_time(ln.split()[-1])
                             elif ln.startswith('Multiseed full-index'):
-                                dat['search'] = parse_time(ln.split()[-1])
+                                dat['search_time'] = parse_time(ln.split()[-1])
                             elif 'were unpaired; of these' in ln:
                                 dat['nunp'] = int(ln.split()[0])
                             elif 'aligned 0 times' in ln:
