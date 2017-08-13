@@ -7,9 +7,14 @@ from __future__ import print_function
 import sys
 import os
 
-system = 'small'
+if len(sys.argv) < 2:
+    raise RuntimeError('Specify system as first arg')
+
+system = sys.argv[1]
 system_dir = os.path.join(system, 'results')
 
+if not os.path.exists(system_dir):
+    raise RuntimeError('No such directory as "%s"' % system_dir)
 
 def parse_dir(dr):
     toks = dr.split('/')
@@ -26,7 +31,7 @@ def parse_dir(dr):
 
 def parse_file(fn, pe=None):
     fn = fn[:-4]  # remove .err/.out
-    assert len(fn.split('_')) == 5, fn
+    assert len(fn.split('_')) == 6, fn
     prefix, pe2, threads_per_proc, proc_id, tot_threads, attempt = fn.split('_')
     if pe2 is not None and pe2 != pe:
         raise RuntimeError('Unexpected prefix: "%s"' % (prefix + '_' + pe2))
