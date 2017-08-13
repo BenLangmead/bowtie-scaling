@@ -24,7 +24,9 @@ for READLEN in 50 100 ; do
     for RD in $RURL_1 $RURL_2 $RURL_B_1 $RURL_B_2 ; do
         FN=`normalize ${RD}`
         if [ ! -f "${FN}" ] ; then
-            curl -O -J -L ${RD}
+	    if [ ! -f "${FN}.gz" ] ; then
+		curl -O -J -L ${RD}
+	    fi
             gunzip `basename $RD`
         fi
         [ ! -f "${FN}" ] && echo "Failed to download and unzip" && exit 1

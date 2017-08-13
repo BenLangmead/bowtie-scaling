@@ -5,3 +5,9 @@ b2_scale_data.*.sorted
 .*.tmp?
 .*.unsorted
 *.fastq.gz
+slurm-*.out
+mix*.fq
+.zip*.err
+.zip*.out
+.zip*.sh
+.reads*.?.sh
