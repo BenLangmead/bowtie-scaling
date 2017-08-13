@@ -207,11 +207,13 @@ def tabulate():
                                 dat['node_changeovers'].append(int(toks[-1]))
                             else:
                                 raise RuntimeError('Unrecognized output line: ' + ln)
-                    assert len(dat['thread_times']) > 0
-                    assert len(dat['thread_times']) == threads_per_proc
-                    for tcol in ['thread_times', 'cpu_changeovers', 'node_changeovers']:
-                        dat[tcol] = ' '.join(map(str, dat[tcol]))
-                    print(','.join(map(str, [v for _, v in sorted(dat.items())])))
-
+                    if len(dat['thread_times']) < threads_per_proc:
+                        print('WARNING: number of thread_times (%d) was less than threads per proc (%d)' % \
+                              (len(dat['thread_times']), threads_per_proc), file=sys.stderr)
+                    else:
+                        for tcol in ['thread_times', 'cpu_changeovers', 'node_changeovers']:
+                            dat[tcol] = ' '.join(map(str, dat[tcol]))
+                        print(','.join(map(str, [v for _, v in sorted(dat.items())])))
+                            
 if __name__ == '__main__':
     tabulate()
