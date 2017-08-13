@@ -15,9 +15,9 @@ for i in 0 1 2 3 4 5 6 7 8 9 ; do
 #SBATCH
 #SBATCH --partition=shared
 #SBATCH --nodes=1
-#SBATCH --mem=4G
+#SBATCH --mem=8G
 #SBATCH --time=10:00:00
-#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks-per-node=2
 
 # For HISAT unpaired to run about a minute, we need about 300M reads
 pypy reads.py --prefix=mix100_${i} --temp-dir=mix100_${i}_temp \
@@ -31,9 +31,9 @@ EOF
 #SBATCH
 #SBATCH --partition=shared
 #SBATCH --nodes=1
-#SBATCH --mem=4G
+#SBATCH --mem=8G
 #SBATCH --time=10:00:00
-#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks-per-node=2
 
 # For Bowtie 1 unpaired to run about a mnute, we need about 300M reads
 pypy reads.py --trim-to 50 --max-read-size 175 --prefix=mix50_${i} --temp-dir=mix50_${i}_temp \
