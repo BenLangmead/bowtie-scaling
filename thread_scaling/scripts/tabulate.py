@@ -140,7 +140,8 @@ def new_dat():
             'thread_times': [], 'cpu_changeovers': [], 'node_changeovers': [],
             'aligner': 'NA', 'series': 'NA', 'pe': 'NA',
             'threads_per_proc': 'NA', 'proc_id': 'NA',
-            'totthreads': 'NA', 'attempt': 'NA'}
+            'totthreads': 'NA', 'attempt': 'NA',
+            'rd_load_time': 'NA'}
 
 
 def tabulate():
@@ -174,6 +175,8 @@ def tabulate():
                                 dat['fwload'] = parse_time(ln.split()[-1])
                             elif ln.startswith('Time loading mirror index'):
                                 dat['rvload'] = parse_time(ln.split()[-1])
+                            elif ln.startswith('[bwa_idx_load] wall time'):
+                                dat['fwload'] = float(ln.split()[3])
                             elif ln.startswith('Multiseed full-index'):
                                 dat['search_time'] = parse_time(ln.split()[-1])
                             elif 'were unpaired; of these' in ln:
@@ -198,25 +201,39 @@ def tabulate():
                                 dat['nconcdisc_0al'] = int(ln.split()[0])
                             elif ln.startswith('Time searching:'):
                                 dat['search_time'] = parse_time(ln.split()[-1])
-                    with open(fn_out) as iofh:
-                        for ln in iofh:
-                            toks = ln.split()
-                            assert toks[0] == 'thread:'
-                            if toks[2] == 'time:':
-                                dat['thread_times'].append(parse_time(toks[-1]))
-                            elif toks[2] == 'cpu_changeovers:':
-                                dat['cpu_changeovers'].append(int(toks[-1]))
-                            elif toks[2] == 'node_changeovers:':
-                                dat['node_changeovers'].append(int(toks[-1]))
-                            else:
-                                raise RuntimeError('Unrecognized output line: ' + ln)
-                    if len(dat['thread_times']) < threads_per_proc:
-                        print('WARNING: number of thread_times (%d) was less than threads per proc (%d)' % \
-                              (len(dat['thread_times']), threads_per_proc), file=sys.stderr)
+                            elif ln.startswith('[M::process] read'):
+                                if 'rd_load_time' not in dat:
+                                    dat['rd_load_time'] = 0
+                                dat['rd_load_time'] += float(ln.split()[9])
+                            elif ln.startswith('[M::mem_process_seqs] Processed'):
+                                if 'search_time' not in dat:
+                                    dat['search_time'] = 0
+                                dat['search_time'] += float(ln.split()[8])
+
+                    if aligner != 'bwa':
+                        with open(fn_out) as iofh:
+                            for ln in iofh:
+                                toks = ln.split()
+                                assert toks[0] == 'thread:'
+                                if toks[2] == 'time:':
+                                    dat['thread_times'].append(parse_time(toks[-1]))
+                                elif toks[2] == 'cpu_changeovers:':
+                                    dat['cpu_changeovers'].append(int(toks[-1]))
+                                elif toks[2] == 'node_changeovers:':
+                                    dat['node_changeovers'].append(int(toks[-1]))
+                                else:
+                                    raise RuntimeError('Unrecognized output line: ' + ln)
+                        if len(dat['thread_times']) < threads_per_proc:
+                            print('WARNING: number of thread_times (%d) was less than threads per proc (%d)' % \
+                                  (len(dat['thread_times']), threads_per_proc), file=sys.stderr)
+                        else:
+                            for tcol in ['thread_times', 'cpu_changeovers', 'node_changeovers']:
+                                dat[tcol] = ' '.join(map(str, dat[tcol]))
+                            print(','.join(map(str, [v for _, v in sorted(dat.items())])))
                     else:
-                        for tcol in ['thread_times', 'cpu_changeovers', 'node_changeovers']:
-                            dat[tcol] = ' '.join(map(str, dat[tcol]))
-                        print(','.join(map(str, [v for _, v in sorted(dat.items())])))
-                            
+                        dat['thread_times'] = [dat['search_time']]
+                        dat['cpu_changeovers'] = [0]
+                        dat['node_changeovers'] = [0]
+
 if __name__ == '__main__':
     tabulate()
