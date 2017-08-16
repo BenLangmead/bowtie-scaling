@@ -100,7 +100,7 @@ def verify_index(basename, tool):
         print('#  checking for "%s"' % (basename + ext), file=sys.stderr)
         return os.path.exists(basename + ext)
     if tool == 'bwa':
-        ret = all(_ext_exists(x) for x in ['.amb', '.ann', '.pac'])
+        ret = all(_ext_exists(x) for x in ['.amb', '.ann', '.pac', '.bwt', '.sa'])
     else:
         te = tool_ext(tool)
         ret = all(_ext_exists(x + te) for x in ['.1.', '.2.', '.3.', '.4.', '.rev.1.', '.rev.2.'])
@@ -364,36 +364,7 @@ def go(args):
                         sam_ofns = [join(samdir, '%s.sam' % runname) for runname in run_names]
                 sh_ofns = [join(odir, '%s.sh' % runname) for runname in run_names]
 
-                procs = []
-                for i in range(nprocess):
-                    cmd = ['%s/%s' % (build_dir, tool_exe(tool))]
-                    if tool == 'bwa':
-                        cmd.append('mem')
-                    cmd.extend(['-t' if tool == 'bwa' else '-p', str(nthreads_per_process)])
-                    if tool == 'bowtie2' or tool == 'hisat':
-                        cmd.append('-x')
-                    cmd.append(args.index)
-                    if tool != 'bwa':
-                        cmd.append('-t')
-                        if args.m2 is not None:
-                            cmd.extend(['-1', read_set[i][0]])
-                            cmd.extend(['-2', read_set[i][1]])
-                        elif tool == 'bowtie2' or tool == 'hisat':
-                            cmd.extend(['-U', read_set[i][0]])
-                        else:
-                            cmd.append(read_set[i][0])
-                    else:
-                        cmd.append(read_set[i][0])
-                        if args.m2 is not None:
-                            cmd.append(read_set[i][1])
-
-                    cmd.extend(['-S', sam_ofns[i]])
-                    if aligner_args is not None and len(aligner_args) > 0:
-                        cmd.extend(aligner_args.split())
-                    if mp_mt > 0:
-                        cmd.append('--mm')
-                    cmd.extend(['>', stdout_ofns[i]])
-                    cmd.extend(['2>', stderr_ofns[i]])
+                def write_cmd(cmd, i):
                     cmd = ' '.join(cmd)
                     with open(sh_ofns[i], 'w') as ofh:
                         ofh.write("#!/bin/sh\n")
@@ -401,12 +372,50 @@ def go(args):
                         ofh.write(cmd + '\n')
                     print(cmd)
 
-                    def spawn_worker(shfn):
-                        def worker():
-                            sys.exit(0 if os.system('sh ' + shfn) == 0 else 1)
-                        return worker
+                def spawn_worker(shfn):
+                    def worker():
+                        sys.exit(0 if os.system('sh ' + shfn) == 0 else 1)
 
-                    procs.append(multiprocessing.Process(target=spawn_worker(sh_ofns[i])))
+                    return worker
+
+                procs = []
+                if tool == 'bwa':
+                    for i in range(nprocess):
+                        cmd = ['%s/%s' % (build_dir, tool_exe(tool)), 'mem']
+                        cmd.extend(['-t' , str(nthreads_per_process)])
+                        if aligner_args is not None and len(aligner_args) > 0:
+                            cmd.extend(aligner_args.split())
+                        cmd.append(args.index)
+                        cmd.append(read_set[i][0])
+                        if args.m2 is not None:
+                            cmd.append(read_set[i][1])
+                        cmd.extend(['>', sam_ofns[i]])
+                        cmd.extend(['2>', stderr_ofns[i]])
+                        write_cmd(cmd, i)
+                        procs.append(multiprocessing.Process(target=spawn_worker(sh_ofns[i])))
+                else:
+                    for i in range(nprocess):
+                        cmd = ['%s/%s' % (build_dir, tool_exe(tool))]
+                        cmd.extend(['-p', str(nthreads_per_process)])
+                        if aligner_args is not None and len(aligner_args) > 0:
+                            cmd.extend(aligner_args.split())
+                        cmd.extend(['-x', args.index])
+                        cmd.append('-t')
+                        if mp_mt > 0:
+                            cmd.append('--mm')
+                        if args.m2 is not None:
+                            cmd.extend(['-1', read_set[i][0]])
+                            cmd.extend(['-2', read_set[i][1]])
+                        elif tool == 'bowtie2' or tool == 'hisat':
+                            cmd.extend(['-U', read_set[i][0]])
+                        else:
+                            cmd.append(read_set[i][0])
+
+                        cmd.extend(['-S', sam_ofns[i]])
+                        cmd.extend(['>', stdout_ofns[i]])
+                        cmd.extend(['2>', stderr_ofns[i]])
+                        write_cmd(cmd, i)
+                        procs.append(multiprocessing.Process(target=spawn_worker(sh_ofns[i])))
 
                 print('#   Starting processes', file=sys.stderr)
                 ti = datetime.datetime.now()
