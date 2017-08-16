@@ -1,3 +1,0 @@
-#!/bin/bash
-
-sh `dirname $0`/common.sh bt2 $*
