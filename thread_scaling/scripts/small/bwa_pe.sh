@@ -1,8 +1,8 @@
 #!/bin/bash -l
 
-#SBATCH --job-name=TsSmBt2Pe
-#SBATCH --output=.TsSmBt2Pe.out
-#SBATCH --error=.TsSmBt2Pe.err
+#SBATCH --job-name=TsSmBwaPe
+#SBATCH --output=.TsSmBwaPe.out
+#SBATCH --error=.TsSmBwaPe.err
 #SBATCH --partition=normal
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -10,4 +10,4 @@
 #SBATCH -A TG-CIE170020
 
 d=`dirname $PWD`
-sh $d/bt2.sh small pe 16000
+sh $d/bwa.sh small pe 25000
