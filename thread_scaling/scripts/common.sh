@@ -12,12 +12,13 @@ fi
 [ -z "$3" ] && echo "Specify unp or pe as third arg" && exit 1
 
 TOOL_SHORT=$1
-SYSTEM=$2
-PE=$3
-NREADS=$4
+CONFIG=$2
+SYSTEM=$3
+PE=$4
+NREADS=$5
 REF=hg38
 
-shift 4
+shift 5
 
 [ "${PE}" != "unp" -a "${PE}" != "pe" ] && echo "Third arg must be unp or pe" && exit 1
 
@@ -25,6 +26,7 @@ d=`dirname $0`
 pushd $d
 [ ! -f "${SYSTEM}/thread_series.txt" ] && echo "No thread_series.txt file for system ${SYSTEM}" && exit 1
 [ ! -f "${SYSTEM}/temp_dir.txt" ] && echo "No temp_dir.txt file for system ${SYSTEM}" && exit 1
+[ ! -f "${CONFIG}" ] && echo "No such config file: \"${CONFIG}\"" && exit 1
 
 THREAD_SERIES=`cat ${SYSTEM}/thread_series.txt`
 TEMP=`cat ${SYSTEM}/temp_dir.txt`
@@ -32,14 +34,13 @@ TEMP=`cat ${SYSTEM}/temp_dir.txt`
 READLEN=100
 if [ "${TOOL_SHORT}" = "bt2" ] ; then
     TOOL=bowtie2
-    TOOL_IDX_EXT=bt2
 elif [ "${TOOL_SHORT}" = "bt" ] ; then
     TOOL=bowtie
-    TOOL_IDX_EXT=ebwt
     READLEN=50
 elif [ "${TOOL_SHORT}" = "ht" ] ; then
     TOOL=hisat
-    TOOL_IDX_EXT=bt2
+elif [ "${TOOL_SHORT}" = "bwa" ] ; then
+    TOOL=bwa
 else
     echo "Bad tool shortname: ${TOOL_SHORT}"
     exit 1
@@ -72,11 +73,6 @@ if [ -z "${TS_INDEXES}" ] ; then
     echo "Set TS_INDEXES to directory containing indexes in bowtie, bowtie2 and hisat subdirectories" && exit 1
 fi
 
-[ ! -f "${TS_INDEXES}/${TOOL}/${REF}.1.${TOOL_IDX_EXT}" ] && echo "Missing index: ${TS_INDEXES}/${TOOL}/${REF}" && exit 1
-
-CONFIG=${TOOL_SHORT}.tsv
-[ ! -f "${CONFIG}" ] && echo "No such config file: \"${CONFIG}\"" && exit 1
-
 #
 # Paired
 #
@@ -95,7 +91,7 @@ if [ "${PE}" = "pe" ] ; then
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
         --build-dir "${SYSTEM}/build-pe/${TOOL_SHORT}" \
         --nthread-series "${THREAD_SERIES}" \
-	--no-count \
+        --no-count \
         --config "${CONFIG}"
 fi
 
@@ -117,7 +113,7 @@ if [ "${PE}" = "unp" ] ; then
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
         --build-dir "${SYSTEM}/build-unp/${TOOL_SHORT}" \
         --nthread-series "${THREAD_SERIES}" \
-	--no-count \
+        --no-count \
         --config "${CONFIG}"
 fi
 
