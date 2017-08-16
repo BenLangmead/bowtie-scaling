@@ -399,7 +399,9 @@ def go(args):
                         cmd.extend(['-p', str(nthreads_per_process)])
                         if aligner_args is not None and len(aligner_args) > 0:
                             cmd.extend(aligner_args.split())
-                        cmd.extend(['-x', args.index])
+                        if tool == 'bowtie2' or tool == 'hisat':
+                            cmd.append('-x')
+                        cmd.append(args.index)
                         cmd.append('-t')
                         if mp_mt > 0:
                             cmd.append('--mm')
