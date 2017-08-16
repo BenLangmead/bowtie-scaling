@@ -1,4 +1,4 @@
 #!/bin/bash -l
 
 d=`dirname $PWD`
-sh $d/ht.sh marcc_lbm unp 1200000
+sh $d/common.sh ht ht.tsv marcc_lbm unp 1200000

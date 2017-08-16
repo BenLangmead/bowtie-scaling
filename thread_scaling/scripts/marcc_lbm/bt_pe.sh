@@ -1,4 +1,4 @@
 #!/bin/bash -l
 
 d=`dirname $PWD`
-sh $d/bt.sh marcc_lbm pe 110000
+sh $d/common.sh bt bt.tsv marcc_lbm pe 110000
