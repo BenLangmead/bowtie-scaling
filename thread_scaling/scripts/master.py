@@ -19,6 +19,7 @@ import shutil
 import argparse
 import subprocess
 import tempfile
+import time
 import datetime
 import multiprocessing
 
@@ -425,13 +426,30 @@ def go(args):
                     proc.start()
                 exitlevels = []
                 for proc in procs:
-                    proc.join()
-                    exitlevels.append(proc.exitcode)
+                    proc.join(args.timeout)
+                    if proc.is_alive():
+                        print('#   Process still alive after %d seconds; terminating all processes' % args.timeout,
+                              file=sys.stderr)
+                        for p2 in procs:
+                            p2.terminate()
+                        time.sleep(5)
+                        exitlevels.append(None)
+                    else:
+                        exitlevels.append(proc.exitcode)
                 delt = datetime.datetime.now() - ti
                 print('#   All processes joined; took %f seconds' % delt.total_seconds(), file=sys.stderr)
-                if sum(exitlevels) > 0:
-                    raise RuntimeError('At least one subprocess exited with non-zero exit level. '
-                                       'Exit levels: %s' % str(exitlevels))
+                os.system('touch ' + os.path.join(odir, 'JOIN'))
+                if any(map(lambda x: x is None, exitlevels)):
+                    print('#   At least one subprocess timed out', file=sys.stderr)
+                    os.system('touch ' + os.path.join(odir, 'TIME_OUT'))
+                    # How do we get the tabulate script to deal with this?
+                elif any(map(lambda x: x != 0, exitlevels)):
+                    os.system('touch ' + os.path.join(odir, 'FAIL'))
+                    if args.stop_on_fail:
+                        raise RuntimeError('At least one subprocess exited with non-zero exit level. ''
+                                           'Exit levels: %s' % str(exitlevels))
+                else:
+                    os.system('touch ' + os.path.join(odir, 'SUCCEED'))
 
                 if args.delete_sam and not args.sam_dev_null:
                     print('#   Deleting SAM outputs', file=sys.stderr)
@@ -474,6 +492,8 @@ if __name__ == '__main__':
                         help='# bytes per input block')
     parser.add_argument('--input-reads-per-block', metavar='int', type=int, default=70,  # 44 for 100 bp reads
                         help='# reads in each input block')
+    parser.add_argument('--timeout', metavar='int', type=int, default=1800,  # 1200 minutes
+                        help='time out after N seconds')
     parser.add_argument('--nthread-series', metavar='int,int,...', type=str, required=False,
                         help='Series of comma-separated ints giving the number of threads to use. '
                              'E.g. --nthread-series 10,20,30 will run separate experiments using '
@@ -501,6 +521,8 @@ if __name__ == '__main__':
     parser.add_argument('--delete-sam', action='store_const', const=True, default=False,
                         help='Delete SAM file as soon as aligner finishes; useful if you need to avoid exhausting a '
                              'partition')
+    parser.add_argument('--stop-on-fail', action='store_const', const=True, default=False,
+                        help='Raise exception whenever any subprocess fails')
     parser.add_argument('--no-count', action='store_const', const=True, default=False,
                         help='Don\'t count reads at the beginning (can be slow)')
     parser.add_argument('--reads-per-thread', metavar='int', type=int, default=0,

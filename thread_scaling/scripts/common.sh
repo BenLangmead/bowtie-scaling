@@ -92,7 +92,8 @@ if [ "${PE}" = "pe" ] ; then
         --build-dir "${SYSTEM}/build-pe/${TOOL_SHORT}" \
         --nthread-series "${THREAD_SERIES}" \
         --no-count \
-        --config "${CONFIG}"
+        --config "${CONFIG}" \
+        --stop-on-fail
 fi
 
 #
@@ -114,7 +115,8 @@ if [ "${PE}" = "unp" ] ; then
         --build-dir "${SYSTEM}/build-unp/${TOOL_SHORT}" \
         --nthread-series "${THREAD_SERIES}" \
         --no-count \
-        --config "${CONFIG}"
+        --config "${CONFIG}" \
+        --stop-on-fail
 fi
 
 popd
