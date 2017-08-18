@@ -354,6 +354,7 @@ def go(args):
 
                 # Set up output files
                 run_names = ['%s_%s_%d_%d_%d_%d' % (name, pe_str, mp_mt, i, nthreads, idx_rev) for i in range(nprocess)]
+                run_name = run_names[0]
                 stdout_ofns = ['/dev/null'] * nprocess
                 stderr_ofns = ['/dev/null'] * nprocess
                 sam_ofns = ['/dev/null'] * nprocess
@@ -432,24 +433,24 @@ def go(args):
                               file=sys.stderr)
                         for p2 in procs:
                             p2.terminate()
-                        time.sleep(5)
+                        time.sleep(2)
                         exitlevels.append(None)
                     else:
                         exitlevels.append(proc.exitcode)
                 delt = datetime.datetime.now() - ti
                 print('#   All processes joined; took %f seconds' % delt.total_seconds(), file=sys.stderr)
-                os.system('touch ' + os.path.join(odir, 'JOIN'))
+                os.system('touch ' + os.path.join(odir, run_name + '.JOIN'))
                 if any(map(lambda x: x is None, exitlevels)):
                     print('#   At least one subprocess timed out', file=sys.stderr)
-                    os.system('touch ' + os.path.join(odir, 'TIME_OUT'))
+                    os.system('touch ' + os.path.join(odir, run_name + '.TIME_OUT'))
                     # How do we get the tabulate script to deal with this?
                 elif any(map(lambda x: x != 0, exitlevels)):
-                    os.system('touch ' + os.path.join(odir, 'FAIL'))
+                    os.system('touch ' + os.path.join(odir, run_name + '.FAIL'))
                     if args.stop_on_fail:
-                        raise RuntimeError('At least one subprocess exited with non-zero exit level. ''
+                        raise RuntimeError('At least one subprocess exited with non-zero exit level. '
                                            'Exit levels: %s' % str(exitlevels))
                 else:
-                    os.system('touch ' + os.path.join(odir, 'SUCCEED'))
+                    os.system('touch ' + os.path.join(odir, run_name + '.SUCCEED'))
 
                 if args.delete_sam and not args.sam_dev_null:
                     print('#   Deleting SAM outputs', file=sys.stderr)
