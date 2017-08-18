@@ -493,7 +493,7 @@ if __name__ == '__main__':
                         help='# bytes per input block')
     parser.add_argument('--input-reads-per-block', metavar='int', type=int, default=70,  # 44 for 100 bp reads
                         help='# reads in each input block')
-    parser.add_argument('--timeout', metavar='int', type=int, default=1800,  # 1200 minutes
+    parser.add_argument('--timeout', metavar='int', type=int, default=1200,  # 20 minutes
                         help='time out after N seconds')
     parser.add_argument('--nthread-series', metavar='int,int,...', type=str, required=False,
                         help='Series of comma-separated ints giving the number of threads to use. '
