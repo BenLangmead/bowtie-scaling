@@ -21,7 +21,7 @@ def parse_dir(dr):
     assert toks[0] == system
     assert toks[1] == 'results'
     aligner = toks[2]
-    assert aligner in ['bt', 'bt2', 'ht']
+    assert aligner in ['bt', 'bt2', 'ht', 'bwa']
     series = toks[3]
     assert series.startswith(aligner)
     series = series[len(aligner) + 1:]
@@ -165,7 +165,7 @@ def tabulate():
                 if fn.endswith('.err'):
                     fn = os.path.join(root, fn)
                     fn_out = fn[:-4] + '.out'
-                    if not os.path.exists(fn_out):
+                    if aligner != 'bwa' and not os.path.exists(fn_out):
                         raise RuntimeError('.err file without .out companion: ' + fn_out)
                     with open(fn) as ifh:
                         for ln in ifh:
@@ -202,11 +202,11 @@ def tabulate():
                             elif ln.startswith('Time searching:'):
                                 dat['search_time'] = parse_time(ln.split()[-1])
                             elif ln.startswith('[M::process] read'):
-                                if 'rd_load_time' not in dat:
-                                    dat['rd_load_time'] = 0
+                                if dat['rd_load_time'] == 'NA':
+                                    dat['rd_load_time'] = 0.0
                                 dat['rd_load_time'] += float(ln.split()[9])
                             elif ln.startswith('[M::mem_process_seqs] Processed'):
-                                if 'search_time' not in dat:
+                                if dat['search_time'] == 'NA':
                                     dat['search_time'] = 0
                                 dat['search_time'] += float(ln.split()[8])
 
