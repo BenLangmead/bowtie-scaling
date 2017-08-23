@@ -10,4 +10,4 @@
 #SBATCH -A TG-CIE170020
 
 d=`dirname $PWD`
-sh $d/ht.sh small pe 250000
+sh $d/common.sh ht ht.tsv small pe 250000
