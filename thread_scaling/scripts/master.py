@@ -21,6 +21,7 @@ import subprocess
 import tempfile
 import time
 import datetime
+import signal
 import multiprocessing
 
 
@@ -300,6 +301,8 @@ def go(args):
 
     read_set = None
 
+    iostat_x = os.system("iostat --help 2>&1 | grep -q '\-x'") == 0
+
     # iterate over numbers of threads
     for nthreads in series:
 
@@ -364,23 +367,22 @@ def go(args):
                     if not args.sam_dev_null:
                         samdir = odir if args.sam_output_dir else tmpdir
                         sam_ofns = [join(samdir, '%s.sam' % runname) for runname in run_names]
-                sh_ofns = [join(odir, '%s.sh' % runname) for runname in run_names]
 
-                def write_cmd(cmd, i):
-                    cmd = ' '.join(cmd)
-                    with open(sh_ofns[i], 'w') as ofh:
-                        ofh.write("#!/bin/sh\n")
-                        ofh.write("set -e\n")
-                        ofh.write(cmd + '\n')
-                    print(cmd)
-
-                def spawn_worker(shfn):
-                    def worker():
-                        sys.exit(0 if os.system('sh ' + shfn) == 0 else 1)
+                def spawn_worker(cmd_list, ofn, efn):
+                    def worker(done_val):
+                        with open(ofn, 'wb') as ofh:
+                            with open(efn, 'wb') as efh:
+                                proc = subprocess.Popen(cmd_list, stdout=ofh, stderr=efh)
+                                while proc.poll() is None:
+                                    time.sleep(1)
+                                    if done_val.value > 0:
+                                        os.kill(proc.pid, signal.SIGTERM)
+                                        break
 
                     return worker
 
                 procs = []
+                done_val = multiprocessing.Value('i', 0)
                 if tool == 'bwa':
                     for i in range(nprocess):
                         cmd = ['%s/%s' % (build_dir, tool_exe(tool)), 'mem']
@@ -391,10 +393,7 @@ def go(args):
                         cmd.append(read_set[i][0])
                         if args.m2 is not None:
                             cmd.append(read_set[i][1])
-                        cmd.extend(['>', sam_ofns[i]])
-                        cmd.extend(['2>', stderr_ofns[i]])
-                        write_cmd(cmd, i)
-                        procs.append(multiprocessing.Process(target=spawn_worker(sh_ofns[i])))
+                        procs.append(multiprocessing.Process(target=spawn_worker(cmd, sam_ofns[i], stderr_ofns[i]), args=(done_val,)))
                 else:
                     for i in range(nprocess):
                         cmd = ['%s/%s' % (build_dir, tool_exe(tool))]
@@ -416,34 +415,39 @@ def go(args):
                             cmd.append(read_set[i][0])
 
                         cmd.extend(['-S', sam_ofns[i]])
-                        cmd.extend(['>', stdout_ofns[i]])
-                        cmd.extend(['2>', stderr_ofns[i]])
-                        write_cmd(cmd, i)
-                        procs.append(multiprocessing.Process(target=spawn_worker(sh_ofns[i])))
+                        procs.append(multiprocessing.Process(target=spawn_worker(cmd, stdout_ofns[i], stderr_ofns[i]), args=(done_val,)))
 
-                print('#   Starting processes', file=sys.stderr)
-                ti = datetime.datetime.now()
-                for proc in procs:
-                    proc.start()
-                exitlevels = []
-                for proc in procs:
-                    proc.join(args.timeout)
-                    if proc.is_alive():
-                        print('#   Process still alive after %d seconds; terminating all processes' % args.timeout,
-                              file=sys.stderr)
-                        for p2 in procs:
-                            p2.terminate()
-                        time.sleep(2)
-                        exitlevels.append(None)
-                    else:
-                        exitlevels.append(proc.exitcode)
-                delt = datetime.datetime.now() - ti
+                iostat_cmd = ['iostat']
+                if iostat_x:
+                    iostat_cmd.append('-x')
+                iostat_cmd.append('2')
+                iostat_fn = os.path.join(odir, run_name + '.iostat')
+                with open(iostat_fn, 'w') as iostat_ofh:
+                    iostat = subprocess.Popen(iostat_cmd, stdout=iostat_ofh, stderr=iostat_ofh)
+                    print('#   Starting processes', file=sys.stderr)
+                    ti = datetime.datetime.now()
+                    for proc in procs:
+                        proc.start()
+                    exitlevels = []
+                    for proc in procs:
+                        proc.join(args.timeout)
+                        if proc.is_alive():
+                            print('#   Process still alive after %d seconds; terminating all processes' % args.timeout,
+                                  file=sys.stderr)
+                            done_val.value = 1
+                            for p2 in procs:
+                                p2.join()
+                            exitlevels.append(None)
+                        else:
+                            exitlevels.append(proc.exitcode)
+                    print('#   Killing iostat proc with pid %d' % iostat.pid, file=sys.stderr)
+                    iostat.kill()
+                    delt = datetime.datetime.now() - ti
                 print('#   All processes joined; took %f seconds' % delt.total_seconds(), file=sys.stderr)
                 os.system('touch ' + os.path.join(odir, run_name + '.JOIN'))
                 if any(map(lambda x: x is None, exitlevels)):
                     print('#   At least one subprocess timed out', file=sys.stderr)
                     os.system('touch ' + os.path.join(odir, run_name + '.TIME_OUT'))
-                    # How do we get the tabulate script to deal with this?
                 elif any(map(lambda x: x != 0, exitlevels)):
                     os.system('touch ' + os.path.join(odir, run_name + '.FAIL'))
                     if args.stop_on_fail:
