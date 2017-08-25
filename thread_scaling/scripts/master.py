@@ -220,6 +220,9 @@ def go(args):
         mkdir_quiet(tmpdir)
     if not os.path.isdir(tmpdir):
         raise RuntimeError('Temporary directory isn\'t a directory: "%s"' % tmpdir)
+    else:
+        os.system('rm -f ' + os.path.join(tmpdir, '1_???'))
+        os.system('rm -f ' + os.path.join(tmpdir, '2_???'))
 
     if not os.path.exists(args.output_dir):
         print('# Creating output directory "%s"' % args.output_dir, file=sys.stderr)
@@ -422,6 +425,13 @@ def go(args):
                     iostat_cmd.append('-x')
                 iostat_cmd.append('2')
                 iostat_fn = os.path.join(odir, run_name + '.iostat')
+
+                top_cmd = ['top']
+                if sys.platform == 'darwin':
+                    pass
+                else:
+                    pass
+
                 with open(iostat_fn, 'w') as iostat_ofh:
                     iostat = subprocess.Popen(iostat_cmd, stdout=iostat_ofh, stderr=iostat_ofh)
                     print('#   Starting processes', file=sys.stderr)
