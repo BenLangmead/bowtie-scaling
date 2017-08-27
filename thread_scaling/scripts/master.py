@@ -221,6 +221,8 @@ def go(args):
     if not os.path.isdir(tmpdir):
         raise RuntimeError('Temporary directory isn\'t a directory: "%s"' % tmpdir)
     else:
+        # TODO: always put reads in subdirectories with a job-unique name so
+        # that different jobs can't clobber each others' reads
         os.system('rm -f ' + os.path.join(tmpdir, '1_???'))
         os.system('rm -f ' + os.path.join(tmpdir, '2_???'))
 
@@ -426,33 +428,41 @@ def go(args):
                 iostat_cmd.append('2')
                 iostat_fn = os.path.join(odir, run_name + '.iostat')
 
-                top_cmd = ['top']
                 if sys.platform == 'darwin':
-                    pass
+                    top_cmd = 'top -l 0 -s 2'.split()
                 else:
-                    pass
+                    top_cmd = 'top -b -d 2'.split()
+                top_fn = os.path.join(odir, run_name + '.top')
 
-                with open(iostat_fn, 'w') as iostat_ofh:
-                    iostat = subprocess.Popen(iostat_cmd, stdout=iostat_ofh, stderr=iostat_ofh)
-                    print('#   Starting processes', file=sys.stderr)
-                    ti = datetime.datetime.now()
-                    for proc in procs:
-                        proc.start()
-                    exitlevels = []
-                    for proc in procs:
-                        proc.join(args.timeout)
-                        if proc.is_alive():
-                            print('#   Process still alive after %d seconds; terminating all processes' % args.timeout,
-                                  file=sys.stderr)
-                            done_val.value = 1
-                            for p2 in procs:
-                                p2.join()
-                            exitlevels.append(None)
-                        else:
-                            exitlevels.append(proc.exitcode)
-                    print('#   Killing iostat proc with pid %d' % iostat.pid, file=sys.stderr)
-                    iostat.kill()
-                    delt = datetime.datetime.now() - ti
+                with open(top_fn, 'w') as top_ofh:
+                    with open(iostat_fn, 'w') as iostat_ofh:
+                        iostat, top = None, None
+                        if os.system('which iostat >/dev/null 2>/dev/null') == 0:
+                            iostat = subprocess.Popen(iostat_cmd, stdout=iostat_ofh, stderr=iostat_ofh)
+                        if os.system('which top >/dev/null 2>/dev/null') == 0:
+                            top = subprocess.Popen(top_cmd, stdout=top_ofh, stderr=top_ofh)
+                        print('#   Starting processes', file=sys.stderr)
+                        ti = datetime.datetime.now()
+                        for proc in procs:
+                            proc.start()
+                        exitlevels = []
+                        for proc in procs:
+                            proc.join(args.timeout)
+                            if proc.is_alive():
+                                print('#   Process still alive after %d seconds; terminating all processes' % args.timeout,
+                                      file=sys.stderr)
+                                done_val.value = 1
+                                for p2 in procs:
+                                    p2.join()
+                                exitlevels.append(None)
+                            else:
+                                exitlevels.append(proc.exitcode)
+                        print('#   Killing iostat proc with pid %d' % iostat.pid, file=sys.stderr)
+                        if iostat is not None:
+                            iostat.kill()
+                        if top is not None:
+                            top.kill()
+                        delt = datetime.datetime.now() - ti
                 print('#   All processes joined; took %f seconds' % delt.total_seconds(), file=sys.stderr)
                 os.system('touch ' + os.path.join(odir, run_name + '.JOIN'))
                 if any(map(lambda x: x is None, exitlevels)):
