@@ -457,10 +457,11 @@ def go(args):
                                 exitlevels.append(None)
                             else:
                                 exitlevels.append(proc.exitcode)
-                        print('#   Killing iostat proc with pid %d' % iostat.pid, file=sys.stderr)
                         if iostat is not None:
+                            print('#   Killing iostat proc with pid %d' % iostat.pid, file=sys.stderr)
                             iostat.kill()
                         if top is not None:
+                            print('#   Killing top proc with pid %d' % top.pid, file=sys.stderr)
                             top.kill()
                         delt = datetime.datetime.now() - ti
                 print('#   All processes joined; took %f seconds' % delt.total_seconds(), file=sys.stderr)
