@@ -5,6 +5,7 @@ output: html_notebook
 
 ```{r}
 # setwd('~/git/bowtie-scaling/thread_scaling/scripts')
+MAX_SECS <- 1190  # any experiment taking longer than this is considered to have failed
 ```
 
 ```{r libraries}
@@ -31,11 +32,6 @@ grid_arrange_shared_legend <- function(...) {
 }
 ```
 
-```{r read_table}
-m_st <- read.table('stampede_knl/stampede_knl_results_20170828.csv', sep=',', comment.char='', quote='', header=T, stringsAsFactors=F)
-m_bm <- read.table('marcc_lbm/marcc_lbm_20170828.csv', sep=',', comment.char='', quote='', header=T, stringsAsFactors=F)
-```
-
 ```{r summarize_col_func}
 summarize_col <- function(df, colname) {
   mean_str <- paste(colname, 'mean', sep='_')
@@ -58,36 +54,38 @@ summarize_col <- function(df, colname) {
 }
 ```
 
-```{r summarize_columns_st}
-m_st <- summarize_col(m_st, 'thread_times')
-m_st <- summarize_col(m_st, 'cpu_changeovers')
-m_st <- summarize_col(m_st, 'node_changeovers')
+```{r read_table}
+parse_results <- function(fn) {
+  m <- read.table(fn, sep=',', comment.char='', quote='', header=T, stringsAsFactors=F)
+  m <- summarize_col(m, 'thread_times')
+  m <- summarize_col(m, 'cpu_changeovers')
+  m <- summarize_col(m, 'node_changeovers')
+  m <- m %>% group_by(series, pe, attempt, totthreads, aligner) %>%
+    summarise(thread_times_max=max(thread_times_max),
+              thread_times_min=min(thread_times_min),
+              thread_times_mean=mean(thread_times_mean),
+              threads_div_max=totthreads[1] / thread_times_max)
+  m$threads_div_max <- ifelse(m$thread_times_max > MAX_SECS, 0, m$threads_div_max)
+  m
+}
 
-m_st <- m_st %>% group_by(series, pe, attempt, totthreads, aligner) %>% 
-  summarise(thread_times_max=max(thread_times_max),
-            thread_times_min=min(thread_times_min),
-            thread_times_mean=mean(thread_times_mean))
-```
-
-```{r summarize_columns_bm}
-m_bm <- summarize_col(m_bm, 'thread_times')
-m_bm <- summarize_col(m_bm, 'cpu_changeovers')
-m_bm <- summarize_col(m_bm, 'node_changeovers')
-
-m_bm <- m_bm %>% group_by(series, pe, attempt, totthreads, aligner) %>% 
-  summarise(thread_times_max=max(thread_times_max),
-            thread_times_min=min(thread_times_min),
-            thread_times_mean=mean(thread_times_mean))
+m_st <- parse_results('stampede_knl/stampede_knl_results_20170828.csv')
+m_bm <- parse_results('marcc_lbm/marcc_lbm_20170828.csv')
 ```
 
 ```{r scaling_plot_func}
 scaling_plot <- function(m, want_aligner, want_pe, label_x=F, label_y=F) {
-  ggplot(m %>% filter(attempt == 1 & aligner == want_aligner & ((pe == 'pe') == want_pe)),
-         aes(x=totthreads, y=thread_times_max, color=series)) + 
-    geom_line() + geom_point() +
+  m <- m %>% filter(attempt == 1 & aligner == want_aligner & ((pe == 'pe') == want_pe))
+  mg <- m %>% group_by(series, pe, attempt, aligner) %>%
+    summarise(threads_div_max_max=thread_times_max[which(threads_div_max == max(threads_div_max))[1]],
+              threads_div_max_threads=totthreads[which(threads_div_max == max(threads_div_max))[1]])
+  ggplot() + 
+    geom_line(data=m, aes(x=totthreads, y=thread_times_max, color=series)) +
+    geom_point(data=mg, aes(x=threads_div_max_threads, y=threads_div_max_max, color=series)) +
     labs(x=if(label_x) {'# threads'} else {''},
          y=if(label_y) {'Max thread running time'} else {''}) +
     theme_bw()
+  
 }
 ```
 
@@ -222,4 +220,7 @@ final_pe_plots(m_st)
 
 ```{r final_pe_plots_bm}
 final_pe_plots(m_bm)
+```
+
+```{r peak_throughput_table}
 ```
