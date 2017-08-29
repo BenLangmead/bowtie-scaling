@@ -5,7 +5,7 @@ output: html_notebook
 
 ```{r}
 # setwd('~/git/bowtie-scaling/thread_scaling/scripts')
-MAX_SECS <- 1190  # any experiment taking longer than this is considered to have failed
+#MAX_SECS <- 1190  # any experiment taking longer than this is considered to have failed
 ```
 
 ```{r libraries}
@@ -13,6 +13,7 @@ library(ggplot2)
 library(dplyr)
 library(grid)
 library(gridExtra)
+library(tables)
 ```
 
 ```{r plot_util}
@@ -65,7 +66,7 @@ parse_results <- function(fn) {
               thread_times_min=min(thread_times_min),
               thread_times_mean=mean(thread_times_mean),
               threads_div_max=totthreads[1] / thread_times_max)
-  m$threads_div_max <- ifelse(m$thread_times_max > MAX_SECS, 0, m$threads_div_max)
+  #m$threads_div_max <- ifelse(m$thread_times_max > MAX_SECS, 0, m$threads_div_max)
   m
 }
 
@@ -82,6 +83,7 @@ scaling_plot <- function(m, want_aligner, want_pe, label_x=F, label_y=F) {
   ggplot() + 
     geom_line(data=m, aes(x=totthreads, y=thread_times_max, color=series)) +
     geom_point(data=mg, aes(x=threads_div_max_threads, y=threads_div_max_max, color=series)) +
+    expand_limits(x=0, y=0) +
     labs(x=if(label_x) {'# threads'} else {''},
          y=if(label_y) {'Max thread running time'} else {''}) +
     theme_bw()
@@ -149,7 +151,7 @@ parsing_unp_plots <- function(m) {
 ```
 
 ```{r parsing_unp_plots_st}
-parsing_unp_plots(m_st)
+print(parsing_unp_plots(m_st))
 ```
 
 ```{r parsing_unp_plots_bm}
@@ -223,4 +225,35 @@ final_pe_plots(m_bm)
 ```
 
 ```{r peak_throughput_table}
+peak_throughput_table <- function(m) {
+  mg <- m %>% group_by(series, pe, attempt, aligner, machine) %>%
+    summarise(threads_div_max_threads=totthreads[which(threads_div_max == max(threads_div_max))[1]],
+              threads_div_max=max(threads_div_max))
+  tabular((Heading() * aligner * Heading() * series) ~ (Justify(c) * Heading() * identity * Heading() * machine * Heading() * pe * Justify(r) * (Heading('Threads') * threads_div_max_threads + Heading('Threads/sec') * Format(sprintf("%.2f")) * threads_div_max)), data=mg)
+}
+#m_st$machine <- '1 x Intel Xeon Phi 7250 (Knight\'s Landing)\n68 cores, up to 4 threads per core'
+#m_bm$machine <- '4 x E7-4830 (Broadwell)\n56 cores, up to 2 threads per core'
+m_st$machine <- 'KNL'
+m_bm$machine <- 'Broadwell'
+m <- rbind(m_st, m_bm)
+m$aligner <- ifelse(m$aligner == 'bt', 'Bowtie', ifelse(m$aligner == 'bt2', 'Bowtie 2', 'HISAT'))
+m$aligner <- factor(m$aligner)
+m$series <- factor(m$series)
+m$reord <- 0
+m$reord[m$series == 'baseline-old'] <- 1
+m$reord[m$series == 'baseline-tbbspin'] <- 2
+m$reord[m$series == 'baseline-tbbq'] <- 3
+m$reord[m$series == 'parsing-clean'] <- 4
+m$reord[m$series == 'parsing-batch'] <- 5
+m$reord[m$series == 'final-mp16'] <- 6
+m$reord[m$series == 'final-block'] <- 7
+m$series <- reorder(m$series, m$reord)
+m$pe <- ifelse(m$pe == 'pe', '100 x 100 nt', '100 nt unpaired')
+m$pe <- factor(m$pe)
+m$machine <- factor(m$machine)
+
+fn <- 'peak_throughput.tex_snippet'
+write("\\resizebox{\\columnwidth}{!}{%", file=fn)
+capture.output(latex(peak_throughput_table(m)), file=fn, append=T)
+write("}", file=fn, append=T)
 ```
