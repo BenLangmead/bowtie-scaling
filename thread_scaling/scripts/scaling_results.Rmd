@@ -32,7 +32,8 @@ grid_arrange_shared_legend <- function(...) {
 ```
 
 ```{r read_table}
-m_st <- read.table('stampede_knl/results20170820.csv', sep=',', comment.char='', quote='', header=T, stringsAsFactors=F)
+m_st <- read.table('stampede_knl/stampede_knl_results_20170828.csv', sep=',', comment.char='', quote='', header=T, stringsAsFactors=F)
+m_bm <- read.table('marcc_lbm/marcc_lbm_20170828.csv', sep=',', comment.char='', quote='', header=T, stringsAsFactors=F)
 ```
 
 ```{r summarize_col_func}
@@ -57,10 +58,26 @@ summarize_col <- function(df, colname) {
 }
 ```
 
-```{r summarize_columns}
+```{r summarize_columns_st}
 m_st <- summarize_col(m_st, 'thread_times')
 m_st <- summarize_col(m_st, 'cpu_changeovers')
 m_st <- summarize_col(m_st, 'node_changeovers')
+
+m_st <- m_st %>% group_by(series, pe, attempt, totthreads, aligner) %>% 
+  summarise(thread_times_max=max(thread_times_max),
+            thread_times_min=min(thread_times_min),
+            thread_times_mean=mean(thread_times_mean))
+```
+
+```{r summarize_columns_bm}
+m_bm <- summarize_col(m_bm, 'thread_times')
+m_bm <- summarize_col(m_bm, 'cpu_changeovers')
+m_bm <- summarize_col(m_bm, 'node_changeovers')
+
+m_bm <- m_bm %>% group_by(series, pe, attempt, totthreads, aligner) %>% 
+  summarise(thread_times_max=max(thread_times_max),
+            thread_times_min=min(thread_times_min),
+            thread_times_mean=mean(thread_times_mean))
 ```
 
 ```{r scaling_plot_func}
@@ -75,94 +92,134 @@ scaling_plot <- function(m, want_aligner, want_pe, label_x=F, label_y=F) {
 ```
 
 ```{r baseline_unp_plots}
-baseline_unp_plots <- function() {
-  m_st_base <- m_st[!(grepl('^final-', m_st$series) |
-                      grepl('^parsing-', m_st$series)) |
-                     grepl('^final-mp16$', m_st$series),]
-  baseline_bt_unp  <- function() { scaling_plot(m_st_base, 'bt', F) }
-  baseline_bt2_unp <- function() { scaling_plot(m_st_base, 'bt2', F, label_y=T) }
-  baseline_ht_unp  <- function() { scaling_plot(m_st_base, 'ht', F, label_x=T) }
+baseline_unp_plots <- function(m) {
+  m_base <- m[!(grepl('^final-', m$series) |
+                grepl('^parsing-', m$series)) |
+              grepl('^final-mp16$', m$series),] %>% filter(attempt == 1)
+  baseline_bt_unp  <- function() { scaling_plot(m_base, 'bt', F) }
+  baseline_bt2_unp <- function() { scaling_plot(m_base, 'bt2', F, label_y=T) }
+  baseline_ht_unp  <- function() { scaling_plot(m_base, 'ht', F, label_x=T) }
   grid_arrange_shared_legend(baseline_bt_unp(),
                              baseline_bt2_unp(),
                              baseline_ht_unp())
 }
-baseline_unp_plots()
+```
+
+```{r baseline_unp_plots_st}
+baseline_unp_plots(m_st)
+```
+
+```{r baseline_unp_plots_bm}
+baseline_unp_plots(m_bm)
 ```
 
 ```{r baseline_pe_plots}
-baseline_pe_plots <- function() {
-  m_st_base <- m_st[!(grepl('^final-', m_st$series) |
-                      grepl('^parsing-', m_st$series)) |
-                     grepl('^final-mp16$', m_st$series),]
-  baseline_bt_pe  <- function() { scaling_plot(m_st_base, 'bt', T) }
-  baseline_bt2_pe <- function() { scaling_plot(m_st_base, 'bt2', T, label_y=T) }
-  baseline_ht_pe  <- function() { scaling_plot(m_st_base, 'ht', T, label_x=T) }
+baseline_pe_plots <- function(m) {
+  m_base <- m[!(grepl('^final-', m$series) |
+                grepl('^parsing-', m$series)) |
+               grepl('^final-mp16$', m$series),] %>% filter(attempt == 1)
+  baseline_bt_pe  <- function() { scaling_plot(m_base, 'bt', T) }
+  baseline_bt2_pe <- function() { scaling_plot(m_base, 'bt2', T, label_y=T) }
+  baseline_ht_pe  <- function() { scaling_plot(m_base, 'ht', T, label_x=T) }
   grid_arrange_shared_legend(baseline_bt_pe(),
                              baseline_bt2_pe(),
                              baseline_ht_pe())
 }
-baseline_pe_plots()
+```
 
+```{r baseline_pe_plots_st}
+baseline_pe_plots(m_st)
+```
+
+```{r baseline_pe_plots_bm}
+baseline_pe_plots(m_bm)
 ```
 
 ```{r parsing_unp_plots}
-parsing_unp_plots <- function() {
-  m_st_base <- m_st[!(grepl('^final-', m_st$series) |
-                      grepl('^baseline-', m_st$series)) |
-                     grepl('^final-mp16$', m_st$series) |
-                     grepl('^baseline-tbbq$', m_st$series),]
-  parsing_bt_unp  <- function() { scaling_plot(m_st_base, 'bt', F) }
-  parsing_bt2_unp <- function() { scaling_plot(m_st_base, 'bt2', F, label_y=T) }
-  parsing_ht_unp  <- function() { scaling_plot(m_st_base, 'ht', F, label_x=T) }
+parsing_unp_plots <- function(m) {
+  m_base <- m[!(grepl('^final-', m$series) |
+                grepl('^baseline-', m$series)) |
+               grepl('^final-mp16$', m$series) |
+               grepl('^baseline-tbbq$', m$series),] %>% filter(attempt == 1)
+  parsing_bt_unp  <- function() { scaling_plot(m_base, 'bt', F) }
+  parsing_bt2_unp <- function() { scaling_plot(m_base, 'bt2', F, label_y=T) }
+  parsing_ht_unp  <- function() { scaling_plot(m_base, 'ht', F, label_x=T) }
   grid_arrange_shared_legend(parsing_bt_unp(),
                              parsing_bt2_unp(),
                              parsing_ht_unp())
 }
-parsing_unp_plots()
+```
+
+```{r parsing_unp_plots_st}
+parsing_unp_plots(m_st)
+```
+
+```{r parsing_unp_plots_bm}
+parsing_unp_plots(m_bm)
 ```
 
 ```{r parsing_pe_plots}
-parsing_pe_plots <- function() {
-  m_st_base <- m_st[!(grepl('^final-', m_st$series) |
-                      grepl('^baseline-', m_st$series)) |
-                     grepl('^final-mp16$', m_st$series) |
-                     grepl('^baseline-tbbq$', m_st$series),]
-  parsing_bt_pe  <- function() { scaling_plot(m_st_base, 'bt', T) }
-  parsing_bt2_pe <- function() { scaling_plot(m_st_base, 'bt2', T, label_y=T) }
-  parsing_ht_pe  <- function() { scaling_plot(m_st_base, 'ht', T, label_x=T) }
+parsing_pe_plots <- function(m) {
+  m_base <- m[!(grepl('^final-', m$series) |
+                grepl('^baseline-', m$series)) |
+               grepl('^final-mp16$', m$series),] %>% filter(attempt == 1)
+  parsing_bt_pe  <- function() { scaling_plot(m_base, 'bt', T) }
+  parsing_bt2_pe <- function() { scaling_plot(m_base, 'bt2', T, label_y=T) }
+  parsing_ht_pe  <- function() { scaling_plot(m_base, 'ht', T, label_x=T) }
   grid_arrange_shared_legend(parsing_bt_pe(),
                              parsing_bt2_pe(),
                              parsing_ht_pe())
 }
-parsing_pe_plots()
+```
+
+```{r parsing_pe_plots_st}
+parsing_pe_plots(m_st)
+```
+
+```{r parsing_pe_plots_bm}
+parsing_pe_plots(m_bm)
 ```
 
 ```{r final_unp_plots}
-final_unp_plots <- function() {
-  m_st_base <- m_st[!(grepl('^parsing-', m_st$series) |
-                      grepl('^baseline-', m_st$series)) |
-                     grepl('^parsing-batch$', m_st$series),]
-  final_bt_unp  <- function() { scaling_plot(m_st_base, 'bt', F) }
-  final_bt2_unp <- function() { scaling_plot(m_st_base, 'bt2', F, label_y=T) }
-  final_ht_unp  <- function() { scaling_plot(m_st_base, 'ht', F, label_x=T) }
+final_unp_plots <- function(m) {
+  m_base <- m[!(grepl('^parsing-', m$series) |
+                      grepl('^baseline-', m$series)) |
+                     grepl('^parsing-batch$', m$series),] %>% filter(attempt == 1)
+  final_bt_unp  <- function() { scaling_plot(m_base, 'bt', F) }
+  final_bt2_unp <- function() { scaling_plot(m_base, 'bt2', F, label_y=T) }
+  final_ht_unp  <- function() { scaling_plot(m_base, 'ht', F, label_x=T) }
   grid_arrange_shared_legend(final_bt_unp(),
                              final_bt2_unp(),
                              final_ht_unp())
 }
-final_unp_plots()
+```
+
+```{r final_unp_plots_st}
+final_unp_plots(m_st)
+```
+
+```{r final_unp_plots_bm}
+final_unp_plots(m_bm)
 ```
 
 ```{r final_pe_plots}
-final_pe_plots <- function() {
-  m_st_base <- m_st[!(grepl('^parsing-', m_st$series) |
-                      grepl('^baseline-', m_st$series)) |
-                     grepl('^parsing-batch$', m_st$series),]
-  final_bt_pe  <- function() { scaling_plot(m_st_base, 'bt', T) }
-  final_bt2_pe <- function() { scaling_plot(m_st_base, 'bt2', T, label_y=T) }
-  final_ht_pe  <- function() { scaling_plot(m_st_base, 'ht', T, label_x=T) }
+final_pe_plots <- function(m) {
+  m_base <- m[!(grepl('^parsing-', m$series) |
+                      grepl('^baseline-', m$series)) |
+                     grepl('^parsing-batch$', m$series),]
+  final_bt_pe  <- function() { scaling_plot(m_base, 'bt', T) }
+  final_bt2_pe <- function() { scaling_plot(m_base, 'bt2', T, label_y=T) }
+  final_ht_pe  <- function() { scaling_plot(m_base, 'ht', T, label_x=T) }
   grid_arrange_shared_legend(final_bt_pe(),
                              final_bt2_pe(),
                              final_ht_pe())
 }
-final_pe_plots()
+```
+
+```{r final_pe_plots_st}
+final_pe_plots(m_st)
+```
+
+```{r final_pe_plots_bm}
+final_pe_plots(m_bm)
 ```
