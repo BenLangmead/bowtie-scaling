@@ -1,0 +1,31 @@
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llcccccccc}
+\hline
+& & \multicolumn{4}{c}{Broadwell} & \multicolumn{4}{c}{KNL} \\ 
+& & \multicolumn{2}{c}{100 nt unpaired} & \multicolumn{2}{c}{100 x 100 nt} & \multicolumn{2}{c}{100 nt unpaired} & \multicolumn{2}{c}{100 x 100 nt} \\ 
+ &  & Threads & Threads/sec & Threads & Threads/sec & Threads & Threads/sec & Threads & \multicolumn{1}{c}{Threads/sec} \\ 
+\hline
+Bowtie & baseline-old  & \multicolumn{1}{r}{$\phantom{0}16$} & \multicolumn{1}{r}{0.26} & \multicolumn{1}{r}{$\phantom{0}80$} & \multicolumn{1}{r}{0.86} & \multicolumn{1}{r}{$\phantom{0}24$} & \multicolumn{1}{r}{0.30} & \multicolumn{1}{r}{$\phantom{0}72$} & \multicolumn{1}{r}{1.13} \\
+ & baseline-tbbspin  & \multicolumn{1}{r}{$\phantom{0}16$} & \multicolumn{1}{r}{0.25} & \multicolumn{1}{r}{$\phantom{0}88$} & \multicolumn{1}{r}{0.93} & \multicolumn{1}{r}{$\phantom{0}24$} & \multicolumn{1}{r}{0.29} & \multicolumn{1}{r}{$\phantom{0}72$} & \multicolumn{1}{r}{1.17} \\
+ & baseline-tbbq  & \multicolumn{1}{r}{$\phantom{0}48$} & \multicolumn{1}{r}{0.38} & \multicolumn{1}{r}{$\phantom{0}96$} & \multicolumn{1}{r}{0.97} & \multicolumn{1}{r}{$\phantom{0}24$} & \multicolumn{1}{r}{0.29} & \multicolumn{1}{r}{$\phantom{0}64$} & \multicolumn{1}{r}{1.07} \\
+ & parsing-clean  & \multicolumn{1}{r}{$\phantom{0}56$} & \multicolumn{1}{r}{0.70} & \multicolumn{1}{r}{$104$} & \multicolumn{1}{r}{\textbf{1.09}} & \multicolumn{1}{r}{$\phantom{0}56$} & \multicolumn{1}{r}{0.61} & \multicolumn{1}{r}{$160$} & \multicolumn{1}{r}{1.91} \\
+ & parsing-batch  & \multicolumn{1}{r}{$\phantom{0}80$} & \multicolumn{1}{r}{1.07} & \multicolumn{1}{r}{$104$} & \multicolumn{1}{r}{\textbf{1.09}} & \multicolumn{1}{r}{$\phantom{0}56$} & \multicolumn{1}{r}{0.87} & \multicolumn{1}{r}{$160$} & \multicolumn{1}{r}{1.90} \\
+ & final-mp16  & \multicolumn{1}{r}{$112$} & \multicolumn{1}{r}{0.60} & \multicolumn{1}{r}{$112$} & \multicolumn{1}{r}{1.00} & \multicolumn{1}{r}{$272$} & \multicolumn{1}{r}{1.96} & \multicolumn{1}{r}{$272$} & \multicolumn{1}{r}{\textbf{1.95}} \\
+ & final-block  & \multicolumn{1}{r}{$104$} & \multicolumn{1}{r}{\textbf{1.24}} & \multicolumn{1}{r}{$104$} & \multicolumn{1}{r}{\textbf{1.09}} & \multicolumn{1}{r}{$264$} & \multicolumn{1}{r}{\textbf{2.51}} & \multicolumn{1}{r}{$136$} & \multicolumn{1}{r}{1.91} \\
+Bowtie 2 & baseline-old  & \multicolumn{1}{r}{$\phantom{0}72$} & \multicolumn{1}{r}{0.63} & \multicolumn{1}{r}{$\phantom{0}72$} & \multicolumn{1}{r}{0.60} & \multicolumn{1}{r}{$\phantom{0}96$} & \multicolumn{1}{r}{0.62} & \multicolumn{1}{r}{$\phantom{0}88$} & \multicolumn{1}{r}{0.89} \\
+ & baseline-tbbspin  & \multicolumn{1}{r}{$\phantom{0}72$} & \multicolumn{1}{r}{0.70} & \multicolumn{1}{r}{$\phantom{0}72$} & \multicolumn{1}{r}{0.68} & \multicolumn{1}{r}{$\phantom{0}88$} & \multicolumn{1}{r}{0.74} & \multicolumn{1}{r}{$\phantom{0}88$} & \multicolumn{1}{r}{1.13} \\
+ & baseline-tbbq  & \multicolumn{1}{r}{$\phantom{0}56$} & \multicolumn{1}{r}{0.61} & \multicolumn{1}{r}{$\phantom{0}56$} & \multicolumn{1}{r}{0.58} & \multicolumn{1}{r}{$\phantom{0}56$} & \multicolumn{1}{r}{0.53} & \multicolumn{1}{r}{$\phantom{0}56$} & \multicolumn{1}{r}{0.75} \\
+ & parsing-clean  & \multicolumn{1}{r}{$104$} & \multicolumn{1}{r}{0.87} & \multicolumn{1}{r}{$104$} & \multicolumn{1}{r}{0.76} & \multicolumn{1}{r}{$248$} & \multicolumn{1}{r}{1.15} & \multicolumn{1}{r}{$268$} & \multicolumn{1}{r}{1.88} \\
+ & parsing-batch  & \multicolumn{1}{r}{$104$} & \multicolumn{1}{r}{0.88} & \multicolumn{1}{r}{$104$} & \multicolumn{1}{r}{0.76} & \multicolumn{1}{r}{$268$} & \multicolumn{1}{r}{\textbf{1.20}} & \multicolumn{1}{r}{$272$} & \multicolumn{1}{r}{\textbf{1.90}} \\
+ & final-mp16  & \multicolumn{1}{r}{$112$} & \multicolumn{1}{r}{0.75} & \multicolumn{1}{r}{$112$} & \multicolumn{1}{r}{0.69} & \multicolumn{1}{r}{$272$} & \multicolumn{1}{r}{1.11} & \multicolumn{1}{r}{$272$} & \multicolumn{1}{r}{1.80} \\
+ & final-block  & \multicolumn{1}{r}{$104$} & \multicolumn{1}{r}{\textbf{0.89}} & \multicolumn{1}{r}{$108$} & \multicolumn{1}{r}{\textbf{0.79}} & \multicolumn{1}{r}{$268$} & \multicolumn{1}{r}{\textbf{1.20}} & \multicolumn{1}{r}{$272$} & \multicolumn{1}{r}{\textbf{1.90}} \\
+HISAT & baseline-old  & \multicolumn{1}{r}{$\phantom{0}16$} & \multicolumn{1}{r}{0.18} & \multicolumn{1}{r}{$\phantom{0}16$} & \multicolumn{1}{r}{0.15} & \multicolumn{1}{r}{$\phantom{0}16$} & \multicolumn{1}{r}{0.19} & \multicolumn{1}{r}{$\phantom{0}12$} & \multicolumn{1}{r}{0.12} \\
+ & baseline-tbbspin  & \multicolumn{1}{r}{$\phantom{0}16$} & \multicolumn{1}{r}{0.18} & \multicolumn{1}{r}{$\phantom{0}16$} & \multicolumn{1}{r}{0.15} & \multicolumn{1}{r}{$\phantom{0}16$} & \multicolumn{1}{r}{0.19} & \multicolumn{1}{r}{$\phantom{0}12$} & \multicolumn{1}{r}{0.12} \\
+ & baseline-tbbq  & \multicolumn{1}{r}{$\phantom{0}16$} & \multicolumn{1}{r}{0.19} & \multicolumn{1}{r}{$\phantom{0}16$} & \multicolumn{1}{r}{0.17} & \multicolumn{1}{r}{$\phantom{0}16$} & \multicolumn{1}{r}{0.19} & \multicolumn{1}{r}{$\phantom{0}12$} & \multicolumn{1}{r}{0.11} \\
+ & parsing-clean  & \multicolumn{1}{r}{$\phantom{0}48$} & \multicolumn{1}{r}{0.47} & \multicolumn{1}{r}{$\phantom{0}56$} & \multicolumn{1}{r}{0.58} & \multicolumn{1}{r}{$\phantom{0}64$} & \multicolumn{1}{r}{0.48} & \multicolumn{1}{r}{$\phantom{0}48$} & \multicolumn{1}{r}{0.42} \\
+ & parsing-batch  & \multicolumn{1}{r}{$\phantom{0}56$} & \multicolumn{1}{r}{0.75} & \multicolumn{1}{r}{$\phantom{0}56$} & \multicolumn{1}{r}{0.80} & \multicolumn{1}{r}{$\phantom{0}64$} & \multicolumn{1}{r}{0.65} & \multicolumn{1}{r}{$\phantom{0}48$} & \multicolumn{1}{r}{0.54} \\
+ & final-mp16  & \multicolumn{1}{r}{$112$} & \multicolumn{1}{r}{0.93} & \multicolumn{1}{r}{$112$} & \multicolumn{1}{r}{0.95} & \multicolumn{1}{r}{$272$} & \multicolumn{1}{r}{1.89} & \multicolumn{1}{r}{$272$} & \multicolumn{1}{r}{1.50} \\
+ & final-block  & \multicolumn{1}{r}{$104$} & \multicolumn{1}{r}{\textbf{1.14}} & \multicolumn{1}{r}{$104$} & \multicolumn{1}{r}{\textbf{1.20}} & \multicolumn{1}{r}{$268$} & \multicolumn{1}{r}{\textbf{2.52}} & \multicolumn{1}{r}{$268$} & \multicolumn{1}{r}{\textbf{1.96}} \\
+\hline 
+\end{tabular}
+}
