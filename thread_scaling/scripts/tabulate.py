@@ -234,6 +234,9 @@ def tabulate():
                         dat['thread_times'] = [dat['search_time']]
                         dat['cpu_changeovers'] = [0]
                         dat['node_changeovers'] = [0]
+                        for tcol in ['thread_times', 'cpu_changeovers', 'node_changeovers']:
+                            dat[tcol] = ' '.join(map(str, dat[tcol]))
+                        print(','.join(map(str, [v for _, v in sorted(dat.items())])))
 
 if __name__ == '__main__':
     tabulate()
