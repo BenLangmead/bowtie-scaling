@@ -5,11 +5,12 @@ output: html_notebook
 
 ```{r}
 # setwd('~/git/bowtie-scaling/thread_scaling/scripts')
-#MAX_SECS <- 1190  # any experiment taking longer than this is considered to have failed
+MAX_SECS <- 1000
 ```
 
 ```{r libraries}
 library(ggplot2)
+library(plyr)
 library(dplyr)
 library(grid)
 library(gridExtra)
@@ -56,187 +57,226 @@ summarize_col <- function(df, colname) {
 ```
 
 ```{r read_table}
-parse_results <- function(fn) {
+add_reads <- function(m) {
+  m$reads_per_thread <- unlist(sapply(paste(m$aligner, m$pe, m$machine), switch,
+                    'bt unp KNL'=450000,
+                    'bt2 unp KNL'=65000,
+                    'bwa unp KNL'=65000,
+                    'ht unp KNL'=400000,
+                    'bt pe KNL'=37500,
+                    'bt2 pe KNL'=16000,
+                    'bwa pe KNL'=16000,
+                    'ht pe KNL'=250000,
+                    'bt unp Broadwell'=1000000,
+                    'bt2 unp Broadwell'=200000,
+                    'bwa unp Broadwell'=200000,
+                    'ht unp Broadwell'=1200000,
+                    'bt pe Broadwell'=110000,
+                    'bt2 pe Broadwell'=85000,
+                    'bwa pe Broadwell'=85000,
+                    'ht pe Broadwell'=550000
+                    ))
+  m
+}
+
+parse_results <- function(fn, machine) {
   m <- read.table(fn, sep=',', comment.char='', quote='', header=T, stringsAsFactors=F)
   m <- summarize_col(m, 'thread_times')
   m <- summarize_col(m, 'cpu_changeovers')
   m <- summarize_col(m, 'node_changeovers')
-  m <- m %>% group_by(series, pe, attempt, totthreads, aligner) %>%
-    summarise(thread_times_max=max(thread_times_max),
+  m$series <- ifelse(m$series == '', 'bwa', m$series)
+  m <- m[!is.na(m$series),]
+  m$machine <- machine
+  m <- add_reads(m)
+  m <- m %>% dplyr::group_by(series, pe, attempt, totthreads, reads_per_thread, aligner) %>%
+    dplyr::summarise(thread_times_max=max(thread_times_max),
               thread_times_min=min(thread_times_min),
               thread_times_mean=mean(thread_times_mean),
-              threads_div_max=totthreads[1] / thread_times_max)
-  #m$threads_div_max <- ifelse(m$thread_times_max > MAX_SECS, 0, m$threads_div_max)
+              threads_div_max=(totthreads[1] * reads_per_thread[1]) / thread_times_max)
+  m <- m[m$thread_times_max < MAX_SECS,]
   m
 }
 
-m_st <- parse_results('stampede_knl/stampede_knl_results_20170828.csv')
-m_bm <- parse_results('marcc_lbm/marcc_lbm_20170828.csv')
+m_st <- parse_results('stampede_knl/stampede_knl_results_20170917.csv', 'KNL')
+m_bm <- parse_results('marcc_lbm/marcc_lbm_20170917.csv', 'Broadwell')
 ```
 
 ```{r scaling_plot_func}
-scaling_plot <- function(m, want_aligner, want_pe, label_x=F, label_y=F) {
-  m <- m %>% filter(attempt == 1 & aligner == want_aligner & ((pe == 'pe') == want_pe))
-  mg <- m %>% group_by(series, pe, attempt, aligner) %>%
-    summarise(threads_div_max_max=thread_times_max[which(threads_div_max == max(threads_div_max))[1]],
+scaling_plot_filter <- function(m, want_aligner, want_pe) {
+  m %>% filter(attempt == 1 & aligner %in% want_aligner & ((pe == 'pe') == want_pe))
+}
+
+scaling_plot <- function(m, want_aligner, want_pe, label_x=F, label_y=F, label_main=NA) {
+  m <- scaling_plot_filter(m, want_aligner, want_pe)
+  mg <- m %>% dplyr::group_by(series, pe, attempt, aligner) %>%
+    dplyr::summarise(threads_div_max_max=thread_times_max[which(threads_div_max == max(threads_div_max))[1]],
               threads_div_max_threads=totthreads[which(threads_div_max == max(threads_div_max))[1]])
   ggplot() + 
     geom_line(data=m, aes(x=totthreads, y=thread_times_max, color=series)) +
     geom_point(data=mg, aes(x=threads_div_max_threads, y=threads_div_max_max, color=series)) +
     expand_limits(x=0, y=0) +
     labs(x=if(label_x) {'# threads'} else {''},
-         y=if(label_y) {'Max thread running time'} else {''}) +
-    theme_bw()
-  
+         y=if(label_y) {'Thread time'} else {''},
+         title=if(is.na(label_main)) {''} else {label_main}) +
+    scale_colour_discrete(drop = FALSE) +
+    theme_bw() +
+    theme(legend.title=element_blank())
 }
 ```
 
-```{r baseline_unp_plots}
-baseline_unp_plots <- function(m) {
-  m_base <- m[!(grepl('^final-', m$series) |
-                grepl('^parsing-', m$series)) |
-              grepl('^final-mp16$', m$series),] %>% filter(attempt == 1)
-  baseline_bt_unp  <- function() { scaling_plot(m_base, 'bt', F) }
-  baseline_bt2_unp <- function() { scaling_plot(m_base, 'bt2', F, label_y=T) }
-  baseline_ht_unp  <- function() { scaling_plot(m_base, 'ht', F, label_x=T) }
-  grid_arrange_shared_legend(baseline_bt_unp(),
-                             baseline_bt2_unp(),
-                             baseline_ht_unp())
+```{r baseline_plots_all}
+baseline_plots_all <- function(m_st, m_bm, want_pe) {
+  m_bm_base <- m_bm[!(grepl('^final-', m_bm$series) |
+                      grepl('^parsing-', m_bm$series)) |
+                     grepl('^final-mp16$', m_bm$series),] %>% filter(attempt == 1)
+  baseline_bt_unp_bm  <- function() { scaling_plot(m_bm_base, c('bt'), want_pe, label_x=F, label_y=T, label_main='Broadwell Bowtie') }
+  baseline_bt2_unp_bm <- function() { scaling_plot(m_bm_base, c('bt2'), want_pe, label_x=F, label_y=T, label_main='Broadwell Bowtie 2') }
+  baseline_ht_unp_bm  <- function() { scaling_plot(m_bm_base, c('ht'), want_pe, label_x=T, label_y=T, label_main='Broadwell HISAT') }
+  m_st_base <- m_st[!(grepl('^final-', m_st$series) |
+                      grepl('^parsing-', m_st$series)) |
+                     grepl('^final-mp16$', m_st$series),] %>% filter(attempt == 1)
+  baseline_bt_unp_st  <- function() { scaling_plot(m_st_base, c('bt'), want_pe, label_x=F, label_y=F, label_main='KNL Bowtie') }
+  baseline_bt2_unp_st <- function() { scaling_plot(m_st_base, c('bt2'), want_pe, label_x=F, label_y=F, label_main='KNL Bowtie 2') }
+  baseline_ht_unp_st  <- function() { scaling_plot(m_st_base, c('ht'), want_pe, label_x=T, label_y=F, label_main='KNL HISAT') }
+  grid_arrange_shared_legend(baseline_bt_unp_bm(), baseline_bt_unp_st(),
+                             baseline_bt2_unp_bm(), baseline_bt2_unp_st(),
+                             baseline_ht_unp_bm(), baseline_ht_unp_st())
 }
 ```
 
-```{r baseline_unp_plots_st}
-baseline_unp_plots(m_st)
+```{r baseline_plots_all_unp}
+baseline_plots_all(m_st, m_bm, F)
+
+pdf(file='baseline_unp.pdf', onefile=F)
+baseline_plots_all(m_st, m_bm, F)
+dev.off()
 ```
 
-```{r baseline_unp_plots_bm}
-baseline_unp_plots(m_bm)
+
+```{r baseline_plots_all_pe}
+baseline_plots_all(m_st, m_bm, T)
+
+pdf(file='baseline_pe.pdf', onefile=F)
+baseline_plots_all(m_st, m_bm, T)
+dev.off()
 ```
 
-```{r baseline_pe_plots}
-baseline_pe_plots <- function(m) {
-  m_base <- m[!(grepl('^final-', m$series) |
-                grepl('^parsing-', m$series)) |
-               grepl('^final-mp16$', m$series),] %>% filter(attempt == 1)
-  baseline_bt_pe  <- function() { scaling_plot(m_base, 'bt', T) }
-  baseline_bt2_pe <- function() { scaling_plot(m_base, 'bt2', T, label_y=T) }
-  baseline_ht_pe  <- function() { scaling_plot(m_base, 'ht', T, label_x=T) }
-  grid_arrange_shared_legend(baseline_bt_pe(),
-                             baseline_bt2_pe(),
-                             baseline_ht_pe())
+```{r parsing_plots_all}
+parsing_plots_all <- function(m_st, m_bm, want_pe) {
+  m_bm_base <- m_bm[!(grepl('^final-', m_bm$series) |
+                      grepl('^baseline-', m_bm$series)) |
+                    grepl('^final-mp16$', m_bm$series) |
+                    grepl('^baseline-tbbq$', m_bm$series),] %>% filter(attempt == 1)
+  parsing_bt_unp_bm  <- function() { scaling_plot(m_bm_base, c('bt'), want_pe, label_x=F, label_y=T, label_main='Broadwell Bowtie') }
+  parsing_bt2_unp_bm <- function() { scaling_plot(m_bm_base, c('bt2'), want_pe, label_x=F, label_y=T, label_main='Broadwell Bowtie 2') }
+  parsing_ht_unp_bm  <- function() { scaling_plot(m_bm_base, c('ht'), want_pe, label_x=T, label_y=T, label_main='Broadwell HISAT') }
+  m_st_base <- m_st[!(grepl('^final-', m_st$series) |
+                      grepl('^baseline-', m_st$series)) |
+                    grepl('^final-mp16$', m_st$series) |
+                    grepl('^baseline-tbbq$', m_st$series),] %>% filter(attempt == 1)
+  parsing_bt_unp_st  <- function() { scaling_plot(m_st_base, c('bt'), want_pe, label_x=F, label_y=F, label_main='KNL Bowtie') }
+  parsing_bt2_unp_st <- function() { scaling_plot(m_st_base, c('bt2'), want_pe, label_x=F, label_y=F, label_main='KNL Bowtie 2') }
+  parsing_ht_unp_st  <- function() { scaling_plot(m_st_base, c('ht'), want_pe, label_x=T, label_y=F, label_main='KNL HISAT') }
+  grid_arrange_shared_legend(parsing_bt_unp_bm(), parsing_bt_unp_st(),
+                             parsing_bt2_unp_bm(), parsing_bt2_unp_st(),
+                             parsing_ht_unp_bm(), parsing_ht_unp_st())
 }
 ```
 
-```{r baseline_pe_plots_st}
-baseline_pe_plots(m_st)
+```{r parsing_plots_all_unp}
+parsing_plots_all(m_st, m_bm, F)
+
+pdf(file='parsing_unp.pdf', onefile=F)
+parsing_plots_all(m_st, m_bm, F)
+dev.off()
 ```
 
-```{r baseline_pe_plots_bm}
-baseline_pe_plots(m_bm)
+```{r parsing_plots_all_pe}
+parsing_plots_all(m_st, m_bm, T)
+
+pdf(file='parsing_pe.pdf', onefile=F)
+parsing_plots_all(m_st, m_bm, T)
+dev.off()
 ```
 
-```{r parsing_unp_plots}
-parsing_unp_plots <- function(m) {
-  m_base <- m[!(grepl('^final-', m$series) |
-                grepl('^baseline-', m$series)) |
-               grepl('^final-mp16$', m$series) |
-               grepl('^baseline-tbbq$', m$series),] %>% filter(attempt == 1)
-  parsing_bt_unp  <- function() { scaling_plot(m_base, 'bt', F) }
-  parsing_bt2_unp <- function() { scaling_plot(m_base, 'bt2', F, label_y=T) }
-  parsing_ht_unp  <- function() { scaling_plot(m_base, 'ht', F, label_x=T) }
-  grid_arrange_shared_legend(parsing_bt_unp(),
-                             parsing_bt2_unp(),
-                             parsing_ht_unp())
+```{r final_plots_all}
+final_plots_all <- function(m_st, m_bm, want_pe) {
+  m_bm_base <- m_bm[!(grepl('^parsing-', m_bm$series) |
+                      grepl('^baseline-', m_bm$series)) |
+                     grepl('^parsing-batch$', m_bm$series) |
+                     grepl('^bwa$', m_bm$series),] %>% filter(attempt == 1)
+  m_bm_base$series <- factor(m_bm_base$series)
+  final_bt_unp_bm  <- function() { scaling_plot(m_bm_base, c('bt'), want_pe, label_x=F, label_y=T, label_main='Broadwell Bowtie') }
+  final_bt2_unp_bm <- function() { scaling_plot(m_bm_base, c('bt2', 'bwa'), want_pe, label_x=F, label_y=T, label_main='Broadwell Bowtie 2 & BWA-MEM') }
+  final_ht_unp_bm  <- function() { scaling_plot(m_bm_base, c('ht'), want_pe, label_x=T, label_y=T, label_main='Broadwell HISAT') }
+  m_st_base <- m_st[!(grepl('^parsing-', m_st$series) |
+                      grepl('^baseline-', m_st$series)) |
+                     grepl('^parsing-batch$', m_st$series) |
+                     grepl('^bwa$', m_st$series),] %>% filter(attempt == 1)
+  m_st_base$series <- factor(m_st_base$series)
+  final_bt_unp_st  <- function() { scaling_plot(m_st_base, c('bt'), want_pe, label_x=F, label_y=F, label_main='KNL Bowtie') }
+  final_bt2_unp_st <- function() { scaling_plot(m_st_base, c('bt2', 'bwa'), want_pe, label_x=F, label_y=F, label_main='KNL Bowtie 2 & BWA-MEM') }
+  final_ht_unp_st  <- function() { scaling_plot(m_st_base, c('ht'), want_pe, label_x=T, label_y=F, label_main='KNL HISAT') }
+  grid_arrange_shared_legend(final_bt_unp_bm(), final_bt_unp_st(),
+                             final_bt2_unp_bm(), final_bt2_unp_st(),
+                             final_ht_unp_bm(), final_ht_unp_st())
 }
 ```
 
-```{r parsing_unp_plots_st}
-print(parsing_unp_plots(m_st))
+```{r final_plots_all_unp}
+final_plots_all(m_st, m_bm, F)
+pdf(file='final_unp.pdf', onefile=F)
+final_plots_all(m_st, m_bm, F)
+dev.off()
 ```
 
-```{r parsing_unp_plots_bm}
-parsing_unp_plots(m_bm)
-```
-
-```{r parsing_pe_plots}
-parsing_pe_plots <- function(m) {
-  m_base <- m[!(grepl('^final-', m$series) |
-                grepl('^baseline-', m$series)) |
-               grepl('^final-mp16$', m$series),] %>% filter(attempt == 1)
-  parsing_bt_pe  <- function() { scaling_plot(m_base, 'bt', T) }
-  parsing_bt2_pe <- function() { scaling_plot(m_base, 'bt2', T, label_y=T) }
-  parsing_ht_pe  <- function() { scaling_plot(m_base, 'ht', T, label_x=T) }
-  grid_arrange_shared_legend(parsing_bt_pe(),
-                             parsing_bt2_pe(),
-                             parsing_ht_pe())
-}
-```
-
-```{r parsing_pe_plots_st}
-parsing_pe_plots(m_st)
-```
-
-```{r parsing_pe_plots_bm}
-parsing_pe_plots(m_bm)
-```
-
-```{r final_unp_plots}
-final_unp_plots <- function(m) {
-  m_base <- m[!(grepl('^parsing-', m$series) |
-                      grepl('^baseline-', m$series)) |
-                     grepl('^parsing-batch$', m$series),] %>% filter(attempt == 1)
-  final_bt_unp  <- function() { scaling_plot(m_base, 'bt', F) }
-  final_bt2_unp <- function() { scaling_plot(m_base, 'bt2', F, label_y=T) }
-  final_ht_unp  <- function() { scaling_plot(m_base, 'ht', F, label_x=T) }
-  grid_arrange_shared_legend(final_bt_unp(),
-                             final_bt2_unp(),
-                             final_ht_unp())
-}
-```
-
-```{r final_unp_plots_st}
-final_unp_plots(m_st)
-```
-
-```{r final_unp_plots_bm}
-final_unp_plots(m_bm)
-```
-
-```{r final_pe_plots}
-final_pe_plots <- function(m) {
-  m_base <- m[!(grepl('^parsing-', m$series) |
-                      grepl('^baseline-', m$series)) |
-                     grepl('^parsing-batch$', m$series),]
-  final_bt_pe  <- function() { scaling_plot(m_base, 'bt', T) }
-  final_bt2_pe <- function() { scaling_plot(m_base, 'bt2', T, label_y=T) }
-  final_ht_pe  <- function() { scaling_plot(m_base, 'ht', T, label_x=T) }
-  grid_arrange_shared_legend(final_bt_pe(),
-                             final_bt2_pe(),
-                             final_ht_pe())
-}
-```
-
-```{r final_pe_plots_st}
-final_pe_plots(m_st)
-```
-
-```{r final_pe_plots_bm}
-final_pe_plots(m_bm)
+```{r final_plots_all_pe}
+final_plots_all(m_st, m_bm, T)
+pdf(file='final_pe.pdf', onefile=F)
+final_plots_all(m_st, m_bm, T)
+dev.off()
 ```
 
 ```{r peak_throughput_table}
+# TODO: turn the threads/sec into reads/sec
+
 peak_throughput_table <- function(m) {
-  mg <- m %>% group_by(series, pe, attempt, aligner, machine) %>%
-    summarise(threads_div_max_threads=totthreads[which(threads_div_max == max(threads_div_max))[1]],
+  mg <- m %>% dplyr::group_by(series, pe, attempt, aligner, machine) %>%
+    dplyr::summarise(threads_div_max_threads=totthreads[which(threads_div_max == max(threads_div_max))[1]],
               threads_div_max=max(threads_div_max))
-  tabular((Heading() * aligner * Heading() * series) ~ (Justify(c) * Heading() * identity * Heading() * machine * Heading() * pe * Justify(r) * (Heading('Threads') * threads_div_max_threads + Heading('Threads/sec') * Format(sprintf("%.2f")) * threads_div_max)), data=mg)
+  tabular((Heading() * aligner * Heading() * series) ~ (Justify(c) * Heading() * identity * Heading() * machine * Heading() * pe * Justify(l) * (Heading('Threads') * threads_div_max_threads + Heading('K reads/sec') * Format(sprintf("%.2f")) * I(threads_div_max/1000) )), data=mg)
 }
 #m_st$machine <- '1 x Intel Xeon Phi 7250 (Knight\'s Landing)\n68 cores, up to 4 threads per core'
 #m_bm$machine <- '4 x E7-4830 (Broadwell)\n56 cores, up to 2 threads per core'
 m_st$machine <- 'KNL'
 m_bm$machine <- 'Broadwell'
 m <- rbind(m_st, m_bm)
-m$aligner <- ifelse(m$aligner == 'bt', 'Bowtie', ifelse(m$aligner == 'bt2', 'Bowtie 2', 'HISAT'))
+seriess <- c(
+  'baseline-old',
+  'baseline-tbbspin',
+  'baseline-tbbq',
+  'parsing-clean',
+  'parsing-batch',
+  'final-mp16',
+  'final-block')
+seriess_rename <- c(
+  'Original',
+  'Original+spin',
+  'Original+queue',
+  'Deferred parsing',
+  'Deferred batch parsing',
+  'Multiprocessing',
+  'Deferred block parsing')
+m <- m[!is.na(m$series),]
+for(i in 1:length(seriess)) {
+  slc <- m[m$series == 'bwa',]
+  print(slc)
+  slc$series <- seriess[i]
+  m <- rbind(m, slc)
+}
+m <- m[m$series != 'bwa',]
+print(m)
+m$aligner <- ifelse(m$aligner == 'bt', 'Bowtie', ifelse(m$aligner == 'bt2', 'Bowtie 2', ifelse(m$aligner == 'bwa', 'BWA-MEM', 'HISAT')))
 m$aligner <- factor(m$aligner)
 m$series <- factor(m$series)
 m$reord <- 0
@@ -248,11 +288,21 @@ m$reord[m$series == 'parsing-batch'] <- 5
 m$reord[m$series == 'final-mp16'] <- 6
 m$reord[m$series == 'final-block'] <- 7
 m$series <- reorder(m$series, m$reord)
-m$pe <- ifelse(m$pe == 'pe', '100 x 100 nt', '100 nt unpaired')
+m$series <- plyr::mapvalues(m$series, from = seriess, to = seriess_rename)
+m$pe <- ifelse(m$pe == 'pe', 'Paired', 'Unpaired')
 m$pe <- factor(m$pe)
 m$machine <- factor(m$machine)
 
-fn <- 'peak_throughput.tex_snippet'
+# In LaTeXiT, add the following to the preamble:
+# \usepackage{graphics}
+# \usepackage{booktabs}
+
+# For underlines under Broadwell / KNL
+# \cmidrule(lr){3-6}\cmidrule(lr){7-10}
+# For underlines on line just below that
+# \cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}
+
+fn <- 'peak_throughput.tex_snippet.tmp'
 write("\\resizebox{\\columnwidth}{!}{%", file=fn)
 capture.output(latex(peak_throughput_table(m)), file=fn, append=T)
 write("}", file=fn, append=T)
