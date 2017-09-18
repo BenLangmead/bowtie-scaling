@@ -205,10 +205,10 @@ def tabulate():
                                 if dat['rd_load_time'] == 'NA':
                                     dat['rd_load_time'] = 0.0
                                 dat['rd_load_time'] += float(ln.split()[9])
-                            elif ln.startswith('[M::mem_process_seqs] Processed'):
+                            elif ln.startswith('[kt_pipeline]'):
                                 if dat['search_time'] == 'NA':
                                     dat['search_time'] = 0
-                                dat['search_time'] += float(ln.split()[8])
+                                dat['search_time'] += float(ln.split()[3])
 
                     if aligner != 'bwa':
                         with open(fn_out) as iofh:
