@@ -1,4 +1,5 @@
 name	tool	branch	mp_mt	preproc	args
 ht-baseline-old	hisat	haswell	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800 --no-spliced-alignment --no-temp-splicesite
 ht-baseline-tbbspin	hisat	haswell	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1	-I 250 -X 800 --no-spliced-alignment --no-temp-splicesite
+ht-baseline-tbbstd	hisat	haswell	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1	-I 250 -X 800 --no-spliced-alignment --no-temp-splicesite
 ht-baseline-tbbq	hisat	haswell	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --no-spliced-alignment --no-temp-splicesite
