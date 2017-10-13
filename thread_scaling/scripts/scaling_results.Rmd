@@ -94,11 +94,15 @@ parse_results <- function(fn, machine) {
               thread_times_mean=mean(thread_times_mean),
               threads_div_max=(totthreads[1] * reads_per_thread[1]) / thread_times_max)
   m <- m[m$thread_times_max < MAX_SECS,]
+  m$machine <- machine
   m
 }
 
-m_st <- parse_results('stampede_knl/stampede_knl_results_20170917.csv', 'KNL')
-m_bm <- parse_results('marcc_lbm/marcc_lbm_20170917.csv', 'Broadwell')
+m <- rbind(parse_results('stampede_knl/stampede_knl_results_20171012.csv', 'KNL'),
+           parse_results('marcc_lbm/marcc_lbm_20171012.csv', 'Broadwell'))
+m$series <- factor(m$series)
+m_bm <- m[m$machine == 'Broadwell',]
+m_st <- m[m$machine == 'KNL',]
 ```
 
 ```{r scaling_plot_func}
@@ -112,20 +116,45 @@ scaling_plot <- function(m, want_aligner, want_pe, label_x=F, label_y=F, label_m
     dplyr::summarise(threads_div_max_max=thread_times_max[which(threads_div_max == max(threads_div_max))[1]],
               threads_div_max_threads=totthreads[which(threads_div_max == max(threads_div_max))[1]])
   ggplot() + 
-    geom_line(data=m, aes(x=totthreads, y=thread_times_max, color=series)) +
+    geom_line(data=m, position=position_dodge(width=0.2), aes(x=totthreads, y=thread_times_max, color=series)) +
     geom_point(data=mg, aes(x=threads_div_max_threads, y=threads_div_max_max, color=series)) +
     expand_limits(x=0, y=0) +
     labs(x=if(label_x) {'# threads'} else {''},
          y=if(label_y) {'Thread time'} else {''},
          title=if(is.na(label_main)) {''} else {label_main}) +
-    scale_colour_discrete(drop = FALSE) +
+    scale_colour_discrete(drop=T) +
     theme_bw() +
-    theme(legend.title=element_blank())
+    theme(legend.title=element_blank(), legend.key.width=unit(2, "line"))
 }
 ```
 
 ```{r baseline_plots_all}
+baseline_adjust_series <- function(m) {
+  m$series <- factor(m$series)
+  m$reord <- 0
+  m$reord[m$series == 'baseline-old'] <- 1
+  m$reord[m$series == 'baseline-tbbspin'] <- 2
+  m$reord[m$series == 'baseline-tbbstd'] <- 3
+  m$reord[m$series == 'baseline-tbbq'] <- 4
+  m$reord[m$series == 'final-mp16'] <- 5
+  m$series <- reorder(m$series, m$reord)
+  m$series <- plyr::mapvalues(m$series,
+                              from = c('baseline-old',
+                                       'baseline-tbbspin',
+                                       'baseline-tbbstd',
+                                       'baseline-tbbq',
+                                       'final-mp16'),
+                              to = c('TinyThread++ spin  ',
+                                     'TBB spin  ',
+                                     'TBB standard  ',
+                                     'TBB queueing  ',
+                                     'MP baseline'))
+  m
+}
+
 baseline_plots_all <- function(m_st, m_bm, want_pe) {
+  m_bm <- baseline_adjust_series(m_bm)
+  m_st <- baseline_adjust_series(m_st)
   m_bm_base <- m_bm[!(grepl('^final-', m_bm$series) |
                       grepl('^parsing-', m_bm$series)) |
                      grepl('^final-mp16$', m_bm$series),] %>% filter(attempt == 1)
@@ -162,7 +191,29 @@ dev.off()
 ```
 
 ```{r parsing_plots_all}
+parsing_adjust_series <- function(m) {
+  m$series <- factor(m$series)
+  m$reord <- 0
+  m$reord[m$series == 'baseline-tbbq'] <- 1
+  m$reord[m$series == 'parsing-clean'] <- 2
+  m$reord[m$series == 'parsing-batch'] <- 3
+  m$reord[m$series == 'final-mp16'] <- 4
+  m$series <- reorder(m$series, m$reord)
+  m$series <- plyr::mapvalues(m$series,
+                              from = c('baseline-tbbq',
+                                       'parsing-clean',
+                                       'parsing-batch',
+                                       'final-mp16'),
+                              to = c('Original (O)  ',
+                                     'Deferred (D)  ',
+                                     'Batch deferred (B)  ',
+                                     'MP baseline'))
+  m
+}
+
 parsing_plots_all <- function(m_st, m_bm, want_pe) {
+  m_bm <- parsing_adjust_series(m_bm)
+  m_st <- parsing_adjust_series(m_st)
   m_bm_base <- m_bm[!(grepl('^final-', m_bm$series) |
                       grepl('^baseline-', m_bm$series)) |
                     grepl('^final-mp16$', m_bm$series) |
@@ -200,7 +251,28 @@ dev.off()
 ```
 
 ```{r final_plots_all}
+final_adjust_series <- function(m) {
+  m$series <- factor(m$series)
+  m$reord <- 0
+  m$reord[m$series == 'parsing-batch'] <- 1
+  m$reord[m$series == 'final-block'] <- 2
+  m$reord[m$series == 'final-mp16'] <- 3
+  m$reord[m$series == 'bwa'] <- 4
+  m$series <- reorder(m$series, m$reord)
+  m$series <- plyr::mapvalues(m$series,
+                              from = c('parsing-batch',
+                                       'final-block',
+                                       'final-mp16',
+                                       'bwa'),
+                              to = c('Batch deferred (B)  ',
+                                     'Block deferred (L)  ',
+                                     'MP baseline  ',
+                                     'BWA-MEM'))
+  m
+}
 final_plots_all <- function(m_st, m_bm, want_pe) {
+  m_bm <- final_adjust_series(m_bm)
+  m_st <- final_adjust_series(m_st)
   m_bm_base <- m_bm[!(grepl('^parsing-', m_bm$series) |
                       grepl('^baseline-', m_bm$series)) |
                      grepl('^parsing-batch$', m_bm$series) |
@@ -238,8 +310,6 @@ dev.off()
 ```
 
 ```{r peak_throughput_table}
-# TODO: turn the threads/sec into reads/sec
-
 peak_throughput_table <- function(m) {
   mg <- m %>% dplyr::group_by(series, pe, attempt, aligner, machine) %>%
     dplyr::summarise(threads_div_max_threads=totthreads[which(threads_div_max == max(threads_div_max))[1]],
@@ -307,3 +377,38 @@ write("\\resizebox{\\columnwidth}{!}{%", file=fn)
 capture.output(latex(peak_throughput_table(m)), file=fn, append=T)
 write("}", file=fn, append=T)
 ```
+
+```{r mem_scaling}
+bt2_u <- read.table('stampede_knl/stampede_knl_bt2_unp_scale.txt')
+bt2_p <- read.table('stampede_knl/stampede_knl_bt2_pe_scale.txt')
+bwa_u <- read.table('stampede_knl/stampede_knl_bwa_unp_scale.txt')
+bwa_p <- read.table('stampede_knl/stampede_knl_bwa_pe_scale.txt')
+bt2_u$pe = '100 nt'
+bwa_u$pe = '100 nt'
+bt2_p$pe = '100 x 100 nt'
+bwa_p$pe = '100 x 100 nt'
+bt2_u$aligner <- 'Bowtie 2'
+bt2_p$aligner <- 'Bowtie 2'
+bwa_u$aligner <- 'BWA-MEM'
+bwa_u <- bwa_u[bwa_u$V1 <= 208,]
+bwa_p <- bwa_p[bwa_p$V1 <= 208,]
+bwa_p$aligner <- 'BWA-MEM'
+ms <- rbind(bt2_u, bt2_p, bwa_u, bwa_p)
+colnames(ms) <- c('nthreads', 'mem', 'pe', 'aligner')
+```
+
+```{r mem_scaling_plot}
+mem_scaling_plot <- function() {
+  ggplot(ms, aes(x=nthreads, y=mem/(1024 * 1024 * 1024), color=aligner, linetype=pe)) + geom_line(size=1) +
+    scale_y_continuous(limits = c(0, 30)) +
+    labs(x='# threads', y='Peak resident set size (GB)') +
+    theme_bw() +
+    theme(legend.title=element_blank(), legend.position="bottom")
+}
+mem_scaling_plot()
+
+pdf(file='mem_scaling.pdf', onefile=F, width=6, height=4)
+mem_scaling_plot()
+dev.off()
+```
+
