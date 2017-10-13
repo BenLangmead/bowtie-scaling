@@ -149,6 +149,9 @@ def tabulate():
     keys = [ k for k, _ in sorted(dat.items()) ]
     print(','.join(keys))
     for root, dirs, files in os.walk(system_dir):
+        if 'unp.old' in root or 'pe.old' in root:
+            print('ignoring "%s"' % root, file=sys.stderr)
+            continue
         print('Examining "%s"' % root, file=sys.stderr)
         if any(map(lambda x: x.endswith('.err'), files)):
             print('  Has .err files', file=sys.stderr)
