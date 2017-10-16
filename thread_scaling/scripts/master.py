@@ -120,7 +120,10 @@ def verify_reads(fns):
 
 
 def wcl(fn):
-    return int(subprocess.check_output('wc -l ' + fn, shell=True).strip().split()[0])
+    if fn.endswith('.gz'):
+        return int(subprocess.check_output('gzip -dc ' + fn + ' | wc -l', shell=True).strip().split()[0])
+    else:
+        return int(subprocess.check_output('wc -l ' + fn, shell=True).strip().split()[0])
 
 
 def slice_lab(i):
@@ -136,11 +139,15 @@ def slice_lab(i):
     return ret
 
 
-def slice_all_fastq(reads_per, n, ifn, ofn, sanity=True):
+def slice_all_fastq(reads_per, n, ifn, ofn, sanity=True, compress=False):
     assert 'block' not in ifn
-    head_cmd = 'head -n %d %s' % (reads_per * n * 4, ifn)
+    if ifn.endswith('.gz'):
+        feed_cmd = 'gzip -dc ' + ifn
+    else:
+        feed_cmd = 'cat ' + ifn
+    head_cmd = 'head -n %d' % (reads_per * n * 4)
     split_cmd = 'split -l %d -a 3 - %s' % (reads_per * 4, ofn)
-    cmd = head_cmd + ' | ' + split_cmd
+    cmd = ' | '.join([feed_cmd, head_cmd, split_cmd])
     print(cmd)
     ret = os.system(cmd)
     if ret != 0:
@@ -206,7 +213,7 @@ def prepare_reads(args, nthread, mp_mt, tmpdir, blocked=False):
 repos = {'bowtie': 'https://github.com/BenLangmead/bowtie.git',
          'bowtie2': 'https://github.com/BenLangmead/bowtie2.git',
          'hisat': 'https://github.com/BenLangmead/hisat.git',
-         'bwa': 'https://github.com/ChristopherWilks/bwa.git'}
+         'bwa': 'https://github.com/BenLangmead/bwa.git'}
 
 
 def go(args):
