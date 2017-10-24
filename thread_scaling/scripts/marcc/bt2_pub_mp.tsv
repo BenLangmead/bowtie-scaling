@@ -1,4 +1,0 @@
-bt2-mp	bowtie2	pre_batch_parsing_master	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800
-bt2-batch-mp	bowtie2	master	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800
-bt2-batch-out-p-mp	bowtie2	batch_parsing_output	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800
-#bt2-cleanparse-mp	bowtie2	cleaner_parsing	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800

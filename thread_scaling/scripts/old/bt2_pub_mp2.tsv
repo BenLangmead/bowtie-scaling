@@ -1,2 +1,0 @@
-bt2-batch32-tbb-q-tbbd-out32-p-s-mp	bowtie2	batch_parsing_output	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800 --reads-per-batch 32
-bt2-batch512-tbb-q-tbbd-out512-p-s-mp	bowtie2	batch_parsing_output	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER"	-I 250 -X 800 --reads-per-batch 512
