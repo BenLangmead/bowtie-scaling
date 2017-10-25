@@ -1,0 +1,4 @@
+name	tool	branch	mp_mt	preproc	args
+ht-parsing-batch8	hisat	batch_parsing_output	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 8 --no-spliced-alignment --no-temp-splicesite
+ht-parsing-batch16	hisat	batch_parsing_output	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 16 --no-spliced-alignment --no-temp-splicesite
+ht-parsing-batch48	hisat	batch_parsing_output	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 48 --no-spliced-alignment --no-temp-splicesite
