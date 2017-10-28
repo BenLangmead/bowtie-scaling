@@ -29,7 +29,11 @@ pushd $d
 [ ! -f "${CONFIG}" ] && echo "No such config file: \"${CONFIG}\"" && exit 1
 
 THREAD_SERIES=`cat ${SYSTEM}/thread_series.txt`
-TEMP=`cat ${SYSTEM}/temp_dir.txt`
+if echo ${CONFIG} | grep -q lustre ; then
+    TEMP=`cat ${SYSTEM}/lustre_temp_dir.txt`
+else
+    TEMP=`cat ${SYSTEM}/temp_dir.txt`
+fi
 
 READLEN=100
 if [ "${TOOL_SHORT}" = "bt2" ] ; then
@@ -85,8 +89,8 @@ if [ "${PE}" = "pe" ] ; then
         --m1b `normalize ${RURL_B_1}` --m2b `normalize ${RURL_B_2}` \
         --input-block-bytes 12288 \
         --input-reads-per-block 44 \
-        --sam-dev-null \
         --tempdir "${TEMP}" \
+        --delete-sam \
         --preproc "$*" \
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
         --build-dir "${SYSTEM}/build-pe/${TOOL_SHORT}" \
@@ -108,8 +112,8 @@ if [ "${PE}" = "unp" ] ; then
         --m1b `normalize ${RURL_B_1}` \
         --input-block-bytes 12288 \
         --input-reads-per-block 44 \
-        --sam-dev-null \
         --tempdir "${TEMP}" \
+        --delete-sam \
         --preproc "$*" \
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
         --build-dir "${SYSTEM}/build-unp/${TOOL_SHORT}" \
