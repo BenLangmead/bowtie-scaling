@@ -351,7 +351,8 @@ def go(args):
                 blocked_str = 'blocked' if blocked else 'unblocked'
                 print('#   Preparing reads (%s) for nthreads=%d, mp_mt=%d' %
                       (blocked_str, nthreads, mp_mt), file=sys.stderr)
-                read_set = prepare_reads(args, nthreads, mp_mt, tmpdir, blocked=blocked)
+                mkdir_quiet(join(tmpdir, name))
+                read_set = prepare_reads(args, nthreads, mp_mt, join(tmpdir, name), blocked=blocked)
                 redo = 2
                 last_mp_mt = mp_mt
 
@@ -378,7 +379,9 @@ def go(args):
                     stderr_ofns = [join(odir, '%s.err' % runname) for runname in run_names]
                     if not args.sam_dev_null:
                         samdir = odir if args.sam_output_dir else tmpdir
-                        sam_ofns = [join(samdir, '%s.sam' % runname) for runname in run_names]
+                        for runname in run_names:
+                            mkdir_quiet(join(samdir, name, runname))
+                        sam_ofns = [join(samdir, name, runname, 'out.sam') for runname in run_names]
 
                 def spawn_worker(cmd_list, ofn, efn):
                     def worker(done_val):
