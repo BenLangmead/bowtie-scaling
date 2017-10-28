@@ -1,0 +1,4 @@
+name	tool	branch	mp_mt	preproc	args
+bt-parsing-batch-in256K	bowtie	batch_parsing_new	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32 --input-buffer-size 262144
+bt-parsing-batch-in1M	bowtie	batch_parsing_new	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32 --input-buffer-size 1048576
+bt-parsing-batch-in8M	bowtie	batch_parsing_new	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --reads-per-batch 32 --input-buffer-size 8388608
