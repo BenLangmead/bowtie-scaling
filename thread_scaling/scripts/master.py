@@ -484,10 +484,11 @@ def go(args):
                 else:
                     os.system('touch ' + os.path.join(odir, run_name + '.SUCCEED'))
 
-                if args.delete_sam and not args.sam_dev_null:
+                if args.delete_sam:
                     print('#   Deleting SAM outputs', file=sys.stderr)
                     for sam_ofn in sam_ofns:
-                        os.remove(sam_ofn)
+                        if sam_ofn != '/dev/null':
+                            os.remove(sam_ofn)
 
     print('#   Purging some old reads', file=sys.stderr)
     if read_set is not None:
