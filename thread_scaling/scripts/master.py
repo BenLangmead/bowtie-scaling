@@ -387,6 +387,7 @@ def go(args):
                     def worker(done_val):
                         with open(ofn, 'wb') as ofh:
                             with open(efn, 'wb') as efh:
+                                print(' '.join(cmd_list))
                                 proc = subprocess.Popen(cmd_list, stdout=ofh, stderr=efh)
                                 while proc.poll() is None:
                                     time.sleep(1)
