@@ -249,7 +249,7 @@ def go(args):
             last_tool = tool
         assert tool == last_tool
         build, pull = False, False
-        build_dir = join(args.build_dir, name, pe_str)
+        build_dir = join(args.build_dir, pe_str, name)
         if os.path.exists(build_dir) and args.force_builds:
             print('#   Removing existing "%s" subdir because of --force' % build_dir, file=sys.stderr)
             shutil.rmtree(build_dir)
@@ -323,9 +323,9 @@ def go(args):
 
         # iterate over configurations
         for name, tool, branch, mp_mt, preproc, aligner_args in get_configs(args.config):
-            build_dir = join(args.build_dir, name, pe_str)
+            build_dir = join(args.build_dir, pe_str, name)
 
-            odir = join(args.output_dir, name, pe_str)
+            odir = join(args.output_dir, pe_str, name)
             if not os.path.exists(odir):
                 print('#   Creating output directory "%s"' % odir, file=sys.stderr)
                 mkdir_quiet(odir)
