@@ -267,10 +267,12 @@ def go(args):
         elif build and tool == last_tool and branch == last_branch and preproc == last_preproc:
             nlink += 1
             print('#   Linking "%s"' % name, file=sys.stderr)
+            mkdir_quiet(os.path.dirname(build_dir))
             os.system('ln -s -f %s %s' % (last_name, build_dir))
         elif build and tool == last_tool and branch == last_branch:
             ncopy += 1
             print('#   Copying "%s"' % name, file=sys.stderr)
+            mkdir_quiet(os.path.dirname(build_dir))
             os.system('cp -r %s %s' % (last_build_dir, build_dir))
             os.remove(os.path.join(build_dir, tool_exe(tool)))
             make_tool_version(name, tool, preproc, build_dir)
