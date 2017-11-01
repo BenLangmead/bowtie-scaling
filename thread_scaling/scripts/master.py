@@ -217,6 +217,8 @@ repos = {'bowtie': 'https://github.com/BenLangmead/bowtie.git',
 
 
 def go(args):
+    pe_str = 'pe' if args.m2 is not None else 'unp'
+
     # Set up temporary directory, used for holding read inputs and SAM output.
     # Strongly suggest that it be local, non-networked storage.
     print('# Setting up temporary directory', file=sys.stderr)
@@ -228,8 +230,6 @@ def go(args):
     if not os.path.isdir(tmpdir):
         raise RuntimeError('Temporary directory isn\'t a directory: "%s"' % tmpdir)
     else:
-        # TODO: always put reads in subdirectories with a job-unique name so
-        # that different jobs can't clobber each others' reads
         os.system('rm -f ' + os.path.join(tmpdir, '1_???'))
         os.system('rm -f ' + os.path.join(tmpdir, '2_???'))
 
@@ -249,7 +249,7 @@ def go(args):
             last_tool = tool
         assert tool == last_tool
         build, pull = False, False
-        build_dir = join(args.build_dir, name)
+        build_dir = join(args.build_dir, name, pe_str)
         if os.path.exists(build_dir) and args.force_builds:
             print('#   Removing existing "%s" subdir because of --force' % build_dir, file=sys.stderr)
             shutil.rmtree(build_dir)
@@ -309,7 +309,6 @@ def go(args):
     print('# Generating %scommands' % ('' if args.dry_run else 'and running '), file=sys.stderr)
 
     indexes_verified = set()
-    pe_str = 'pe' if args.m2 is not None else 'unp'
 
     read_set = None
 
@@ -322,7 +321,7 @@ def go(args):
 
         # iterate over configurations
         for name, tool, branch, mp_mt, preproc, aligner_args in get_configs(args.config):
-            build_dir = join(args.build_dir, name)
+            build_dir = join(args.build_dir, name, pe_str)
 
             odir = join(args.output_dir, name, pe_str)
             if not os.path.exists(odir):
