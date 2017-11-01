@@ -12,6 +12,9 @@ for en in ${ENDS} ; do
             echo ${FN}
             sbatch ${FN}
         done
+        FN="${al}_${en}.sh"
+        echo ${FN}
+        sbatch ${FN}
     done
     if [ "${DO_BWA}" = "1" ] ; then
         FN="bwa_${en}.sh"
