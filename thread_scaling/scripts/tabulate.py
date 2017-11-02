@@ -22,10 +22,11 @@ def parse_dir(dr):
     assert toks[1] == 'results'
     aligner = toks[2]
     assert aligner in ['bt', 'bt2', 'ht', 'bwa']
-    series = toks[3]
+    pe = toks[3]
+    assert pe in ['unp', 'pe']
+    series = toks[4]
     assert series.startswith(aligner)
     series = series[len(aligner) + 1:]
-    pe = toks[4]
     return aligner, series, pe
 
 
@@ -149,9 +150,9 @@ def tabulate():
     keys = [ k for k, _ in sorted(dat.items()) ]
     print(','.join(keys))
     for root, dirs, files in os.walk(system_dir):
-        if 'unp.old' in root or 'pe.old' in root:
-            print('ignoring "%s"' % root, file=sys.stderr)
-            continue
+        #if 'unp.old' in root or 'pe.old' in root:
+        #    print('ignoring "%s"' % root, file=sys.stderr)
+        #    continue
         print('Examining "%s"' % root, file=sys.stderr)
         if any(map(lambda x: x.endswith('.err'), files)):
             print('  Has .err files', file=sys.stderr)
