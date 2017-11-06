@@ -85,6 +85,8 @@ def get_configs(config_fn):
     """ Generator that parses and yields the lines of the config file """
     with open(config_fn) as fh:
         for ln in fh:
+            if len(ln.strip()) == 0:
+                continue
             toks = ln.split('\t')
             if toks[0] == 'name' and toks[1] == 'tool' and toks[2] == 'branch':
                 continue
