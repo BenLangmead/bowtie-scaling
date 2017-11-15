@@ -185,16 +185,14 @@ static void fwrite_setvbuf(long buffer_size) {
  * fdatasync: "physically write output file data before finishing"
  * fsync: "likewise, but also write metadata"
  */
-static void dd(long block_size, bool dsync) {
+static void dd(long block_size, const string& extra) {
 	ostringstream cmd_ss;
 	cmd_ss << "dd if=/dev/zero of=" << output_fn
 	       << " bs=" << block_size
 	       << " count=" << (bytes / block_size)
 	       << " 2>/dev/null";
-	if(dsync) {
-		cmd_ss << " oflag=dsync";
-	} else {
-		cmd_ss << " conv=fdatasync";
+	if(!extra.empty()) {
+	    cmd_ss << " " << extra;
 	}
 	//cerr << "dd cmd: " << cmd_ss.str() << endl;
 	int ret = system(cmd_ss.str().c_str());
@@ -296,9 +294,13 @@ int main(int argc, const char **argv) {
 		//	Timer t3(cout, "dd_dsync: ");
 		//	dd(i, true);
 		//}
+		//{
+		//	Timer t4(cout, ",");
+		//	dd(i, "conv=fdatasync");
+		//}
 		{
-			Timer t4(cout, ",");
-			dd(i, false);
+			Timer t5(cout, ",");
+			dd(i, "");
 		}
 		cout << endl;
 	}
