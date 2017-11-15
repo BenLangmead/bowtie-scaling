@@ -282,13 +282,12 @@ private:
 
 int main(int argc, const char **argv) {
 	parseOptions(argc, argv);
-	{
-		Timer t1(cout, "nobuf: ");
-		fwrite_no_setvbuf();
-	}
-	cout << endl;
 	for(long i = lo; i <= hi; i += step) {
 		cout << i;
+		{
+			Timer t1(cout, ",");
+			fwrite_no_setvbuf();
+		}
 		{
 			Timer t2(cout, ",");
 			fwrite_setvbuf(i);
