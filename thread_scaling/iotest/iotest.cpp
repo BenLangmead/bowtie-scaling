@@ -96,6 +96,10 @@ static void parseOption(int next_option, const char *arg) {
 			bytes = parseInt(0, "-b/--bytes arg must be positive", arg);
 			break;
 		}
+		case 'o': {
+			output_fn = string(arg);
+			break;
+		}
 		default: {
 			printUsage(cerr);
 			throw 1;
