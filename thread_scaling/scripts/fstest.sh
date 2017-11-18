@@ -53,7 +53,7 @@ align() {
             -1 ${2}/1.fq -2 ${2}/2.fq \
             -S ${3} 2>/dev/null | \
                 awk -v FS=':' '$1 == "thread" && $2 ~ /time/ {print($2" "$3*60*60+$4*60+$5)}' | \
-                awk '{print $NF}' | st
+                awk '{print $NF}' | st | sed "s/^/${1} /"
 }
 
 for VERSION in ht-final-block ht-final-block-heavy ; do
