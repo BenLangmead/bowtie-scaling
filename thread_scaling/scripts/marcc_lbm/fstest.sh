@@ -6,6 +6,8 @@ HOST=`hostname`
 NREADS=8000000
 NTHREADS=112
 
+GS=/scratch/groups/blangme2
+US=/scratch/users/blangme2@jhu.edu
 INPUT_01OST=${GS}/fstest-01OST/${HOST}/pe
 INPUT_STORAGE=/storage/bowtie-scaling/temp/fstest
 SCR_DIR=${US}/git/bowtie-scaling/thread_scaling/scripts
@@ -22,13 +24,12 @@ echo "# Copying input data"
 for d in "${INPUT_01OST}" "${INPUT_STORAGE}" ; do
     if [ ! -f ${d}/1.fq ] ; then
         # Blocked
-        head -n `expr $NREADS \* 4` ${SCR_DIR}/mix100_block_1.fq > ${d}/1.fq
-        head -n `expr $NREADS \* 4` ${SCR_DIR}/mix100_block_2.fq > ${d}/2.fq
+	for i in 1 2 ; do cp ${SCR_DIR}/${i}.fq ${d}/${i}.fq ; done
     fi
 done
 
 align() {
-    ${SCR_DIR}/stampede_knl/build-pe/ht/pe/${1}/hisat-align-s \
+    ${SCR_DIR}/marcc_lbm/build-pe/ht/pe/${1}/hisat-align-s \
         -p ${NTHREADS} -I 250 -X 800 --reads-per-batch 32 \
             --block-bytes 12288 --reads-per-block 44 \
             --no-spliced-alignment --no-temp-splicesite \
@@ -41,7 +42,7 @@ align() {
 }
 
 # TODO: add ht-final-block-heavy and multiprocessing
-for VERSION in ht-final-block ; do
+for VERSION in ht-final-block ht-final-block-heavy ; do
 
     echo "#   Aligning ${VERSION}"
     for ind in ${INPUT_01OST} ${INPUT_STORAGE} ; do
