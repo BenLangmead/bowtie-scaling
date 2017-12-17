@@ -16,10 +16,6 @@ source /hbb_exe/activate
 
 set -x
 
-export CPLUS_INCLUDE_PATH=$TBB_ROOT/include
-export LIBRARY_PATH=$TBB_LIB:$LIBRARY_PATH
-export LD_LIBRARY_PATH=$TBB_LIB:$LD_LIBRARY_PATH
-
 [[ -e /io/$bowtie_version ]] && echo "Error, clone already there" && exit 1
 git clone https://github.com/BenLangmead/$bowtie_version.git -- $bowtie_version
 pushd $bowtie_version
@@ -34,4 +30,4 @@ cp -r ../$bowtie_version /io
 make EXTRA_ARGS="$*" ${bowtie_version}-`[ $bowtie_version == "bowtie2" ] && echo "pkg" || echo "bin.zip"`
 libcheck ${bowtie_version}-{align,build,inspect}-*
 cp *.zip /io
-rm -rf /io/$bowtie_version /io/include /io/lib
+rm -rf /io/$bowtie_version
