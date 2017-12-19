@@ -327,15 +327,16 @@ def go(args):
         # iterate over configurations
         for name, tool, branch, mp_mt, preproc, aligner_args in get_configs(args.config):
             build_dir = join(args.build_dir, pe_str, name)
-            bin = [ os.path.join(build_dir, tool_exe(tool)) ]
+            bin = os.path.join(build_dir, tool_exe(tool))
             if args.bin_dir:
                 exe = tool_exe(tool) + '-' + name
-                bin = [ os.path.join(args.bin_dir, exe) ]
+                bin = os.path.join(args.bin_dir, exe)
                 if not os.path.exists(bin):
                     raise RuntimeError('No such binary in --bin-dir: "%s"' % bin)
                 if not os.access(bin, os.X_OK):
                     raise RuntimeError('Binary in --bin-dir, "%s", is not executable' % bin)
 
+            bin = [bin]
             if tool == 'bwa':
                 bin += ['mem']
 
