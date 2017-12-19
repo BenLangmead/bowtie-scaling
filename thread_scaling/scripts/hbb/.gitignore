@@ -1,0 +1,5 @@
+bowtie-align-s-*
+bowtie2-align-s-*
+hisat-align-s-*
+hisat2-align-s-*
+bwa-*
