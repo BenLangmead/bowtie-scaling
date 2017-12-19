@@ -143,13 +143,14 @@ def slice_lab(i):
 
 def slice_all_fastq(reads_per, n, ifn, ofn, sanity=True):
     assert 'block' not in ifn
+    split_cmd = 'split -l %d -a 3 - %s' % (reads_per * 4, ofn)
     if ifn.endswith('.gz'):
         feed_cmd = 'gzip -dc ' + ifn
+        head_cmd = 'head -n %d' % (reads_per * n * 4)
+        cmd = ' | '.join([feed_cmd, head_cmd, split_cmd])
     else:
-        feed_cmd = 'cat ' + ifn
-    head_cmd = 'head -n %d' % (reads_per * n * 4)
-    split_cmd = 'split -l %d -a 3 - %s' % (reads_per * 4, ofn)
-    cmd = ' | '.join([feed_cmd, head_cmd, split_cmd])
+        head_cmd = 'head -n %d %s' % (reads_per * n * 4, ifn)
+        cmd = ' | '.join([head_cmd, split_cmd])
     print(cmd)
     ret = os.system(cmd)
     if ret != 0:
