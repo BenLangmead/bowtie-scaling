@@ -141,7 +141,7 @@ def slice_lab(i):
     return ret
 
 
-def slice_all_fastq(reads_per, n, ifn, ofn, sanity=True, compress=False):
+def slice_all_fastq(reads_per, n, ifn, ofn, sanity=True):
     assert 'block' not in ifn
     if ifn.endswith('.gz'):
         feed_cmd = 'gzip -dc ' + ifn
@@ -239,53 +239,54 @@ def go(args):
         print('# Creating output directory "%s"' % args.output_dir, file=sys.stderr)
         mkdir_quiet(args.output_dir)
 
-    print('# Setting up binaries', file=sys.stderr)
-    last_name, last_tool, last_branch, last_preproc, last_build_dir = '', '', '', '', ''
-    npull, nbuild, ncopy, nlink = 0, 0, 0, 0
-    for name, tool, branch, _, preproc, _ in get_configs(args.config):
-        if args.preproc is not None:
-            preproc += ' ' + args.preproc
-        if name == 'name' and branch == 'branch':
-            continue  # skip header line
-        if len(last_tool) == 0:
-            last_tool = tool
-        assert tool == last_tool
-        build, pull = False, False
-        build_dir = join(args.build_dir, pe_str, name)
-        if os.path.exists(build_dir) and args.force_builds:
-            print('#   Removing existing "%s" subdir because of --force' % build_dir, file=sys.stderr)
-            shutil.rmtree(build_dir)
-            build = True
-        elif os.path.exists(build_dir):
-            pull = True
-        elif not os.path.exists(build_dir):
-            build = True
+    if not args.bin_dir:
+        print('# Setting up binaries', file=sys.stderr)
+        last_name, last_tool, last_branch, last_preproc, last_build_dir = '', '', '', '', ''
+        npull, nbuild, ncopy, nlink = 0, 0, 0, 0
+        for name, tool, branch, _, preproc, _ in get_configs(args.config):
+            if args.preproc is not None:
+                preproc += ' ' + args.preproc
+            if name == 'name' and branch == 'branch':
+                continue  # skip header line
+            if len(last_tool) == 0:
+                last_tool = tool
+            assert tool == last_tool
+            build, pull = False, False
+            build_dir = join(args.build_dir, pe_str, name)
+            if os.path.exists(build_dir) and args.force_builds:
+                print('#   Removing existing "%s" subdir because of --force' % build_dir, file=sys.stderr)
+                shutil.rmtree(build_dir)
+                build = True
+            elif os.path.exists(build_dir):
+                pull = True
+            elif not os.path.exists(build_dir):
+                build = True
 
-        if pull and args.pull:
-            npull += 1
-            print('#   Pulling "%s"' % name, file=sys.stderr)
-            os.system('cd %s && git pull' % build_dir)
-            make_tool_version(name, tool, preproc, build_dir)
-        elif build and tool == last_tool and branch == last_branch and preproc == last_preproc:
-            nlink += 1
-            print('#   Linking "%s"' % name, file=sys.stderr)
-            mkdir_quiet(os.path.dirname(build_dir))
-            os.system('ln -s -f %s %s' % (last_name, build_dir))
-        elif build and tool == last_tool and branch == last_branch:
-            ncopy += 1
-            print('#   Copying "%s"' % name, file=sys.stderr)
-            mkdir_quiet(os.path.dirname(build_dir))
-            os.system('cp -r %s %s' % (last_build_dir, build_dir))
-            os.remove(os.path.join(build_dir, tool_exe(tool)))
-            make_tool_version(name, tool, preproc, build_dir)
-        elif build:
-            nbuild += 1
-            print('#   Building "%s"' % name, file=sys.stderr)
-            install_tool_version(name, tool, repos[tool], branch, preproc, build_dir)
-        last_name, last_tool, last_branch, last_preproc, last_build_dir = name, tool, branch, preproc, build_dir
+            if pull and args.pull:
+                npull += 1
+                print('#   Pulling "%s"' % name, file=sys.stderr)
+                os.system('cd %s && git pull' % build_dir)
+                make_tool_version(name, tool, preproc, build_dir)
+            elif build and tool == last_tool and branch == last_branch and preproc == last_preproc:
+                nlink += 1
+                print('#   Linking "%s"' % name, file=sys.stderr)
+                mkdir_quiet(os.path.dirname(build_dir))
+                os.system('ln -s -f %s %s' % (last_name, build_dir))
+            elif build and tool == last_tool and branch == last_branch:
+                ncopy += 1
+                print('#   Copying "%s"' % name, file=sys.stderr)
+                mkdir_quiet(os.path.dirname(build_dir))
+                os.system('cp -r %s %s' % (last_build_dir, build_dir))
+                os.remove(os.path.join(build_dir, tool_exe(tool)))
+                make_tool_version(name, tool, preproc, build_dir)
+            elif build:
+                nbuild += 1
+                print('#   Building "%s"' % name, file=sys.stderr)
+                install_tool_version(name, tool, repos[tool], branch, preproc, build_dir)
+            last_name, last_tool, last_branch, last_preproc, last_build_dir = name, tool, branch, preproc, build_dir
 
-    print('# Finished setting up binaries; built %d, pulled %d, copied %d, linked %d' %
-          (nbuild, npull, ncopy, nlink), file=sys.stderr)
+        print('# Finished setting up binaries; built %d, pulled %d, copied %d, linked %d' %
+              (nbuild, npull, ncopy, nlink), file=sys.stderr)
 
     series = list(map(int, args.nthread_series.split(',')))
     assert len(series) > 0
@@ -326,6 +327,17 @@ def go(args):
         # iterate over configurations
         for name, tool, branch, mp_mt, preproc, aligner_args in get_configs(args.config):
             build_dir = join(args.build_dir, pe_str, name)
+            bin = [ os.path.join(build_dir, tool_exe(tool)) ]
+            if args.bin_dir:
+                exe = tool_exe(tool) + '-' + name
+                bin = [ os.path.join(args.bin_dir, exe) ]
+                if not os.path.exists(bin):
+                    raise RuntimeError('No such binary in --bin-dir: "%s"' % bin)
+                if not os.access(bin, os.X_OK):
+                    raise RuntimeError('Binary in --bin-dir, "%s", is not executable' % bin)
+
+            if tool == 'bwa':
+                bin += ['mem']
 
             odir = join(args.output_dir, pe_str, name)
             if not os.path.exists(odir):
@@ -404,7 +416,7 @@ def go(args):
                 done_val = multiprocessing.Value('i', 0)
                 if tool == 'bwa':
                     for i in range(nprocess):
-                        cmd = ['%s/%s' % (build_dir, tool_exe(tool)), 'mem']
+                        cmd = bin[:]
                         cmd.extend(['-t' , str(nthreads_per_process)])
                         if aligner_args is not None and len(aligner_args) > 0:
                             cmd.extend(aligner_args.split())
@@ -415,7 +427,7 @@ def go(args):
                         procs.append(multiprocessing.Process(target=spawn_worker(cmd, sam_ofns[i], stderr_ofns[i]), args=(done_val,)))
                 else:
                     for i in range(nprocess):
-                        cmd = ['%s/%s' % (build_dir, tool_exe(tool))]
+                        cmd = bin[:]
                         cmd.extend(['-p', str(nthreads_per_process)])
                         if aligner_args is not None and len(aligner_args) > 0:
                             cmd.extend(aligner_args.split())
@@ -545,6 +557,8 @@ if __name__ == '__main__':
     parser.add_argument('--tempdir', metavar='path', type=str, required=False,
                         help='Path for temporary files.  Used for reads files and output SAM.  Should be local, '
                              'non-networked storage.')
+    parser.add_argument('--bin-dir', metavar='path', type=str, required=False,
+                        help='Path to directory containing pre-built binaries for tsv files.')
     parser.add_argument('--preproc', metavar='args', type=str, required=False,
                         help='Add preprocessing macros to be added to all build jobs.')
     parser.add_argument('--force-builds', action='store_const', const=True, default=False,
