@@ -91,9 +91,9 @@ if [ "${PE}" = "pe" ] ; then
         --input-reads-per-block 44 \
         --tempdir "${TEMP}" \
         --delete-sam \
+	--bin-dir bin \
         --preproc "$*" \
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
-        --build-dir "${SYSTEM}/build-pe/${TOOL_SHORT}" \
         --nthread-series "${THREAD_SERIES}" \
         --no-count \
         --config "${CONFIG}" \
@@ -114,9 +114,9 @@ if [ "${PE}" = "unp" ] ; then
         --input-reads-per-block 44 \
         --tempdir "${TEMP}" \
         --delete-sam \
+	--bin-dir bin \
         --preproc "$*" \
         --output-dir "${SYSTEM}/results/${TOOL_SHORT}" \
-        --build-dir "${SYSTEM}/build-unp/${TOOL_SHORT}" \
         --nthread-series "${THREAD_SERIES}" \
         --no-count \
         --config "${CONFIG}" \
