@@ -20,7 +20,7 @@ def flush_section(section, sect_lines):
             print(postprocess_line(ln))
     else:
         ln = sect_lines[0]
-        print(' & BWA-MEM ' + ' '.join(ln.split()[3:]))
+        print(' & BWA-MEM ' + ' '.join(ln.split()[5:]))
 
 
 def go():
@@ -47,6 +47,7 @@ def go():
             section = 'ht'
             sect_lines = []
         ln = ln.replace('\\phantom{0}', '')
+        ln = ln.replace('\\phantom{00}', '')
         ln = ln.replace('$', '')
         ln = re.sub("\\\\multicolumn\{1\}\{[lrc]\}\{([/0-9.a-zA-Z]+)\}", "\\1", ln, flags=re.DOTALL)
         if not suppressed_hline and 'hline' in ln:
