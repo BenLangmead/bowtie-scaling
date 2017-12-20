@@ -52,7 +52,7 @@ static void printUsage(ostream& out) {
 	<< "  -l/--lo       min buffer/block size to try" << endl
 	<< "  -s/--step     step buffer/block size by this much" << endl
 	<< "  -b/--bytes    total # bytes to write" << endl
-	<< "  -o/--putput   output file" << endl
+	<< "  -o/--output   output file" << endl
 	;
 }
 
