@@ -3,10 +3,10 @@
 # iotest -l <lo block size> -h <hi block size> -s <step size> -b <bytes> -o <output file>
 
 echo "Writing 16GB file with block sizes from 512K-2GB"
-SZ=`expr 16 \* 1024 \* 1024`
-LO=`expr 512 \* 1024`
-HI=`expr 2 \* 1024 \* 1024`
-STEP=`expr 512 \* 1024`
+SZ=`expr 16 \* 1024 \* 1024 \* 1024`
+LO=`expr 512 \* 1024 \* 1024`
+HI=`expr 2 \* 1024 \* 1024 \* 1024`
+STEP=`expr 512 \* 1024 \* 1024`
 IOTEST="./iotest -l ${LO} -s ${STEP} -h ${HI}"
 
 for mp in 1 2 4 ; do
