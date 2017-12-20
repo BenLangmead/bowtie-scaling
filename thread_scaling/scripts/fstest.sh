@@ -14,7 +14,7 @@ set -e
 
 HOST=`hostname`
 NREADS=8000000
-
+NTHREADS=256
 
 INPUT_01OST=${SCRATCH}/fstest-01OST/${HOST}/pe
 INPUT_16OST=${SCRATCH}/fstest-16OST/${HOST}/pe
@@ -46,7 +46,7 @@ done
 
 align() {
     ${SCR_DIR}/stampede_knl/build-pe/ht/pe/${1}/hisat-align-s \
-        -p 248 -I 250 -X 800 --reads-per-batch 32 \
+        -p ${NTHREADS} -I 250 -X 800 --reads-per-batch 32 \
             --block-bytes 12288 --reads-per-block 44 \
             --no-spliced-alignment --no-temp-splicesite \
             -x ${INDEXES}/hisat/hg38 -t \
@@ -54,6 +54,7 @@ align() {
             -S ${3} 2>/dev/null | \
                 awk -v FS=':' '$1 == "thread" && $2 ~ /time/ {print($2" "$3*60*60+$4*60+$5)}' | \
                 awk '{print $NF}' | st | sed "s/^/${1} /"
+    
 }
 
 for VERSION in ht-final-block ht-final-block-heavy ; do
