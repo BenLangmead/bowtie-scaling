@@ -28,7 +28,6 @@ VERSIONS="ht-final-block"
 echo "# Deleting directories"
 rm -rf ${INPUT_01OST}
 rm -rf ${INPUT_16OST}
-rm -f /tmp/?.fq
 
 echo "# Creating directories"
 mkdir -p ${INPUT_01OST} ${INPUT_16OST}
@@ -43,7 +42,7 @@ align() {
     input_dir=$2
     output_dir=$3
     mp=$4
-    mp=$5
+    mt=$5
     rm -f .fstest.sh.times.*
     ofs=""
     for i in `seq 1 ${mp}` ; do
