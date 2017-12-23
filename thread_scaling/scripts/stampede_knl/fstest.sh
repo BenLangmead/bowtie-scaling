@@ -51,8 +51,8 @@ align() {
         of=${output_dir}
         if [ ${of} != "/dev/null" ] ; then
             of="${output_dir}/${mp}_${ii}.sam"
+            ofs="$ofs $of"
         fi
-        ofs="$ofs $of"
         ${SCR_DIR}/bin/hisat-align-s-${ver} \
             -p ${mt} -I 250 -X 800 --reads-per-batch 32 \
                 --block-bytes 12288 --reads-per-block 44 \
