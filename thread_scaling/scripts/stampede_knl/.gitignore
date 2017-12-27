@@ -1,0 +1,5 @@
+.fstest.sh.*
+stampede_knl_results_*.csv
+.TsKnl*.err
+.TsKnl*.out
+results_*
