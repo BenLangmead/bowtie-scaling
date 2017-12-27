@@ -1,20 +1,19 @@
 #!/bin/sh
 
-#SBATCH --job-name=fstXXX
-#SBATCH --output=.fstestXXX.out
-#SBATCH --error=.fstestXXX.err
-#SBATCH --begin=now+XXXhour
+#SBATCH --job-name=fst
+#SBATCH --output=.fstest.out
+#SBATCH --error=.fstest.err
 #SBATCH --partition=normal
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=2:00:00
+#SBATCH --time=8:00:00
 #SBATCH -A TG-CIE170020
 
 set -e
 
 HOST=`hostname`
-NREADS=8000000
-MP_LIST="1 16"
+NREADS=16000512
+MP_LIST="1 2 4 8 16 32"
 MT_MAX=256
 
 INPUT_01OST=${SCRATCH}/fstest-01OST/${HOST}/pe
