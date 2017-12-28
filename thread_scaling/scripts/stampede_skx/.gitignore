@@ -1,0 +1,5 @@
+.fstest.sh.*
+stampede_skx_results_*.csv
+.TsSkx*.err
+.TsSkx*.out
+results_*
