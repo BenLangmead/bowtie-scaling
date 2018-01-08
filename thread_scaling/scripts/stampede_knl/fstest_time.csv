@@ -1,396 +1,396 @@
-UserSecs,mt_devnull,4607.74
-SystemSecs,mt_devnull,44.52
-Utilization,mt_devnull,14285%
-WallClock,mt_devnull,0:32.56
-AvgShrText,mt_devnull,0
-AvgUnshareData,mt_devnull,0
-AvgStack,mt_devnull,0
-AvgTotal,mt_devnull,0
-MaxRes,mt_devnull,6010772
-AvgRes,mt_devnull,0
-MajorPageFaults,mt_devnull,0
-MinorPageFaults,mt_devnull,785192
-VolSwitches,mt_devnull,683299
-InvolSwitches,mt_devnull,27431
-Swaps,mt_devnull,0
-Inputs,mt_devnull,0
-Outputs,mt_devnull,72
-SockSent,mt_devnull,0
-SockRecv,mt_devnull,0
-SigsDelivered,mt_devnull,0
-PageSize,mt_devnull,4096
-ExitStatus,mt_devnull,0
-UserSecs,mt_lustre 3384.25
-SystemSecs,mt_lustre 60.86
-Utilization,mt_lustre 5814%
-WallClock,mt_lustre 0:59.24
-AvgShrText,mt_lustre 0
-AvgUnshareData,mt_lustre 0
-AvgStack,mt_lustre 0
-AvgTotal,mt_lustre 0
-MaxRes,mt_lustre 5994944
-AvgRes,mt_lustre 0
-MajorPageFaults,mt_lustre 0
-MinorPageFaults,mt_lustre 785558
-VolSwitches,mt_lustre 693996
-InvolSwitches,mt_lustre 26675
-Swaps,mt_lustre 0
-Inputs,mt_lustre 0
-Outputs,mt_lustre 10762312
-SockSent,mt_lustre 0
-SockRecv,mt_lustre 0
-SigsDelivered,mt_lustre 0
-PageSize,mt_lustre 4096
-ExitStatus,mt_lustre 0
-UserSecs,mp_0_lustre 317.62
-SystemSecs,mp_0_lustre 12.16
-Utilization,mp_0_lustre 1102%
-WallClock,mp_0_lustre 0:29.91
-AvgShrText,mp_0_lustre 0
-AvgUnshareData,mp_0_lustre 0
-AvgStack,mp_0_lustre 0
-AvgTotal,mp_0_lustre 0
-MaxRes,mp_0_lustre 4465156
-AvgRes,mp_0_lustre 0
-MajorPageFaults,mp_0_lustre 1
-MinorPageFaults,mp_0_lustre 513782
-VolSwitches,mp_0_lustre 25923
-InvolSwitches,mp_0_lustre 3121
-Swaps,mp_0_lustre 0
-Inputs,mp_0_lustre 248
-Outputs,mp_0_lustre 671776
-SockSent,mp_0_lustre 0
-SockRecv,mp_0_lustre 0
-SigsDelivered,mp_0_lustre 0
-PageSize,mp_0_lustre 4096
-ExitStatus,mp_0_lustre 0
-UserSecs,mp_1_lustre 318.03
-SystemSecs,mp_1_lustre 11.99
-Utilization,mp_1_lustre 1103%
-WallClock,mp_1_lustre 0:29.90
-AvgShrText,mp_1_lustre 0
-AvgUnshareData,mp_1_lustre 0
-AvgStack,mp_1_lustre 0
-AvgTotal,mp_1_lustre 0
-MaxRes,mp_1_lustre 4465424
-AvgRes,mp_1_lustre 0
-MajorPageFaults,mp_1_lustre 0
-MinorPageFaults,mp_1_lustre 513832
-VolSwitches,mp_1_lustre 25246
-InvolSwitches,mp_1_lustre 3249
-Swaps,mp_1_lustre 0
-Inputs,mp_1_lustre 0
-Outputs,mp_1_lustre 671776
-SockSent,mp_1_lustre 0
-SockRecv,mp_1_lustre 0
-SigsDelivered,mp_1_lustre 0
-PageSize,mp_1_lustre 4096
-ExitStatus,mp_1_lustre 0
-UserSecs,mp_2_lustre 319.69
-SystemSecs,mp_2_lustre 12.41
-Utilization,mp_2_lustre 1099%
-WallClock,mp_2_lustre 0:30.20
-AvgShrText,mp_2_lustre 0
-AvgUnshareData,mp_2_lustre 0
-AvgStack,mp_2_lustre 0
-AvgTotal,mp_2_lustre 0
-MaxRes,mp_2_lustre 4467228
-AvgRes,mp_2_lustre 0
-MajorPageFaults,mp_2_lustre 0
-MinorPageFaults,mp_2_lustre 513868
-VolSwitches,mp_2_lustre 26563
-InvolSwitches,mp_2_lustre 4164
-Swaps,mp_2_lustre 0
-Inputs,mp_2_lustre 0
-Outputs,mp_2_lustre 671776
-SockSent,mp_2_lustre 0
-SockRecv,mp_2_lustre 0
-SigsDelivered,mp_2_lustre 0
-PageSize,mp_2_lustre 4096
-ExitStatus,mp_2_lustre 0
-UserSecs,mp_3_lustre 317.10
-SystemSecs,mp_3_lustre 11.67
-Utilization,mp_3_lustre 1116%
-WallClock,mp_3_lustre 0:29.43
-AvgShrText,mp_3_lustre 0
-AvgUnshareData,mp_3_lustre 0
-AvgStack,mp_3_lustre 0
-AvgTotal,mp_3_lustre 0
-MaxRes,mp_3_lustre 4458476
-AvgRes,mp_3_lustre 0
-MajorPageFaults,mp_3_lustre 0
-MinorPageFaults,mp_3_lustre 513784
-VolSwitches,mp_3_lustre 25803
-InvolSwitches,mp_3_lustre 4167
-Swaps,mp_3_lustre 0
-Inputs,mp_3_lustre 0
-Outputs,mp_3_lustre 672800
-SockSent,mp_3_lustre 0
-SockRecv,mp_3_lustre 0
-SigsDelivered,mp_3_lustre 0
-PageSize,mp_3_lustre 4096
-ExitStatus,mp_3_lustre 0
-UserSecs,mp_4_lustre 318.30
-SystemSecs,mp_4_lustre 12.41
-Utilization,mp_4_lustre 1101%
-WallClock,mp_4_lustre 0:30.02
-AvgShrText,mp_4_lustre 0
-AvgUnshareData,mp_4_lustre 0
-AvgStack,mp_4_lustre 0
-AvgTotal,mp_4_lustre 0
-MaxRes,mp_4_lustre 4458500
-AvgRes,mp_4_lustre 0
-MajorPageFaults,mp_4_lustre 0
-MinorPageFaults,mp_4_lustre 513765
-VolSwitches,mp_4_lustre 27026
-InvolSwitches,mp_4_lustre 3731
-Swaps,mp_4_lustre 0
-Inputs,mp_4_lustre 0
-Outputs,mp_4_lustre 672800
-SockSent,mp_4_lustre 0
-SockRecv,mp_4_lustre 0
-SigsDelivered,mp_4_lustre 0
-PageSize,mp_4_lustre 4096
-ExitStatus,mp_4_lustre 0
-UserSecs,mp_5_lustre 317.09
-SystemSecs,mp_5_lustre 11.93
-Utilization,mp_5_lustre 1107%
-WallClock,mp_5_lustre 0:29.71
-AvgShrText,mp_5_lustre 0
-AvgUnshareData,mp_5_lustre 0
-AvgStack,mp_5_lustre 0
-AvgTotal,mp_5_lustre 0
-MaxRes,mp_5_lustre 4465144
-AvgRes,mp_5_lustre 0
-MajorPageFaults,mp_5_lustre 0
-MinorPageFaults,mp_5_lustre 513791
-VolSwitches,mp_5_lustre 25112
-InvolSwitches,mp_5_lustre 3802
-Swaps,mp_5_lustre 0
-Inputs,mp_5_lustre 0
-Outputs,mp_5_lustre 672800
-SockSent,mp_5_lustre 0
-SockRecv,mp_5_lustre 0
-SigsDelivered,mp_5_lustre 0
-PageSize,mp_5_lustre 4096
-ExitStatus,mp_5_lustre 0
-UserSecs,mp_6_lustre 318.86
-SystemSecs,mp_6_lustre 11.92
-Utilization,mp_6_lustre 1110%
-WallClock,mp_6_lustre 0:29.78
-AvgShrText,mp_6_lustre 0
-AvgUnshareData,mp_6_lustre 0
-AvgStack,mp_6_lustre 0
-AvgTotal,mp_6_lustre 0
-MaxRes,mp_6_lustre 4465152
-AvgRes,mp_6_lustre 0
-MajorPageFaults,mp_6_lustre 0
-MinorPageFaults,mp_6_lustre 513865
-VolSwitches,mp_6_lustre 25193
-InvolSwitches,mp_6_lustre 3377
-Swaps,mp_6_lustre 0
-Inputs,mp_6_lustre 0
-Outputs,mp_6_lustre 671776
-SockSent,mp_6_lustre 0
-SockRecv,mp_6_lustre 0
-SigsDelivered,mp_6_lustre 0
-PageSize,mp_6_lustre 4096
-ExitStatus,mp_6_lustre 0
-UserSecs,mp_7_lustre 318.30
-SystemSecs,mp_7_lustre 12.20
-Utilization,mp_7_lustre 1106%
-WallClock,mp_7_lustre 0:29.86
-AvgShrText,mp_7_lustre 0
-AvgUnshareData,mp_7_lustre 0
-AvgStack,mp_7_lustre 0
-AvgTotal,mp_7_lustre 0
-MaxRes,mp_7_lustre 4459212
-AvgRes,mp_7_lustre 0
-MajorPageFaults,mp_7_lustre 0
-MinorPageFaults,mp_7_lustre 513894
-VolSwitches,mp_7_lustre 26269
-InvolSwitches,mp_7_lustre 3749
-Swaps,mp_7_lustre 0
-Inputs,mp_7_lustre 0
-Outputs,mp_7_lustre 671776
-SockSent,mp_7_lustre 0
-SockRecv,mp_7_lustre 0
-SigsDelivered,mp_7_lustre 0
-PageSize,mp_7_lustre 4096
-ExitStatus,mp_7_lustre 0
-UserSecs,mp_8_lustre 319.11
-SystemSecs,mp_8_lustre 12.06
-Utilization,mp_8_lustre 1111%
-WallClock,mp_8_lustre 0:29.80
-AvgShrText,mp_8_lustre 0
-AvgUnshareData,mp_8_lustre 0
-AvgStack,mp_8_lustre 0
-AvgTotal,mp_8_lustre 0
-MaxRes,mp_8_lustre 4465440
-AvgRes,mp_8_lustre 0
-MajorPageFaults,mp_8_lustre 0
-MinorPageFaults,mp_8_lustre 513908
-VolSwitches,mp_8_lustre 26403
-InvolSwitches,mp_8_lustre 4425
-Swaps,mp_8_lustre 0
-Inputs,mp_8_lustre 0
-Outputs,mp_8_lustre 671776
-SockSent,mp_8_lustre 0
-SockRecv,mp_8_lustre 0
-SigsDelivered,mp_8_lustre 0
-PageSize,mp_8_lustre 4096
-ExitStatus,mp_8_lustre 0
-UserSecs,mp_9_lustre 299.74
-SystemSecs,mp_9_lustre 13.42
-Utilization,mp_9_lustre 1030%
-WallClock,mp_9_lustre 0:30.37
-AvgShrText,mp_9_lustre 0
-AvgUnshareData,mp_9_lustre 0
-AvgStack,mp_9_lustre 0
-AvgTotal,mp_9_lustre 0
-MaxRes,mp_9_lustre 4463388
-AvgRes,mp_9_lustre 0
-MajorPageFaults,mp_9_lustre 0
-MinorPageFaults,mp_9_lustre 513896
-VolSwitches,mp_9_lustre 30828
-InvolSwitches,mp_9_lustre 4425
-Swaps,mp_9_lustre 0
-Inputs,mp_9_lustre 0
-Outputs,mp_9_lustre 671776
-SockSent,mp_9_lustre 0
-SockRecv,mp_9_lustre 0
-SigsDelivered,mp_9_lustre 0
-PageSize,mp_9_lustre 4096
-ExitStatus,mp_9_lustre 0
-UserSecs,mp_10_lustre 317.72
-SystemSecs,mp_10_lustre 12.26
-Utilization,mp_10_lustre 1105%
-WallClock,mp_10_lustre 0:29.84
-AvgShrText,mp_10_lustre 0
-AvgUnshareData,mp_10_lustre 0
-AvgStack,mp_10_lustre 0
-AvgTotal,mp_10_lustre 0
-MaxRes,mp_10_lustre 4459292
-AvgRes,mp_10_lustre 0
-MajorPageFaults,mp_10_lustre 0
-MinorPageFaults,mp_10_lustre 513822
-VolSwitches,mp_10_lustre 27893
-InvolSwitches,mp_10_lustre 3746
-Swaps,mp_10_lustre 0
-Inputs,mp_10_lustre 0
-Outputs,mp_10_lustre 672800
-SockSent,mp_10_lustre 0
-SockRecv,mp_10_lustre 0
-SigsDelivered,mp_10_lustre 0
-PageSize,mp_10_lustre 4096
-ExitStatus,mp_10_lustre 0
-UserSecs,mp_11_lustre 318.70
-SystemSecs,mp_11_lustre 12.26
-Utilization,mp_11_lustre 1108%
-WallClock,mp_11_lustre 0:29.87
-AvgShrText,mp_11_lustre 0
-AvgUnshareData,mp_11_lustre 0
-AvgStack,mp_11_lustre 0
-AvgTotal,mp_11_lustre 0
-MaxRes,mp_11_lustre 4464900
-AvgRes,mp_11_lustre 0
-MajorPageFaults,mp_11_lustre 0
-MinorPageFaults,mp_11_lustre 513806
-VolSwitches,mp_11_lustre 27687
-InvolSwitches,mp_11_lustre 3679
-Swaps,mp_11_lustre 0
-Inputs,mp_11_lustre 0
-Outputs,mp_11_lustre 671776
-SockSent,mp_11_lustre 0
-SockRecv,mp_11_lustre 0
-SigsDelivered,mp_11_lustre 0
-PageSize,mp_11_lustre 4096
-ExitStatus,mp_11_lustre 0
-UserSecs,mp_12_lustre 318.86
-SystemSecs,mp_12_lustre 12.23
-Utilization,mp_12_lustre 1107%
-WallClock,mp_12_lustre 0:29.89
-AvgShrText,mp_12_lustre 0
-AvgUnshareData,mp_12_lustre 0
-AvgStack,mp_12_lustre 0
-AvgTotal,mp_12_lustre 0
-MaxRes,mp_12_lustre 4463132
-AvgRes,mp_12_lustre 0
-MajorPageFaults,mp_12_lustre 0
-MinorPageFaults,mp_12_lustre 513812
-VolSwitches,mp_12_lustre 28393
-InvolSwitches,mp_12_lustre 4779
-Swaps,mp_12_lustre 0
-Inputs,mp_12_lustre 0
-Outputs,mp_12_lustre 672800
-SockSent,mp_12_lustre 0
-SockRecv,mp_12_lustre 0
-SigsDelivered,mp_12_lustre 0
-PageSize,mp_12_lustre 4096
-ExitStatus,mp_12_lustre 0
-UserSecs,mp_13_lustre 317.74
-SystemSecs,mp_13_lustre 12.16
-Utilization,mp_13_lustre 1106%
-WallClock,mp_13_lustre 0:29.82
-AvgShrText,mp_13_lustre 0
-AvgUnshareData,mp_13_lustre 0
-AvgStack,mp_13_lustre 0
-AvgTotal,mp_13_lustre 0
-MaxRes,mp_13_lustre 4465440
-AvgRes,mp_13_lustre 0
-MajorPageFaults,mp_13_lustre 0
-MinorPageFaults,mp_13_lustre 513795
-VolSwitches,mp_13_lustre 28423
-InvolSwitches,mp_13_lustre 3053
-Swaps,mp_13_lustre 0
-Inputs,mp_13_lustre 0
-Outputs,mp_13_lustre 671776
-SockSent,mp_13_lustre 0
-SockRecv,mp_13_lustre 0
-SigsDelivered,mp_13_lustre 0
-PageSize,mp_13_lustre 4096
-ExitStatus,mp_13_lustre 0
-UserSecs,mp_14_lustre 315.79
-SystemSecs,mp_14_lustre 12.30
-Utilization,mp_14_lustre 1098%
-WallClock,mp_14_lustre 0:29.86
-AvgShrText,mp_14_lustre 0
-AvgUnshareData,mp_14_lustre 0
-AvgStack,mp_14_lustre 0
-AvgTotal,mp_14_lustre 0
-MaxRes,mp_14_lustre 4458836
-AvgRes,mp_14_lustre 0
-MajorPageFaults,mp_14_lustre 0
-MinorPageFaults,mp_14_lustre 513812
-VolSwitches,mp_14_lustre 28562
-InvolSwitches,mp_14_lustre 4240
-Swaps,mp_14_lustre 0
-Inputs,mp_14_lustre 0
-Outputs,mp_14_lustre 672800
-SockSent,mp_14_lustre 0
-SockRecv,mp_14_lustre 0
-SigsDelivered,mp_14_lustre 0
-PageSize,mp_14_lustre 4096
-ExitStatus,mp_14_lustre 0
-UserSecs,mp_15_lustre 298.64
-SystemSecs,mp_15_lustre 13.18
-Utilization,mp_15_lustre 1034%
-WallClock,mp_15_lustre 0:30.13
-AvgShrText,mp_15_lustre 0
-AvgUnshareData,mp_15_lustre 0
-AvgStack,mp_15_lustre 0
-AvgTotal,mp_15_lustre 0
-MaxRes,mp_15_lustre 4463392
-AvgRes,mp_15_lustre 0
-MajorPageFaults,mp_15_lustre 0
-MinorPageFaults,mp_15_lustre 513834
-VolSwitches,mp_15_lustre 31022
-InvolSwitches,mp_15_lustre 3934
-Swaps,mp_15_lustre 0
-Inputs,mp_15_lustre 0
-Outputs,mp_15_lustre 672800
-SockSent,mp_15_lustre 0
-SockRecv,mp_15_lustre 0
-SigsDelivered,mp_15_lustre 0
-PageSize,mp_15_lustre 4096
-ExitStatus,mp_15_lustre 0
+UserSecs,mt_devnull,0,4607.74
+SystemSecs,mt_devnull,0,44.52
+Utilization,mt_devnull,0,14285
+WallClock,mt_devnull,0,0:32.56
+AvgShrText,mt_devnull,0,0
+AvgUnshareData,mt_devnull,0,0
+AvgStack,mt_devnull,0,0
+AvgTotal,mt_devnull,0,0
+MaxRes,mt_devnull,0,6010772
+AvgRes,mt_devnull,0,0
+MajorPageFaults,mt_devnull,0,0
+MinorPageFaults,mt_devnull,0,785192
+VolSwitches,mt_devnull,0,683299
+InvolSwitches,mt_devnull,0,27431
+Swaps,mt_devnull,0,0
+Inputs,mt_devnull,0,0
+Outputs,mt_devnull,0,72
+SockSent,mt_devnull,0,0
+SockRecv,mt_devnull,0,0
+SigsDelivered,mt_devnull,0,0
+PageSize,mt_devnull,0,4096
+ExitStatus,mt_devnull,0,0
+UserSecs,mt_lustre,0,3384.25
+SystemSecs,mt_lustre,0,60.86
+Utilization,mt_lustre,0,5814
+WallClock,mt_lustre,0,0:59.24
+AvgShrText,mt_lustre,0,0
+AvgUnshareData,mt_lustre,0,0
+AvgStack,mt_lustre,0,0
+AvgTotal,mt_lustre,0,0
+MaxRes,mt_lustre,0,5994944
+AvgRes,mt_lustre,0,0
+MajorPageFaults,mt_lustre,0,0
+MinorPageFaults,mt_lustre,0,785558
+VolSwitches,mt_lustre,0,693996
+InvolSwitches,mt_lustre,0,26675
+Swaps,mt_lustre,0,0
+Inputs,mt_lustre,0,0
+Outputs,mt_lustre,0,10762312
+SockSent,mt_lustre,0,0
+SockRecv,mt_lustre,0,0
+SigsDelivered,mt_lustre,0,0
+PageSize,mt_lustre,0,4096
+ExitStatus,mt_lustre,0,0
+UserSecs,mp_lustre,0,317.62
+SystemSecs,mp_lustre,0,12.16
+Utilization,mp_lustre,0,1102
+WallClock,mp_lustre,0,0:29.91
+AvgShrText,mp_lustre,0,0
+AvgUnshareData,mp_lustre,0,0
+AvgStack,mp_lustre,0,0
+AvgTotal,mp_lustre,0,0
+MaxRes,mp_lustre,0,4465156
+AvgRes,mp_lustre,0,0
+MajorPageFaults,mp_lustre,0,1
+MinorPageFaults,mp_lustre,0,513782
+VolSwitches,mp_lustre,0,25923
+InvolSwitches,mp_lustre,0,3121
+Swaps,mp_lustre,0,0
+Inputs,mp_lustre,0,248
+Outputs,mp_lustre,0,671776
+SockSent,mp_lustre,0,0
+SockRecv,mp_lustre,0,0
+SigsDelivered,mp_lustre,0,0
+PageSize,mp_lustre,0,4096
+ExitStatus,mp_lustre,0,0
+UserSecs,mp_lustre,1,318.03
+SystemSecs,mp_lustre,1,11.99
+Utilization,mp_lustre,1,1103
+WallClock,mp_lustre,1,0:29.90
+AvgShrText,mp_lustre,1,0
+AvgUnshareData,mp_lustre,1,0
+AvgStack,mp_lustre,1,0
+AvgTotal,mp_lustre,1,0
+MaxRes,mp_lustre,1,4465424
+AvgRes,mp_lustre,1,0
+MajorPageFaults,mp_lustre,1,0
+MinorPageFaults,mp_lustre,1,513832
+VolSwitches,mp_lustre,1,25246
+InvolSwitches,mp_lustre,1,3249
+Swaps,mp_lustre,1,0
+Inputs,mp_lustre,1,0
+Outputs,mp_lustre,1,671776
+SockSent,mp_lustre,1,0
+SockRecv,mp_lustre,1,0
+SigsDelivered,mp_lustre,1,0
+PageSize,mp_lustre,1,4096
+ExitStatus,mp_lustre,1,0
+UserSecs,mp_lustre,2,319.69
+SystemSecs,mp_lustre,2,12.41
+Utilization,mp_lustre,2,1099
+WallClock,mp_lustre,2,0:30.20
+AvgShrText,mp_lustre,2,0
+AvgUnshareData,mp_lustre,2,0
+AvgStack,mp_lustre,2,0
+AvgTotal,mp_lustre,2,0
+MaxRes,mp_lustre,2,4467228
+AvgRes,mp_lustre,2,0
+MajorPageFaults,mp_lustre,2,0
+MinorPageFaults,mp_lustre,2,513868
+VolSwitches,mp_lustre,2,26563
+InvolSwitches,mp_lustre,2,4164
+Swaps,mp_lustre,2,0
+Inputs,mp_lustre,2,0
+Outputs,mp_lustre,2,671776
+SockSent,mp_lustre,2,0
+SockRecv,mp_lustre,2,0
+SigsDelivered,mp_lustre,2,0
+PageSize,mp_lustre,2,4096
+ExitStatus,mp_lustre,2,0
+UserSecs,mp_lustre,3,317.10
+SystemSecs,mp_lustre,3,11.67
+Utilization,mp_lustre,3,1116
+WallClock,mp_lustre,3,0:29.43
+AvgShrText,mp_lustre,3,0
+AvgUnshareData,mp_lustre,3,0
+AvgStack,mp_lustre,3,0
+AvgTotal,mp_lustre,3,0
+MaxRes,mp_lustre,3,4458476
+AvgRes,mp_lustre,3,0
+MajorPageFaults,mp_lustre,3,0
+MinorPageFaults,mp_lustre,3,513784
+VolSwitches,mp_lustre,3,25803
+InvolSwitches,mp_lustre,3,4167
+Swaps,mp_lustre,3,0
+Inputs,mp_lustre,3,0
+Outputs,mp_lustre,3,672800
+SockSent,mp_lustre,3,0
+SockRecv,mp_lustre,3,0
+SigsDelivered,mp_lustre,3,0
+PageSize,mp_lustre,3,4096
+ExitStatus,mp_lustre,3,0
+UserSecs,mp_lustre,4,318.30
+SystemSecs,mp_lustre,4,12.41
+Utilization,mp_lustre,4,1101
+WallClock,mp_lustre,4,0:30.02
+AvgShrText,mp_lustre,4,0
+AvgUnshareData,mp_lustre,4,0
+AvgStack,mp_lustre,4,0
+AvgTotal,mp_lustre,4,0
+MaxRes,mp_lustre,4,4458500
+AvgRes,mp_lustre,4,0
+MajorPageFaults,mp_lustre,4,0
+MinorPageFaults,mp_lustre,4,513765
+VolSwitches,mp_lustre,4,27026
+InvolSwitches,mp_lustre,4,3731
+Swaps,mp_lustre,4,0
+Inputs,mp_lustre,4,0
+Outputs,mp_lustre,4,672800
+SockSent,mp_lustre,4,0
+SockRecv,mp_lustre,4,0
+SigsDelivered,mp_lustre,4,0
+PageSize,mp_lustre,4,4096
+ExitStatus,mp_lustre,4,0
+UserSecs,mp_lustre,5,317.09
+SystemSecs,mp_lustre,5,11.93
+Utilization,mp_lustre,5,1107
+WallClock,mp_lustre,5,0:29.71
+AvgShrText,mp_lustre,5,0
+AvgUnshareData,mp_lustre,5,0
+AvgStack,mp_lustre,5,0
+AvgTotal,mp_lustre,5,0
+MaxRes,mp_lustre,5,4465144
+AvgRes,mp_lustre,5,0
+MajorPageFaults,mp_lustre,5,0
+MinorPageFaults,mp_lustre,5,513791
+VolSwitches,mp_lustre,5,25112
+InvolSwitches,mp_lustre,5,3802
+Swaps,mp_lustre,5,0
+Inputs,mp_lustre,5,0
+Outputs,mp_lustre,5,672800
+SockSent,mp_lustre,5,0
+SockRecv,mp_lustre,5,0
+SigsDelivered,mp_lustre,5,0
+PageSize,mp_lustre,5,4096
+ExitStatus,mp_lustre,5,0
+UserSecs,mp_lustre,6,318.86
+SystemSecs,mp_lustre,6,11.92
+Utilization,mp_lustre,6,1110
+WallClock,mp_lustre,6,0:29.78
+AvgShrText,mp_lustre,6,0
+AvgUnshareData,mp_lustre,6,0
+AvgStack,mp_lustre,6,0
+AvgTotal,mp_lustre,6,0
+MaxRes,mp_lustre,6,4465152
+AvgRes,mp_lustre,6,0
+MajorPageFaults,mp_lustre,6,0
+MinorPageFaults,mp_lustre,6,513865
+VolSwitches,mp_lustre,6,25193
+InvolSwitches,mp_lustre,6,3377
+Swaps,mp_lustre,6,0
+Inputs,mp_lustre,6,0
+Outputs,mp_lustre,6,671776
+SockSent,mp_lustre,6,0
+SockRecv,mp_lustre,6,0
+SigsDelivered,mp_lustre,6,0
+PageSize,mp_lustre,6,4096
+ExitStatus,mp_lustre,6,0
+UserSecs,mp_lustre,7,318.30
+SystemSecs,mp_lustre,7,12.20
+Utilization,mp_lustre,7,1106
+WallClock,mp_lustre,7,0:29.86
+AvgShrText,mp_lustre,7,0
+AvgUnshareData,mp_lustre,7,0
+AvgStack,mp_lustre,7,0
+AvgTotal,mp_lustre,7,0
+MaxRes,mp_lustre,7,4459212
+AvgRes,mp_lustre,7,0
+MajorPageFaults,mp_lustre,7,0
+MinorPageFaults,mp_lustre,7,513894
+VolSwitches,mp_lustre,7,26269
+InvolSwitches,mp_lustre,7,3749
+Swaps,mp_lustre,7,0
+Inputs,mp_lustre,7,0
+Outputs,mp_lustre,7,671776
+SockSent,mp_lustre,7,0
+SockRecv,mp_lustre,7,0
+SigsDelivered,mp_lustre,7,0
+PageSize,mp_lustre,7,4096
+ExitStatus,mp_lustre,7,0
+UserSecs,mp_lustre,8,319.11
+SystemSecs,mp_lustre,8,12.06
+Utilization,mp_lustre,8,1111
+WallClock,mp_lustre,8,0:29.80
+AvgShrText,mp_lustre,8,0
+AvgUnshareData,mp_lustre,8,0
+AvgStack,mp_lustre,8,0
+AvgTotal,mp_lustre,8,0
+MaxRes,mp_lustre,8,4465440
+AvgRes,mp_lustre,8,0
+MajorPageFaults,mp_lustre,8,0
+MinorPageFaults,mp_lustre,8,513908
+VolSwitches,mp_lustre,8,26403
+InvolSwitches,mp_lustre,8,4425
+Swaps,mp_lustre,8,0
+Inputs,mp_lustre,8,0
+Outputs,mp_lustre,8,671776
+SockSent,mp_lustre,8,0
+SockRecv,mp_lustre,8,0
+SigsDelivered,mp_lustre,8,0
+PageSize,mp_lustre,8,4096
+ExitStatus,mp_lustre,8,0
+UserSecs,mp_lustre,9,299.74
+SystemSecs,mp_lustre,9,13.42
+Utilization,mp_lustre,9,1030
+WallClock,mp_lustre,9,0:30.37
+AvgShrText,mp_lustre,9,0
+AvgUnshareData,mp_lustre,9,0
+AvgStack,mp_lustre,9,0
+AvgTotal,mp_lustre,9,0
+MaxRes,mp_lustre,9,4463388
+AvgRes,mp_lustre,9,0
+MajorPageFaults,mp_lustre,9,0
+MinorPageFaults,mp_lustre,9,513896
+VolSwitches,mp_lustre,9,30828
+InvolSwitches,mp_lustre,9,4425
+Swaps,mp_lustre,9,0
+Inputs,mp_lustre,9,0
+Outputs,mp_lustre,9,671776
+SockSent,mp_lustre,9,0
+SockRecv,mp_lustre,9,0
+SigsDelivered,mp_lustre,9,0
+PageSize,mp_lustre,9,4096
+ExitStatus,mp_lustre,9,0
+UserSecs,mp_lustre,10,317.72
+SystemSecs,mp_lustre,10,12.26
+Utilization,mp_lustre,10,1105
+WallClock,mp_lustre,10,0:29.84
+AvgShrText,mp_lustre,10,0
+AvgUnshareData,mp_lustre,10,0
+AvgStack,mp_lustre,10,0
+AvgTotal,mp_lustre,10,0
+MaxRes,mp_lustre,10,4459292
+AvgRes,mp_lustre,10,0
+MajorPageFaults,mp_lustre,10,0
+MinorPageFaults,mp_lustre,10,513822
+VolSwitches,mp_lustre,10,27893
+InvolSwitches,mp_lustre,10,3746
+Swaps,mp_lustre,10,0
+Inputs,mp_lustre,10,0
+Outputs,mp_lustre,10,672800
+SockSent,mp_lustre,10,0
+SockRecv,mp_lustre,10,0
+SigsDelivered,mp_lustre,10,0
+PageSize,mp_lustre,10,4096
+ExitStatus,mp_lustre,10,0
+UserSecs,mp_lustre,11,318.70
+SystemSecs,mp_lustre,11,12.26
+Utilization,mp_lustre,11,1108
+WallClock,mp_lustre,11,0:29.87
+AvgShrText,mp_lustre,11,0
+AvgUnshareData,mp_lustre,11,0
+AvgStack,mp_lustre,11,0
+AvgTotal,mp_lustre,11,0
+MaxRes,mp_lustre,11,4464900
+AvgRes,mp_lustre,11,0
+MajorPageFaults,mp_lustre,11,0
+MinorPageFaults,mp_lustre,11,513806
+VolSwitches,mp_lustre,11,27687
+InvolSwitches,mp_lustre,11,3679
+Swaps,mp_lustre,11,0
+Inputs,mp_lustre,11,0
+Outputs,mp_lustre,11,671776
+SockSent,mp_lustre,11,0
+SockRecv,mp_lustre,11,0
+SigsDelivered,mp_lustre,11,0
+PageSize,mp_lustre,11,4096
+ExitStatus,mp_lustre,11,0
+UserSecs,mp_lustre,12,318.86
+SystemSecs,mp_lustre,12,12.23
+Utilization,mp_lustre,12,1107
+WallClock,mp_lustre,12,0:29.89
+AvgShrText,mp_lustre,12,0
+AvgUnshareData,mp_lustre,12,0
+AvgStack,mp_lustre,12,0
+AvgTotal,mp_lustre,12,0
+MaxRes,mp_lustre,12,4463132
+AvgRes,mp_lustre,12,0
+MajorPageFaults,mp_lustre,12,0
+MinorPageFaults,mp_lustre,12,513812
+VolSwitches,mp_lustre,12,28393
+InvolSwitches,mp_lustre,12,4779
+Swaps,mp_lustre,12,0
+Inputs,mp_lustre,12,0
+Outputs,mp_lustre,12,672800
+SockSent,mp_lustre,12,0
+SockRecv,mp_lustre,12,0
+SigsDelivered,mp_lustre,12,0
+PageSize,mp_lustre,12,4096
+ExitStatus,mp_lustre,12,0
+UserSecs,mp_lustre,13,317.74
+SystemSecs,mp_lustre,13,12.16
+Utilization,mp_lustre,13,1106
+WallClock,mp_lustre,13,0:29.82
+AvgShrText,mp_lustre,13,0
+AvgUnshareData,mp_lustre,13,0
+AvgStack,mp_lustre,13,0
+AvgTotal,mp_lustre,13,0
+MaxRes,mp_lustre,13,4465440
+AvgRes,mp_lustre,13,0
+MajorPageFaults,mp_lustre,13,0
+MinorPageFaults,mp_lustre,13,513795
+VolSwitches,mp_lustre,13,28423
+InvolSwitches,mp_lustre,13,3053
+Swaps,mp_lustre,13,0
+Inputs,mp_lustre,13,0
+Outputs,mp_lustre,13,671776
+SockSent,mp_lustre,13,0
+SockRecv,mp_lustre,13,0
+SigsDelivered,mp_lustre,13,0
+PageSize,mp_lustre,13,4096
+ExitStatus,mp_lustre,13,0
+UserSecs,mp_lustre,14,315.79
+SystemSecs,mp_lustre,14,12.30
+Utilization,mp_lustre,14,1098
+WallClock,mp_lustre,14,0:29.86
+AvgShrText,mp_lustre,14,0
+AvgUnshareData,mp_lustre,14,0
+AvgStack,mp_lustre,14,0
+AvgTotal,mp_lustre,14,0
+MaxRes,mp_lustre,14,4458836
+AvgRes,mp_lustre,14,0
+MajorPageFaults,mp_lustre,14,0
+MinorPageFaults,mp_lustre,14,513812
+VolSwitches,mp_lustre,14,28562
+InvolSwitches,mp_lustre,14,4240
+Swaps,mp_lustre,14,0
+Inputs,mp_lustre,14,0
+Outputs,mp_lustre,14,672800
+SockSent,mp_lustre,14,0
+SockRecv,mp_lustre,14,0
+SigsDelivered,mp_lustre,14,0
+PageSize,mp_lustre,14,4096
+ExitStatus,mp_lustre,14,0
+UserSecs,mp_lustre,15,298.64
+SystemSecs,mp_lustre,15,13.18
+Utilization,mp_lustre,15,1034
+WallClock,mp_lustre,15,0:30.13
+AvgShrText,mp_lustre,15,0
+AvgUnshareData,mp_lustre,15,0
+AvgStack,mp_lustre,15,0
+AvgTotal,mp_lustre,15,0
+MaxRes,mp_lustre,15,4463392
+AvgRes,mp_lustre,15,0
+MajorPageFaults,mp_lustre,15,0
+MinorPageFaults,mp_lustre,15,513834
+VolSwitches,mp_lustre,15,31022
+InvolSwitches,mp_lustre,15,3934
+Swaps,mp_lustre,15,0
+Inputs,mp_lustre,15,0
+Outputs,mp_lustre,15,672800
+SockSent,mp_lustre,15,0
+SockRecv,mp_lustre,15,0
+SigsDelivered,mp_lustre,15,0
+PageSize,mp_lustre,15,4096
+ExitStatus,mp_lustre,15,0
