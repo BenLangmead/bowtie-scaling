@@ -30,8 +30,10 @@ parse_strace() {
 }
 
 parse_strace .fstest.sh.ht-final-block.1.0.tmp.devnull.strace | sed 's/$/,mt_devnull,0/'
+parse_strace .fstest.sh.ht-final-block.1.0.tmp.tmp.strace | sed 's/$/,mt_ssd,0/'
 parse_strace .fstest.sh.ht-final-block.1.0.tmp.scratch04265benbo81fstest-01OST*.stampede2.tacc.utexas.edupe.strace | sed 's/$/,mt_lustre,0/'
 
 for i in `seq 0 15` ; do
+    parse_strace .fstest.sh.ht-final-block.16.${i}.tmp.tmp.strace | sed "s/\$/,mp_ssd,$i/"
     parse_strace .fstest.sh.ht-final-block.16.${i}.tmp.scratch04265benbo81fstest-01OST*.stampede2.tacc.utexas.edupe.strace | sed "s/\$/,mp_lustre,$i/"
 done
