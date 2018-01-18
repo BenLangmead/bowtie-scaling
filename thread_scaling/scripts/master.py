@@ -391,6 +391,7 @@ def go(args):
                 stdout_ofns = ['/dev/null'] * nprocess
                 stderr_ofns = ['/dev/null'] * nprocess
                 sam_ofns = ['/dev/null'] * nprocess
+                sam_ofns_to_delete = []
                 if idx_rev == 1:
                     stdout_ofns = [join(odir, '%s.out' % runname) for runname in run_names]
                     stderr_ofns = [join(odir, '%s.err' % runname) for runname in run_names]
@@ -399,6 +400,19 @@ def go(args):
                         for runname in run_names:
                             mkdir_quiet(join(samdir, name, pe_str, runname))
                         sam_ofns = [join(samdir, name, pe_str, runname, 'out.sam') for runname in run_names]
+                        if '--num-outputs' in aligner_args:
+                            toks = aligner_args.split()
+                            nout = None
+                            for i, tok in enumerate(toks):
+                                if tok == '--num-outputs':
+                                    nout = int(toks[i+1])
+                                    break
+                            assert nout is not None and nout >= 1
+                            for runname in run_names:
+                                for i in range(1, nout+1):
+                                    sam_ofns_to_delete.append(join(samdir, name, pe_str, runname, 'out.part' + str(i) + '.sam'))
+                        else:
+                            sam_ofns_to_delete = sam_ofns[:]
 
                 def spawn_worker(cmd_list, ofn, efn):
                     def worker(done_val):
@@ -507,7 +521,7 @@ def go(args):
 
                 if args.delete_sam:
                     print('#   Deleting SAM outputs', file=sys.stderr)
-                    for sam_ofn in sam_ofns:
+                    for sam_ofn in sam_ofns_to_delete:
                         if sam_ofn != '/dev/null':
                             os.remove(sam_ofn)
 
