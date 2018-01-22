@@ -1,5 +1,5 @@
 name	tool	branch	mp_mt	preproc	args
-bt2-final-block-multi2	bowtie2	blocked_input_multiout	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1	-I 250 -X 800 --block-bytes 12288 --reads-per-block 44 --num-outputs 2
-bt2-final-block-multi4	bowtie2	blocked_input_multiout	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1	-I 250 -X 800 --block-bytes 12288 --reads-per-block 44 --num-outputs 4
-bt2-final-block-multi8	bowtie2	blocked_input_multiout	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1	-I 250 -X 800 --block-bytes 12288 --reads-per-block 44 --num-outputs 8
-bt2-final-block-multi16	bowtie2	blocked_input_multiout	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1	-I 250 -X 800 --block-bytes 12288 --reads-per-block 44 --num-outputs 16
+bt2-final-block-multi2	bowtie2	blocked_input_multiout	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --block-bytes 12288 --reads-per-block 44 --num-outputs 2
+bt2-final-block-multi4	bowtie2	blocked_input_multiout	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --block-bytes 12288 --reads-per-block 44 --num-outputs 4
+bt2-final-block-multi8	bowtie2	blocked_input_multiout	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --block-bytes 12288 --reads-per-block 44 --num-outputs 8
+bt2-final-block-multi16	bowtie2	blocked_input_multiout	0	WITH_THREAD_PROFILING=1 EXTRA_FLAGS="-DUSE_FINE_TIMER" WITH_TBB=1 NO_SPINLOCK=1 WITH_QUEUELOCK=1	-I 250 -X 800 --block-bytes 12288 --reads-per-block 44 --num-outputs 16
