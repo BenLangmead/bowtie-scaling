@@ -1,0 +1,39 @@
+---
+title: "iotest"
+output: html_notebook
+---
+
+```{r}
+library(ggplot2)
+library(dplyr)
+```
+
+```{r}
+# setwd('~/git/bowtie-scaling/thread_scaling/iotest/')
+m <- read.csv('iotest_stampede2.csv')
+mg <- m %>%
+  group_by(nproc, out, block) %>%
+  summarise(thru_buf=(16)/max(tbuf)/nproc[1], thru_dd=(16)/max(tdd)/nproc[1])
+```
+
+```{r}
+# Buffered writing using fwrite
+ggplot(mg, aes(x=nproc, y=thru_buf, color=out, linetype=factor(block))) + geom_line() + labs(x='# processes', y='Aggregate throughput (GB/sec)') + theme_bw()
+```
+
+```{r}
+# Writing using dd
+ggplot(mg, aes(x=nproc, y=thru_dd, color=out, linetype=factor(block))) + geom_line()
+```
+
+```{r}
+# Writing using dd, omitting dd
+mgf <- mg %>% filter(out != 'devnull')
+ggplot(mgf, aes(x=nproc, y=thru_dd, color=out, linetype=factor(block))) + geom_line() + theme_bw()
+```
+
+### Take-aways
+
+* 16 OST is worse in all cases
+* SSD degrades faster than Lustre when upping the # threads
+* Block size doesn't matter too much, except there's some evidence that having a smaller (512K) block size is better at a higher number of simultaneous writers

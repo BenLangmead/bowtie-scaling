@@ -1,0 +1,52 @@
+---
+title: "fstest"
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tables)
+```
+
+```{r}
+# setwd('~/git/bowtie-scaling/thread_scaling/scripts/stampede_knl')
+m <- read.csv('fstest_results_20171227.csv')
+mg <- m %>%
+  group_by(input, output, mp, mt) %>%
+  summarise(thru=(8)/max(max))
+mg <- mg %>% filter(mp < 32)
+```
+
+```{r}
+# Buffered writing using fwrite
+ggplot(mg, aes(x=mp, y=thru, color=input, linetype=output)) +
+  labs(x='# processes (# threads total is always 256)', y='Aggregate throughput (reads/sec)') +
+  geom_line() +
+  theme_bw()
+```
+```{r}
+tb <- read.csv('fstest_time.csv', header=F)
+colnames(tb) <- c('metric', 'output', 'trial', 'val')
+```
+
+```{r}
+tbs <- tb %>% group_by(metric, output) %>% summarise(val2=sum(val))
+```
+
+```{r}
+tabular((Heading() * metric) ~ (Justify(r) * Heading() * output * Heading() * identity * Heading() * Format(sprintf("%.2f")) * val2), data=tbs)
+```
+
+```{r}
+st <- read.csv('fstest_strace.csv', header=F)
+colnames(st) <- c('secs', 'calls', 'syscall', 'output', 'trial')
+```
+
+```{r}
+sts <- st %>% group_by(syscall, output) %>% summarise(totsecs=sum(secs), totcalls=sum(calls))
+```
+
+```{r}
+tabular((Heading() * syscall) ~ (Justify(r) * Heading() * output * (Heading() * identity * Format(sprintf("%.2f")) * totsecs + Heading() * identity * Format(sprintf("%d")) * totcalls)), data=sts)
+```
