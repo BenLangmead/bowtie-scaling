@@ -1,6 +1,6 @@
 FROM phusion/holy-build-box-64
 
-RUN yum -y install git zip unzip gcc g++
+RUN yum -y install git zip unzip gcc g++ emacs-nox libasan
 
 RUN source /hbb_exe/activate && \
     mkdir /mybin && \

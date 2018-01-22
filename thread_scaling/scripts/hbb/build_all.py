@@ -4,7 +4,8 @@ import os
 import glob
 
 last_bin, last_tool, last_branch, last_preproc = None, None, None, None
-for fn in glob.glob('../*.tsv*'):
+all = ['../bt.tsv', '../bt2.tsv', '../ht.tsv'] + glob.glob('../bt_*.tsv*') + glob.glob('../bt2_*.tsv*') + glob.glob('../ht_*.tsv*')
+for fn in all:
     print('Processing "%s"' % fn)
     with open(fn) as fh:
         for ln in fh:
