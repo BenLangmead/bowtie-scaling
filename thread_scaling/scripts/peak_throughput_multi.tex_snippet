@@ -1,0 +1,26 @@
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llrrrrrrrrrrrr}
+& & \multicolumn{2}{c}{Paired} & \multicolumn{2}{c}{Unpaired} \\ \cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}\cmidrule(lr){11-12}\cmidrule(lr){13-14}
+ &  & Th & Krd/s & Th & Krd/s \\
+\hline
+Bowtie & L-parsing  & 224 & 69.52 & 192 & 675.78 \\
+ & L-parsing, 2 outputs  & 208 & 69.66 & 268 & 899.36 \\
+ & L-parsing, 4 outputs  & 216 & 69.52 & 272 & 1006.81 \\
+ & L-parsing, 8 outputs  & 208 & 69.67 & 272 & 1061.66 \\
+ & L-parsing, 16 outputs  & 208 & 69.14 & 268 & 1054.18 \\
+ & MP baseline  & 272 & 70.44 & 272 & 895.90 \\
+Bowtie 2 & L-parsing  & 272 & 26.47 & 272 & 71.15 \\
+ & L-parsing, 2 outputs  & 272 & 26.28 & 268 & 72.68 \\
+ & L-parsing, 4 outputs  & 272 & 26.29 & 272 & 72.71 \\
+ & L-parsing, 8 outputs  & 272 & 26.23 & 272 & 72.65 \\
+ & L-parsing, 16 outputs  & 268 & 26.29 & 268 & 72.43 \\
+ & MP baseline  & 272 & 27.98 & 272 & 69.52 \\
+HISAT & L-parsing  & 120 & 220.65 & 96 & 381.30 \\
+ & L-parsing, 2 outputs  & 208 & 314.38 & 200 & 569.59 \\
+ & L-parsing, 4 outputs  & 272 & 390.20 & 272 & 734.54 \\
+ & L-parsing, 8 outputs  & 268 & 402.07 & 272 & 820.81 \\
+ & L-parsing, 16 outputs  & 272 & 410.85 & 272 & 846.45 \\
+ & MP baseline  & 272 & 360.41 & 240 & 686.50 \\
+\hline
+\end{tabular}
+}

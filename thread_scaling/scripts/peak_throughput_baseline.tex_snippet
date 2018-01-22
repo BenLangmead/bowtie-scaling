@@ -1,0 +1,24 @@
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llrrrrrrrrrrrr}
+ &  & \multicolumn{4}{c}{Skylake (96 threads)} & \multicolumn{4}{c}{Broadwell (112 threads)} & \multicolumn{4}{c}{KNL (272 threads)}\\ \cmidrule(lr){3-6}\cmidrule(lr){7-10}\cmidrule(lr){11-14}
+ &  & \multicolumn{2}{c}{Paired} & \multicolumn{2}{c}{Unpaired} & \multicolumn{2}{c}{Paired} & \multicolumn{2}{c}{Unpaired} & \multicolumn{2}{c}{Paired} & \multicolumn{2}{c}{Unpaired}\\ \cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}\cmidrule(lr){11-12}\cmidrule(lr){13-14}
+ &  & Th & Krd/s & Th & Krd/s & Th & Krd/s & Th & Krd/s & Th & Krd/s & Th & Krd/s\\
+\hline
+Bowtie & TinyThread++ spin & 92 & 126.54 & 24 & 446.94 & 88 & 98.69 & 24 & 282.93 & 72 & 41.96 & \cellcolor{orange!25}32 & \Tstrut \cellcolor{orange!25}127.48\\
+ & TBB spin & \cellcolor{orange!25}96 & \cellcolor{orange!25}130.98 & 16 & 378.96 & 88 & 97.01 & 16 & 229.62 & \cellcolor{orange!25}72 & \cellcolor{orange!25}42.92 & 24 & 118.74\\
+ & TBB standard & 80 & 121.79 & 32 & 405.59 & 72 & 86.08 & 24 & 239.80 & 48 & 26.54 & 16 & 81.67\\
+ & TBB queueing & \cellcolor{red!25}92 & \cellcolor{red!25}132.38 & \cellcolor{orange!25}40 & \cellcolor{orange!25}586.60 & \cellcolor{orange!25}96 & \cellcolor{orange!25}103.61 & \cellcolor{orange!25}48 & \cellcolor{orange!25}415.78 & 72 & 39.22 & 48 & 123.33\\
+ & MP baseline & 96 & 128.66 & \cellcolor{red!25}96 & \cellcolor{red!25}1,433.82 & \cellcolor{red!25}112 & \cellcolor{red!25}108.89 & \cellcolor{red!25}112 & \cellcolor{red!25}1,215.75 & \cellcolor{red!25}272 & \cellcolor{red!25}70.44 & \cellcolor{red!25}272 & \Bstrut \cellcolor{red!25}895.90\\
+Bowtie 2 & TinyThread++ spin & 80 & 65.55 & 72 & 176.27 & 80 & 51.55 & 80 & 125.02 & 96 & 16.49 & 96 & \Tstrut 43.71\\
+ & TBB spin & \cellcolor{red!25}88 & \cellcolor{red!25}68.02 & 80 & 177.78 & \cellcolor{orange!25}64 & \cellcolor{orange!25}55.45 & 72 & 137.07 & \cellcolor{orange!25}96 & \cellcolor{orange!25}18.17 & \cellcolor{orange!25}88 & \cellcolor{orange!25}47.09\\
+ & TBB standard & 56 & 62.47 & 64 & 162.36 & 56 & 49.05 & 64 & 124.19 & 64 & 12.73 & 64 & 36.36\\
+ & TBB queueing & 80 & 66.60 & \cellcolor{orange!25}88 & \cellcolor{orange!25}180.83 & 64 & 54.48 & \cellcolor{orange!25}88 & \cellcolor{orange!25}144.14 & 96 & 17.72 & 88 & 46.64\\
+ & MP baseline & \cellcolor{orange!25}96 & \cellcolor{orange!25}67.62 & \cellcolor{red!25}96 & \cellcolor{red!25}185.25 & \cellcolor{red!25}112 & \cellcolor{red!25}57.11 & \cellcolor{red!25}112 & \cellcolor{red!25}159.47 & \cellcolor{red!25}272 & \cellcolor{red!25}27.98 & \cellcolor{red!25}272 & \Bstrut \cellcolor{red!25}69.52\\
+HISAT & TinyThread++ spin & 16 & 134.13 & 16 & 292.61 & 16 & 89.80 & 16 & 210.14 & 16 & 29.11 & 24 & \Tstrut 71.72\\
+ & TBB spin & 16 & 136.87 & 16 & 307.35 & 16 & 94.10 & 16 & 209.14 & \cellcolor{orange!25}16 & \cellcolor{orange!25}29.55 & 16 & 72.18\\
+ & TBB standard & 16 & 99.28 & 16 & 250.40 & 16 & 61.89 & 16 & 162.16 & 8 & 19.96 & 12 & 43.60\\
+ & TBB queueing & \cellcolor{orange!25}16 & \cellcolor{orange!25}137.84 & \cellcolor{orange!25}24 & \cellcolor{orange!25}349.36 & \cellcolor{orange!25}16 & \cellcolor{orange!25}98.45 & \cellcolor{orange!25}32 & \cellcolor{orange!25}238.34 & 32 & 27.65 & \cellcolor{orange!25}24 & \cellcolor{orange!25}72.56\\
+ & MP baseline & \cellcolor{red!25}96 & \cellcolor{red!25}710.58 & \cellcolor{red!25}96 & \cellcolor{red!25}1,478.72 & \cellcolor{red!25}112 & \cellcolor{red!25}568.00 & \cellcolor{red!25}112 & \cellcolor{red!25}1,154.60 & \cellcolor{red!25}272 & \cellcolor{red!25}360.41 & \cellcolor{red!25}240 & \Bstrut \cellcolor{red!25}686.50\\
+\hline
+\end{tabular}
+}

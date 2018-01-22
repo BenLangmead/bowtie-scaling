@@ -11,3 +11,4 @@ mix*.fq
 .zip*.out
 .zip*.sh
 .reads*.?.sh
+*.tmp

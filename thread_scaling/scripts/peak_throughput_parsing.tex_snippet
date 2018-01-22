@@ -1,0 +1,21 @@
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llrrrrrrrrrrrr}
+ &  & \multicolumn{4}{c}{Skylake (96 threads)} & \multicolumn{4}{c}{Broadwell (112 threads)} & \multicolumn{4}{c}{KNL (272 threads)}\\ \cmidrule(lr){3-6}\cmidrule(lr){7-10}\cmidrule(lr){11-14}
+ &  & \multicolumn{2}{c}{Paired} & \multicolumn{2}{c}{Unpaired} & \multicolumn{2}{c}{Paired} & \multicolumn{2}{c}{Unpaired} & \multicolumn{2}{c}{Paired} & \multicolumn{2}{c}{Unpaired}\\ \cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}\cmidrule(lr){11-12}\cmidrule(lr){13-14}
+ &  & Th & Krd/s & Th & Krd/s & Th & Krd/s & Th & Krd/s & Th & Krd/s & Th & Krd/s\\
+\hline
+Bowtie & O-parsing & 92 & 132.38 & 40 & 586.60 & 96 & 103.61 & 48 & 415.78 & 72 & 39.22 & 48 & \Tstrut 123.33\\
+ & D-parsing & \cellcolor{orange!25}96 & \cellcolor{orange!25}141.48 & 32 & 563.14 & 104 & 102.51 & 32 & 264.94 & 136 & 58.59 & 32 & 170.60\\
+ & B-parsing & \cellcolor{red!25}96 & \cellcolor{red!25}146.47 & \cellcolor{orange!25}56 & \cellcolor{orange!25}1,257.81 & \cellcolor{red!25}112 & \cellcolor{red!25}115.41 & \cellcolor{orange!25}40 & \cellcolor{orange!25}556.38 & \cellcolor{red!25}200 & \cellcolor{red!25}70.99 & \cellcolor{orange!25}40 & \cellcolor{orange!25}263.08\\
+ & MP baseline & 96 & 128.66 & \cellcolor{red!25}96 & \cellcolor{red!25}1,433.82 & \cellcolor{orange!25}112 & \cellcolor{orange!25}108.89 & \cellcolor{red!25}112 & \cellcolor{red!25}1,215.75 & \cellcolor{orange!25}272 & \cellcolor{orange!25}70.44 & \cellcolor{red!25}272 & \Bstrut \cellcolor{red!25}895.90\\
+Bowtie 2 & O-parsing & 80 & 66.60 & 88 & 180.83 & 64 & 54.48 & 88 & 144.14 & 96 & 17.72 & 88 & \Tstrut 46.64\\
+ & D-parsing & \cellcolor{orange!25}92 & \cellcolor{orange!25}71.63 & \cellcolor{orange!25}92 & \cellcolor{orange!25}191.14 & \cellcolor{red!25}104 & \cellcolor{red!25}58.93 & 100 & 159.18 & \cellcolor{orange!25}268 & \cellcolor{orange!25}27.51 & 224 & 67.68\\
+ & B-parsing & \cellcolor{red!25}96 & \cellcolor{red!25}72.00 & \cellcolor{red!25}96 & \cellcolor{red!25}199.55 & \cellcolor{orange!25}104 & \cellcolor{orange!25}58.41 & \cellcolor{red!25}104 & \cellcolor{red!25}161.77 & 272 & 26.61 & \cellcolor{red!25}268 & \cellcolor{red!25}71.13\\
+ & MP baseline & 96 & 67.62 & 96 & 185.25 & 112 & 57.11 & \cellcolor{orange!25}112 & \cellcolor{orange!25}159.47 & \cellcolor{red!25}272 & \cellcolor{red!25}27.98 & \cellcolor{orange!25}272 & \Bstrut \cellcolor{orange!25}69.52\\
+HISAT & O-parsing & 16 & 137.84 & 24 & 349.36 & 16 & 98.45 & 32 & 238.34 & 32 & 27.65 & 24 & \Tstrut 72.56\\
+ & D-parsing & 40 & 285.80 & 32 & 497.85 & 108 & 144.26 & 108 & 230.70 & 32 & 69.12 & 40 & 146.71\\
+ & B-parsing & \cellcolor{orange!25}56 & \cellcolor{orange!25}522.93 & \cellcolor{orange!25}48 & \cellcolor{orange!25}1,016.27 & \cellcolor{orange!25}56 & \cellcolor{orange!25}315.24 & \cellcolor{orange!25}40 & \cellcolor{orange!25}540.92 & \cellcolor{orange!25}48 & \cellcolor{orange!25}116.58 & \cellcolor{orange!25}40 & \cellcolor{orange!25}215.73\\
+ & MP baseline & \cellcolor{red!25}96 & \cellcolor{red!25}710.58 & \cellcolor{red!25}96 & \cellcolor{red!25}1,478.72 & \cellcolor{red!25}112 & \cellcolor{red!25}568.00 & \cellcolor{red!25}112 & \cellcolor{red!25}1,154.60 & \cellcolor{red!25}272 & \cellcolor{red!25}360.41 & \cellcolor{red!25}240 & \Bstrut \cellcolor{red!25}686.50\\
+\hline
+\end{tabular}
+}
