@@ -3,7 +3,7 @@
 ALIGNERS="bt bt2 ht"
 DO_BWA=1
 ENDS="unp pe"
-TYPES="base lustre"
+TYPES="base lustre multiout"
 
 for en in ${ENDS} ; do
     for al in ${ALIGNERS} ; do
