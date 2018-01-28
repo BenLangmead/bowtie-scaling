@@ -13,7 +13,7 @@ set -e
 
 HOST=`hostname`
 NREADS=16000512
-MP_LIST="1 2 4 8 16 32"
+NOUT_LIST="1 2 4 8 16"
 MT_MAX=256
 
 INPUT_01OST=${SCRATCH}/fstest-01OST/${HOST}/pe
@@ -21,8 +21,7 @@ INPUT_16OST=${SCRATCH}/fstest-16OST/${HOST}/pe
 SCR_DIR=${WORK}/git/bowtie-scaling/thread_scaling/scripts
 INDEXES=/work/04265/benbo81/stampede2/indexes
 NTRIALS=3
-#VERSIONS="ht-final-block ht-final-block-heavy"
-VERSIONS="ht-final-block"
+VERSIONS="ht-final-block-multi"
 
 echo "# Deleting directories"
 rm -rf ${INPUT_01OST}
@@ -40,66 +39,46 @@ align() {
     ver=$1
     input_dir=$2
     output_dir=$3
-    mp=$4
-    mpm1=$((${mp} - 1))
-    mt=$5
-    ofs=""
-    for i in `seq 0 ${mpm1}` ; do
-        ii=`printf "%02d" ${i}`
-        of=${output_dir}
-        if [ ${of} != "/dev/null" ] ; then
-            of="${output_dir}/${mp}_${ii}.sam"
-            ofs="$ofs $of"
-	    echo blah > ${of}
-	    test -f ${of}
-	    rm -f ${of}
-        fi
-	test -f ${input_dir}/1_${mp}_${ii}
-	test -f ${input_dir}/2_${mp}_${ii}
-        ${SCR_DIR}/bin/hisat-align-s-${ver} \
-            -p ${mt} -I 250 -X 800 --reads-per-batch 32 \
-                --block-bytes 12288 --reads-per-block 44 \
-                --no-spliced-alignment --no-temp-splicesite \
-                -x ${INDEXES}/hisat/hg38 -t \
-                -1 ${input_dir}/1_${mp}_${ii} -2 ${input_dir}/2_${mp}_${ii} \
-                -S ${of} >.fstest.sh.out.$i 2>/dev/null &
-    done
-    wait
-    for i in `seq 0 ${mpm1}` ; do
-	cat .fstest.sh.out.$i | \
-	    awk -v FS=':' '$1 == "thread" && $2 ~ /time/ {print($2" "$3*60*60+$4*60+$5)}' | \
-	    awk '{print $NF}' > .fstest.sh.times.$i
-    done
-    cat .fstest.sh.times.* | st | sed "s/^/${1} /"
-    rm -f ${ofs} .fstest.sh.times.* .fstest.sh.out.*
+    nout=$4
+    of="/dev/null"
+    if [ ${output_dir} != "/dev/null" ] ; then
+        of="${output_dir}/out.sam"
+    fi
+    test -f ${input_dir}/1.fastq
+    test -f ${input_dir}/2.fastq
+    ${SCR_DIR}/bin/hisat-align-s-${ver} \
+        -p ${MT_MAX} -I 250 -X 800 --reads-per-batch 32 \
+        --block-bytes 12288 --reads-per-block 44 \
+        --no-spliced-alignment --no-temp-splicesite \
+        -x ${INDEXES}/hisat/hg38 -t \
+        -1 ${input_dir}/1.fastq -2 ${input_dir}/2.fastq \
+        -S ${of} >.fstest.sh.out 2>.fstest.sh.err
+    if [ ${output_dir} != "/dev/null" ] ; then
+        rm -f ${output_dir}/out*.sam
+    fi
 }
 
-for mp in ${MP_LIST} ; do
+for nout in ${NOUT_LIST} ; do
 
     # Input directories
-
     for d in "/tmp" "${INPUT_01OST}" "${INPUT_16OST}" ; do
         echo "# Copying input data"
-        head -n `expr $NREADS \* 4` ${SCR_DIR}/mix100_block_1.fq | \
-            split -l `expr $NREADS / $mp \* 4` -d - ${d}/1_${mp}_
-        head -n `expr $NREADS \* 4` ${SCR_DIR}/mix100_block_2.fq | \
-            split -l `expr $NREADS / $mp \* 4` -d - ${d}/2_${mp}_
+        head -n `expr $NREADS \* 4` ${SCR_DIR}/mix100_block_1.fq > ${d}/1.fastq
+        head -n `expr $NREADS \* 4` ${SCR_DIR}/mix100_block_2.fq > ${d}/2.fastq 
 
         for VERSION in ${VERSIONS} ; do
             echo "#   Aligning ${VERSION}"
             
             # Output directories
-            
             for outd in /dev/null /tmp ${INPUT_01OST} ${INPUT_16OST} ; do
-                mt=`expr ${MT_MAX} / ${mp}`
-                echo "Input: ${d} output: ${outd} mp: ${mp} mt: ${mt}"
+                echo "Input: ${d} output: ${outd} nout: ${nout}"
                 for i in `seq 1 ${NTRIALS}` ; do
-                    align "${VERSION}" "${d}" "${outd}" "${mp}" "${mt}"
+                    align "${VERSION}" "${d}" "${outd}" "${nout}"
                 done
             done
         done
         
-        # Delete inputs
-        rm -f ${d}/1_${mp}_* ${d}/2_${mp}_*
+        echo "Deleting inputs"
+        rm -f ${d}/1.fastq ${d}/2.fastq
     done
 done
