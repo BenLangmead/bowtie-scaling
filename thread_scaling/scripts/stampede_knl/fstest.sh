@@ -50,6 +50,7 @@ align() {
         -p ${MT_MAX} -I 250 -X 800 --reads-per-batch 32 \
         --block-bytes 12288 --reads-per-block 44 \
         --no-spliced-alignment --no-temp-splicesite \
+        --num-outputs ${nout} \
         -x ${INDEXES}/hisat/hg38 -t \
         -1 ${input_dir}/1.fastq -2 ${input_dir}/2.fastq \
         -S ${of} >.fstest.sh.out 2>.fstest.sh.err
