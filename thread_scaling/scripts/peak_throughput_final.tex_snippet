@@ -4,16 +4,9 @@
  &  & \multicolumn{2}{c}{Paired} & \multicolumn{2}{c}{Unpaired} & \multicolumn{2}{c}{Paired} & \multicolumn{2}{c}{Unpaired} & \multicolumn{2}{c}{Paired} & \multicolumn{2}{c}{Unpaired}\\ \cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}\cmidrule(lr){11-12}\cmidrule(lr){13-14}
  &  & Th & Krd/s & Th & Krd/s & Th & Krd/s & Th & Krd/s & Th & Krd/s & Th & Krd/s\\
 \hline
-Bowtie & B-parsing & \cellcolor{red!25}96 & \cellcolor{red!25}146.47 & 56 & 1,257.81 & \cellcolor{red!25}112 & \cellcolor{red!25}115.41 & 40 & 556.38 & \cellcolor{red!25}200 & \cellcolor{red!25}70.99 & 40 & \Tstrut 263.08\\
- & L-parsing & \cellcolor{orange!25}96 & \cellcolor{orange!25}145.70 & \cellcolor{red!25}96 & \cellcolor{red!25}1,685.19 & \cellcolor{orange!25}112 & \cellcolor{orange!25}114.69 & \cellcolor{red!25}104 & \cellcolor{red!25}1,216.74 & 224 & 69.52 & \cellcolor{orange!25}192 & \cellcolor{orange!25}675.78\\
- & MP baseline & 96 & 128.66 & \cellcolor{orange!25}96 & \cellcolor{orange!25}1,433.82 & 112 & 108.89 & \cellcolor{orange!25}112 & \cellcolor{orange!25}1,215.75 & \cellcolor{orange!25}272 & \cellcolor{orange!25}70.44 & \cellcolor{red!25}272 & \cellcolor{red!25}895.90\\
-Bowtie 2 & B-parsing & \cellcolor{orange!25}96 & \cellcolor{orange!25}72.00 & \cellcolor{red!25}96 & \cellcolor{red!25}199.55 & \cellcolor{red!25}104 & \cellcolor{red!25}58.41 & \cellcolor{red!25}104 & \cellcolor{red!25}161.77 & \cellcolor{orange!25}272 & \cellcolor{orange!25}26.61 & \cellcolor{orange!25}268 & \cellcolor{orange!25}71.13\\
- & L-parsing & \cellcolor{red!25}96 & \cellcolor{red!25}72.04 & \cellcolor{orange!25}96 & \cellcolor{orange!25}199.39 & 96 & 56.74 & 104 & 156.48 & 272 & 26.47 & \cellcolor{red!25}272 & \cellcolor{red!25}71.15\\
- & MP baseline & 96 & 67.62 & 96 & 185.25 & \cellcolor{orange!25}112 & \cellcolor{orange!25}57.11 & \cellcolor{orange!25}112 & \cellcolor{orange!25}159.47 & \cellcolor{red!25}272 & \cellcolor{red!25}27.98 & 272 & 69.52\\
- & BWA-MEM & 92 & 60.90 & 92 & 167.85 & 104 & 49.92 & 104 & 134.07 & 232 & 20.40 & 232 & \Tstrut \Bstrut 51.45\\
-HISAT & B-parsing & 56 & 522.93 & 48 & 1,016.27 & 56 & 315.24 & 40 & 540.92 & 48 & 116.58 & 40 & \Tstrut 215.73\\
- & L-parsing & \cellcolor{red!25}96 & \cellcolor{red!25}764.75 & \cellcolor{orange!25}96 & \cellcolor{orange!25}1,475.30 & \cellcolor{red!25}96 & \cellcolor{red!25}571.25 & \cellcolor{orange!25}108 & \cellcolor{orange!25}1,033.25 & \cellcolor{orange!25}120 & \cellcolor{orange!25}220.65 & \cellcolor{orange!25}96 & \cellcolor{orange!25}381.30\\
- & MP baseline & \cellcolor{orange!25}96 & \cellcolor{orange!25}710.58 & \cellcolor{red!25}96 & \cellcolor{red!25}1,478.72 & \cellcolor{orange!25}112 & \cellcolor{orange!25}568.00 & \cellcolor{red!25}112 & \cellcolor{red!25}1,154.60 & \cellcolor{red!25}272 & \cellcolor{red!25}360.41 & \cellcolor{red!25}240 & \cellcolor{red!25}686.50\\
-\hline
-\end{tabular}
-}
+Bowtie & B-parsing & \cellcolor{red!25}96 & \cellcolor{red!25}148.28 & 48 & 1,080.64 & \cellcolor{red!25}112 & \cellcolor{red!25}115.41 & 40 & 556.38 & \cellcolor{orange!25}192 & \cellcolor{orange!25}67.14 & \cellcolor{red!25}104 & \Tstrut \cellcolor{red!25}72.20\\
+ & L-parsing & \cellcolor{orange!25}92 & \cellcolor{orange!25}145.17 & \cellcolor{red!25}96 & \cellcolor{red!25}1,634.77 & \cellcolor{orange!25}112 & \cellcolor{orange!25}114.69 & \cellcolor{red!25}104 & \cellcolor{red!25}1,216.74 & 144 & 65.60 & \cellcolor{orange!25}232 & \cellcolor{orange!25}72.12\\
+ & MP baseline & 96 & 130.01 & \cellcolor{orange!25}96 & \cellcolor{orange!25}1,433.97 & 112 & 108.89 & \cellcolor{orange!25}112 & \cellcolor{orange!25}1,215.75 & \cellcolor{red!25}272 & \cellcolor{red!25}70.46 & 272 & \Bstrut 70.76\\
+Bowtie 2 & B-parsing & \cellcolor{red!25}96 & \cellcolor{red!25}73.25 & \cellcolor{orange!25}96 & \cellcolor{orange!25}193.83 & \cellcolor{red!25}104 & \cellcolor{red!25}58.41 & \cellcolor{red!25}104 & \cellcolor{red!25}161.77 & 264 & 26.53 & 268 & \Tstrut 288.79\\
+ & L-parsing & \cellcolor{orange!25}96 & \cellcolor{orange!25}73.22 & \cellcolor{red!25}96 & \cellcolor{red!25}193.96 & 96 & 56.74 & 104 & 156.48 & 272 & 26.27 & \cellcolor{orange!25}272 & \cellcolor{orange!25}468.96\\
+ & MP baseline & 96 & 67.85 & 96 & 179.77 & \cellcolor{orange!25}112 & \cellcolor{orange!25}57.11 & \cellcolor{orange!25}112 & \cellcolor{orange!25}159.47 & \cellcolor{orange!25}272 & \cellcolor{orange!25}27.94 & \cellcolor{red!25}272 & \cellcolor{red!25}675.67\\
