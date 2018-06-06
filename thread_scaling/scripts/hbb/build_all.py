@@ -31,7 +31,10 @@ for fn in all:
                 if tool == last_tool and branch == last_branch and preproc == last_preproc:
                     cmd = ' '.join(['cp', '-r', last_bin, bin_nm])
                 else:
-                    cmd = ' '.join(['./bbb_aligner_build.sh', tool, branch, name, preproc])
+                    if name.endswith('-iot'):
+                        cmd = ' '.join(['./centos_aligner_build.sh', tool, branch, name, preproc])
+                    else:
+                        cmd = ' '.join(['./bbb_aligner_build.sh', tool, branch, name, preproc])
                 print('  cmd: ' + cmd)
                 ret = os.system(cmd)
                 if ret != 0:

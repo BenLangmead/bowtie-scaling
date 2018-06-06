@@ -8,6 +8,5 @@ if [ ! -d ${version}-orig ] ; then
 fi
 
 docker run -t -i --rm -v `pwd`:/io \
-    benlangmead/bbb:latest \
-    /hbb_exe_gc_hardened/activate-exec bash \
-    /io/bbb_aligner.bash $*
+    benlangmead/bowtie-dev-centos7 \
+    /io/centos_aligner.bash $*

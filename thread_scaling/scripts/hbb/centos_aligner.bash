@@ -15,9 +15,6 @@ name=$3
 
 shift 3
 
-# For holy build box environment
-source /hbb_exe/activate
-
 # For the ar workaround
 export PATH="/mybin:$PATH"
 
@@ -60,9 +57,6 @@ else
 fi
 
 make RELEASE_BUILD=1 $* ${prebin} ${bins}
-for b in ${bins} ; do
-    libcheck ${b}
-done
 
 if [[ $version == "bwa" ]] ; then
     ${bin} 2>&1 | tee /io/${nm}.version
