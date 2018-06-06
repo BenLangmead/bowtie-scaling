@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 from __future__ import print_function
-import sys
 import glob
 
 
@@ -33,9 +32,11 @@ for fn in glob.glob('*.top'):
             toks = ln.strip().split()
             if len(toks) == 0:
                 continue
-            if toks[-1] == 'bwa':
+            if toks[-1] == 'bwa' or \
+                    toks[-1].startswith('bowtie-al') or \
+                    toks[-1].startswith('bowtie2-a') or \
+                    toks[-1].startswith('hisat-ali'):
                 mem = toks[5]
-                #print((mem, high_mem))
                 if gt(mem, high_mem):
                     high_mem = mem
     print('%d %0.3f' % (nthreads, convert(high_mem)))
