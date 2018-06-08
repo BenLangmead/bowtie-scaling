@@ -5,6 +5,9 @@ output: html_notebook
 
 ```{r}
 # setwd('~/git/bowtie-scaling/thread_scaling/scripts')
+stampede_knl_fn <- 'stampede_knl/stampede_knl_results_20180128.csv'
+stampede_skx_fn <- 'stampede_skx/stampede_skx_iot_results_20180608.csv'
+marcc_bigmem_fn <- 'marcc_lbm/marcc_lbm_results_20180127.csv'
 MAX_SECS <- 1000
 ```
 
@@ -16,7 +19,14 @@ library(grid)
 library(gridExtra)
 library(tables)
 library(RColorBrewer)
-library(patchwork)
+```
+
+```{r set_dir}
+# Depends on your system
+if(grepl('ben-mbp', Sys.info()[['nodename']])) {
+    setwd('~/git/bowtie-scaling/thread_scaling/scripts')
+} else {
+}
 ```
 
 ```{r plot_util}
@@ -34,23 +44,45 @@ grid_arrange_shared_legend <- function(...) {
         ncol = 1,
         heights = unit.c(unit(1, "npc") - lheight, lheight))
 }
+
+grid_arrange_shared_legend2 <- function(show_legend, num_rows, legend_plot_id, ...) {
+    plots <- list(...)
+    if (show_legend) {
+      g <- ggplotGrob(plots[[legend_plot_id]] + theme(legend.position="bottom"))$grobs
+      legend <- g[[which(sapply(g, function(x) x$name) == "guide-box")]]
+      lheight <- sum(legend$height)
+      plots_arg <- lapply(plots, function(x)  x + theme(legend.position="none"))
+      plots_arg$nrow <- num_rows
+      grid.arrange(
+          do.call(arrangeGrob, plots_arg),
+          legend,
+          ncol = 1,
+          heights = unit.c(unit(1, "npc") - lheight, lheight))
+    }
+    else {
+      g <- ggplotGrob(plots[[legend_plot_id]] + theme(legend.position="bottom"))$grobs
+      legend <- g[[which(sapply(g, function(x) x$name) == "guide-box")]]
+      grid.arrange(
+          do.call(arrangeGrob, lapply(plots, function(x)
+              x + theme(legend.position="none"))),
+          ncol = 1,
+          heights = unit.c(unit(1, "npc")))
+    }
+}
 ```
 
 ```{r summarize_col_func}
 summarize_col <- function(df, colname) {
   mean_str <- paste(colname, 'mean', sep='_')
-  median_str <- paste(colname, 'median', sep='_')
   min_str <- paste(colname, 'min', sep='_')
   max_str <- paste(colname, 'max', sep='_')
   df[[mean_str]] <- 0
-  df[[median_str]] <- 0
   df[[min_str]] <- 0
   df[[max_str]] <- 0
   for(i in 1:nrow(df)) {
     rw <- df[[colname]][i]
     vec <- as.numeric(unlist(strsplit(rw, ' ')))
     df[[mean_str]][i] <- mean(vec)
-    df[[median_str]][i] <- median(vec)
     df[[min_str]][i] <- min(vec)
     df[[max_str]][i] <- max(vec)
   }
@@ -98,24 +130,27 @@ parse_results <- function(fn, machine) {
   m <- m[!is.na(m$series),]
   m$machine <- machine
   m <- add_reads(m)
+  bases_40x <- 3e9 * 40
+  read_len <- 100
   m <- m %>% dplyr::group_by(series, pe, attempt, totthreads, reads_per_thread, aligner) %>%
     dplyr::summarise(thread_times_max=max(thread_times_max),
               thread_times_min=min(thread_times_min),
               thread_times_mean=mean(thread_times_mean),
-              threads_div_max=(totthreads[1] * reads_per_thread[1]) / thread_times_max)
+              threads_div_max=(totthreads[1] * reads_per_thread[1]) / thread_times_max,
+              tot_secs_40x_unp=(bases_40x/read_len)/threads_div_max,
+              tot_secs_40x_pe=(bases_40x/(read_len*2))/threads_div_max)
   m <- m[m$thread_times_max < MAX_SECS,]
   m$machine <- machine
   m
 }
 ```
 
-May have to update the file names below.
-
 ```{r read_table}
-m <- rbind(parse_results('stampede_knl/stampede_knl_results_20180118.csv', 'KNL'),
-           parse_results('stampede_skx/stampede_skx_results.20171229.csv', 'Skylake'),
-           parse_results('marcc_lbm/marcc_lbm_20171229.csv', 'Broadwell'))
+m <- rbind(parse_results(stampede_knl_fn, 'KNL'),
+           parse_results(stampede_skx_fn, 'Skylake'),
+           parse_results(marcc_bigmem_fn, 'Broadwell'))
 m$series <- factor(m$series)
+m$aligner[m$aligner == 'bwa'] <- 'bt2'
 m_bm <- m[m$machine == 'Broadwell',]
 m_sk <- m[m$machine == 'Skylake',]
 m_st <- m[m$machine == 'KNL',]
@@ -126,7 +161,7 @@ scaling_plot_filter <- function(m, want_aligner, want_pe) {
   m %>% filter(attempt == 1 & aligner %in% want_aligner & ((pe == 'pe') == want_pe))
 }
 
-scaling_plot <- function(m, want_aligner, want_pe, label_x=F, label_y=F, label_main=NA, ncolors=5, alpha=0.5, color_set="Set1") {
+scaling_plot <- function(m, want_aligner, want_pe, label_x=F, label_y=F, label_main=NA, ncolors=6, alpha=0.5, color_set="Set1") {
   m <- scaling_plot_filter(m, want_aligner, want_pe)
   mg <- m %>% dplyr::group_by(series, pe, attempt, aligner) %>%
     dplyr::summarise(threads_div_max_max=thread_times_max[which(threads_div_max == max(threads_div_max))[1]],
@@ -145,54 +180,63 @@ scaling_plot <- function(m, want_aligner, want_pe, label_x=F, label_y=F, label_m
 }
 ```
 
-```{r baseline_plots_all}
-baseline_adjust_series <- function(m) {
+```{r adjust_series}
+adjust_series <- function(m, short, long) {
   m <- data.frame(m)
-  m$series <- factor(m$series)
-  m$reord <- 0
-  m$reord[m$series == 'baseline-old'] <- 1
-  m$reord[m$series == 'baseline-tbbspin'] <- 2
-  m$reord[m$series == 'baseline-tbbstd'] <- 3
-  m$reord[m$series == 'baseline-tbbq'] <- 4
-  m$reord[m$series == 'final-mp16'] <- 5
-  m$series <- reorder(m$series, m$reord)
-  m$series <- plyr::mapvalues(m$series,
-                              from = c('baseline-old',
-                                       'baseline-tbbspin',
-                                       'baseline-tbbstd',
-                                       'baseline-tbbq',
-                                       'final-mp16'),
-                              to = c('TinyThread++ spin  ',
-                                     'TBB spin  ',
-                                     'TBB standard  ',
-                                     'TBB queueing  ',
-                                     'MP baseline'))
+  m <- m %>% filter(series %in% short & attempt == 1)
+  reord <- rep(0, nrow(m))
+  for(i in 1:length(short)) {
+    reord[m$series == short[i]] <- i
+  }
+  m$series <- plyr::mapvalues(reorder(m$series, reord), from=short, to=long)
   m
 }
+```
+
+```{r three_by_three}
+three_by_three <- function(m_sk_base, m_bm_base, m_st_base, want_pe) {
+    grid_arrange_shared_legend(
+        scaling_plot(m_sk_base, c('bt'), want_pe, label_x=F, label_y=T, label_main='Skylake Bowtie'),
+        scaling_plot(m_sk_base, c('bt2'), want_pe, label_x=F, label_y=F, label_main='Skylake Bowtie 2'),
+        scaling_plot(m_sk_base, c('ht'), want_pe, label_x=F, label_y=F, label_main='Skylake HISAT'),
+        scaling_plot(m_bm_base, c('bt'), want_pe, label_x=F, label_y=T, label_main='Broadwell Bowtie'),
+        scaling_plot(m_bm_base, c('bt2'), want_pe, label_x=F, label_y=F, label_main='Broadwell Bowtie 2'),
+        scaling_plot(m_bm_base, c('ht'), want_pe, label_x=F, label_y=F, label_main='Broadwell HISAT'),
+        scaling_plot(m_st_base, c('bt'), want_pe, label_x=T, label_y=T, label_main='KNL Bowtie'),
+        scaling_plot(m_st_base, c('bt2'), want_pe, label_x=T, label_y=F, label_main='KNL Bowtie 2'),
+        scaling_plot(m_st_base, c('ht'), want_pe, label_x=T, label_y=F, label_main='KNL HISAT'))
+}
+```
+
+```{r single_machine}
+single_machine <- function(m, color_set='YlOrRd') {
+    grid_arrange_shared_legend(
+        scaling_plot(m, c('bt'),  F, label_x=F, label_y=F, label_main='Bowtie unpaired',   ncolors=7, alpha=1.0, color_set=color_set),
+        scaling_plot(m, c('bt'),  T, label_x=F, label_y=F, label_main='Bowtie paired',     ncolors=7, alpha=1.0, color_set=color_set),
+        scaling_plot(m, c('bt2'), F, label_x=F, label_y=F, label_main='Bowtie 2 unpaired', ncolors=7, alpha=1.0, color_set=color_set),
+        scaling_plot(m, c('bt2'), T, label_x=F, label_y=F, label_main='Bowtie 2 paired',   ncolors=7, alpha=1.0, color_set=color_set),
+        scaling_plot(m, c('ht'),  F, label_x=T, label_y=F, label_main='HISAT unpaired',    ncolors=7, alpha=1.0, color_set=color_set),
+        scaling_plot(m, c('ht'),  T, label_x=T, label_y=F, label_main='HISAT paired',      ncolors=7, alpha=1.0, color_set=color_set))
+}
+```
+
+```{r baseline_plots_all}
+baseline_short <- c('baseline-old',
+                    'baseline-tbbspin',
+                    'baseline-tbbstd',
+                    'baseline-tbbq',
+                    'final-mp16')
+baseline_long  <- c('TinyThread++ spin  ',
+                    'TBB spin  ',
+                    'TBB standard  ',
+                    'TBB queueing  ',
+                    'MP baseline')
 
 baseline_plots_all <- function(m_st, m_sk, m_bm, want_pe) {
-  m_bm <- baseline_adjust_series(m_bm)
-  m_st <- baseline_adjust_series(m_st)
-  m_sk <- baseline_adjust_series(m_sk)
-  m_bm_base <- m_bm[!(grepl('^final-', m_bm$series) |
-                      grepl('^parsing-', m_bm$series)) |
-                     grepl('^final-mp16$', m_bm$series),] %>% filter(attempt == 1)
-  m_st_base <- m_st[!(grepl('^final-', m_st$series) |
-                      grepl('^parsing-', m_st$series)) |
-                     grepl('^final-mp16$', m_st$series),] %>% filter(attempt == 1)
-  m_sk_base <- m_sk[!(grepl('^final-', m_sk$series) |
-                      grepl('^parsing-', m_sk$series)) |
-                     grepl('^final-mp16$', m_sk$series),] %>% filter(attempt == 1)
-  grid_arrange_shared_legend(
-    scaling_plot(m_sk_base, c('bt'), want_pe, label_x=F, label_y=T, label_main='Skylake Bowtie'),
-    scaling_plot(m_sk_base, c('bt2'), want_pe, label_x=F, label_y=F, label_main='Skylake Bowtie 2'),
-    scaling_plot(m_sk_base, c('ht'), want_pe, label_x=F, label_y=F, label_main='Skylake HISAT'),
-    scaling_plot(m_bm_base, c('bt'), want_pe, label_x=F, label_y=T, label_main='Broadwell Bowtie'),
-    scaling_plot(m_bm_base, c('bt2'), want_pe, label_x=F, label_y=F, label_main='Broadwell Bowtie 2'),
-    scaling_plot(m_bm_base, c('ht'), want_pe, label_x=F, label_y=F, label_main='Broadwell HISAT'),
-    scaling_plot(m_st_base, c('bt'), want_pe, label_x=T, label_y=T, label_main='KNL Bowtie'),
-    scaling_plot(m_st_base, c('bt2'), want_pe, label_x=T, label_y=F, label_main='KNL Bowtie 2'),
-    scaling_plot(m_st_base, c('ht'), want_pe, label_x=T, label_y=F, label_main='KNL HISAT'))
+  m_sk_base <- adjust_series(m_sk, baseline_short, baseline_long)
+  m_bm_base <- adjust_series(m_bm, baseline_short, baseline_long)
+  m_st_base <- adjust_series(m_st, baseline_short, baseline_long)
+  three_by_three(m_sk_base, m_bm_base, m_st_base, want_pe)
 }
 ```
 
@@ -200,6 +244,10 @@ baseline_plots_all <- function(m_st, m_sk, m_bm, want_pe) {
 baseline_plots_all(m_st, m_sk, m_bm, F)
 
 pdf(file='baseline_unp.pdf', onefile=F)
+baseline_plots_all(m_st, m_sk, m_bm, F)
+dev.off()
+
+pdf(file='baseline_unp_wide.pdf', onefile=F, width=10, height=6)
 baseline_plots_all(m_st, m_sk, m_bm, F)
 dev.off()
 ```
@@ -211,56 +259,28 @@ baseline_plots_all(m_st, m_sk, m_bm, T)
 pdf(file='baseline_pe.pdf', onefile=F)
 baseline_plots_all(m_st, m_sk, m_bm, T)
 dev.off()
+
+pdf(file='baseline_pe_wide.pdf', onefile=F, width=10, height=6)
+baseline_plots_all(m_st, m_sk, m_bm, T)
+dev.off()
+
 ```
 
 ```{r parsing_plots_all}
-parsing_adjust_series <- function(m) {
-  m <- data.frame(m)
-  m$series <- factor(m$series)
-  m$reord <- 0
-  m$reord[m$series == 'baseline-tbbq'] <- 1
-  m$reord[m$series == 'parsing-clean'] <- 2
-  m$reord[m$series == 'parsing-batch'] <- 3
-  m$reord[m$series == 'final-mp16'] <- 4
-  m$series <- reorder(m$series, m$reord)
-  m$series <- plyr::mapvalues(m$series,
-                              from = c('baseline-tbbq',
-                                       'parsing-clean',
-                                       'parsing-batch',
-                                       'final-mp16'),
-                              to = c('Original (O)  ',
-                                     'Deferred (D)  ',
-                                     'Batch deferred (B)  ',
-                                     'MP baseline'))
-  m
-}
+parsing_short <- c('baseline-tbbq',
+                   'parsing-clean',
+                   'parsing-batch',
+                   'final-mp16')
+parsing_long  <- c('Original (O)  ',
+                   'Deferred (D)  ',
+                   'Batch deferred (B)  ',
+                   'MP baseline')
 
 parsing_plots_all <- function(m_st, m_sk, m_bm, want_pe) {
-  m_bm_base <- m_bm[grepl('^final-mp16$', m_bm$series) |
-                    grepl('^baseline-tbbq$', m_bm$series) |
-                    grepl('^parsing-clean$', m_bm$series) |
-                    grepl('^parsing-batch$', m_bm$series),] %>% filter(attempt == 1)
-  m_bm_base <- parsing_adjust_series(m_bm_base)
-  m_st_base <- m_st[grepl('^final-mp16$', m_st$series) |
-                    grepl('^baseline-tbbq$', m_st$series) |
-                    grepl('^parsing-clean$', m_st$series) |
-                    grepl('^parsing-batch$', m_st$series),] %>% filter(attempt == 1)
-  m_st_base <- parsing_adjust_series(m_st_base)
-  m_sk_base <- m_sk[grepl('^final-mp16$', m_sk$series) |
-                    grepl('^baseline-tbbq$', m_sk$series) |
-                    grepl('^parsing-clean$', m_sk$series) |
-                    grepl('^parsing-batch$', m_sk$series),] %>% filter(attempt == 1)
-  m_sk_base <- parsing_adjust_series(m_sk_base)
-  grid_arrange_shared_legend(
-    scaling_plot(m_sk_base, c('bt'), want_pe, label_x=F, label_y=T, label_main='Skylake Bowtie'),
-    scaling_plot(m_sk_base, c('bt2'), want_pe, label_x=F, label_y=F, label_main='Skylake Bowtie 2'),
-    scaling_plot(m_sk_base, c('ht'), want_pe, label_x=F, label_y=F, label_main='Skylake HISAT'),
-    scaling_plot(m_bm_base, c('bt'), want_pe, label_x=F, label_y=T, label_main='Broadwell Bowtie'),
-    scaling_plot(m_bm_base, c('bt2'), want_pe, label_x=F, label_y=F, label_main='Broadwell Bowtie 2'),
-    scaling_plot(m_bm_base, c('ht'), want_pe, label_x=F, label_y=F, label_main='Broadwell HISAT'),
-    scaling_plot(m_st_base, c('bt'), want_pe, label_x=T, label_y=T, label_main='KNL Bowtie'),
-    scaling_plot(m_st_base, c('bt2'), want_pe, label_x=T, label_y=F, label_main='KNL Bowtie 2'),
-    scaling_plot(m_st_base, c('ht'), want_pe, label_x=T, label_y=F, label_main='KNL HISAT'))
+  m_sk_base <- adjust_series(m_sk, parsing_short, parsing_long)
+  m_bm_base <- adjust_series(m_bm, parsing_short, parsing_long)
+  m_st_base <- adjust_series(m_st, parsing_short, parsing_long)
+  three_by_three(m_sk_base, m_bm_base, m_st_base, want_pe)
 }
 ```
 
@@ -270,6 +290,11 @@ parsing_plots_all(m_st, m_sk, m_bm, F)
 pdf(file='parsing_unp.pdf', onefile=F)
 parsing_plots_all(m_st, m_sk, m_bm, F)
 dev.off()
+
+pdf(file='parsing_unp_wide.pdf', onefile=F, width=10, height=6)
+parsing_plots_all(m_st, m_sk, m_bm, F)
+dev.off()
+
 ```
 
 ```{r parsing_plots_all_pe}
@@ -278,174 +303,160 @@ parsing_plots_all(m_st, m_sk, m_bm, T)
 pdf(file='parsing_pe.pdf', onefile=F)
 parsing_plots_all(m_st, m_sk, m_bm, T)
 dev.off()
+
+pdf(file='parsing_pe_wide.pdf', onefile=F, width=10, height=6)
+parsing_plots_all(m_st, m_sk, m_bm, T)
+dev.off()
 ```
 
 ```{r final_plots_all}
-final_adjust_series <- function(m) {
-  m$series <- factor(m$series)
-  m$reord <- 0
-  m$reord[m$series == 'parsing-batch'] <- 1
-  m$reord[m$series == 'final-block'] <- 2
-  m$reord[m$series == 'final-mp16'] <- 3
-  m$reord[m$series == 'bwa'] <- 4
-  m$series <- reorder(m$series, m$reord)
-  m$series <- plyr::mapvalues(m$series,
-                              from = c('parsing-batch',
-                                       'final-block',
-                                       'final-mp16',
-                                       'bwa'),
-                              to = c('Batch deferred (B)  ',
-                                     'Block deferred (L)  ',
-                                     'MP baseline  ',
-                                     'BWA-MEM'))
-  m
-}
+final_short = c('parsing-batch',
+                'final-block',
+                'final-block-multi16',
+                'final-mp16',
+                'bwa')
+final_long = c('Batch (B)  ',
+               'Block (L), 1 output  ',
+               'Block (L), 16 outputs  ',
+               'MP baseline  ',
+               'BWA-MEM')
+
+stopifnot(sum(m_st$series == 'bwa') > 0)
+stopifnot(sum(m_st$aligner == 'bwa') == 0)
+
 final_plots_all <- function(m_st, m_sk, m_bm, want_pe) {
-  m_bm_base <- m_bm[grepl('^parsing-batch$', m_bm$series) |
-                    grepl('^final-mp16$', m_bm$series) |
-                    grepl('^final-block$', m_bm$series) |
-                    grepl('^bwa$', m_bm$series),] %>% filter(attempt == 1)
-  m_bm_base <- final_adjust_series(m_bm_base)
-  m_bm_base$series <- droplevels(m_bm_base$series)
-  m_st_base <- m_st[grepl('^parsing-batch$', m_st$series) |
-                    grepl('^final-mp16$', m_st$series) |
-                    grepl('^final-block$', m_st$series) |
-                    grepl('^bwa$', m_st$series),] %>% filter(attempt == 1)
-  m_st_base <- final_adjust_series(m_st_base)
-  m_st_base$series <- droplevels(m_st_base$series)
-  m_sk_base <- m_sk[grepl('^parsing-batch$', m_sk$series) |
-                    grepl('^final-mp16$', m_sk$series) |
-                    grepl('^final-block$', m_sk$series) |
-                    grepl('^bwa$', m_sk$series),] %>% filter(attempt == 1)
-  m_sk_base <- final_adjust_series(m_sk_base)
-  m_sk_base$series <- droplevels(m_sk_base$series)
-  
-  grid_arrange_shared_legend(
-    scaling_plot(m_sk_base, c('bt'), want_pe, label_x=F, label_y=T, label_main='Skylake Bowtie'),
-    scaling_plot(m_sk_base, c('bt2'), want_pe, label_x=F, label_y=F, label_main='Skylake Bowtie 2'),
-    scaling_plot(m_sk_base, c('ht'), want_pe, label_x=F, label_y=F, label_main='Skylake HISAT'),
-    scaling_plot(m_bm_base, c('bt'), want_pe, label_x=F, label_y=T, label_main='Broadwell Bowtie'),
-    scaling_plot(m_bm_base, c('bt2'), want_pe, label_x=F, label_y=F, label_main='Broadwell Bowtie 2'),
-    scaling_plot(m_bm_base, c('ht'), want_pe, label_x=F, label_y=F, label_main='Broadwell HISAT'),
-    scaling_plot(m_st_base, c('bt'), want_pe, label_x=T, label_y=T, label_main='KNL Bowtie'),
-    scaling_plot(m_st_base, c('bt2'), want_pe, label_x=T, label_y=F, label_main='KNL Bowtie 2'),
-    scaling_plot(m_st_base, c('ht'), want_pe, label_x=T, label_y=F, label_main='KNL HISAT'))
+  m_sk_base <- adjust_series(m_sk, final_short, final_long)
+  m_bm_base <- adjust_series(m_bm, final_short, final_long)
+  m_st_base <- adjust_series(m_st, final_short, final_long)
+  three_by_three(m_sk_base, m_bm_base, m_st_base, want_pe)
 }
 ```
 
 ```{r final_plots_all_unp}
 final_plots_all(m_st, m_sk, m_bm, F)
+
 pdf(file='final_unp.pdf', onefile=F)
+final_plots_all(m_st, m_sk, m_bm, F)
+dev.off()
+
+pdf(file='final_unp_wide.pdf', onefile=F, width=10, height=6)
 final_plots_all(m_st, m_sk, m_bm, F)
 dev.off()
 ```
 
 ```{r final_plots_all_pe}
 final_plots_all(m_st, m_sk, m_bm, T)
+
 pdf(file='final_pe.pdf', onefile=F)
+final_plots_all(m_st, m_sk, m_bm, T)
+dev.off()
+
+pdf(file='final_pe_wide.pdf', onefile=F, width=10, height=6)
 final_plots_all(m_st, m_sk, m_bm, T)
 dev.off()
 ```
 
-```{r num_outputs}
-num_outputs_adjust_series <- function(m) {
-  m <- data.frame(m)
-  m$series <- factor(m$series)
-  m$reord <- 0
-  m$reord[m$series == 'final-block'] <- 1
-  m$reord[m$series == 'final-block-multi2'] <- 2
-  m$reord[m$series == 'final-block-multi4'] <- 3
-  m$reord[m$series == 'final-block-multi8'] <- 4
-  m$reord[m$series == 'final-block-multi16'] <- 5
-  m$reord[m$series == 'final-mp16'] <- 6
-  m$series <- reorder(m$series, m$reord)
-  m$series <- plyr::mapvalues(m$series,
-                              from = c('final-block',
-                                       'final-block-multi2',
-                                       'final-block-multi4',
-                                       'final-block-multi8',
-                                       'final-block-multi16',
-                                       'final-mp16'),
-                              to = c('1',
-                                     '2',
-                                     '4',
-                                     '8',
-                                     '16',
-                                     'MP baseline'))
-  m
+```{r iot_plots_all}
+iot_short = c('parsing-batch',
+              'parsing-batch-iot',
+              'final-block',
+              'final-block-multi16',
+              'final-mp16')
+iot_long = c('Batch (B)  ',
+             'Batch, I/O threads (B*)  ',
+             'Block (L), 1 output  ',
+             'Block (L), 16 outputs  ',
+             'MP baseline')
+
+iot_plot <- function(m_sk) {
+  m_sk_base <- adjust_series(m_sk, iot_short, iot_long)
+  scaling_plot(m_sk_base, c('bt'), F, label_x=T, label_y=T,
+      label_main='Skylake Bowtie')
 }
 
-num_outputs_plots_all <- function(m_st) {
-  m_st_base <- m_st[grepl('^final-block$', m_st$series) |
-                      grepl('^final-block-multi.*$', m_st$series) |
-                      grepl('^final-mp16$', m_st$series),] %>% filter(attempt == 1)
-  m_st_base <- num_outputs_adjust_series(m_st_base)
-  grid_arrange_shared_legend(scaling_plot(m_st_base, c('bt'), F, label_x=F, label_y=T, label_main='KNL Bowtie unpaired', ncolors=6),
-                             scaling_plot(m_st_base, c('bt'), T, label_x=F, label_y=F, label_main='KNL Bowtie paired', ncolors=6),
-                             scaling_plot(m_st_base, c('bt2'), F, label_x=F, label_y=T, label_main='KNL Bowtie 2 unpaired', ncolors=6),
-                             scaling_plot(m_st_base, c('bt2'), T, label_x=F, label_y=F, label_main='KNL Bowtie 2 paired', ncolors=6),             
-                             scaling_plot(m_st_base, c('ht'), F, label_x=T, label_y=T, label_main='KNL HISAT unpaired', ncolors=6), 
-                             scaling_plot(m_st_base, c('ht'), T, label_x=T, label_y=F, label_main='KNL HISAT paired', ncolors=6))
+iot_plot(m_sk)
+
+pdf(file='iot_unp.pdf', onefile=F)
+iot_plot(m_sk)
+dev.off()
+```
+
+```{r num_outputs}
+nout_short = c('final-block',
+               'final-block-multi2',
+               'final-block-multi4',
+               'final-block-multi8',
+               'final-block-multi16',
+               'final-mp16')
+nout_long = c('1 output',
+              '2 outputs',
+              '4 outputs',
+              '8 outputs',
+              '16 outputs',
+              'MP baseline')
+
+num_outputs_plots_all <- function(m_st, m_sk, m_bm, want_pe) {
+  m_sk_base <- adjust_series(m_sk, nout_short, nout_long)
+  m_bm_base <- adjust_series(m_bm, nout_short, nout_long)
+  m_st_base <- adjust_series(m_st, nout_short, nout_long)
+  three_by_three(m_sk_base, m_bm_base, m_st_base, want_pe)
 }
 ```
 
 ```{r num_outputs_plots_all_unp}
-num_outputs_plots_all(m_st)
-pdf(file='num_outputs_knl', onefile=F)
-num_outputs_plots_all(m_st)
+num_outputs_plots_all(m_st, m_sk, m_bm, F)
+
+pdf(file='nout_unp.pdf', onefile=F)
+num_outputs_plots_all(m_st, m_sk, m_bm, F)
+dev.off()
+
+pdf(file='nout_unp_wide.pdf', onefile=F, width=10, height=6)
+num_outputs_plots_all(m_st, m_sk, m_bm, F)
+dev.off()
+```
+
+```{r num_outputs_plots_all_pe}
+num_outputs_plots_all(m_st, m_sk, m_bm, T)
+
+pdf(file='nout_pe.pdf', onefile=F)
+num_outputs_plots_all(m_st, m_sk, m_bm, T)
+dev.off()
+
+pdf(file='nout_pe_wide.pdf', onefile=F, width=10, height=6)
+num_outputs_plots_all(m_st, m_sk, m_bm, T)
 dev.off()
 ```
 
 ```{r batch_size_plots}
-batch_sz_adjust_series <- function(m) {
-  m <- data.frame(m)
-  m$series <- factor(m$series)
-  m$reord <- 0
-  m$reord[m$series == 'parsing-batch8'] <- 1
-  m$reord[m$series == 'parsing-batch16'] <- 2
-  m$reord[m$series == 'parsing-batch'] <- 3
-  m$reord[m$series == 'parsing-batch48'] <- 4
-  m$reord[m$series == 'parsing-batch64'] <- 5
-  m$reord[m$series == 'parsing-batch128'] <- 6
-  m$reord[m$series == 'parsing-batch256'] <- 7
-  m$series <- reorder(m$series, m$reord)
-  m$series <- plyr::mapvalues(m$series,
-                              from = c('parsing-batch8',
-                                       'parsing-batch16',
-                                       'parsing-batch',
-                                       'parsing-batch48',
-                                       'parsing-batch64',
-                                       'parsing-batch128',
-                                       'parsing-batch256'),
-                              to = c('8',
-                                     '16',
-                                     '32',
-                                     '48',
-                                     '64',
-                                     '128',
-                                     '256'))
-  m
-}
+batch_short = c('parsing-batch8',
+               'parsing-batch16',
+               'parsing-batch',
+               'parsing-batch48',
+               'parsing-batch64',
+               'parsing-batch128',
+               'parsing-batch256')
+batch_long = c('8',
+              '16',
+              '32',
+              '48',
+              '64',
+              '128',
+              '256')
 
-batch_sz_plots_all <- function(m_st) {
-  m_st_base <- m_st[grepl('^parsing-batch[0-9]*$', m_st$series),] %>% filter(attempt == 1)
-  m_st_base <- batch_sz_adjust_series(m_st_base)
-  batch_sz_bt_unp_st  <- function() { scaling_plot(m_st_base, c('bt'), F, label_x=F, label_y=F, label_main='KNL Bowtie unpaired', ncolors=7, alpha=1.0, color_set='YlOrRd') }
-  batch_sz_bt2_unp_st <- function() { scaling_plot(m_st_base, c('bt2'), F, label_x=F, label_y=F, label_main='KNL Bowtie 2 unpaired', ncolors=7, alpha=1.0, color_set='YlOrRd') }
-  batch_sz_ht_unp_st  <- function() { scaling_plot(m_st_base, c('ht'), F, label_x=T, label_y=F, label_main='KNL HISAT unpaired', ncolors=7, alpha=1.0, color_set='YlOrRd') }
-  batch_sz_bt_pe_st  <- function() { scaling_plot(m_st_base, c('bt'), T, label_x=F, label_y=F, label_main='KNL Bowtie paired', ncolors=7, alpha=1.0, color_set='YlOrRd') }
-  batch_sz_bt2_pe_st <- function() { scaling_plot(m_st_base, c('bt2'), T, label_x=F, label_y=F, label_main='KNL Bowtie 2 paired', ncolors=7, alpha=1.0, color_set='YlOrRd') }
-  batch_sz_ht_pe_st  <- function() { scaling_plot(m_st_base, c('ht'), T, label_x=T, label_y=F, label_main='KNL HISAT paired', ncolors=7, alpha=1.0, color_set='YlOrRd') }
-  grid_arrange_shared_legend(batch_sz_bt_unp_st(), batch_sz_bt_pe_st(),
-                             batch_sz_bt2_unp_st(), batch_sz_bt2_pe_st(),
-                             batch_sz_ht_unp_st(), batch_sz_ht_pe_st())
+batch_plots_all <- function(m) {
+  single_machine(adjust_series(m, batch_short, batch_long))
 }
 ```
 
-```{r batch_sz_plots_all_unp}
-batch_sz_plots_all(m_st)
+```{r batch_plots_all_unp}
+batch_plots_all(m_st)
+
 pdf(file='batch_sz.pdf', onefile=F)
-batch_sz_plots_all(m_st)
+batch_plots_all(m_st)
+dev.off()
+
+pdf(file='batch_sz_wide.pdf', onefile=F, width=10, height=6)
+batch_plots_all(m_st)
 dev.off()
 ```
 
@@ -457,11 +468,11 @@ lustre_adjust_series <- function(m) {
   m$series[m$series == 'final-block-lustre'] <- 'final-block'
   m$series[m$series == 'final-mp16-lustre'] <- 'final-mp16'
   m$series <- factor(m$series)
-  m$reord <- 0
-  m$reord[m$series == 'parsing-batch'] <- 1
-  m$reord[m$series == 'final-block'] <- 2
-  m$reord[m$series == 'final-mp16'] <- 3
-  m$series <- reorder(m$series, m$reord)
+  reord <- rep(0, nrow(m))
+  reord[m$series == 'parsing-batch'] <- 1
+  reord[m$series == 'final-block'] <- 2
+  reord[m$series == 'final-mp16'] <- 3
+  m$series <- reorder(m$series, reord)
   m$series <- plyr::mapvalues(m$series,
                               from = c('parsing-batch',
                                        'final-block',
@@ -495,15 +506,13 @@ lustre_plots_all <- function(m_st) {
                     grepl('^final-block(-lustre)?$', m_st$series) |
                     grepl('^final-mp16(-lustre)?$', m_st$series),] %>% filter(attempt == 1)
   m_st_base <- lustre_adjust_series(m_st_base)
-  lustre_bt_unp_st  <- function() { lustre_plot(m_st_base, c('bt'), F, label_x=F, label_y=F, label_main='KNL Bowtie unpaired') }
-  lustre_bt2_unp_st <- function() { lustre_plot(m_st_base, c('bt2'), F, label_x=F, label_y=F, label_main='KNL Bowtie 2 unpaired') }
-  lustre_ht_unp_st  <- function() { lustre_plot(m_st_base, c('ht'), F, label_x=T, label_y=F, label_main='KNL HISAT unpaired') }
-  lustre_bt_pe_st  <- function() { lustre_plot(m_st_base, c('bt'), T, label_x=F, label_y=F, label_main='KNL Bowtie paired') }
-  lustre_bt2_pe_st <- function() { lustre_plot(m_st_base, c('bt2'), T, label_x=F, label_y=F, label_main='KNL Bowtie 2 paired') }
-  lustre_ht_pe_st  <- function() { lustre_plot(m_st_base, c('ht'), T, label_x=T, label_y=F, label_main='KNL HISAT paired') }
-  grid_arrange_shared_legend(lustre_bt_unp_st(), lustre_bt_pe_st(),
-                             lustre_bt2_unp_st(), lustre_bt2_pe_st(),
-                             lustre_ht_unp_st(), lustre_ht_pe_st())
+  grid_arrange_shared_legend(
+      lustre_plot(m_st_base, c('bt'), F, label_x=F, label_y=F, label_main='KNL Bowtie unpaired'),
+      lustre_plot(m_st_base, c('bt'), T, label_x=F, label_y=F, label_main='KNL Bowtie paired'),
+      lustre_plot(m_st_base, c('bt2'), F, label_x=F, label_y=F, label_main='KNL Bowtie 2 unpaired'),
+      lustre_plot(m_st_base, c('bt2'), T, label_x=F, label_y=F, label_main='KNL Bowtie 2 paired'),
+      lustre_plot(m_st_base, c('ht'), F, label_x=T, label_y=F, label_main='KNL HISAT unpaired'),
+      lustre_plot(m_st_base, c('ht'), T, label_x=T, label_y=F, label_main='KNL HISAT paired'))
 }
 ```
 
@@ -514,20 +523,40 @@ lustre_plots_all(m_st)
 dev.off()
 ```
 
-```{r throughput_table_prep}
+```{r peak_throughput_table}
 peak_throughput_table <- function(m) {
   mg <- m %>% dplyr::group_by(series, pe, attempt, aligner, machine) %>%
-    dplyr::summarise(threads_div_max_threads=totthreads[which(threads_div_max == max(threads_div_max))[1]],
-              threads_div_max=max(threads_div_max))
-  tabular((Heading() * aligner * Heading() * series) ~ (Justify(c) * Heading() * identity * Heading() * machine * Heading() * pe * Justify(l) * (Heading('Th') * threads_div_max_threads + Heading('Krd/s') * Format(sprintf("%.2f")) * I(threads_div_max/1000) )), data=mg)
+    dplyr::summarise(
+        threads_div_max_threads=totthreads[which(threads_div_max == max(threads_div_max))[1]],
+        threads_div_max=max(threads_div_max),
+        tot_secs_40x_pe_best=min(tot_secs_40x_pe),
+        tot_secs_40x_unp_best=min(tot_secs_40x_unp),
+        time_for_40x=if(pe[1] == 'pe') { tot_secs_40x_pe_best } else { tot_secs_40x_unp_best })
+  tabular((Heading() * aligner * Heading() * series) ~
+          (Justify(c) * Heading() * identity * Heading() * machine * Heading() * pe * Justify(l) *
+                  (Heading('Th') * threads_div_max_threads +
+                          Heading('Krd/s') * Format(sprintf("%.2f")) * I(threads_div_max/1000) +
+                          Heading('40x mins') * Format(sprintf("%.2f")) * I(time_for_40x/60) )), data=mg)
 }
+```
+
+```{r thread16_throughput_table}
+threadno_throughput_table <- function(m, no_thread) {
+  mg <- m %>% dplyr::group_by(series, pe, attempt, aligner, machine) %>%
+    filter(totthreads == 16 & series == 'parsing-batch')
+  tabular((Heading() * aligner) ~
+          (Justify(c) * Heading() * identity * Heading() * machine * Heading() * pe * Justify(l) *
+                  (Heading('Krd/s') * Format(sprintf("%.2f")) * I(threads_div_max/1000) )), data=mg)
+}
+```
+
+```{r throughput_table_prep1}
 m_st$machine <- 'KNL (272 threads)'
 m_sk$machine <- 'Skylake (96 threads)'
 m_bm$machine <- 'Broadwell (112 threads)'
 m <- rbind(m_st, m_sk, m_bm)
 
-seriess_full <- data.frame(
-  short=c(
+short = c(
     'baseline-old',
     'baseline-tbbspin',
     'baseline-tbbstd',
@@ -539,8 +568,9 @@ seriess_full <- data.frame(
     'final-block-multi4',
     'final-block-multi8',
     'final-block-multi16',
-    'final-mp16'),
-  long=c(
+    'final-mp16',
+    'bwa')
+long = c(
     'O-parsing, TinyThread++ spin',
     'O-parsing, TBB spin',
     'O-parsing, TBB standard',
@@ -552,19 +582,25 @@ seriess_full <- data.frame(
     'L-parsing, 4 outputs',
     'L-parsing, 8 outputs',
     'L-parsing, 16 outputs',
-    'MP baseline'))
+    'MP baseline',
+    'BWA-MEM')
+
+al_short <- c('bt', 'bt2', 'ht', 'bwa')
+al_long <- c('Bowtie', 'Bowtie 2', 'HISAT', 'BWA-MEM')
 
 machines_order <- c('Skylake (96 threads)', 'Broadwell (112 threads)', 'KNL (272 threads)')
 
 # Standardize BWA results
 m <- m[!is.na(m$series),]
-for(i in 1:length(seriess)) {
+for(i in 1:length(al_short)) {
   slc <- m[m$series == 'bwa',]
-  slc$series <- seriess[i]
+  slc$aligner <- al_short[i]
   m <- rbind(m, slc)
 }
-m <- m[m$series != 'bwa',]
+m <- m[m$aligner != 'bwa',]
+```
 
+```{r throughput_table_prep2}
 # Give aligners better names
 m$aligner <- ifelse(m$aligner == 'bt', 'Bowtie',
                     ifelse(m$aligner == 'bt2', 'Bowtie 2',
@@ -579,20 +615,20 @@ m$machine <- factor(m$machine)
 
 ```{r reorder_series}
 # Reorder the series factor so that rows come out the order we want
-m$reord_series <- 0
-for(i in 1:length(seriess_full$short)) {
-  m$reord_series[m$series == seriess_full$short[i]] <- i
+reord_series <- rep(0, nrow(m))
+for(i in 1:length(short)) {
+  reord_series[m$series == short[i]] <- i
 }
-m$series <- reorder(m$series, m$reord_series)
+m$series <- reorder(m$series, reord_series)
 ```
 
 ```{r reorder_machine}
 # Reorder the series factor so that rows come out the order we want
-m$reord_machine <- 0
+reord_machine <- rep(0, nrow(m))
 for(i in 1:length(machines_order)) {
-  m$reord_machine[m$machine == machines_order[i]] <- i
+  reord_machine[m$machine == machines_order[i]] <- i
 }
-m$machine <- reorder(m$machine, m$reord_machine)
+m$machine <- reorder(m$machine, reord_machine)
 ```
 
 In LaTeXiT, add the following to the preamble:
@@ -617,10 +653,24 @@ For underlines on line just below that
 \cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}\cmidrule(lr){11-12}\cmidrule(lr){13-14}
 ```
 
+```{r throughput_table_big}
+m_all <- data.frame(m)
+m_all <- m_all %>% filter(series %in% short)
+m_all$aligner <- factor(m_all$aligner)
+m_all$series <- factor(m_all$series)
+m_all$series <- plyr::mapvalues(m_all$series, short, long)
+fn <- 'peak_throughput.tex_snippet.tmp'
+write("\\resizebox{\\columnwidth}{!}{%", file=fn)
+capture.output(latex(peak_throughput_table(m_all)), file=fn, append=T)
+write("}", file=fn, append=T)
+
+system('grep -v NA peak_throughput.tex_snippet.tmp > peak_throughput.tex_snippet.tmp2')
+system('python postprocess_peak_throughput_ex.py peak_throughput.tex_snippet.tmp2 > peak_throughput.tex_snippet')
+```
+
 ```{r throughput_table_baseline}
 m_base <- data.frame(m)
-m_base <- m_base %>% filter(series %in% seriess_baseline$short)
-m_base <- m_base %>% filter(aligner != 'BWA-MEM')
+m_base <- m_base %>% filter(series %in% short)
 m_base$aligner <- factor(m_base$aligner)
 m_base$series <- factor(m_base$series)
 m_base$series <- plyr::mapvalues(m_base$series,
@@ -629,13 +679,15 @@ m_base$series <- plyr::mapvalues(m_base$series,
                   'baseline-tbbspin',
                   'baseline-tbbstd',
                   'baseline-tbbq',
-                  'final-mp16'),
+                  'final-mp16',
+                  'bwa'),
                 c(
                   'TinyThread++ spin',
                   'TBB spin',
                   'TBB standard',
                   'TBB queueing',
-                  'MP baseline'))
+                  'MP baseline',
+                  'BWA-MEM'))
 
 fn <- 'peak_throughput_baseline.tex_snippet.tmp'
 write("\\resizebox{\\columnwidth}{!}{%", file=fn)
@@ -672,14 +724,18 @@ system('python postprocess_peak_throughput.py peak_throughput_parsing.tex_snippe
 ```{r throughput_table_final}
 short <- c('parsing-batch',
            'final-mp16',
-           'final-block')
+           'final-block',
+           'final-block-multi16')
 long <- c('B-parsing',
           'MP baseline',
-          'L-parsing')
+          'L-parsing, 1 output',
+          'L-parsing, 16 outputs')
 m_final <- data.frame(m)
 m_final <- m_final %>% filter(series %in% short)
+stopifnot(nrow(m_final) > 0)
 m_final$aligner <- factor(m_final$aligner)
 m_final$series <- factor(m_final$series)
+stopifnot(sum(m_final$series == short) > 0)
 m_final$series <- plyr::mapvalues(m_final$series, short, long)
 
 fn <- 'peak_throughput_final.tex_snippet.tmp'
@@ -711,7 +767,8 @@ long <- c('L-parsing',
           'L-parsing, 16 outputs',
           'MP baseline')
 m_multi <- data.frame(m)
-m_multi <- m_multi %>% filter(series %in% short & aligner != 'BWA-MEM' & machine == 'KNL')
+m_multi <- m_multi %>% filter(series %in% short & aligner != 'BWA-MEM' & machine == 'KNL (272 threads)')
+stopifnot(nrow(m_multi) > 0)
 m_multi$aligner <- factor(m_multi$aligner)
 m_multi$series <- factor(m_multi$series)
 m_multi$series <- plyr::mapvalues(m_multi$series, short, long)
@@ -757,11 +814,48 @@ dev.off()
 ```
 
 ```{r fstest}
-fsm <- read.table('stampede_knl/fstest_heavy.csv', sep=',', header=T)
-fsm <- fsm %>% group_by(node, input, output, version) %>% summarise(max=mean(max))
-```
+ft <- read.csv('stampede_knl/fstest_nout_20180203.csv', header=T)
+colnames(ft) <- c('Input', 'Output', 'nout', 'secs')
+ftg <-ft %>%
+    group_by(Input, Output, nout) %>%
+    summarise(mean_secs=mean(secs))
+short <- c('devnull',
+           'ssd',
+           'lustre1',
+           'lustre16')
+long <- c('Null',
+          'SSD',
+          'Lustre1',
+          'Lustre16')
+reord_in <- rep(0, nrow(ftg))
+reord_out <- rep(0, nrow(ftg))
+for(i in 1:length(short)) {
+  reord_in[ftg$Input == short[i]] <- i
+  reord_out[ftg$Output == short[i]] <- i
+}
+ftg$Output <- reorder(ftg$Output, reord_out)
+ftg$Input <- reorder(ftg$Input, reord_in)
+ftg$Output <- plyr::mapvalues(ftg$Output, short, long)
+short <- short[2:4]
+long <- long[2:4]
+ftg$Input <- plyr::mapvalues(ftg$Input, short, long)
 
-```{r fstest_plot}
-ggplot(fsm, aes(x=output, y=max, fill=version)) + geom_col() + labs(x='Input', y='Max thread time', title='HISAT paired-end, 248 Threads, Stampede 2') + ylim(0, 70) + theme_bw()
+plot_fstest <- function(xlo = 1, ylo=0, yhi=200, ylab='Running time (secs, avg of 3 runs)') {
+    ggplot(ftg, aes(x=nout, y=mean_secs, linetype=Input, color=Output)) +
+        geom_line() +
+        geom_point() +
+        labs(x='# output files', y=ylab) +
+        scale_y_continuous(limits = c(ylo, yhi)) +
+        scale_x_continuous(limits = c(xlo, 16)) +
+        theme_bw() #+
+        #theme(legend .text=element_text(size=rel(0.55)))
+}
+unz <- plot_fstest()
+zoom <- plot_fstest(8, 47.5, 67.5, '')
+grid_arrange_shared_legend2(T, 1, 1, unz, zoom)
+
+pdf(file='input_output_nout.pdf', onefile=F, width=7, height=4)
+grid_arrange_shared_legend2(T, 1, 1, unz, zoom)
+dev.off()
 ```
 
